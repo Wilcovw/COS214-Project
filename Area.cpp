@@ -1,61 +1,8 @@
 #include "Area.h"
-#include "Country.h"
 
-Area::Area(string name, Country *controllingCountry)
+Area::Area(string name)
 {
 	this->name = name;
-	this->controllingCountry = controllingCountry;
-	this->controllingCountry->addArea(this);
-}
-
-Area::~Area()
-{
-	if (!connectedEdges.empty())
-	{
-		for (auto e : connectedEdges)
-		{
-			if (e != nullptr)
-			{
-				connectedEdges.remove(e);
-				e->getDescription();
-				if (e->getSource() == this)
-				{
-					e->getDestination()->removeEdge(e);
-				}
-				else
-				{
-					e->getSource()->removeEdge(e);
-				}
-			}
-		}
-	}
-}
-
-void Area::addHarbour(Harbour *theHarbour)
-{
-	harbour = theHarbour;
-}
-
-void Area::addRunway(Runway *theRunway)
-{
-	runway = theRunway;
-}
-
-Harbour *Area::getHarbourInArea()
-{
-	return harbour;
-}
-
-Runway *Area::getRunwayInArea()
-{
-	return runway;
-}
-
-void Area::setControllingCountry(Country *controllingCountry)
-{
-	controllingCountry->removeArea(this);
-	this->controllingCountry = controllingCountry;
-	controllingCountry->addArea(this);
 }
 
 bool Area::addEdge(Edge *e)
@@ -75,37 +22,30 @@ string Area::getName()
 
 bool Area::isAccessible(Area *d)
 {
-
 	if (this == d || d == nullptr)
 	{
 		return false;
 	}
 	queue<Area *> queue;
 	queue.push(this);
-
 	while (queue.empty() == false)
 	{
 		Area *v = queue.front();
 		queue.pop();
-		for (auto e : v->getEdges())
+		list<Edge *>::iterator it;
+		if (v->getEdges().size() != 0)
 		{
-			Area *u = e->getDestination();
-			Country *control = u->getControllingCountry();
-			list<Country *> allies = control->getAllies();
-			if (u == d)
+			for (it = v->getEdges().begin(); it != v->getEdges().end(); it++)
 			{
-				return true;
-			}
-			if (allies.size() != 0)
-			{
-				if (find(allies.begin(), allies.end(), controllingCountry) != allies.end())
+				Area *u = (*it)->getDestination();
+				if (u == d)
 				{
-
-					if (u->visited == false)
-					{
-						queue.push(u);
-						u->visited = true;
-					}
+					return true;
+				}
+				if (u->visited == false)
+				{
+					queue.push(u);
+					u->visited = true;
 				}
 			}
 		}
@@ -121,10 +61,6 @@ list<Edge *> Area::getEdges()
 
 bool Area::isAccessible(Area *d, string type)
 {
-	if (type != "Harbour")
-	{
-		return isAccessible(d);
-	}
 	if (this == d || d == nullptr)
 	{
 		return false;
@@ -135,27 +71,22 @@ bool Area::isAccessible(Area *d, string type)
 	{
 		Area *v = queue.front();
 		queue.pop();
-		for (auto e : v->getEdges())
+		list<Edge *>::iterator it;
+		if (v->getEdges().size() != 0)
 		{
-			if (e->getType() == type)
+			for (it = v->getEdges().begin(); it != v->getEdges().end(); it++)
 			{
-				Area *u = e->getDestination();
-				Country *control = u->getControllingCountry();
-				list<Country *> allies = control->getAllies();
-				if (u == d)
+				if ((*it)->getType() == type)
 				{
-					return true;
-				}
-				if (allies.size() != 0)
-				{
-					if (find(allies.begin(), allies.end(), controllingCountry) != allies.end())
+					Area *u = (*it)->getDestination();
+					if (u == d)
 					{
-
-						if (u->visited == false)
-						{
-							queue.push(u);
-							u->visited = true;
-						}
+						return true;
+					}
+					if (u->visited == false)
+					{
+						queue.push(u);
+						u->visited = true;
 					}
 				}
 			}
@@ -163,61 +94,4 @@ bool Area::isAccessible(Area *d, string type)
 	}
 
 	return false;
-}
-
-void Area::printEdges()
-{
-	list<Edge *>::iterator it;
-	if (connectedEdges.size() == 0)
-	{
-		cout << name << " is not conncted to anything" << endl;
-		return;
-	}
-
-	for (it = connectedEdges.begin(); it != connectedEdges.end(); it++)
-	{
-		cout << (*it)->getDescription() << endl;
-	}
-}
-
-void Area::setPrev(Area *p)
-{
-	this->prev = p;
-}
-
-Area *Area::getPrev()
-{
-	return prev;
-}
-
-double Area::getDist()
-{
-	return dist;
-}
-
-void Area::setDist(double d)
-{
-	this->dist = d;
-}
-
-Country *Area::getControllingCountry()
-{
-	return this->controllingCountry;
-}
-
-void Area::removeEdge(Edge *e)
-{
-	connectedEdges.remove(e);
-	delete e;
-}
-
-Area *Area::clone(Country *c)
-{
-	clonedArea = new Area(name, c);
-	return clonedArea;
-}
-
-Area *Area::getClonedArea()
-{
-	return clonedArea;
 }

@@ -1,8 +1,9 @@
 #include "Edge.h"
 
 
-Edge::Edge(double v, string type, Area* s, Area* d) {
+Edge::Edge(double v, string name, string type, Area* s, Area* d) {
     this->distance = v;
+	this->name = name;
 	this->type = type;
 	this->destination = d;
 	this->source = s;
@@ -22,12 +23,4 @@ Area* Edge::getDestination() {
 
 string Edge::getType() {
     return this->type;
-}
-
-string Edge::getDescription() {
-    return "This Edge is a " + type + " between " + source->getName() + " and " + destination->getName();
-}
-
-double Edge::getDistance() {
-    return distance;
 }
