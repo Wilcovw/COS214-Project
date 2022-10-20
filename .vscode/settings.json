@@ -3,6 +3,7 @@
 		"iostream": "cpp",
 		"list": "cpp",
 		"memory": "cpp",
-		"queue": "cpp"
+		"queue": "cpp",
+		"iterator": "cpp"
 	}
 }

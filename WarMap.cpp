@@ -81,3 +81,7 @@ void WarMap::reset() {
 		(*it)->visited = false;
 	}
 }
+
+list<Area*> WarMap::getAreaList() {
+    return this->areasWT;
+}
