@@ -24,3 +24,7 @@ Area* Edge::getDestination() {
 string Edge::getType() {
     return this->type;
 }
+
+string Edge::getDescription() {
+    return name + " is a " + type + " between " + source->getName() + " and " + destination->getName();
+}

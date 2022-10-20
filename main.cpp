@@ -2,6 +2,8 @@
 #include "WarMap.h"
 #include <iostream>
 using namespace std;
+void isAccessible(Area *a1, Area *a2, WarMap *graph);
+void isAccessible(Area *a1, Area *a2, WarMap *graph, string type);
 int main(){
 	WarMap* graph = new WarMap();
 	Area* a1 = new Area("BattleField");
@@ -14,7 +16,24 @@ int main(){
 	graph->addArea(a4);
 
 	graph->addEdge(a1, a2, 100, "Duncan Street", "Road");
-	cout << a2->getName() << (graph->isAccessible(a1,a2) == true ? " is" : " is not")<<" accessible from " << a1->getName()  << endl;
-	cout << a4->getName() << (graph->isAccessible(a3,a4) == true ? " is" : " is not")<<" accessible from " << a4->getName()  << endl;
+	graph->addEdge(a2, a3, 400, "Sydney Harbour", "Harbour");
+	graph->addEdge(a3, a4, 400, "Cape Town Harbour", "Harbour");
+	isAccessible(a1,a2,graph);
+	isAccessible(a3,a4,graph);
+	isAccessible(a1,a3,graph);
+	isAccessible(a1,a3,graph,"Harbour");
+	isAccessible(a2,a3,graph,"Harbour");
+	cout << endl;
+	isAccessible(a1,a4,graph);
+	isAccessible(a2,a4,graph,"Harbour");
+	isAccessible(a1,a4,graph,"Harbour");
 	return 0;
+}
+
+void isAccessible(Area *a1, Area *a2, WarMap *graph){
+	cout << a2->getName() << (graph->isAccessible(a1,a2) == true ? " is" : " is not")<<" accessible from " << a1->getName()  << endl;
+}
+
+void isAccessible(Area *a1, Area *a2, WarMap *graph, string type){
+	cout << a2->getName() << (graph->isAccessible(a1,a2, type) == true ? " is" : " is not")<<" accessible from " << a1->getName() << " via " << type  << endl;
 }

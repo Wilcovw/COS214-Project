@@ -23,6 +23,7 @@ Area* WarMap::getArea(string name) {
 }
 
 bool WarMap::isAccessible(Area* source, Area* destination) {
+	reset();
     if (source == nullptr || destination == nullptr){
 		return false;
 	}
@@ -32,6 +33,7 @@ bool WarMap::isAccessible(Area* source, Area* destination) {
 }
 
 bool WarMap::isAccessible(Area* source, Area* destination, string type) {
+	reset();
     if (source == nullptr || destination == nullptr){
 		return false;
 	}
@@ -46,7 +48,9 @@ bool WarMap::addEdge(Area* source, Area* destination, double distance, string na
 
 	Area* s = this->getArea(source->getName());
 	Area* d = this->getArea(destination->getName());
-
+	if (s == nullptr || d == nullptr){
+		return false;
+	}
 	Edge* e = new Edge(distance, name, type ,source, destination);
 	return s->addEdge(e);
 }
@@ -66,3 +70,14 @@ bool WarMap::addArea(Area *a) {
 }
 
 
+
+void WarMap::reset() {
+    list<Area*>::iterator it;
+	if (areasWT.size() == 0){
+		return;
+	}
+	for (it = areasWT.begin(); it != areasWT.end(); it++)
+	{
+		(*it)->visited = false;
+	}
+}

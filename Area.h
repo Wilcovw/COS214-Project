@@ -4,6 +4,7 @@
 #include <list>
 #include <queue>
 #include <string>
+#include <iostream>
 #include "Edge.h"
 using namespace std;
 
@@ -40,6 +41,7 @@ public:
 	bool isAccessible(Area* d, string type);
 	list<Edge*> getEdges();
 	bool visited = false;
+	void printEdges();
 };
 
 #endif

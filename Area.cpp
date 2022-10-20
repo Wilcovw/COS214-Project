@@ -22,6 +22,7 @@ string Area::getName()
 
 bool Area::isAccessible(Area *d)
 {
+
 	if (this == d || d == nullptr)
 	{
 		return false;
@@ -32,12 +33,16 @@ bool Area::isAccessible(Area *d)
 	{
 		Area *v = queue.front();
 		queue.pop();
+
 		list<Edge *>::iterator it;
 		if (v->getEdges().size() != 0)
 		{
-			for (it = v->getEdges().begin(); it != v->getEdges().end(); it++)
+			int total = v->getEdges().size(), count = 0;
+			it = v->getEdges().begin();
+			while (count != total)
 			{
 				Area *u = (*it)->getDestination();
+
 				if (u == d)
 				{
 					return true;
@@ -47,6 +52,8 @@ bool Area::isAccessible(Area *d)
 					queue.push(u);
 					u->visited = true;
 				}
+				count++;
+				it++;
 			}
 		}
 	}
@@ -74,11 +81,14 @@ bool Area::isAccessible(Area *d, string type)
 		list<Edge *>::iterator it;
 		if (v->getEdges().size() != 0)
 		{
-			for (it = v->getEdges().begin(); it != v->getEdges().end(); it++)
+			int total = v->getEdges().size(), count = 0;
+			it = v->getEdges().begin();
+			while (count != total)
 			{
 				if ((*it)->getType() == type)
 				{
 					Area *u = (*it)->getDestination();
+
 					if (u == d)
 					{
 						return true;
@@ -89,9 +99,27 @@ bool Area::isAccessible(Area *d, string type)
 						u->visited = true;
 					}
 				}
+
+				count++;
+				it++;
 			}
 		}
 	}
 
 	return false;
+}
+
+void Area::printEdges()
+{
+	list<Edge *>::iterator it;
+	if (connectedEdges.size() == 0)
+	{
+		cout << name << " is not conncted to anything" << endl;
+		return;
+	}
+
+	for (it = connectedEdges.begin(); it != connectedEdges.end(); it++)
+	{
+		cout << (*it)->getDescription() << endl;
+	}
 }

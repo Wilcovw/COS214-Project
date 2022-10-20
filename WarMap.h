@@ -18,6 +18,7 @@ class WarMap{
 		bool isAccessible(Area* source,  Area* destination, string type);
 		bool addEdge(Area* source,  Area* destination, double distance, string name, string type);
 		bool addArea(Area *a);
+		void reset();
 };
 
 #endif

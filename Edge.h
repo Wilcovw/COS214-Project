@@ -19,6 +19,7 @@ public:
 	Area* getSource();
 	Area* getDestination();
 	string getType();
+	string getDescription();
 	
 	
 };
