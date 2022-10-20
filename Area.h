@@ -42,6 +42,7 @@ public:
 	list<Edge*> getEdges();
 	bool visited = false;
 	void printEdges();
+	int num = 0;
 };
 
 #endif

@@ -19,6 +19,7 @@ class WarMap{
 		bool addEdge(Area* source,  Area* destination, double distance, string name, string type);
 		bool addArea(Area *a);
 		void reset();
+		list<Area*> getAreaList();
 };
 
 #endif

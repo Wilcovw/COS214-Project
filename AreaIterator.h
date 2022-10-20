@@ -6,21 +6,13 @@
 #include "Edge.h"
 #include <list>
 #include <iterator>
-
 using namespace std;
-class WarMap;
 class AreaIterator : public MapIterator
 {
 private:	
-	/**
-	 * @brief Stores the graph which to iterate over
-	 * 
-	 */
 	WarMap *graph = nullptr;
-	/**
-	 * @brief Stores an iterator of type Area, to keep track of the iteration
-	 * 
-	 */
+	list<Area*> areaList;
+	int DFTcount = 0;
 	list<Area *>::iterator trav;
 public:
 	/**
@@ -35,7 +27,7 @@ public:
 	 */
 	void first();
 	/**
-	 * @brief Will increment the counter to get the next Area
+	 * @brief Will increment the counter to get the next Area in the DFT
 	 * 
 	 */
 	void next();
@@ -53,17 +45,10 @@ public:
 	 */
 	Area *currentItem();
 
-	
+	void depthFirst(Area* v);
+
+	void resetCount();
+	Area* getZero();
 };
 
-//Code to interface with all the Areas in a graph
-/*AreaIterator *areaIter = graph->createAreaIterator();
-	areaIter->first();
-	while(areaIter->isDone() == false){
-		Area* currentArea = areaIter->currentItem();
-		cout << currentArea->getName() << endl;
-
-		areaIter->next();
-	}
-*/
 #endif
