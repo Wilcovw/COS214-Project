@@ -34,13 +34,13 @@ public:
      *
      * @param al AssociatedCountries objct to be added
      */
-    void addAssociatedCountries(AssociatedCountries *al);
+    virtual void addAssociatedCountries(AssociatedCountries *al);
     /**
      * @brief Remove a AssociatedCountries object from the tree
      *
      * @param al The AssociatedCountries objct to be removed
      */
-    void removeAssociatedCountries(AssociatedCountries *al);
+    virtual void removeAssociatedCountries(AssociatedCountries *al);
     /**
      * @brief Returns the alliances object
      *
@@ -51,17 +51,36 @@ public:
      * @brief Destroy the Relationship object
      *
      */
-    ~Relationship();
+    virtual ~Relationship();
     /**
      * @brief Allows this object to receive messages from other AssociatedCountries objects
      *
      * @param mess The message received from the other AssociatedCountries object
      */
-    void receiveMessage(std::string mess);
+    virtual void receiveMessage(std::string mess);
     /**
      * @brief Allows this object to send messages from other AssociatedCountries objects
      *
      */
-    void sendBroadcast();
+    virtual void sendBroadcast();
+    /**
+     * @brief Return the parent object of this object
+     *
+     * @return AssociatedCountries*
+     */
+    virtual AssociatedCountries *getParent();
+    /**
+     * @brief Set the Parent object
+     *
+     * @param parent The parent of this object
+     */
+    virtual void setParent(AssociatedCountries *parent);
+    /**
+     * @brief Returns a string countaining all the AssociatedCountries objects in it
+     *
+     * @param rel The relationship whos objects should be printed
+     * @return std::string  The output string
+     */
+    virtual std::string print();
 };
 #endif

@@ -1,25 +1,22 @@
 #ifndef ASSOCIATEDCOUNTRIES_H
 #define ASSOCIATEDCOUNTRIES_H
-#include "Communication.h"
-
+// #include "Communication.h"
+// #include "Relationship.h"
+// #include "Country.h"
+#include <string>
+class Communication;
 /**
  * @brief AssociatedCountries takes the role of the Component class in the composite pattern and Colleague in the Mediator pattern
  *
  */
 class AssociatedCountries
 {
-    /**
-     * @todo How is the tree organised?
-     *
-     */
-private:
+protected:
     /**
      * @brief Stores the parent object of the component
      *
      */
     AssociatedCountries *parent;
-
-protected:
     /**
      * @brief Stores the communication object used in the Mediator design pattern
      *
@@ -46,10 +43,15 @@ public:
      */
     virtual AssociatedCountries *getParent() = 0;
     /**
+     * @brief Set the Parent object
+     *
+     */
+    virtual void setParent(AssociatedCountries *parent) = 0;
+    /**
      * @brief Destroy the Associated Countries object
      *
      */
-    ~AssociatedCountries();
+    // virtual ~AssociatedCountries();
     /**
      * @brief Allows this object to receive messages from other AssociatedCountries objects
      *
@@ -61,5 +63,6 @@ public:
      *
      */
     virtual void sendBroadcast() = 0;
+    virtual std::string print() = 0;
 };
 #endif

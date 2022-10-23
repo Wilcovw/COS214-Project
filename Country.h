@@ -14,7 +14,6 @@ private:
      *
      */
     std::string name;
-    // TODO: Does map store the entire map or just the country's map? Since the areas object also exists
     /**
      * @brief The WarMap of the all areas of importance throuout the war
      *
@@ -70,17 +69,32 @@ public:
      * @brief Destroy the Country object
      *
      */
-    virtual ~Country();
+    // virtual ~Country();
     /**
      * @brief Allows this object to receive messages from other AssociatedCountries objects
      *
      * @param mess The message received from the other AssociatedCountries object
      */
-    virtual void receiveMessage(std::string mess) = 0;
+    virtual void receiveMessage(std::string mess);
     /**
      * @brief Allows this object to send messages from other AssociatedCountries objects
      *
      */
-    virtual void sendBroadcast() = 0;
+    virtual void sendBroadcast();
+    /**
+     * @brief Return the parent object of this object
+     *
+     * @return AssociatedCountries*
+     */
+    virtual AssociatedCountries *getParent();
+    /**
+     * @brief Set the Parent object
+     *
+     * @param parent The parent of this object
+     */
+    virtual void setParent(AssociatedCountries *parent);
+    virtual void addAssociatedCountries(AssociatedCountries *al);
+    virtual void removeAssociatedCountries(AssociatedCountries *al);
+    virtual std::string print();
 };
 #endif
