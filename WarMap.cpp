@@ -85,3 +85,15 @@ void WarMap::reset() {
 list<Area*> WarMap::getAreaList() {
     return this->areasWT;
 }
+
+AreaIterator* WarMap::createAreaIterator() {
+    return new AreaIterator(this);
+}
+
+list<Area *>::iterator WarMap::begin() {
+    return areasWT.begin();
+}
+
+list<Area *>::iterator WarMap::end() {
+    return areasWT.end();
+}

@@ -6,13 +6,13 @@
 #include "Edge.h"
 #include <list>
 #include <iterator>
+
 using namespace std;
+class WarMap;
 class AreaIterator : public MapIterator
 {
 private:	
 	WarMap *graph = nullptr;
-	list<Area*> areaList;
-	int DFTcount = 0;
 	list<Area *>::iterator trav;
 public:
 	/**
@@ -45,10 +45,7 @@ public:
 	 */
 	Area *currentItem();
 
-	void depthFirst(Area* v);
-
-	void resetCount();
-	Area* getZero();
+	
 };
 
 #endif

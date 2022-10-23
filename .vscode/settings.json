@@ -4,6 +4,11 @@
 		"list": "cpp",
 		"memory": "cpp",
 		"queue": "cpp",
-		"iterator": "cpp"
+		"iterator": "cpp",
+		"deque": "cpp",
+		"initializer_list": "cpp",
+		"vector": "cpp",
+		"xstring": "cpp",
+		"xutility": "cpp"
 	}
 }

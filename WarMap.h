@@ -3,9 +3,11 @@
 #include <list>
 #include <string>
 #include "Area.h"
+#include "AreaIterator.h"
 #include <iterator>
 using namespace std;
 
+class AreaIterator;
 //The Graph
 class WarMap{
 	private:
@@ -20,6 +22,9 @@ class WarMap{
 		bool addArea(Area *a);
 		void reset();
 		list<Area*> getAreaList();
+		AreaIterator* createAreaIterator();
+		list<Area *>::iterator begin();
+		list<Area *>::iterator end();
 };
 
 #endif
