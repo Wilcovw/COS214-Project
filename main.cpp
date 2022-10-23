@@ -1,5 +1,6 @@
 #include "Area.h"
 #include "WarMap.h"
+#include "AreaIterator.h"
 #include <iostream>
 using namespace std;
 void isAccessible(Area *a1, Area *a2, WarMap *graph);
@@ -27,6 +28,16 @@ int main(){
 	isAccessible(a1,a4,graph);
 	isAccessible(a2,a4,graph,"Harbour");
 	isAccessible(a1,a4,graph,"Harbour");
+
+	cout << endl << "Print all the areas:"<< endl;
+	AreaIterator *areaIter = graph->createAreaIterator();
+	areaIter->first();
+	while(areaIter->isDone() == false){
+		Area* currentArea = areaIter->currentItem();
+		cout << currentArea->getName() << endl;
+
+		areaIter->next();
+	}
 	return 0;
 }
 
