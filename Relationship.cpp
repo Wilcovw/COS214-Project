@@ -11,18 +11,6 @@ Relationship::Relationship(std::string r, Communication *t)
     tele->storeMe(this);
 }
 
-Relationship::Relationship(Relationship &rel, Communication *comm, AssociatedCountries *parent)
-{
-    this->tele = comm;
-    this->tele->storeMe(this);
-    this->relationshipType = rel.relationshipType;
-    this->parent = parent;
-    for (auto r : rel.getRelationships())
-    {
-        this->alliances.push_back(r->clone(comm, this));
-    }
-}
-
 std::string Relationship::getRelationshipType()
 {
     return relationshipType;
@@ -36,20 +24,27 @@ void Relationship::addAssociatedCountries(AssociatedCountries *al)
 
 void Relationship::removeAssociatedCountries(AssociatedCountries *al)
 {
-    alliances.remove(al);
+    std::vector<AssociatedCountries *>::iterator it;
+    for (it = alliances.begin(); it != alliances.end(); ++it)
+    {
+        if (al == *it)
+        {
+            alliances.erase(it);
+        }
+    }
 }
 
-std::list<AssociatedCountries *> Relationship::getRelationships()
+std::vector<AssociatedCountries *> Relationship::getRelationships()
 {
     return alliances;
 }
 
 Relationship::~Relationship()
 {
-    while (!alliances.empty())
+    std::vector<AssociatedCountries *>::iterator it;
+    for (it = alliances.begin(); it != alliances.end(); ++it)
     {
-        delete alliances.front();
-        alliances.pop_front();
+        delete *it;
     }
 }
 
@@ -83,8 +78,8 @@ void Relationship::setParent(AssociatedCountries *parent)
 
 std::string Relationship::print()
 {
-    std::string out = "Countries in alliance " + relationshipType + ": \n";
-    std::list<AssociatedCountries *>::iterator it;
+    std::string out = relationshipType + ": \n";
+    std::vector<AssociatedCountries *>::iterator it;
     for (it = alliances.begin(); it != alliances.end(); ++it)
     {
         if (Relationship *relationship = dynamic_cast<Relationship *>(*it))
@@ -101,14 +96,4 @@ std::string Relationship::print()
     out = out.substr(0, out.length() - 2);
     out += "\n";
     return out;
-}
-
-Communication *Relationship::getCommunication()
-{
-    return tele;
-}
-
-AssociatedCountries *Relationship::clone(Communication *comm, AssociatedCountries *parent)
-{
-    return new Relationship(*this, comm, parent);
 }

@@ -5,6 +5,7 @@
 
 CommunicationBroadcast::CommunicationBroadcast()
 {
+    std::cout << "New communication platform setup" << std::endl;
 }
 
 void CommunicationBroadcast::storeMe(AssociatedCountries *me)
@@ -14,8 +15,8 @@ void CommunicationBroadcast::storeMe(AssociatedCountries *me)
 
 void notifySubCountries(Relationship *rel, std::string message)
 {
-    std::list<AssociatedCountries *> alliances = rel->getRelationships();
-    std::list<AssociatedCountries *>::iterator it;
+    std::vector<AssociatedCountries *> alliances = rel->getRelationships();
+    std::vector<AssociatedCountries *>::iterator it;
     for (it = alliances.begin(); it != alliances.end(); ++it)
     {
         (*it)->receiveMessage(message);
@@ -26,7 +27,7 @@ void CommunicationBroadcast::notify(AssociatedCountries *associatedCountry, std:
 {
     if (Relationship *relationship = dynamic_cast<Relationship *>(associatedCountry))
     {
-        std::list<AssociatedCountries *>::iterator it;
+        std::vector<AssociatedCountries *>::iterator it;
         for (it = countryList.begin(); it != countryList.end(); ++it)
         {
             if (Relationship *rel = dynamic_cast<Relationship *>(*it))
@@ -40,7 +41,7 @@ void CommunicationBroadcast::notify(AssociatedCountries *associatedCountry, std:
     }
     else if (Country *country = dynamic_cast<Country *>(associatedCountry))
     {
-        std::list<AssociatedCountries *>::iterator it;
+        std::vector<AssociatedCountries *>::iterator it;
         for (it = countryList.begin(); it != countryList.end(); ++it)
         {
             if (Country *c = dynamic_cast<Country *>(*it))
@@ -54,11 +55,11 @@ void CommunicationBroadcast::notify(AssociatedCountries *associatedCountry, std:
     }
 }
 
-void CommunicationBroadcast::removeAssociatedCountries(AssociatedCountries *aC)
-{
-    countryList.remove(aC);
-}
-
 CommunicationBroadcast::~CommunicationBroadcast()
 {
+    std::vector<AssociatedCountries *>::iterator it;
+    for (it = countryList.begin(); it != countryList.end(); ++it)
+    {
+        delete *it;
+    }
 }
