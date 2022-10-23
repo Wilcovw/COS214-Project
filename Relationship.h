@@ -28,7 +28,8 @@ public:
      *
      * @param r The type of relationship between the countries
      */
-    Relationship(std::string r);
+    Relationship(std::string r, Communication *tele);
+    std::string getRelationshipType();
     /**
      * @brief Add a new AssociatedCountries object to the tree
      *
@@ -57,12 +58,12 @@ public:
      *
      * @param mess The message received from the other AssociatedCountries object
      */
-    virtual void receiveMessage(std::string mess);
+    virtual void receiveMessage(std::string message);
     /**
      * @brief Allows this object to send messages from other AssociatedCountries objects
      *
      */
-    virtual void sendBroadcast();
+    virtual void sendBroadcast(AssociatedCountries *messageReceiver, std::string message);
     /**
      * @brief Return the parent object of this object
      *

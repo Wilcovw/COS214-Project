@@ -1,8 +1,5 @@
 #ifndef ASSOCIATEDCOUNTRIES_H
 #define ASSOCIATEDCOUNTRIES_H
-// #include "Communication.h"
-// #include "Relationship.h"
-// #include "Country.h"
 #include <string>
 class Communication;
 /**
@@ -57,12 +54,12 @@ public:
      *
      * @param mess The message received from the other AssociatedCountries object
      */
-    virtual void receiveMessage(std::string mess) = 0;
+    virtual void receiveMessage(std::string message) = 0;
     /**
      * @brief Allows this object to send messages from other AssociatedCountries objects
      *
      */
-    virtual void sendBroadcast() = 0;
+    virtual void sendBroadcast(AssociatedCountries *messageReceiver, std::string message) = 0;
     virtual std::string print() = 0;
 };
 #endif

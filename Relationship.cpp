@@ -4,9 +4,16 @@
 #include <iostream>
 #include <algorithm>
 
-Relationship::Relationship(std::string r)
+Relationship::Relationship(std::string r, Communication *t)
 {
+    tele = t;
     relationshipType = r;
+    tele->storeMe(this);
+}
+
+std::string Relationship::getRelationshipType()
+{
+    return relationshipType;
 }
 
 void Relationship::addAssociatedCountries(AssociatedCountries *al)
@@ -41,14 +48,22 @@ Relationship::~Relationship()
     }
 }
 
-void Relationship::receiveMessage(std::string mess)
+void Relationship::receiveMessage(std::string message)
 {
-    std::cout << mess << std::endl;
+    tele->notify(this, message);
 }
 
-void Relationship::sendBroadcast()
+void Relationship::sendBroadcast(AssociatedCountries *messageReceiver, std::string message)
 {
-    tele->notify(this);
+    if (Country *country = dynamic_cast<Country *>(messageReceiver))
+    {
+        std::cout << relationshipType << " is sending a message to " << country->getName() << std::endl;
+    }
+    else if (Relationship *rel = dynamic_cast<Relationship *>(messageReceiver))
+    {
+        std::cout << relationshipType << " is sending a message to " << rel->getRelationshipType() << std::endl;
+    }
+    tele->notify(messageReceiver, message);
 }
 
 AssociatedCountries *Relationship::getParent()
@@ -69,13 +84,13 @@ std::string Relationship::print()
     {
         if (Relationship *relationship = dynamic_cast<Relationship *>(*it))
         {
-            std::string str = (*it)->print();
+            std::string str = relationship->print();
             str.erase(std::remove(str.begin(), str.end(), '\n'), str.cend());
             out += str + "\n";
         }
-        else if (Country *relationship = dynamic_cast<Country *>(*it))
+        else if (Country *country = dynamic_cast<Country *>(*it))
         {
-            out += (*it)->print() + ", ";
+            out += country->print() + ", ";
         }
     }
     out = out.substr(0, out.length() - 2);

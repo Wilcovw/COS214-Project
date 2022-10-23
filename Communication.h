@@ -8,13 +8,14 @@
 class Communication
 {
 public:
-    Communication();
+    // Communication();
+    virtual void storeMe(AssociatedCountries *me) = 0;
     /**
      * @brief A method implemented in the concrete mediator class (CommunicationBroadcast) to notify all allied countries of changes in alliances
      *
      * @param countries Country in the affected relation change
      */
-    virtual void notify(AssociatedCountries *countries) = 0;
-    ~Communication();
+    virtual void notify(AssociatedCountries *countries, std::string message) = 0;
+    // virtual ~Communication() = 0;
 };
 #endif

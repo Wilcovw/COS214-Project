@@ -1,11 +1,13 @@
 #include "Country.h"
+#include "Relationship.h"
 #include "Communication.h"
 #include <iostream>
 
-Country::Country(std::string name)
+Country::Country(std::string name, Communication *t)
 {
-
+    tele = t;
     this->name = name;
+    tele->storeMe(this);
 }
 
 std::string Country::getName()
@@ -37,14 +39,23 @@ std::string Country::getName()
 //     // delete citzens;
 // }
 
-void Country::receiveMessage(std::string mess)
+void Country::receiveMessage(std::string message)
 {
-    std::cout << mess << std::endl;
+    std::cout << name << " received a message: \t" << message << std::endl;
 }
 
-void Country::sendBroadcast()
+void Country::sendBroadcast(AssociatedCountries *messageReceiver, std::string message)
 {
-    tele->notify(this);
+    if (Country *country = dynamic_cast<Country *>(messageReceiver))
+    {
+        std::cout << name << " is sending a message to " << country->getName() << std::endl;
+    }
+    else if (Relationship *rel = dynamic_cast<Relationship *>(messageReceiver))
+    {
+        std::cout << name << " is sending a message to " << rel->getRelationshipType() << std::endl;
+    }
+
+    tele->notify(messageReceiver, message);
 }
 
 AssociatedCountries *Country::getParent()

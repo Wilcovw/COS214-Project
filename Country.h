@@ -40,7 +40,7 @@ public:
      *
      * @param name The name of the country
      */
-    Country(std::string name);
+    Country(std::string name, Communication *tele);
     /**
      * @brief Return the name of the Country
      *
@@ -75,12 +75,12 @@ public:
      *
      * @param mess The message received from the other AssociatedCountries object
      */
-    virtual void receiveMessage(std::string mess);
+    virtual void receiveMessage(std::string message);
     /**
      * @brief Allows this object to send messages from other AssociatedCountries objects
      *
      */
-    virtual void sendBroadcast();
+    virtual void sendBroadcast(AssociatedCountries *messageReceiver, std::string message);
     /**
      * @brief Return the parent object of this object
      *
