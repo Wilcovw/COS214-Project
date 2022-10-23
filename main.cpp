@@ -1,21 +1,23 @@
 #include <iostream>
-#include "Citizens.h"
+#include "AssociatedCountries.h"
+#include "Country.h"
+#include "Relationship.h"
+int main()
+{
+    AssociatedCountries *countriesAtWar = new Relationship("Countries in the war");
+    AssociatedCountries *allies = new Relationship("Allies");
+    AssociatedCountries *axis = new Relationship("Axis");
 
-using namespace std;
+    allies->addAssociatedCountries(new Country("England"));
+    allies->addAssociatedCountries(new Country("France"));
+    allies->addAssociatedCountries(new Country("America"));
+    allies->addAssociatedCountries(new Country("Poland"));
+    allies->addAssociatedCountries(new Country("Russia"));
+    countriesAtWar->addAssociatedCountries(allies);
+    axis->addAssociatedCountries(new Country("Germany"));
+    axis->addAssociatedCountries(new Country("Italy"));
+    countriesAtWar->addAssociatedCountries(axis);
+    countriesAtWar->addAssociatedCountries(new Country("Switzerland"));
 
-int main() {
-    Citizens* citizens = new Citizens;
-    for (int i = 0; i < 10; i++)
-    {
-        if (i == 5 || i == 8) {
-            // cout << "Oh no a group of " << citizens->getStatus() << " citizens died!" << endl;
-            // citizens->die();
-            citizens->toggleRevolution();
-        }
-        string status = citizens->getStatus();
-        cout << "Citizens are currently: " << status << endl;
-        citizens->changeStatus();
-    }
-    
-    return 0;
+    std::cout << countriesAtWar->print() << std::endl;
 }
