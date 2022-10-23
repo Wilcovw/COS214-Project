@@ -28,3 +28,7 @@ string Edge::getType() {
 string Edge::getDescription() {
     return name + " is a " + type + " between " + source->getName() + " and " + destination->getName();
 }
+
+string Edge::getName() {
+    return name;
+}

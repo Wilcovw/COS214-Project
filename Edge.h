@@ -20,6 +20,7 @@ public:
 	Area* getDestination();
 	string getType();
 	string getDescription();
+	string getName();
 	
 	
 };

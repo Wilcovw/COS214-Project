@@ -97,3 +97,7 @@ list<Area *>::iterator WarMap::begin() {
 list<Area *>::iterator WarMap::end() {
     return areasWT.end();
 }
+
+EdgeIterator* WarMap::createEdgeIterator() {
+    return new EdgeIterator(this);
+}

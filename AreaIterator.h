@@ -27,7 +27,7 @@ public:
 	 */
 	void first();
 	/**
-	 * @brief Will increment the counter to get the next Area in the DFT
+	 * @brief Will increment the counter to get the next Area
 	 * 
 	 */
 	void next();
@@ -48,4 +48,14 @@ public:
 	
 };
 
+//Code to interface with all the Areas in a graph
+/*AreaIterator *areaIter = graph->createAreaIterator();
+	areaIter->first();
+	while(areaIter->isDone() == false){
+		Area* currentArea = areaIter->currentItem();
+		cout << currentArea->getName() << endl;
+
+		areaIter->next();
+	}
+*/
 #endif

@@ -38,6 +38,17 @@ int main(){
 
 		areaIter->next();
 	}
+
+
+	cout << endl << "Print all the Edges:"<< endl;
+	EdgeIterator *edgeIter = graph->createEdgeIterator();
+	edgeIter->first();
+	while(edgeIter->isDone() == false){
+		Edge* currentEdge = edgeIter->currentItem();
+		cout << currentEdge->getName() << endl;
+
+		edgeIter->next();
+	}
 	return 0;
 }
 

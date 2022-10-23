@@ -4,9 +4,11 @@
 #include <string>
 #include "Area.h"
 #include "AreaIterator.h"
+#include "EdgeIterator.h"
 #include <iterator>
 using namespace std;
 
+class EdgeIterator;
 class AreaIterator;
 //The Graph
 class WarMap{
@@ -23,6 +25,7 @@ class WarMap{
 		void reset();
 		list<Area*> getAreaList();
 		AreaIterator* createAreaIterator();
+		EdgeIterator* createEdgeIterator();
 		list<Area *>::iterator begin();
 		list<Area *>::iterator end();
 };
