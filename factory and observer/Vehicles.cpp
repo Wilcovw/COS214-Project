@@ -32,6 +32,10 @@ double Vehicles::getSpeed() {
     return speed;
 }
 
+int Vehicles::getLevel() {
+    return level;
+}
+
 //use as: vehicle = vehicle.clone()
 Vehicles *Vehicles::clone() {
     Vehicles* ret = new Vehicles(model, HP, damage, speed);
@@ -47,24 +51,38 @@ Vehicles **Vehicles::clone(int n) {
 
     Vehicles **ret = new Vehicles*[n];
     for (int i = 0; i < n; ++i) {
-        ret[i] = new Vehicles(this->model, this->HP, this->damage, this->speed);
-        ret[i]->type = this->type;
+        ret[i] = clone();
+
     }
     return ret;
 }
 
-void Vehicles::print() {
-    cout << "Type: " << type << "\nmodel: " << model + "\nHP: "
-    << HP << "\ndamage: " << damage << "\nspeed: " << speed
-    << "\nlevel: " << level << endl << endl;
-}
+void Vehicles::takeDamage(double dmg) {
+    this->HP-=dmg;
 
+}
 
 void Vehicles::incLevel() {
     double levelMultiplier = (1/level);
     HP += levelMultiplier*HP;
     damage += levelMultiplier*damage;
-    speed += levelMultiplier*damage;
+    speed += levelMultiplier*speed;
     level++;
 
+}
+
+void Vehicles::print() {
+    cout << "Type: " << type << "\nmodel: " << model + "\nHP: "
+         << HP << "\ndamage: " << damage << "\nspeed: " << speed
+         << "\nlevel: " << level << endl << endl;
+}
+
+
+void Vehicles::update() {
+    incLevel();
+}
+
+
+void Vehicles::attack(Vehicles *theEnemy) {
+    takeDamage(theEnemy->takeDamage(this->getDamage()))
 }

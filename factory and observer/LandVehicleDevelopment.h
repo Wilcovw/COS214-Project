@@ -10,7 +10,8 @@
 
 class LandVehicleDevelopment : ResearchAndDevelopmentCentre {
 public:
-    void startDeveloping(LandVehicles *v);
+//    void startDeveloping(Vehicles *v);
+//    void stopDeveloping(Vehicles *v);
 
 };
 

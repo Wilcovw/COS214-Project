@@ -7,6 +7,7 @@
 
 #include <string>
 
+
 using namespace std;
 class Vehicles {
 private:
@@ -25,10 +26,14 @@ public:
     double getHP();
     double getDamage();
     double getSpeed();
+    int getLevel();
     Vehicles* clone();
     Vehicles** clone(int n);
-    void print();
+    virtual void update();  //ready for upgrade
+    void takeDamage(double dmg);
     void incLevel();
+    void print();
+    void attack(Vehicles *theEnemy);
 
 
 };

@@ -8,6 +8,8 @@
 #include "LandVehicleFactory.h"
 #include "AircraftFactory.h"
 #include "Factory.h"
+#include "ResearchAndDevelopmentCentre.h"
+#include "AircraftDevelopment.h"
 
 void testVehicles(int numVehicles){
     cout << "Test Vehicles:\n";
@@ -85,10 +87,31 @@ void testMultipleClones(int numClones){
 
 }
 
+void testAddingToList(){
+    ResearchAndDevelopmentCentre *r = new AircraftDevelopment();
+    Vehicles *a1 = new Aircraft("aircraft1", 1,1,1);
+    Vehicles *a2 = new Aircraft("aircraft2", 1,1,1);
+    r->addToList(a1);
+    cout << "Should have 1 item:\n";
+    r->printList();
+    r->startDeveloping();
+
+
+    r->addToList(a1);
+    r->addToList(a2);
+    cout << "Should have 2 items:\n";
+    r->printList();
+    r->startDeveloping();
+//    a1->print();
+//    a2->print();
+
+}
+
 int main() {
 //    testVehicles(10);
 //    testFactory(10);
 //    testMultipleClones(5);
+    testAddingToList();
   
 
 

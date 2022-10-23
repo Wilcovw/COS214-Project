@@ -10,7 +10,9 @@
 
 class AquaticVehicleDevelopment : ResearchAndDevelopmentCentre {
 public:
-    void startDeveloping(AquaticVehicles *v);
+//    void startDeveloping(Vehicles *v);
+//    void stopDeveloping(Vehicles *v);
+
 
 
 };

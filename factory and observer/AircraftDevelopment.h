@@ -10,7 +10,9 @@
 
 class AircraftDevelopment : public ResearchAndDevelopmentCentre{
 public:
-    void startDeveloping(Aircraft *v);
+//    void startDeveloping(Vehicles *v);
+//    void stopDeveloping(Vehicles *v);
+//    void printList();
 
 };
 

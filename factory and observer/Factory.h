@@ -14,7 +14,6 @@ private:
 
 public:
     /**
-     *
      * @param model
      * @param HP
      * @param damage

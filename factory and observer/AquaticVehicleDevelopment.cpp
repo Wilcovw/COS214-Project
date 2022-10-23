@@ -4,8 +4,8 @@
 
 #include "AquaticVehicleDevelopment.h"
 
-void AquaticVehicleDevelopment::startDeveloping(AquaticVehicles *v){
-    vehicleToBeUpgraded=v;
-    if(v != NULL)
-        v->incLevel();
-}
+//void AquaticVehicleDevelopment::startDeveloping(Vehicles *v){
+////    vehicleToBeUpgraded=v;
+//    if(v != NULL)
+//        v->incLevel();
+//}

@@ -4,9 +4,9 @@
 
 #include "LandVehicleDevelopment.h"
 
-void LandVehicleDevelopment::startDeveloping(LandVehicles *v){
-    vehicleToBeUpgraded=v;
-    if(v != NULL)
-        v->incLevel();
-
-}
+//void LandVehicleDevelopment::startDeveloping(Vehicles *v){
+////    vehicleToBeUpgraded=v;
+//    if(v != NULL)
+//        v->incLevel();
+//
+//}

@@ -7,11 +7,14 @@
 
 #include <string>
 #include "Vehicles.h"
+#include "ResearchAndDevelopmentCentre.h"
 
 using namespace std;
 class LandVehicles : public Vehicles {
 public:
     LandVehicles(string model, double hp, double damage, double speed);
+    void update();
+    void readyToUpgrade(ResearchAndDevelopmentCentre *r);
 };
 
 
