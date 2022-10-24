@@ -1,14 +1,18 @@
 #include "Unlisted.h"
 
-void Unlisted::handleChange(Citizens* c) {
+void Unlisted::handleChange(Citizens *c)
+{
     c->setStatus(new Enlisted());
 }
 
-string Unlisted::getStatus() {
-    return "Unlisted";
+string Unlisted::getStatusReport(Citizens *c)
+{
+    stringstream ss;
+    ss << "Unlisted Citizens: " << c->getNumberCitizens() << " people";
+
+    return ss.str();
 }
 
-void Unlisted::die(Citizens* c) {
-    // cout << "A group of Unlisted Citizens died!" << endl;
-    c->setStatus(new Dead());
+void Unlisted::die(Citizens *c) {
+    c->setStatus(new Dead);
 }

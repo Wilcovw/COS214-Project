@@ -1,14 +1,14 @@
 #include "Enlisted.h"
 
-void Enlisted::handleChange(Citizens* c) {
-    c->setStatus(new Stationed());
+void Enlisted::handleChange(Citizens *c)
+{
+    c->setStatus(new Enlisted());
 }
 
-string Enlisted::getStatus() {
-    return "Enlisted";
-}
+string Enlisted::getStatusReport(Citizens *c)
+{
+    stringstream ss;
+    ss << "Enlisted Citizens: " << c->getNumberCitizens() << " people";
 
-void Enlisted::die(Citizens* c) {
-    // cout << "A group of Enlisted Citizens died!" << endl;
-    c->setStatus(new Dead());
+    return ss.str();
 }

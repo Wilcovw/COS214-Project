@@ -1,14 +1,19 @@
 #include "Stationed.h"
 
-void Stationed::handleChange(Citizens* c) {
-    c->setStatus(new Fighting());
+void Stationed::handleChange(Citizens *c)
+{
+    c->setStatus(new Stationed());
 }
 
-string Stationed::getStatus() {
-    return "Stationed";
+string Stationed::getStatusReport(Citizens *c)
+{
+    string out = "Stationed Citizens: ";
+    stringstream ss;
+    ss << out << c->getNumberCitizens() << " people";
+
+    return ss.str();
 }
 
-void Stationed::die(Citizens* c){
-    // cout << "A group of Stationed Citizens died!" << endl;
-    c->setStatus(new Dead());
+void Stationed::die(Citizens *c) {
+    c->setStatus(new Dead);
 }

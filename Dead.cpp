@@ -1,13 +1,14 @@
 #include "Dead.h"
 
-void Dead::handleChange(Citizens* c) {
+void Dead::handleChange(Citizens *c)
+{
     c->setStatus(new Dead());
 }
 
-string Dead::getStatus() {
-    return "Dead";
-}
+string Dead::getStatusReport(Citizens *c)
+{
+    stringstream ss;
+    ss << "Dead Citizens: " << c->getNumberCitizens() << " people";
 
-void Dead::die(Citizens* c) {
-    
+    return ss.str();
 }

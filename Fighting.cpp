@@ -1,14 +1,14 @@
 #include "Fighting.h"
 
-void Fighting::handleChange(Citizens* c) {
-    c->setStatus(new Stationed);
+void Fighting::handleChange(Citizens *c)
+{
+    c->setStatus(new Stationed());
 }
 
-string Fighting::getStatus() {
-    return "Fighting";
-}
+string Fighting::getStatusReport(Citizens *c)
+{
+    stringstream ss;
+    ss << "Fighting Citizens: " << c->getNumberCitizens() << " people";
 
-void Fighting::die(Citizens* c) {
-    // cout << "A group of Fighting Citizens died!" << endl;
-    c->setStatus(new Dead());
+    return ss.str();
 }
