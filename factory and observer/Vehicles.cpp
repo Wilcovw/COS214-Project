@@ -84,5 +84,5 @@ void Vehicles::update() {
 
 
 void Vehicles::attack(Vehicles *theEnemy) {
-    takeDamage(theEnemy->takeDamage(this->getDamage()))
+//    takeDamage(theEnemy->takeDamage(this))
 }

@@ -108,9 +108,9 @@ void testAddingToList(){
 }
 
 int main() {
-//    testVehicles(10);
-//    testFactory(10);
-//    testMultipleClones(5);
+    testVehicles(10);
+    testFactory(10);
+    testMultipleClones(5);
     testAddingToList();
   
 

@@ -12,8 +12,22 @@
 using namespace std;
 class LandVehicles : public Vehicles {
 public:
+    /**
+     * @brief Constructor fot LandVehicles class
+     * @param model
+     * @param hp
+     * @param damage
+     * @param speed
+     */
     LandVehicles(string model, double hp, double damage, double speed);
+    /**
+     * @brief method that calls the vehicle's increments level method
+     */
     void update();
+    /**
+     * @brief adds to ResearchAndDevelopmentCentre list, which stores items to be upgraded
+     * @param r
+     */
     void readyToUpgrade(ResearchAndDevelopmentCentre *r);
 };
 

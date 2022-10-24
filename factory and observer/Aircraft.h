@@ -12,10 +12,23 @@
 using namespace std;
 class Aircraft : public Vehicles{
 public:
+    /**
+     * @brief Constructor fot Aircraft class
+     * @param model
+     * @param hp
+     * @param damage
+     * @param speed
+     */
     Aircraft(string model, double hp, double damage, double speed);
+    /**
+     * @brief method that calls the vehicle's increments level method
+     */
     void update();
-    void readyToUpgrade(ResearchAndDevelopmentCentre *r);  //arrives at researchAndDevelopmentCentre for upgrade
-
+    /**
+     * @brief adds to ResearchAndDevelopmentCentre list, which stores items to be upgraded
+     * @param r
+     */
+    void readyToUpgrade(ResearchAndDevelopmentCentre *r);
 };
 
 
