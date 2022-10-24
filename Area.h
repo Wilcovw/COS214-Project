@@ -25,23 +25,60 @@ public:
 	/**
 	 * @brief Construct a new Area object
 	 * 
-	 * @param name 
+	 * @param name: Is the name of the the Edge
 	 */
 	Area(string name);
 	/**
-	 * @brief 
+	 * @brief Adds an edge of type Road/Harbour/Air to the current Area
 	 * 
-	 * @param e 
+	 * @param e The Edge to add
+	 * @return true, if the Edge was added successfuly
+	 * @return false, if the Edge was already existed and was not added
+	 */
+	bool addEdge(Edge *e);
+	/**
+	 * @brief Get the Name object
+	 * 
+	 * @return string
+	 */
+	string getName();
+	/**
+	 * @brief Check if the Area passed in is connected to this Area
+	 * 
+	 * @param d The Area to check if it is connected to the current One
 	 * @return true 
 	 * @return false 
 	 */
-	bool addEdge(Edge *e);
-	string getName();
 	bool isAccessible(Area* d);
+	/**
+	 * @brief Check if the Area passed in is connected to this Area via a certain type edge
+	 * 
+	 * @param d The Area to check if it is connected to the current One
+	 * @param type The type of edge
+	 * @return true 
+	 * @return false 
+	 */
 	bool isAccessible(Area* d, string type);
+	/**
+	 * @brief Get the Edges object
+	 * 
+	 * @return list<Edge*> 
+	 */
 	list<Edge*> getEdges();
+	/**
+	 * @brief Variable needed to determine if it was visited in the traversal
+	 * 
+	 */
 	bool visited = false;
+	/**
+	 * @brief Prints all the edges that are connected to this Area
+	 * 
+	 */
 	void printEdges();
+	/**
+	 * @brief Variable needed for shortest path
+	 * 
+	 */
 	int num = 0;
 };
 
