@@ -50,7 +50,7 @@ public:
     /**
      * @brief Return the WarMap
      *
-     * @return WarMap
+     * @return WarMap The map of the war
      */
     // Map getMap();
     /**
