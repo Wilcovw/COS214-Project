@@ -7,3 +7,7 @@ void Stationed::handleChange(Citizens* c) {
 string Stationed::getStatus() {
     return "Stationed";
 }
+
+void Stationed::die(Citizens* c){
+    c->setStatus(new Dead());
+}

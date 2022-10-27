@@ -6,11 +6,11 @@
 
 using namespace std;
 
-class Citizens;
 class Stationed : public Status
 {
 public:
     virtual string getStatus();
     virtual void handleChange(Citizens *c);
+    virtual void die(Citizens *c);
 };
 #endif

@@ -7,3 +7,7 @@ void Dead::handleChange(Citizens* c) {
 string Dead::getStatus() {
     return "Dead";
 }
+
+void Dead::die(Citizens* c) {
+    
+}

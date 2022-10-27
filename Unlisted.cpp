@@ -7,3 +7,7 @@ void Unlisted::handleChange(Citizens* c) {
 string Unlisted::getStatus() {
     return "Unlisted";
 }
+
+void Unlisted::die(Citizens* c) {
+    c->setStatus(new Dead());
+}
