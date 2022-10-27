@@ -1,4 +1,4 @@
-ofiles = main.o Citizens.o Status.o Unlisted.o Enlisted.o Stationed.o Fighting.o Dead.o
+ofiles = main.o Citizens.o Status.o Unlisted.o Enlisted.o Stationed.o Fighting.o Dead.o RevolutionCommand.o
 main: $(ofiles)
 	g++ -o main $(ofiles)
 
@@ -26,7 +26,10 @@ Fighting.o: Fighting.cpp
 Dead.o: Dead.cpp
 	g++ -c Dead.cpp
 
-run:
+RevolutionCommand.o:RevolutionCommand.cpp Command.h
+	g++ -c RevolutionCommand.cpp
+
+run: main
 	./main
 
 clean:
