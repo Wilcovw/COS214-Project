@@ -3,6 +3,7 @@
 Citizens::Citizens() {
     cout << "Citizens constructor called" << endl;
     this->status = new Unlisted();
+    this->toggleCommand = new RevolutionCommand(false);
 }
 
 Citizens::~Citizens() {
@@ -27,4 +28,14 @@ string Citizens::getStatus() {
 
 void Citizens::die() {
     status->die(this);
+}
+
+void Citizens::toggleRevolution() {
+    if (this->getStatus() == "Unlisted")
+    {
+        this->toggleCommand->execute();
+    }
+    else {
+        cout << "Revolution attempt failed" << endl;
+    }
 }
