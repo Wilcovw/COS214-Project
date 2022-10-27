@@ -18,5 +18,6 @@ public:
     void changeStatus();
     void setStatus(Status *status);
     string getStatus();
+    void die();
 };
 #endif

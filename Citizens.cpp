@@ -24,3 +24,7 @@ void Citizens::changeStatus() {
 string Citizens::getStatus() {
     return this->status->getStatus();
 }
+
+void Citizens::die() {
+    status->die(this);
+}

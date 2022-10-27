@@ -7,3 +7,7 @@ void Fighting::handleChange(Citizens* c) {
 string Fighting::getStatus() {
     return "Fighting";
 }
+
+void Fighting::die(Citizens* c) {
+    c->setStatus(new Dead());
+}

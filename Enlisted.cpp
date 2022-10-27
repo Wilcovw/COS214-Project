@@ -7,3 +7,7 @@ void Enlisted::handleChange(Citizens* c) {
 string Enlisted::getStatus() {
     return "Enlisted";
 }
+
+void Enlisted::die(Citizens* c) {
+    c->setStatus(new Dead());
+}
