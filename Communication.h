@@ -24,6 +24,6 @@ public:
      * @brief Destroy the dynamic objects created in the communication objects
      *
      */
-    virtual ~Communication() = 0;
+    // virtual ~Communication();
 };
 #endif

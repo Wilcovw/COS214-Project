@@ -49,7 +49,7 @@ public:
      * @brief Destroys the dynbamic objects in the object
      *
      */
-    virtual ~AssociatedCountries();
+    // virtual ~AssociatedCountries();
     /**
      * @brief Allows this object to receive messages from other AssociatedCountries objects
      *
