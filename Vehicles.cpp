@@ -5,7 +5,6 @@
 #include "Vehicles.h"
 #include <string>
 #include <iostream>
-
 using namespace std;
 Vehicles::Vehicles(string model, double HP, double damage, double speed) {
     this->model = model;
@@ -89,5 +88,14 @@ void Vehicles::update() {
 
 
 void Vehicles::attack(Vehicles *theEnemy) {
-//    takeDamage(theEnemy->takeDamage(this))
+    while(HP > 0 && theEnemy->HP > 0) {
+        takeDamage(theEnemy->takeDamage(this->getDamage()));
+    }
+}
+
+void Vehicles::attack(Troops *theEnemy) {
+    while(HP > 0 && theEnemy->getHP() > 0) {
+        takeDamage(theEnemy->takeDamage(this->getDamage()));
+        cout << theEnemy->getHP() << ":HP,     DMG:" << theEnemy->getDamage() << endl;
+    }
 }

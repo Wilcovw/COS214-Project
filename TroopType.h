@@ -1,7 +1,9 @@
 #ifndef TROOPTYPE_H
 #define TROOPTYPE_H
+
 #include<iostream>
 using namespace std;
+
 
 enum theTroopTypes {
     theGenerals,
@@ -9,6 +11,7 @@ enum theTroopTypes {
     theMedics
 };
 
+class Vehicles;
 class TroopType {
     protected:
         double damage;
@@ -26,4 +29,6 @@ class TroopType {
         theTroopTypes getType();
         virtual TroopType* changeType(theTroopTypes) = 0;
 };
+
+#include "Vehicles.h"
 #endif

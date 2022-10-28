@@ -7,4 +7,8 @@ Airforce::Airforce(Area* theLocation, TroopType* theType) : Troops(0, theLocatio
 
 }
 
+Airforce::~Airforce() {
+
+}
+
 #endif

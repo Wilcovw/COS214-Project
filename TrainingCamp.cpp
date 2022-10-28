@@ -1,9 +1,9 @@
 #ifndef TRAININGCAMP_CPP
 #define TRAININGCAMP_CPP
 #include "TrainingCamp.h"
-#include "GroundTroopTraining.cpp"
-#include "NavyTraining.cpp"
-#include "AirforceTraining.cpp"
+#include "GroundTroopTraining.h"
+#include "NavyTraining.h"
+#include "AirforceTraining.h"
 
 TrainingCamp::TrainingCamp() {
 

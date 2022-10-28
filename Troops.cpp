@@ -1,11 +1,12 @@
-#ifndef TROOPS_CPP
-#define TROOPS_CPP
 #include "Troops.h"
-#include "TroopType.cpp"
+#include "TroopType.h"
 #include "Infrastructure.h"
-#include "GroundTroops.cpp"
-#include "Navy.cpp"
-#include "Airforce.cpp"
+#include "GroundTroops.h"
+#include "Navy.h"
+#include "Airforce.h"
+#include "Generals.h"
+#include "Medics.h"
+#include "Soldiers.h"
 
 Troops::Troops(double theHP, Area* theArea, TroopType * theType) {
     HP = theHP;
@@ -14,7 +15,7 @@ Troops::Troops(double theHP, Area* theArea, TroopType * theType) {
 }
 
 void Troops::attack(Troops * theEnemy) {
-    while(HP > 0 || theEnemy->HP > 0) {
+    while(HP > 0 && theEnemy->HP > 0) {
         takeDamage(theEnemy->takeDamage(type->getDamage()));
     }
 }
@@ -26,7 +27,7 @@ void Troops::attack(Infrastructure* theBuilding) {
 }
 
 void Troops::attack(Vehicles* theVehicle) {
-    while(HP > 0 || theVehicle->getHP()) {
+    while(HP > 0 && theVehicle->getHP() > 0) {
         takeDamage(theVehicle->takeDamage(type->getDamage()));
     }
 }
@@ -43,6 +44,10 @@ double Troops::takeDamage(double theDamage) {
 
 double Troops::getHP() {
     return HP;
+}
+
+double Troops::getDamage() {
+    return type->getDamage();
 }
 
 Troops * Troops::clone() {
@@ -67,5 +72,3 @@ Troops** Troops::clone(int n) {
     }
     return troops;
 }
-
-#endif

@@ -6,4 +6,8 @@ AirforceTraining::AirforceTraining() : TrainingCamp() {
 
 }
 
+AirforceTraining::~AirforceTraining() {
+
+}
+
 #endif

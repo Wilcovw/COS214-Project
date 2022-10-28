@@ -1,8 +1,8 @@
 #ifndef GENERALS_CPP
 #define GENERALS_CPP
 #include "Generals.h"
-#include "Medics.cpp"
-#include "Soldiers.cpp"
+#include "Medics.h"
+#include "Soldiers.h"
 
 //VALUES TO BE CHANGED
 Generals::Generals() : TroopType(15, 15, 15) {

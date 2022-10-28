@@ -7,4 +7,8 @@ Navy::Navy(Area* theLocation, TroopType* theType) : Troops(0, theLocation, theTy
 
 }
 
+Navy::~Navy() {
+    
+}
+
 #endif
