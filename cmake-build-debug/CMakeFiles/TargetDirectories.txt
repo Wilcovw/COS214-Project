@@ -1,0 +1,3 @@
+C:/Users/wilco/Documents/GitHub/COS214-Project/factory and observer/cmake-build-debug/CMakeFiles/factory_and_observer.dir
+C:/Users/wilco/Documents/GitHub/COS214-Project/factory and observer/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/wilco/Documents/GitHub/COS214-Project/factory and observer/cmake-build-debug/CMakeFiles/rebuild_cache.dir
