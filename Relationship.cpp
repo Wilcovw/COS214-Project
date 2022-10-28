@@ -25,12 +25,18 @@ void Relationship::addAssociatedCountries(AssociatedCountries *al)
 void Relationship::removeAssociatedCountries(AssociatedCountries *al)
 {
     std::vector<AssociatedCountries *>::iterator it;
+    bool removed = false;
     for (it = alliances.begin(); it != alliances.end(); ++it)
     {
         if (al == *it)
         {
             alliances.erase(it);
+            removed = true;
         }
+    }
+    if (!removed)
+    {
+        std::cout << "Could not remove Associated Country";
     }
 }
 

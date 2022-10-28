@@ -39,6 +39,7 @@ public:
      * @brief Construct a new Country object
      *
      * @param name The name of the country
+     * @param tele The Communication object used for communication between associatedCountries
      */
     Country(std::string name, Communication *tele);
     /**
@@ -73,12 +74,14 @@ public:
     /**
      * @brief Allows this object to receive messages from other AssociatedCountries objects
      *
-     * @param mess The message received from the other AssociatedCountries object
+     * @param std::string The message received from the other AssociatedCountries object
      */
     virtual void receiveMessage(std::string message);
     /**
      * @brief Allows this object to send messages from other AssociatedCountries objects
      *
+     * @param AssociatedCountries The AssociatedCountries object that must receive the message
+     * @param std::string The message to be received
      */
     virtual void sendBroadcast(AssociatedCountries *messageReceiver, std::string message);
     /**
@@ -93,8 +96,23 @@ public:
      * @param parent The parent of this object
      */
     virtual void setParent(AssociatedCountries *parent);
+    /**
+     * @brief Add a new AssociatedCountries object to the tree
+     *
+     * @param al AssociatedCountries objct to be added
+     */
     virtual void addAssociatedCountries(AssociatedCountries *al);
+    /**
+     * @brief Remove a AssociatedCountries object from the tree
+     *
+     * @param al The AssociatedCountries objct to be removed
+     */
     virtual void removeAssociatedCountries(AssociatedCountries *al);
+    /**
+     * @brief Output the contents of this AssociatedCountries object
+     *
+     * @return std::string - The string containing the contents of this AssociatedCountries object
+     */
     virtual std::string print();
 };
 #endif
