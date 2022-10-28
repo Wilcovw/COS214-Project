@@ -17,7 +17,7 @@ class TroopType {
         theTroopTypes type;
     public:
         TroopType(double, double, double);
-        ~TroopType();
+        virtual ~TroopType();
         double getDamage();
         double getMaxHP();
         double getSpeed();
