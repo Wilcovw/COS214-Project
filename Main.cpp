@@ -13,7 +13,8 @@
 #include "GroundTroopTraining.h"
 #include <iostream>
 using namespace std;
-int main() {
+
+void testAllTroops() {
     Area* testArea = new Area();
 
     TroopType* testGeneral = new Generals();
@@ -35,6 +36,16 @@ int main() {
     delete testGeneral;
     delete testSoldier;
     delete testMedic;
+    delete testGroundTroops;
+    delete testNavy;
+    delete testAirforce;
     delete testArea;
+};
+
+int main() {
+    cout << "Start testing" << endl;
+    testAllTroops();
+
+    cout << "End testing" << endl;
     return 0;
-}
+};
