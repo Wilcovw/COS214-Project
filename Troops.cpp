@@ -14,7 +14,7 @@ Troops::Troops(double theHP, Area* theArea, TroopType * theType) {
 }
 
 void Troops::attack(Troops * theEnemy) {
-    while(HP > 0 || theEnemy->HP) {
+    while(HP > 0 || theEnemy->HP > 0) {
         takeDamage(theEnemy->takeDamage(type->getDamage()));
     }
 }
@@ -36,7 +36,7 @@ double Troops::takeDamage(double theDamage) {
     if(HP > 0) {
         return type->getDamage();
     } else {
-        //Set functions to change status to dead
+        //TODO: Set functions to change status to dead
     }
     return 0;
 }
