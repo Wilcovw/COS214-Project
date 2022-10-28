@@ -20,5 +20,7 @@ class Troops {
         double getDamage();
         Troops * clone();
         Troops** clone(int);
+
+        ;
 };
 #endif

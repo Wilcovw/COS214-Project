@@ -96,6 +96,5 @@ void Vehicles::attack(Vehicles *theEnemy) {
 void Vehicles::attack(Troops *theEnemy) {
     while(HP > 0 && theEnemy->getHP() > 0) {
         takeDamage(theEnemy->takeDamage(this->getDamage()));
-        cout << theEnemy->getHP() << ":HP,     DMG:" << theEnemy->getDamage() << endl;
     }
 }
