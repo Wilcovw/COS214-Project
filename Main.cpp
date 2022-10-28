@@ -13,8 +13,14 @@
 #include "TroopType.cpp"
 #include "Troops.cpp"
 #include "TrainingCamp.cpp"
+#include "Area.h"
 
-int TestArea() {
+
+using namespace std;
+
+
+void testArea() {
+
     Area* testArea = new Area();
 
     TroopType* testGeneral = new Generals();
@@ -29,6 +35,7 @@ int TestArea() {
     TrainingCamp* testNavyTraining = new NavyTraining();
     TrainingCamp* testAirforceTraining = new AirforceTraining();
 
+    
     delete testGroundTraining;
     delete testNavyTraining;
     delete testAirforceTraining;
@@ -36,14 +43,15 @@ int TestArea() {
     delete testSoldier;
     delete testMedic;
     delete testArea;
-    return 0;
 }
 
 
 void testVehicles(int numVehicles){
     cout << "Test Vehicles:\n";
-    Vehicles *vehicles[numVehicles];
+    Vehicles **vehicles = new Vehicles *[numVehicles];
+    vehicles[0] = new LandVehicles("BMW", 20, 10, 200);
 
+    /*
     for (int i = 0; i < numVehicles; ++i) {
         // 3 types of vehicles
         switch (i%3) {
@@ -65,9 +73,11 @@ void testVehicles(int numVehicles){
     //Clone
     Vehicles *clone = vehicles[0]->clone();
     cout << "clone:" << endl;
-    clone -> print();
+    clone -> print();*/
 
 }
+
+/*
 void testFactory(int numVehicles){
     cout << "Test Factory:\n";
     Factory *f[3];
@@ -94,6 +104,7 @@ void testFactory(int numVehicles){
     clone = f[0]->createVehicle("Honda", 10, 10, 10)->clone();
     cout << "clone:\n";
     clone->print();
+
 }
 
 void testMultipleClones(int numClones){
@@ -136,13 +147,23 @@ void testAddingToList(){
 
 }
 
+void testCodeTogether() {
+    TroopType *test = new Generals();
+    Area *testArea = new Area();
+    Troops* testGroundTroops = new GroundTroops(testArea, test);
+
+    //testGroundTroops->getHP();
+    Vehicles *v = new LandVehicles("BMW",1,1,1);
+
+}*/
+
 int main() {
     testVehicles(10);
-    testFactory(10);
-    testMultipleClones(5);
-    testAddingToList();
-    TestArea();
-
+    // testFactory(10);
+    // testMultipleClones(5);
+    // testAddingToList();
+    testArea();
+    //testCodeTogether();
 
     return 0;
 }

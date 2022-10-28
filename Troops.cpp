@@ -41,6 +41,10 @@ double Troops::takeDamage(double theDamage) {
     return 0;
 }
 
+double Troops::getHP() {
+    return HP;
+}
+
 Troops * Troops::clone() {
     //Possiblility that by cloning there is not enough citizens. Check with francios how to fix this 
     if(type->getType() == ::theGenerals) {
