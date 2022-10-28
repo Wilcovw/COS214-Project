@@ -52,10 +52,10 @@ RM = "C:\Program Files\JetBrains\CLion 2021.2.2\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\wilco\Desktop\University\Year 2\Semester 2\COS214\Practical Assignments\project\factory and observer"
+CMAKE_SOURCE_DIR = C:\Users\wilco\Documents\GitHub\COS214-Project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\wilco\Desktop\University\Year 2\Semester 2\COS214\Practical Assignments\project\factory and observer\cmake-build-debug"
+CMAKE_BINARY_DIR = C:\Users\wilco\Documents\GitHub\COS214-Project\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/factory_and_observer.dir/depend.make
@@ -65,32 +65,32 @@ include CMakeFiles/factory_and_observer.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/factory_and_observer.dir/flags.make
 
-CMakeFiles/factory_and_observer.dir/main.cpp.obj: CMakeFiles/factory_and_observer.dir/flags.make
-CMakeFiles/factory_and_observer.dir/main.cpp.obj: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\wilco\Desktop\University\Year 2\Semester 2\COS214\Practical Assignments\project\factory and observer\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/factory_and_observer.dir/main.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\factory_and_observer.dir\main.cpp.obj -c "C:\Users\wilco\Desktop\University\Year 2\Semester 2\COS214\Practical Assignments\project\factory and observer\main.cpp"
+CMakeFiles/factory_and_observer.dir/Main.cpp.obj: CMakeFiles/factory_and_observer.dir/flags.make
+CMakeFiles/factory_and_observer.dir/Main.cpp.obj: ../Main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\wilco\Documents\GitHub\COS214-Project\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/factory_and_observer.dir/Main.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\factory_and_observer.dir\Main.cpp.obj -c C:\Users\wilco\Documents\GitHub\COS214-Project\Main.cpp
 
-CMakeFiles/factory_and_observer.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/factory_and_observer.dir/main.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\wilco\Desktop\University\Year 2\Semester 2\COS214\Practical Assignments\project\factory and observer\main.cpp" > CMakeFiles\factory_and_observer.dir\main.cpp.i
+CMakeFiles/factory_and_observer.dir/Main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/factory_and_observer.dir/Main.cpp.i"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\wilco\Documents\GitHub\COS214-Project\Main.cpp > CMakeFiles\factory_and_observer.dir\Main.cpp.i
 
-CMakeFiles/factory_and_observer.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/factory_and_observer.dir/main.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\wilco\Desktop\University\Year 2\Semester 2\COS214\Practical Assignments\project\factory and observer\main.cpp" -o CMakeFiles\factory_and_observer.dir\main.cpp.s
+CMakeFiles/factory_and_observer.dir/Main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/factory_and_observer.dir/Main.cpp.s"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\wilco\Documents\GitHub\COS214-Project\Main.cpp -o CMakeFiles\factory_and_observer.dir\Main.cpp.s
 
 # Object files for target factory_and_observer
 factory_and_observer_OBJECTS = \
-"CMakeFiles/factory_and_observer.dir/main.cpp.obj"
+"CMakeFiles/factory_and_observer.dir/Main.cpp.obj"
 
 # External object files for target factory_and_observer
 factory_and_observer_EXTERNAL_OBJECTS =
 
-factory_and_observer.exe: CMakeFiles/factory_and_observer.dir/main.cpp.obj
+factory_and_observer.exe: CMakeFiles/factory_and_observer.dir/Main.cpp.obj
 factory_and_observer.exe: CMakeFiles/factory_and_observer.dir/build.make
 factory_and_observer.exe: CMakeFiles/factory_and_observer.dir/linklibs.rsp
 factory_and_observer.exe: CMakeFiles/factory_and_observer.dir/objects1.rsp
 factory_and_observer.exe: CMakeFiles/factory_and_observer.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\wilco\Desktop\University\Year 2\Semester 2\COS214\Practical Assignments\project\factory and observer\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable factory_and_observer.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\wilco\Documents\GitHub\COS214-Project\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable factory_and_observer.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\factory_and_observer.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -102,6 +102,6 @@ CMakeFiles/factory_and_observer.dir/clean:
 .PHONY : CMakeFiles/factory_and_observer.dir/clean
 
 CMakeFiles/factory_and_observer.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\wilco\Desktop\University\Year 2\Semester 2\COS214\Practical Assignments\project\factory and observer" "C:\Users\wilco\Desktop\University\Year 2\Semester 2\COS214\Practical Assignments\project\factory and observer" "C:\Users\wilco\Desktop\University\Year 2\Semester 2\COS214\Practical Assignments\project\factory and observer\cmake-build-debug" "C:\Users\wilco\Desktop\University\Year 2\Semester 2\COS214\Practical Assignments\project\factory and observer\cmake-build-debug" "C:\Users\wilco\Desktop\University\Year 2\Semester 2\COS214\Practical Assignments\project\factory and observer\cmake-build-debug\CMakeFiles\factory_and_observer.dir\DependInfo.cmake" --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\wilco\Documents\GitHub\COS214-Project C:\Users\wilco\Documents\GitHub\COS214-Project C:\Users\wilco\Documents\GitHub\COS214-Project\cmake-build-debug C:\Users\wilco\Documents\GitHub\COS214-Project\cmake-build-debug C:\Users\wilco\Documents\GitHub\COS214-Project\cmake-build-debug\CMakeFiles\factory_and_observer.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/factory_and_observer.dir/depend
 

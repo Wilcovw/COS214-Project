@@ -56,10 +56,10 @@ RM = "C:\Program Files\JetBrains\CLion 2021.2.2\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\wilco\Desktop\University\Year 2\Semester 2\COS214\Practical Assignments\project\factory and observer"
+CMAKE_SOURCE_DIR = C:\Users\wilco\Documents\GitHub\COS214-Project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\wilco\Desktop\University\Year 2\Semester 2\COS214\Practical Assignments\project\factory and observer\cmake-build-debug"
+CMAKE_BINARY_DIR = C:\Users\wilco\Documents\GitHub\COS214-Project\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\wilco\Desktop\University\Year 2\Semester 2\COS214\Practical Assignments\project\factory and observer\cmake-build-debug\CMakeFiles" "C:\Users\wilco\Desktop\University\Year 2\Semester 2\COS214\Practical Assignments\project\factory and observer\cmake-build-debug\\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\wilco\Documents\GitHub\COS214-Project\cmake-build-debug\CMakeFiles C:\Users\wilco\Documents\GitHub\COS214-Project\cmake-build-debug\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\wilco\Desktop\University\Year 2\Semester 2\COS214\Practical Assignments\project\factory and observer\cmake-build-debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\wilco\Documents\GitHub\COS214-Project\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -128,29 +128,29 @@ factory_and_observer/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\factory_and_observer.dir\build.make CMakeFiles/factory_and_observer.dir/build
 .PHONY : factory_and_observer/fast
 
-main.obj: main.cpp.obj
-.PHONY : main.obj
+Main.obj: Main.cpp.obj
+.PHONY : Main.obj
 
 # target to build an object file
-main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\factory_and_observer.dir\build.make CMakeFiles/factory_and_observer.dir/main.cpp.obj
-.PHONY : main.cpp.obj
+Main.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\factory_and_observer.dir\build.make CMakeFiles/factory_and_observer.dir/Main.cpp.obj
+.PHONY : Main.cpp.obj
 
-main.i: main.cpp.i
-.PHONY : main.i
+Main.i: Main.cpp.i
+.PHONY : Main.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\factory_and_observer.dir\build.make CMakeFiles/factory_and_observer.dir/main.cpp.i
-.PHONY : main.cpp.i
+Main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\factory_and_observer.dir\build.make CMakeFiles/factory_and_observer.dir/Main.cpp.i
+.PHONY : Main.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+Main.s: Main.cpp.s
+.PHONY : Main.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\factory_and_observer.dir\build.make CMakeFiles/factory_and_observer.dir/main.cpp.s
-.PHONY : main.cpp.s
+Main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\factory_and_observer.dir\build.make CMakeFiles/factory_and_observer.dir/Main.cpp.s
+.PHONY : Main.cpp.s
 
 # Help Target
 help:
@@ -161,9 +161,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... factory_and_observer
-	@echo ... main.obj
-	@echo ... main.i
-	@echo ... main.s
+	@echo ... Main.obj
+	@echo ... Main.i
+	@echo ... Main.s
 .PHONY : help
 
 

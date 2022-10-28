@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/factory_and_observer.dir/main.cpp.obj"
+  "CMakeFiles/factory_and_observer.dir/Main.cpp.obj"
   "factory_and_observer.exe"
   "factory_and_observer.exe.manifest"
   "factory_and_observer.pdb"

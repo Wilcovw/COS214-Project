@@ -53,10 +53,10 @@ RM = "C:\Program Files\JetBrains\CLion 2021.2.2\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\wilco\Desktop\University\Year 2\Semester 2\COS214\Practical Assignments\project\factory and observer"
+CMAKE_SOURCE_DIR = C:\Users\wilco\Documents\GitHub\COS214-Project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\wilco\Desktop\University\Year 2\Semester 2\COS214\Practical Assignments\project\factory and observer\cmake-build-debug"
+CMAKE_BINARY_DIR = C:\Users\wilco\Documents\GitHub\COS214-Project\cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -80,14 +80,14 @@ clean: CMakeFiles/factory_and_observer.dir/clean
 CMakeFiles/factory_and_observer.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\factory_and_observer.dir\build.make CMakeFiles/factory_and_observer.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\factory_and_observer.dir\build.make CMakeFiles/factory_and_observer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\wilco\Desktop\University\Year 2\Semester 2\COS214\Practical Assignments\project\factory and observer\cmake-build-debug\CMakeFiles" --progress-num=1,2 "Built target factory_and_observer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\wilco\Documents\GitHub\COS214-Project\cmake-build-debug\CMakeFiles --progress-num=1,2 "Built target factory_and_observer"
 .PHONY : CMakeFiles/factory_and_observer.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/factory_and_observer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\wilco\Desktop\University\Year 2\Semester 2\COS214\Practical Assignments\project\factory and observer\cmake-build-debug\CMakeFiles" 2
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\wilco\Documents\GitHub\COS214-Project\cmake-build-debug\CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/factory_and_observer.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\wilco\Desktop\University\Year 2\Semester 2\COS214\Practical Assignments\project\factory and observer\cmake-build-debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\wilco\Documents\GitHub\COS214-Project\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/factory_and_observer.dir/rule
 
 # Convenience name for target.
