@@ -1,21 +1,34 @@
 #include <iostream>
-#include "Citizens.h"
+#include "AssociatedCountries.h"
+#include "Country.h"
+#include "Relationship.h"
+#include "CommunicationBroadcast.h"
 
-using namespace std;
+int main()
+{
+    Communication *tele = new CommunicationBroadcast();
+    AssociatedCountries *countriesAtWar = new Relationship("Countries in the war", tele);
+    AssociatedCountries *allies = new Relationship("Allies", tele);
+    AssociatedCountries *axis = new Relationship("Axis", tele);
+    Country *germany = new Country("Germany", tele);
 
-int main() {
-    Citizens* citizens = new Citizens;
-    for (int i = 0; i < 10; i++)
-    {
-        if (i == 5 || i == 8) {
-            // cout << "Oh no a group of " << citizens->getStatus() << " citizens died!" << endl;
-            // citizens->die();
-            citizens->toggleRevolution();
-        }
-        string status = citizens->getStatus();
-        cout << "Citizens are currently: " << status << endl;
-        citizens->changeStatus();
-    }
-    
-    return 0;
+    allies->addAssociatedCountries(new Country("England", tele));
+    allies->addAssociatedCountries(new Country("France", tele));
+    allies->addAssociatedCountries(new Country("America", tele));
+    allies->addAssociatedCountries(new Country("Poland", tele));
+    allies->addAssociatedCountries(new Country("Russia", tele));
+    countriesAtWar->addAssociatedCountries(allies);
+    axis->addAssociatedCountries(germany);
+    axis->addAssociatedCountries(new Country("Italy", tele));
+    countriesAtWar->addAssociatedCountries(axis);
+    countriesAtWar->addAssociatedCountries(new Country("Switzerland", tele));
+
+    std::cout << countriesAtWar->print();
+
+    axis->removeAssociatedCountries(germany);
+
+    std::cout << countriesAtWar->print();
+
+    germany->sendBroadcast(allies, "We (germany) declare war against you");
+    allies->sendBroadcast(germany, "We (allies) accept your declaration of war and respond in kind");
 }
