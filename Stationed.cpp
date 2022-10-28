@@ -9,5 +9,6 @@ string Stationed::getStatus() {
 }
 
 void Stationed::die(Citizens* c){
+    cout << "A group of Stationed Citizens died!" << endl;
     c->setStatus(new Dead());
 }

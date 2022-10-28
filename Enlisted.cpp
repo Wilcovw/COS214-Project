@@ -9,5 +9,6 @@ string Enlisted::getStatus() {
 }
 
 void Enlisted::die(Citizens* c) {
+    cout << "A group of Enlisted Citizens died!" << endl;
     c->setStatus(new Dead());
 }

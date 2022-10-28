@@ -1,19 +1,19 @@
 #include "Citizens.h"
 
 Citizens::Citizens() {
-    cout << "Citizens constructor called" << endl;
+    // cout << "Citizens constructor called" << endl;
     this->status = new Unlisted();
     this->toggleCommand = new RevolutionCommand(false);
 }
 
 Citizens::~Citizens() {
-    cout << "Citizens destructor called" << endl;
+    // cout << "Citizens destructor called" << endl;
     delete status;
     status = 0;
 }
 
 void Citizens::setStatus(Status* status) {
-    cout << "setStatus called" << endl;
+    // cout << "setStatus called" << endl;
     delete this->status;
     this->status = status;
 }
@@ -36,6 +36,12 @@ void Citizens::toggleRevolution() {
         this->toggleCommand->execute();
     }
     else {
-        cout << "Revolution attempt failed" << endl;
+        if (this->toggleCommand->isActive())
+        {
+            this->toggleCommand->execute();
+        } else {
+            this->setStatus(new Unlisted());
+            this->toggleCommand->execute();
+        }
     }
 }
