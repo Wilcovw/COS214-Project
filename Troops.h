@@ -16,6 +16,7 @@ class Troops {
         void attack(Infrastructure*);
         void attack(Vehicles*);
         double takeDamage(double);
+        double getHP();
         Troops * clone();
         Troops** clone(int);
 
