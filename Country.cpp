@@ -2,12 +2,21 @@
 #include "Relationship.h"
 #include "Communication.h"
 #include <iostream>
+#include <cstdlib>
 
 Country::Country(std::string name, Communication *t)
 {
     tele = t;
     this->name = name;
     tele->storeMe(this);
+
+    numCitzenGroups = 5 + (rand() % 10);
+
+    citizens = new Citizens *[numCitzenGroups];
+    for (int i = 0; i < numCitzenGroups; i++)
+    {
+        citizens[i] = new Citizens();
+    }
 }
 
 std::string Country::getName()
@@ -20,11 +29,15 @@ std::string Country::getName()
 //     return map;
 // }
 
-// Citzens** Country::getCitzens()
-// {
-//     return citzens;
-// }
+Citizens **Country::getCitizens()
+{
+    return citizens;
+}
 
+int Country::getNumCitzenGroups()
+{
+    return numCitzenGroups;
+}
 // WarEntities Country::getWarEntities()
 // {
 //     return entities;
@@ -81,4 +94,16 @@ void Country::addAssociatedCountries(AssociatedCountries *al)
 void Country::removeAssociatedCountries(AssociatedCountries *al)
 {
     parent->removeAssociatedCountries(al);
+}
+
+void Country::revolt(bool active)
+{
+    if (active)
+    {
+        std::cout << name << "'s citzens have started a revolution!!!" << std::endl;
+    }
+    else
+    {
+        std::cout << name << "'s revolution has ended" << std::endl;
+    }
 }
