@@ -1,8 +1,17 @@
 #include "Area.h"
 
-Area::Area(string name)
+Area::Area(string name, Country *controllingCountry)
 {
 	this->name = name;
+	std::cout << controllingCountry->getName() << std::endl;
+	this->controllingCountry = controllingCountry;
+}
+
+void Area::setControllingCountry(Country *controllingCountry)
+{
+	controllingCountry->removeArea(this);
+	this->controllingCountry = controllingCountry;
+	controllingCountry->addArea(this);
 }
 
 bool Area::addEdge(Edge *e)
@@ -124,18 +133,22 @@ void Area::printEdges()
 	}
 }
 
-void Area::setPrev(Area* p) {
-    this->prev = p;
+void Area::setPrev(Area *p)
+{
+	this->prev = p;
 }
 
-Area* Area::getPrev() {
-    return prev;
+Area *Area::getPrev()
+{
+	return prev;
 }
 
-double Area::getDist() {
-    return dist;
+double Area::getDist()
+{
+	return dist;
 }
 
-void Area::setDist(double d) {
-    this->dist = d;
+void Area::setDist(double d)
+{
+	this->dist = d;
 }
