@@ -14,13 +14,7 @@
 #include "Troops.cpp"
 #include "TrainingCamp.cpp"
 
-
 int TestArea() {
-
-#include <iostream>
-using namespace std;
-int main() {
-
     Area* testArea = new Area();
 
     TroopType* testGeneral = new Generals();
@@ -35,13 +29,10 @@ int main() {
     TrainingCamp* testNavyTraining = new NavyTraining();
     TrainingCamp* testAirforceTraining = new AirforceTraining();
 
-    
     delete testGroundTraining;
     delete testNavyTraining;
     delete testAirforceTraining;
-    cout << "No error" << endl;
     delete testGeneral;
-    cout << "Success" << endl;
     delete testSoldier;
     delete testMedic;
     delete testArea;
