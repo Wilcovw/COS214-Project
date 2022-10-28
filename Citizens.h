@@ -14,7 +14,7 @@ private:
     Command *toggleCommand;
 
 public:
-    Citizens();
+    Citizens(); 
     ~Citizens();
 
     void changeStatus();

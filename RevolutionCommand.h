@@ -2,6 +2,7 @@
 #define REVOLUTION_COMMAND_H
 #include <iostream>
 #include "Command.h"
+#include "Country.h"
 
 using namespace std;
 
