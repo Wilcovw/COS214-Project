@@ -2,7 +2,11 @@
 #define COUNTRY_H
 #include "AssociatedCountries.h"
 #include "Citizens.h"
+#include "Area.h"
 #include <string>
+#include <vector>
+
+class Area;
 /**
  * @brief Country takes the role of the Leaf class in the composite pattern and ConcreteColleague in the Mediator pattern
  *
@@ -39,7 +43,8 @@ private:
      * @brief All the areas that this country controls
      *
      */
-    // Area** areas;
+    std::vector<Area *> areas;
+
 public:
     /**
      * @brief Construct a new Country object
@@ -55,11 +60,23 @@ public:
      */
     std::string getName();
     /**
-     * @brief Return the WarMap
+     * @brief Return the Areas controlled by this Country
      *
-     * @return WarMap The map of the war
+     * @return vector<Area*> The vector of areas controlled by this Country
      */
-    // Map getMap();
+    std::vector<Area *> getAreas();
+    /**
+     * @brief add a new Area to the vector containing all the areas that are controlled by this Country
+     *
+     * @param area The new Area to add to the vector containing all the areas that are controlled by this Country
+     */
+    void addArea(Area *area);
+    /**
+     * @brief Remove an area from the vector containing all the areas that are controlled by this Country
+     *
+     * @param area  The Area to remove from the vector containing all the areas that are controlled by this Country
+     */
+    void removeArea(Area *area);
     /**
      * @brief Returns all the citzens of the country
      *

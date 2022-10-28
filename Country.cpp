@@ -24,10 +24,27 @@ std::string Country::getName()
     return name;
 }
 
-// Map Country::getMap()
-// {
-//     return map;
-// }
+std::vector<Area *> Country::getAreas()
+{
+    return areas;
+}
+
+void Country::addArea(Area *area)
+{
+    areas.push_back(area);
+}
+
+void Country::removeArea(Area *area)
+{
+    std::vector<Area *>::iterator it;
+    for (it = areas.begin(); it != areas.end(); ++it)
+    {
+        if (area == *it)
+        {
+            areas.erase(it);
+        }
+    }
+}
 
 Citizens **Country::getCitizens()
 {
