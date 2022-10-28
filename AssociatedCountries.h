@@ -20,13 +20,13 @@ protected:
      *
      */
     Communication *tele;
+
+public:
     /**
      * @brief Set the Parent object, this method is only used by the composite design pattern and not for use by a client
      *
      */
     virtual void setParent(AssociatedCountries *parent) = 0;
-
-public:
     /**
      * @brief Add a country to to the tree of associated couintries
      *
