@@ -72,7 +72,7 @@ public:
      * @brief decreases HP according to the damage done
      * @param dmg
      */
-    void takeDamage(double dmg);
+    double takeDamage(double dmg);
     /**
      * increments the vehicle's level
      */
