@@ -2,6 +2,11 @@
 #define INFRASTRUCTURE_CPP
 #include "Infrastructure.h"
 
+
+Infrastructure::Infrastructure() {
+
+}
+
 void Infrastructure::takeDamage(double theDamage) {
     
 }

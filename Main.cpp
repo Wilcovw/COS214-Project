@@ -82,7 +82,7 @@ void testVehicles(int numVehicles){
     //Clone
     Vehicles *clone = vehicles[0]->clone();
     cout << "clone:" << endl;
-    clone -> print();
+    clone->print();
 
 }
 
@@ -168,11 +168,11 @@ void testCodeTogether() {
 
 int main() {
     testVehicles(10);
-    // testFactory(10);
-    // testMultipleClones(5);
-    // testAddingToList();
+    testFactory(10);
+    testMultipleClones(5);
+    testAddingToList();
     testArea();
-    //testCodeTogether();
+    testCodeTogether();
 
     return 0;
 }
