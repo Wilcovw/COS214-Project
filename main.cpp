@@ -53,60 +53,63 @@ int main()
 	graph->addEdge(a4, a1, 350, "OR Tambo", "Runway");
 	graph->addEdge(a4, a5, 350, "Durban International Airport", "Runway");
 
-	// std::cout << "The country that controls area a1 is : " << a1->getControllingCountry()->getName() << std::endl;
+	std::cout << "The country that controls area a1 is : " << a1->getControllingCountry()->getName() << std::endl;
 
-	// graph->addEdge(a5, a4, 180, "Cape Town International Airport", "Runway");
-	// isAccessible(a1, a2, graph);
-	// isAccessible(a3, a4, graph);
-	// isAccessible(a1, a3, graph);
-	// isAccessible(a1, a4, graph);
-	// // From a4 to a1
-	// isAccessible(a4, a1, graph);
-	// // From a5 to a1
-	// isAccessible(a1, a5, graph);
-	// cout << endl;
+	graph->addEdge(a5, a4, 180, "Cape Town International Airport", "Runway");
+	isAccessible(a1, a2, graph);
+	isAccessible(a3, a4, graph);
+	isAccessible(a1, a3, graph);
+	isAccessible(a1, a4, graph);
+	// From a4 to a1
+	isAccessible(a4, a1, graph);
+	// From a5 to a1
+	
+	isAccessible(a1, a5, graph);
+	
+	cout << endl;
 
-	// isAccessible(a2, a4, graph, "Harbour");
-	// isAccessible(a1, a4, graph, "Harbour");
-	// isAccessible(a1, a3, graph, "Harbour");
-	// isAccessible(a2, a3, graph, "Harbour");
-	// // From a4 to a1 via Runway
-	// isAccessible(a4, a1, graph, "Runway");
-	// // From a4 to a1 via Harbour
-	// isAccessible(a5, a1, graph, "Harbour");
-
+	isAccessible(a2, a4, graph, "Harbour");
+	isAccessible(a1, a4, graph, "Harbour");
+	isAccessible(a1, a3, graph, "Harbour");
+	isAccessible(a2, a3, graph, "Harbour");
+	// From a4 to a1 via Runway
+	isAccessible(a4, a1, graph, "Runway");
+	//From a4 to a1 via Harbour
+	isAccessible(a5, a1, graph, "Harbour");
+	
 	list<Area *> path = graph->shortestPath(a1, a5);
 	cout << endl
 		 << "Shortest path from " << a1->getName() << " to " << a5->getName() << endl
 		 << endl;
 	cout << "Size: " << path.size() << endl;
+	cout << "Hello" << endl;
 	for (auto a : path)
 	{
 		cout << a->getName() << endl;
 	}
-	// cout << endl
-	// 	 << "Print all the areas:" << endl;
-	// AreaIterator *areaIter = graph->createAreaIterator();
-	// areaIter->first();
-	// while (areaIter->isDone() == false)
-	// {
-	// 	Area *currentArea = areaIter->currentItem();
-	// 	cout << currentArea->getName() << endl;
+	cout << endl
+		 << "Print all the areas:" << endl;
+	AreaIterator *areaIter = graph->createAreaIterator();
+	areaIter->first();
+	while (areaIter->isDone() == false)
+	{
+		Area *currentArea = areaIter->currentItem();
+		cout << currentArea->getName() << endl;
 
-	// 	areaIter->next();
-	// }
+		areaIter->next();
+	}
 
-	// cout << endl
-	// 	 << "Print all the Edges:" << endl;
-	// EdgeIterator *edgeIter = graph->createEdgeIterator();
-	// edgeIter->first();
-	// while (edgeIter->isDone() == false)
-	// {
-	// 	Edge *currentEdge = edgeIter->currentItem();
-	// 	cout << currentEdge->getName() << endl;
+	cout << endl
+		 << "Print all the Edges:" << endl;
+	EdgeIterator *edgeIter = graph->createEdgeIterator();
+	edgeIter->first();
+	while (edgeIter->isDone() == false)
+	{
+		Edge *currentEdge = edgeIter->currentItem();
+		cout << currentEdge->getName() << endl;
 
-	// 	edgeIter->next();
-	// }
+		edgeIter->next();
+	}
 	return 0;
 }
 

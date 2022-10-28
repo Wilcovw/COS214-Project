@@ -26,11 +26,11 @@ Area *WarMap::getArea(string name)
 bool WarMap::isAccessible(Area *source, Area *destination)
 {
 	reset();
+	
 	if (source == nullptr || destination == nullptr)
 	{
 		return false;
 	}
-
 	return source->isAccessible(destination);
 }
 
@@ -123,13 +123,15 @@ list<Area *> WarMap::shortestPath(Area *source, Area *destination)
 	{
 		return ans;
 	}
+	
 	if (isAccessible(source, destination) == false)
 	{
 		return ans;
 	}
+	
 	for (auto a : areasWT)
 	{
-		a->setDist(__INT_MAX__);
+		a->setDist(INT_MAX);
 		a->setPrev(nullptr);
 	}
 

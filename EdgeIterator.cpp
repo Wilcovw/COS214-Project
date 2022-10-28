@@ -13,17 +13,13 @@ void EdgeIterator::first() {
     AreaIterator *areaIter = graph->createAreaIterator();
 	areaIter->first();
 	while(areaIter->isDone() == false){
-		Area* currentArea = areaIter->currentItem();
-		trav = currentArea->getEdges().begin();
-		int total = currentArea->getEdges().size();
-		int count = 0;
-		while(count != total){
-			 if (find(allEdges.begin(), allEdges.end(), *trav) == allEdges.end()){
-				allEdges.push_back(*trav);
+		Area *currentArea = areaIter->currentItem();
+		for (auto edges : currentArea->getEdges())
+		{
+			if (find(allEdges.begin(), allEdges.end(), edges) == allEdges.end())
+			{
+				allEdges.push_back(edges);
 			}
-			count++;
-			trav++;
-			
 		}
 		areaIter->next();
 
