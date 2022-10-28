@@ -1,6 +1,7 @@
 #ifndef COUNTRY_H
 #define COUNTRY_H
 #include "AssociatedCountries.h"
+#include "Citizens.h"
 #include <string>
 /**
  * @brief Country takes the role of the Leaf class in the composite pattern and ConcreteColleague in the Mediator pattern
@@ -23,7 +24,12 @@ private:
      * @brief Array of all the citzens of the country and thier state
      *
      */
-    // Citzens** citzens;
+    Citizens **citizens;
+    /**
+     * @brief Stores the number groups of citizens in the citizens array
+     *
+     */
+    int numCitzenGroups;
     /**
      * @brief All the WarEntities the country owns
      *
@@ -59,7 +65,13 @@ public:
      *
      * @return Citzens**
      */
-    // Citzens** getCitzens();
+    Citizens **getCitizens();
+    /**
+     * @brief Get the Num Citzen Groups object
+     *
+     * @return int - The numCitzenGroups object
+     */
+    int getNumCitzenGroups();
     /**
      * @brief Returns all the WarEntities of the country
      *
@@ -114,5 +126,6 @@ public:
      * @return std::string - The string containing the contents of this AssociatedCountries object
      */
     virtual std::string print();
+    void revolt(bool revolt);
 };
 #endif
