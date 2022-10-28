@@ -118,6 +118,7 @@ EdgeIterator *WarMap::createEdgeIterator()
 list<Area *> WarMap::shortestPath(Area *source, Area *destination)
 {
 	list<Area *> ans;
+	
 	if (source == nullptr || destination == nullptr)
 	{
 		return ans;
@@ -126,6 +127,52 @@ list<Area *> WarMap::shortestPath(Area *source, Area *destination)
 	{
 		return ans;
 	}
+	for (auto a : areasWT)
+	{
+		a->setDist(INT_MAX);
+		a->setPrev(nullptr);
+	}
+	
+	list<Area *> toBeChecked;
+	toBeChecked.push_back(source);
+	source->setDist(0);
+	while (toBeChecked.empty() == false)
+	{
+		Area *curr = toBeChecked.front();
+		toBeChecked.pop_front();
+		
+		if (curr->getEdges().empty() == false)
+		{
 
-
+			for (auto e : curr->getEdges())
+			{
+				Area *v = e->getDestination();
+				double NewDist = curr->getDist() + e->getDistance();
+				
+				if (NewDist < v->getDist())
+				{
+					cout << "Hello" << endl;
+					v->setDist(NewDist);
+					v->setPrev(curr);
+					if (find(toBeChecked.begin(), toBeChecked.end(), v) == toBeChecked.end())
+					{
+						
+						toBeChecked.push_back(v);
+					}
+				}
+			}
+		}
+	}
+	if (destination->getPrev() == nullptr)
+	{
+		return ans;
+	}
+	Area *node = destination;
+	while (node != nullptr)
+	{
+		ans.push_back(node);
+		node = node->getPrev();
+	}
+	ans.reverse();
+	return ans;
 }

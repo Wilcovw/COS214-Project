@@ -19,8 +19,14 @@ private:
  * 
  */
 	string name;
+	/**
+	 * @brief List of all connected edges to the current Edge
+	 * 
+	 */
 	list<Edge*> connectedEdges;
-	
+	Area *prev = nullptr;
+	double dist = 0;
+
 public:
 	/**
 	 * @brief Construct a new Area object
@@ -80,6 +86,14 @@ public:
 	 * 
 	 */
 	int num = 0;
+
+	void setPrev(Area* p);
+	Area* getPrev();
+
+	double getDist();
+
+	void setDist(double d);
+
 };
 
 #endif

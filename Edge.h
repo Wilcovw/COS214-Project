@@ -21,6 +21,7 @@ public:
 	string getType();
 	string getDescription();
 	string getName();
+	double getDistance();
 	
 	
 };
