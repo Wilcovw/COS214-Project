@@ -57,9 +57,14 @@ Vehicles **Vehicles::clone(int n) {
     return ret;
 }
 
-void Vehicles::takeDamage(double dmg) {
+double Vehicles::takeDamage(double dmg) {
     this->HP-=dmg;
-
+    if(HP > 0) {
+        return getDamage();
+    } else {
+        //TODO: Set functions to destroy vehicle
+    }
+    return 0;
 }
 
 void Vehicles::incLevel() {
