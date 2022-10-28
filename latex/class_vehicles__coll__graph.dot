@@ -1,8 +1,0 @@
-digraph "Vehicles"
-{
- // LATEX_PDF_SIZE
-  bgcolor="transparent";
-  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
-  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
-  Node1 [label="{Vehicles\n|# type\l|+ Vehicles()\l+ getModel()\l+ getHP()\l+ getDamage()\l+ getSpeed()\l+ getLevel()\l+ clone()\l+ clone()\l+ update()\l+ takeDamage()\l+ incLevel()\l+ print()\l+ attack()\l}",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
-}

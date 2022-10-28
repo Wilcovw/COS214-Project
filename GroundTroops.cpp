@@ -7,4 +7,8 @@ GroundTroops::GroundTroops(Area* theLocation, TroopType* theType) : Troops(0, th
 
 }
 
+GroundTroops::~GroundTroops() {
+    
+}
+
 #endif

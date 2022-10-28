@@ -1,9 +1,9 @@
 #ifndef TROOPS_H
 #define TROOPS_H
 #include "Area.h"
-#include "Infrastructure.cpp"
-#include "Vehicles.cpp"
-#include "TroopType.cpp"
+#include "Infrastructure.h"
+#include "Vehicles.h"
+#include "TroopType.h"
 
 class Troops {
     protected:
@@ -12,6 +12,7 @@ class Troops {
         TroopType* type;
     public:
         Troops(double,Area* ,TroopType*);
+        virtual ~Troops() {};
         void attack(Troops*);
         void attack(Infrastructure*);
         void attack(Vehicles*);
@@ -19,7 +20,5 @@ class Troops {
         double getHP();
         Troops * clone();
         Troops** clone(int);
-
-        ;
 };
 #endif

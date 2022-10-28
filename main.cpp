@@ -4,16 +4,25 @@
 #include "AquaticVehicles.h"
 #include "Aircraft.h"
 #include "Infrastructure.h"
-/*#include "AquaticVehicleFactory.h"
+#include "AquaticVehicleFactory.h"
 #include "LandVehicleFactory.h"
 #include "AircraftFactory.h"
 #include "Factory.h"
 #include "ResearchAndDevelopmentCentre.h"
-#include "AircraftDevelopment.h"*/
-#include "TroopType.cpp"
-#include "Troops.cpp"
-#include "TrainingCamp.cpp"
+#include "AircraftDevelopment.h"
+#include "TroopType.h"
+#include "Troops.h"
+#include "TrainingCamp.h"
 #include "Area.h"
+#include "Generals.h"
+#include "Medics.h"
+#include "Soldiers.h"
+#include "GroundTroops.h"
+#include "Navy.h"
+#include "Airforce.h"
+#include "GroundTroopTraining.h"
+#include "NavyTraining.h"
+#include "AirforceTraining.h"
 
 
 using namespace std;
@@ -51,7 +60,7 @@ void testVehicles(int numVehicles){
     Vehicles **vehicles = new Vehicles *[numVehicles];
     vehicles[0] = new LandVehicles("BMW", 20, 10, 200);
 
-    /*
+    
     for (int i = 0; i < numVehicles; ++i) {
         // 3 types of vehicles
         switch (i%3) {
@@ -73,11 +82,11 @@ void testVehicles(int numVehicles){
     //Clone
     Vehicles *clone = vehicles[0]->clone();
     cout << "clone:" << endl;
-    clone -> print();*/
+    clone -> print();
 
 }
 
-/*
+
 void testFactory(int numVehicles){
     cout << "Test Factory:\n";
     Factory *f[3];
@@ -155,7 +164,7 @@ void testCodeTogether() {
     //testGroundTroops->getHP();
     Vehicles *v = new LandVehicles("BMW",1,1,1);
 
-}*/
+}
 
 int main() {
     testVehicles(10);

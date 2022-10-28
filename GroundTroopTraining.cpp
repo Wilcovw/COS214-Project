@@ -6,6 +6,10 @@ GroundTroopTraining::GroundTroopTraining() : TrainingCamp() {
 
 }
 
+GroundTroopTraining::~GroundTroopTraining() {
+    
+}
+
 void GroundTroopTraining::startTraining(Troops* theTroops) {
     Troops** temp = troops;
     troops = new Troops * [++numTroops];

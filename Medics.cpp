@@ -1,8 +1,8 @@
 #ifndef MEDICS_CPP
 #define MEDICS_CPP
 #include "Medics.h"
-#include "Soldiers.cpp"
-#include "Generals.cpp"
+#include "Soldiers.h"
+#include "Generals.h"
 
 //VALUES TO BE CHANGED
 Medics::Medics() : TroopType(15,15, 15) {

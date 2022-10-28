@@ -6,4 +6,8 @@ NavyTraining::NavyTraining() : TrainingCamp() {
     
 }
 
+NavyTraining::~NavyTraining() {
+    
+}
+
 #endif

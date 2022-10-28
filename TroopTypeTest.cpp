@@ -1,6 +1,6 @@
-#include <iostream>
+/*#include <iostream>
 #include <gtest/gtest.h>
-#include "TroopType.cpp"
+#include "TroopType.h"
 
 // cd "/Users/ruanrossouw/Library/Mobile Documents/com~apple~CloudDocs/University/2022/S2/COS214/Assignment/Code/" && g++ -std=c++14 TroopTypeTest.cpp  -lgtest -lgtest_main -pthread -o test && ./test
 
@@ -44,6 +44,6 @@ TEST(IntegerInputsSuite, testTroopTypechangeType) {
 }
 
 int main(int argc, char **argv) {
-  testing::InitGoogleTest(&argc, argv);
-  return RUN_ALL_TESTS();
-}
+  //testing::InitGoogleTest(&argc, argv);
+  //return RUN_ALL_TESTS();
+}*/

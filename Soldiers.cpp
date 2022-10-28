@@ -1,12 +1,16 @@
 #ifndef SOLDIERS_CPP
 #define SOLDIERS_CPP
 #include "Soldiers.h"
-#include "Medics.cpp"
-#include "Generals.cpp"
+#include "Medics.h"
+#include "Generals.h"
 
 //VALUES TO BE CHANGED
 Soldiers::Soldiers() : TroopType(15, 15, 15) {
     type = ::theSoldiers;
+}
+
+Soldiers::~Soldiers() {
+    
 }
 
 TroopType* Soldiers::changeType(theTroopTypes theType) {

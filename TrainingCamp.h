@@ -1,6 +1,6 @@
 #ifndef TRAININGCAMP_H
 #define TRAININGCAMP_H
-#include "Troops.cpp"
+#include "Troops.h"
 
 
 class TrainingCamp {
@@ -9,6 +9,7 @@ class TrainingCamp {
         int numTroops;
     public:
         TrainingCamp();
+        virtual ~TrainingCamp() {};
         void addTroop(Troops* theTroops);
         bool removeTroop(Troops* theTroops);
 };

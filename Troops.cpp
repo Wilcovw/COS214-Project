@@ -1,11 +1,11 @@
 #ifndef TROOPS_CPP
 #define TROOPS_CPP
 #include "Troops.h"
-#include "TroopType.cpp"
+#include "TroopType.h"
 #include "Infrastructure.h"
-#include "GroundTroops.cpp"
-#include "Navy.cpp"
-#include "Airforce.cpp"
+#include "GroundTroops.h"
+#include "Navy.h"
+#include "Airforce.h"
 
 Troops::Troops(double theHP, Area* theArea, TroopType * theType) {
     HP = theHP;
@@ -47,13 +47,13 @@ double Troops::getHP() {
 
 Troops * Troops::clone() {
     //Possiblility that by cloning there is not enough citizens. Check with francios how to fix this 
-    if(type->getType() == ::theGenerals) {
+    /*if(type->getType() == ::theGenerals) {
         return new Troops(this->HP, this->location, new Generals());
     } else if(type->getType() == ::theMedics) {
         return new Troops(this->HP, this->location, new Medics());
     } else if(type->getType() == ::theSoldiers) {
         return new Troops(this->HP, this->location, new Soldiers());
-    }
+    }*/
     return nullptr;
 }
 
