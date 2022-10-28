@@ -7,7 +7,7 @@
 #include "EdgeIterator.h"
 #include <iterator>
 #include <math.h>
-
+#include <climits>
 using namespace std;
 
 class EdgeIterator;

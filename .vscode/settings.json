@@ -10,6 +10,10 @@
 		"vector": "cpp",
 		"xstring": "cpp",
 		"xutility": "cpp",
-		"ostream": "cpp"
+		"ostream": "cpp",
+		"algorithm": "cpp",
+		"xhash": "cpp",
+		"xmemory": "cpp",
+		"xtree": "cpp"
 	}
 }

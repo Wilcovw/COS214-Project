@@ -38,33 +38,46 @@ bool Area::isAccessible(Area *d)
 	}
 	queue<Area *> queue;
 	queue.push(this);
+	
 	while (queue.empty() == false)
 	{
 		Area *v = queue.front();
 		queue.pop();
-
-		list<Edge *>::iterator it;
-		if (v->getEdges().size() != 0)
+		for (auto e : v->getEdges())
 		{
-			int total = v->getEdges().size(), count = 0;
-			it = v->getEdges().begin();
-			while (count != total)
+			Area *u = e->getDestination();
+			if (u == d)
 			{
-				Area *u = (*it)->getDestination();
-
-				if (u == d)
-				{
-					return true;
-				}
-				if (u->visited == false)
-				{
-					queue.push(u);
-					u->visited = true;
-				}
-				count++;
-				it++;
+				return true;
+			}
+			if (u->visited == false)
+			{
+				queue.push(u);
+				u->visited = true;
 			}
 		}
+		// list<Edge *>::iterator it;
+		// if (v->getEdges().size() != 0)
+		// {
+		// 	int total = v->getEdges().size(), count = 0;
+		// 	it = v->getEdges().begin();
+		// 	while (count != total)
+		// 	{
+		// 		Area *u = (*it)->getDestination();
+
+		// 		if (u == d)
+		// 		{
+		// 			return true;
+		// 		}
+		// 		if (u->visited == false)
+		// 		{
+		// 			queue.push(u);
+		// 			u->visited = true;
+		// 		}
+		// 		count++;
+		// 		it++;
+		// 	}
+		// }
 	}
 
 	return false;
@@ -87,32 +100,48 @@ bool Area::isAccessible(Area *d, string type)
 	{
 		Area *v = queue.front();
 		queue.pop();
-		list<Edge *>::iterator it;
-		if (v->getEdges().size() != 0)
+		for (auto e : v->getEdges())
 		{
-			int total = v->getEdges().size(), count = 0;
-			it = v->getEdges().begin();
-			while (count != total)
+			if (e->getType() == type)
 			{
-				if ((*it)->getType() == type)
+				Area *u = e->getDestination();
+				if (u == d)
 				{
-					Area *u = (*it)->getDestination();
-
-					if (u == d)
-					{
-						return true;
-					}
-					if (u->visited == false)
-					{
-						queue.push(u);
-						u->visited = true;
-					}
+					return true;
 				}
-
-				count++;
-				it++;
+				if (u->visited == false)
+				{
+					queue.push(u);
+					u->visited = true;
+				}
 			}
 		}
+		// list<Edge *>::iterator it;
+		// if (v->getEdges().size() != 0)
+		// {
+		// 	int total = v->getEdges().size(), count = 0;
+		// 	it = v->getEdges().begin();
+		// 	while (count != total)
+		// 	{
+		// 		if ((*it)->getType() == type)
+		// 		{
+		// 			Area *u = (*it)->getDestination();
+
+		// 			if (u == d)
+		// 			{
+		// 				return true;
+		// 			}
+		// 			if (u->visited == false)
+		// 			{
+		// 				queue.push(u);
+		// 				u->visited = true;
+		// 			}
+		// 		}
+
+		// 		count++;
+		// 		it++;
+		// 	}
+		// }
 	}
 
 	return false;
@@ -151,4 +180,8 @@ double Area::getDist()
 void Area::setDist(double d)
 {
 	this->dist = d;
+}
+
+Country *Area::getControllingCountry(){
+	return this->controllingCountry;
 }
