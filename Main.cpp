@@ -11,6 +11,8 @@
 #include "NavyTraining.h"
 #include "AirforceTraining.h"
 #include "GroundTroopTraining.h"
+#include "TestVehiclesCloneAndFactories.h"
+
 #include <iostream>
 using namespace std;
 
@@ -43,9 +45,17 @@ void testAllTroops() {
 };
 
 int main() {
-    cout << "Start testing" << endl;
+    cout << "=============================Start testing=============================" << endl;
     testAllTroops();
 
-    cout << "End testing" << endl;
+    //Vehicles and Factories
+    TestVehiclesCloneAndFactories *testVehiclesCloneAndFactories = new TestVehiclesCloneAndFactories();
+    testVehiclesCloneAndFactories->testVehicles(10);
+    testVehiclesCloneAndFactories->testFactory(10);
+    testVehiclesCloneAndFactories->testMultipleClones(10);
+    testVehiclesCloneAndFactories->testAddingToDevList();
+
+    delete testVehiclesCloneAndFactories;
+    cout << "=============================End testing=============================" << endl;
     return 0;
 };
