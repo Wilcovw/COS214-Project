@@ -10,7 +10,6 @@ Generals::Generals() : TroopType(15, 15, 15) {
 }
 
 Generals::~Generals() {
-    TroopType::~TroopType();
 }
 
 TroopType* Generals::changeType(theTroopTypes theType) {
