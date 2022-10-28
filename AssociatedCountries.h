@@ -4,6 +4,7 @@
 class Communication;
 /**
  * @brief AssociatedCountries takes the role of the Component class in the composite pattern and Colleague in the Mediator pattern
+ * it is also the parent class of the Relationship and Country classes
  *
  */
 class AssociatedCountries
@@ -19,6 +20,11 @@ protected:
      *
      */
     Communication *tele;
+    /**
+     * @brief Set the Parent object, this method is only used by the composite design pattern and not for use by a client
+     *
+     */
+    virtual void setParent(AssociatedCountries *parent) = 0;
 
 public:
     /**
@@ -36,30 +42,32 @@ public:
     /**
      * @brief Returns the Parent object
      *
-     * @return The parent object of the current object
+     * @return AssociatedCountries - The parent object of the current object
      */
     virtual AssociatedCountries *getParent() = 0;
     /**
-     * @brief Set the Parent object
+     * @brief Destroys the dynbamic objects in the object
      *
      */
-    virtual void setParent(AssociatedCountries *parent) = 0;
-    /**
-     * @brief Destroy the Associated Countries object
-     *
-     */
-    // virtual ~AssociatedCountries();
+    virtual ~AssociatedCountries();
     /**
      * @brief Allows this object to receive messages from other AssociatedCountries objects
      *
-     * @param mess The message received from the other AssociatedCountries object
+     * @param std::string The message received from the other AssociatedCountries object
      */
     virtual void receiveMessage(std::string message) = 0;
     /**
      * @brief Allows this object to send messages from other AssociatedCountries objects
      *
+     * @param AssociatedCountries The AssociatedCountries object that must receive the message
+     * @param std::string The message to be received
      */
     virtual void sendBroadcast(AssociatedCountries *messageReceiver, std::string message) = 0;
+    /**
+     * @brief Output the contents of this AssociatedCountries object
+     *
+     * @return std::string - The string containing the contents of this AssociatedCountries object
+     */
     virtual std::string print() = 0;
 };
 #endif

@@ -56,12 +56,14 @@ public:
     /**
      * @brief Allows this object to receive messages from other AssociatedCountries objects
      *
-     * @param mess The message received from the other AssociatedCountries object
+     * @param std::string The message received from the other AssociatedCountries object
      */
     virtual void receiveMessage(std::string message);
     /**
      * @brief Allows this object to send messages from other AssociatedCountries objects
      *
+     * @param AssociatedCountries The AssociatedCountries object that must receive the message
+     * @param std::string The message to be received
      */
     virtual void sendBroadcast(AssociatedCountries *messageReceiver, std::string message);
     /**
@@ -77,10 +79,9 @@ public:
      */
     virtual void setParent(AssociatedCountries *parent);
     /**
-     * @brief Returns a string countaining all the AssociatedCountries objects in it
+     * @brief Output the contents of this AssociatedCountries object
      *
-     * @param rel The relationship whos objects should be printed
-     * @return std::string  The output string
+     * @return std::string - The string containing the contents of this AssociatedCountries object
      */
     virtual std::string print();
 };
