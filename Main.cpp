@@ -3,6 +3,7 @@
 #include "Country.h"
 #include "Relationship.h"
 #include "CommunicationBroadcast.h"
+#include "Citizens.h"
 
 int main()
 {
