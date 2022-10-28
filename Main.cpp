@@ -1,6 +1,16 @@
-#include "TroopType.cpp"
-#include "Troops.cpp"
-#include "TrainingCamp.cpp"
+#include "TroopType.h"
+#include "Troops.h"
+#include "TrainingCamp.h"
+#include "Generals.h"
+#include "Soldiers.h"
+#include "Medics.h"
+#include "GroundTroops.h"
+#include "Navy.h"
+#include "Airforce.h"
+#include "GroundTroops.h"
+#include "NavyTraining.h"
+#include "AirforceTraining.h"
+#include "GroundTroopTraining.h"
 #include <iostream>
 using namespace std;
 int main() {

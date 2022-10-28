@@ -48,6 +48,8 @@ public:
      * @param tele The Communication object used for communication between associatedCountries
      */
     Country(std::string name, Communication *tele);
+
+    virtual ~Country() {};
     /**
      * @brief Return the name of the Country
      *

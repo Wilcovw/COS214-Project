@@ -1,6 +1,7 @@
 #ifndef TROOPTYPE_CPP
 #define TROOPTYPE_CPP
 #include "TroopType.h"
+#include "Troops.h"
 #include "Generals.h"
 #include "Medics.h"
 #include "Soldiers.h"

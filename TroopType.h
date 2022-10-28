@@ -30,5 +30,4 @@ class TroopType {
         virtual TroopType* changeType(theTroopTypes) = 0;
 };
 
-#include "Vehicles.h"
 #endif
