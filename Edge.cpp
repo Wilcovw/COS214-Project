@@ -32,3 +32,7 @@ string Edge::getDescription() {
 string Edge::getName() {
     return name;
 }
+
+double Edge::getDistance() {
+    return distance;
+}

@@ -123,3 +123,19 @@ void Area::printEdges()
 		cout << (*it)->getDescription() << endl;
 	}
 }
+
+void Area::setPrev(Area* p) {
+    this->prev = p;
+}
+
+Area* Area::getPrev() {
+    return prev;
+}
+
+double Area::getDist() {
+    return dist;
+}
+
+void Area::setDist(double d) {
+    this->dist = d;
+}

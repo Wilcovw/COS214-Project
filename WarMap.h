@@ -6,6 +6,8 @@
 #include "AreaIterator.h"
 #include "EdgeIterator.h"
 #include <iterator>
+#include <math.h>
+
 using namespace std;
 
 class EdgeIterator;
