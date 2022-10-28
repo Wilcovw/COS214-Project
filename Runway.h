@@ -1,20 +1,19 @@
-#ifndef Runway_H
-#define Runway_H
-#include <list>
-#include "Edge.h"
-#include "Area.h"
-#include <string>
+#ifndef RUNWAY_H
+#define RUNWAY_H
+
+#include <iostream>
+#include "Infrastructure.h"
+
 using namespace std;
-class Runway
-{
-private:
-	string name;
-	list<Edge*> flights;
-public:
-	Runway(Area *destination, double v,string name);
-	bool addConnection(Area* destination, double v,string name);
-	void destroy();
-	~Runway();
+
+class Runway : public Infrastructure{
+    private:
+        string name;
+        Edge flights[];
+    public:
+        Runway(Area destination);
+        void addConnection(Area destination);
+        void destroy();
 };
 
 #endif
