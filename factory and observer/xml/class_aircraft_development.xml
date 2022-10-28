@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="class_aircraft_development" kind="class" language="C++" prot="public">
+    <compoundname>AircraftDevelopment</compoundname>
+    <basecompoundref refid="class_research_and_development_centre" prot="public" virt="non-virtual">ResearchAndDevelopmentCentre</basecompoundref>
+    <includes refid="_aircraft_development_8h" local="no">AircraftDevelopment.h</includes>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AircraftDevelopment</label>
+        <link refid="class_aircraft_development"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Infrastructure</label>
+        <link refid="class_infrastructure"/>
+      </node>
+      <node id="2">
+        <label>ResearchAndDevelopmentCentre</label>
+        <link refid="class_research_and_development_centre"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AircraftDevelopment</label>
+        <link refid="class_aircraft_development"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Infrastructure</label>
+        <link refid="class_infrastructure"/>
+      </node>
+      <node id="2">
+        <label>ResearchAndDevelopmentCentre</label>
+        <link refid="class_research_and_development_centre"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="AircraftDevelopment.h" line="11" column="1" bodyfile="AircraftDevelopment.h" bodystart="11" bodyend="17"/>
+    <listofallmembers>
+      <member refid="class_research_and_development_centre_1a057bbd7a3e9b01a9333f0c4d3a2b6bcf" prot="public" virt="non-virtual"><scope>AircraftDevelopment</scope><name>addToList</name></member>
+      <member refid="class_research_and_development_centre_1aa8ba924d0f7209390e019c178054ab1c" prot="public" virt="virtual"><scope>AircraftDevelopment</scope><name>destroy</name></member>
+      <member refid="class_infrastructure_1a290ec5ce78b81318f725421833a23679" prot="public" virt="non-virtual"><scope>AircraftDevelopment</scope><name>getHP</name></member>
+      <member refid="class_research_and_development_centre_1a586bdddf08acd7d03f37b9eb5a213776" prot="public" virt="non-virtual"><scope>AircraftDevelopment</scope><name>notifyDevelop</name></member>
+      <member refid="class_research_and_development_centre_1ab1d6529e168f19ba632da0acae810179" prot="public" virt="non-virtual"><scope>AircraftDevelopment</scope><name>printList</name></member>
+      <member refid="class_research_and_development_centre_1a9dac8513173caa35aa4dea09aa80b348" prot="public" virt="non-virtual"><scope>AircraftDevelopment</scope><name>startDeveloping</name></member>
+      <member refid="class_research_and_development_centre_1a3958db0b7326aa3445ca78d858beddac" prot="public" virt="non-virtual"><scope>AircraftDevelopment</scope><name>stopDeveloping</name></member>
+      <member refid="class_research_and_development_centre_1a3451aee97f12b5fb5ffaa132ec0cbe20" prot="protected" virt="non-virtual"><scope>AircraftDevelopment</scope><name>vehicleToBeUpgraded</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

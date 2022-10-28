@@ -13,7 +13,7 @@ using namespace std;
 class AquaticVehicles : public Vehicles {
 public:
     /**
-     * @brief Constructor fot AquaticVehicles class
+     * @brief Constructor for AquaticVehicles class
      * @param model
      * @param hp
      * @param damage

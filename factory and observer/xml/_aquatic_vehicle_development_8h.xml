@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="_aquatic_vehicle_development_8h" kind="file" language="C++">
+    <compoundname>AquaticVehicleDevelopment.h</compoundname>
+    <includes refid="_research_and_development_centre_8h" local="yes">ResearchAndDevelopmentCentre.h</includes>
+    <includes refid="_aquatic_vehicles_8h" local="yes">AquaticVehicles.h</includes>
+    <includedby refid="_aquatic_vehicle_development_8cpp" local="yes">AquaticVehicleDevelopment.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>AquaticVehicleDevelopment.h</label>
+        <link refid="_aquatic_vehicle_development_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>AquaticVehicles.h</label>
+        <link refid="_aquatic_vehicles_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Infrastructure.h</label>
+        <link refid="_infrastructure_8h"/>
+      </node>
+      <node id="2">
+        <label>ResearchAndDevelopmentCentre.h</label>
+        <link refid="_research_and_development_centre_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Vehicles.h</label>
+        <link refid="_vehicles_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>string</label>
+      </node>
+      <node id="3">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>AquaticVehicleDevelopment.cpp</label>
+        <link refid="_aquatic_vehicle_development_8cpp"/>
+      </node>
+      <node id="1">
+        <label>AquaticVehicleDevelopment.h</label>
+        <link refid="_aquatic_vehicle_development_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_aquatic_vehicle_development" prot="public">AquaticVehicleDevelopment</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Created<sp/>by<sp/>wilco<sp/>on<sp/>2022/10/16.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>FACTORY_AND_OBSERVER_AQUATICVEHICLEDEVELOPMENT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FACTORY_AND_OBSERVER_AQUATICVEHICLEDEVELOPMENT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_research_and_development_centre_8h" kindref="compound">ResearchAndDevelopmentCentre.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_aquatic_vehicles_8h" kindref="compound">AquaticVehicles.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="class_aquatic_vehicle_development" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_aquatic_vehicle_development" kindref="compound">AquaticVehicleDevelopment</ref><sp/>:<sp/><ref refid="class_research_and_development_centre" kindref="compound">ResearchAndDevelopmentCentre</ref><sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>void<sp/>startDeveloping(Vehicles<sp/>*v);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>void<sp/>stopDeveloping(Vehicles<sp/>*v);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//FACTORY_AND_OBSERVER_AQUATICVEHICLEDEVELOPMENT_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="AquaticVehicleDevelopment.h"/>
+  </compounddef>
+</doxygen>

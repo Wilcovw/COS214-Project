@@ -90,5 +90,4 @@ public:
 
 };
 
-
 #endif //FACTORY_AND_OBSERVER_VEHICLES_H

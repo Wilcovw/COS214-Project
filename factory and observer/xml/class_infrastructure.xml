@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="class_infrastructure" kind="class" language="C++" prot="public">
+    <compoundname>Infrastructure</compoundname>
+    <derivedcompoundref refid="class_factory" prot="public" virt="non-virtual">Factory</derivedcompoundref>
+    <derivedcompoundref refid="class_research_and_development_centre" prot="public" virt="non-virtual">ResearchAndDevelopmentCentre</derivedcompoundref>
+    <includes refid="_infrastructure_8h" local="no">Infrastructure.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_infrastructure_1a20c07563cd5918b63ed2dd5e7451827b" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Infrastructure::HP</definition>
+        <argsstring></argsstring>
+        <name>HP</name>
+        <qualifiedname>Infrastructure::HP</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Infrastructure.h" line="11" column="12" bodyfile="Infrastructure.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_infrastructure_1a290ec5ce78b81318f725421833a23679" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Infrastructure::getHP</definition>
+        <argsstring>()</argsstring>
+        <name>getHP</name>
+        <qualifiedname>Infrastructure::getHP</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Infrastructure.h" line="14" column="12" bodyfile="Infrastructure.cpp" bodystart="7" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="function" id="class_infrastructure_1afeb7bb200bf923d63e33436ad63578b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Infrastructure::destroy</definition>
+        <argsstring>()</argsstring>
+        <name>destroy</name>
+        <qualifiedname>Infrastructure::destroy</qualifiedname>
+        <reimplementedby refid="class_factory_1a1711bb7dac12c0badaacd18d5fba332d">destroy</reimplementedby>
+        <reimplementedby refid="class_research_and_development_centre_1aa8ba924d0f7209390e019c178054ab1c">destroy</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Infrastructure.h" line="15" column="18" bodyfile="Infrastructure.cpp" bodystart="12" bodyend="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="7">
+        <label>AircraftDevelopment</label>
+        <link refid="class_aircraft_development"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>AircraftFactory</label>
+        <link refid="class_aircraft_factory"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>AquaticVehicleDevelopment</label>
+        <link refid="class_aquatic_vehicle_development"/>
+        <childnode refid="6" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>AquaticVehicleFactory</label>
+        <link refid="class_aquatic_vehicle_factory"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Factory</label>
+        <link refid="class_factory"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Infrastructure</label>
+        <link refid="class_infrastructure"/>
+      </node>
+      <node id="9">
+        <label>LandVehicleDevelopment</label>
+        <link refid="class_land_vehicle_development"/>
+        <childnode refid="6" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>LandVehicleFactory</label>
+        <link refid="class_land_vehicle_factory"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>ResearchAndDevelopmentCentre</label>
+        <link refid="class_research_and_development_centre"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Infrastructure</label>
+        <link refid="class_infrastructure"/>
+      </node>
+    </collaborationgraph>
+    <location file="Infrastructure.h" line="9" column="1" bodyfile="Infrastructure.h" bodystart="9" bodyend="16"/>
+    <listofallmembers>
+      <member refid="class_infrastructure_1afeb7bb200bf923d63e33436ad63578b7" prot="public" virt="virtual"><scope>Infrastructure</scope><name>destroy</name></member>
+      <member refid="class_infrastructure_1a290ec5ce78b81318f725421833a23679" prot="public" virt="non-virtual"><scope>Infrastructure</scope><name>getHP</name></member>
+      <member refid="class_infrastructure_1a20c07563cd5918b63ed2dd5e7451827b" prot="private" virt="non-virtual"><scope>Infrastructure</scope><name>HP</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

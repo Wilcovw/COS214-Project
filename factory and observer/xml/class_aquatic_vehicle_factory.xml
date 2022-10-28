@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="class_aquatic_vehicle_factory" kind="class" language="C++" prot="public">
+    <compoundname>AquaticVehicleFactory</compoundname>
+    <basecompoundref refid="class_factory" prot="public" virt="non-virtual">Factory</basecompoundref>
+    <includes refid="_aquatic_vehicle_factory_8h" local="no">AquaticVehicleFactory.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_aquatic_vehicle_factory_1ad3b796188f11458cda8f82272ca867c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="class_vehicles" kindref="compound">Vehicles</ref> *</type>
+        <definition>Vehicles * AquaticVehicleFactory::createVehicle</definition>
+        <argsstring>(string model, double HP, double damage, double speed)</argsstring>
+        <name>createVehicle</name>
+        <qualifiedname>AquaticVehicleFactory::createVehicle</qualifiedname>
+        <reimplements refid="class_factory_1a19e6331ae3eca8c4a3242df7dc786044">createVehicle</reimplements>
+        <param>
+          <type>string</type>
+          <declname>model</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>HP</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>damage</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>speed</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>model</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>HP</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>damage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>speed</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Vehicle is returned with parameters given as attributes </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="AquaticVehicleFactory.h" line="13" column="14" bodyfile="AquaticVehicleFactory.cpp" bodystart="7" bodyend="11"/>
+        <references refid="class_factory_1a4908da4e870fd8774dd27a653d7bc8fc" compoundref="_factory_8cpp" startline="8" endline="10">Factory::setVehicle</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AquaticVehicleFactory</label>
+        <link refid="class_aquatic_vehicle_factory"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Factory</label>
+        <link refid="class_factory"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Infrastructure</label>
+        <link refid="class_infrastructure"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AquaticVehicleFactory</label>
+        <link refid="class_aquatic_vehicle_factory"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Factory</label>
+        <link refid="class_factory"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Infrastructure</label>
+        <link refid="class_infrastructure"/>
+      </node>
+    </collaborationgraph>
+    <location file="AquaticVehicleFactory.h" line="11" column="1" bodyfile="AquaticVehicleFactory.h" bodystart="11" bodyend="15"/>
+    <listofallmembers>
+      <member refid="class_aquatic_vehicle_factory_1ad3b796188f11458cda8f82272ca867c8" prot="public" virt="virtual"><scope>AquaticVehicleFactory</scope><name>createVehicle</name></member>
+      <member refid="class_factory_1a1711bb7dac12c0badaacd18d5fba332d" prot="public" virt="virtual"><scope>AquaticVehicleFactory</scope><name>destroy</name></member>
+      <member refid="class_infrastructure_1a290ec5ce78b81318f725421833a23679" prot="public" virt="non-virtual"><scope>AquaticVehicleFactory</scope><name>getHP</name></member>
+      <member refid="class_factory_1a5cf29733525cdecf9327d4d33e15c217" prot="public" virt="non-virtual"><scope>AquaticVehicleFactory</scope><name>getVehicle</name></member>
+      <member refid="class_factory_1a4908da4e870fd8774dd27a653d7bc8fc" prot="public" virt="non-virtual"><scope>AquaticVehicleFactory</scope><name>setVehicle</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

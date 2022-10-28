@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="_aquatic_vehicle_factory_8cpp" kind="file" language="C++">
+    <compoundname>AquaticVehicleFactory.cpp</compoundname>
+    <includes refid="_aquatic_vehicle_factory_8h" local="yes">AquaticVehicleFactory.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>AquaticVehicleFactory.cpp</label>
+        <link refid="_aquatic_vehicle_factory_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>AquaticVehicleFactory.h</label>
+        <link refid="_aquatic_vehicle_factory_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>AquaticVehicles.h</label>
+        <link refid="_aquatic_vehicles_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Factory.h</label>
+        <link refid="_factory_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Infrastructure.h</label>
+        <link refid="_infrastructure_8h"/>
+      </node>
+      <node id="8">
+        <label>ResearchAndDevelopmentCentre.h</label>
+        <link refid="_research_and_development_centre_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Vehicles.h</label>
+        <link refid="_vehicles_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>string</label>
+      </node>
+      <node id="9">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Created<sp/>by<sp/>wilco<sp/>on<sp/>2022/10/16.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_aquatic_vehicle_factory_8h" kindref="compound">AquaticVehicleFactory.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="class_aquatic_vehicle_factory_1ad3b796188f11458cda8f82272ca867c8" refkind="member"><highlight class="normal"><ref refid="class_vehicles" kindref="compound">Vehicles</ref><sp/>*<ref refid="class_aquatic_vehicle_factory_1ad3b796188f11458cda8f82272ca867c8" kindref="member">AquaticVehicleFactory::createVehicle</ref>(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>model,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>HP,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>damage,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>speed)<sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_vehicles" kindref="compound">Vehicles</ref><sp/>*v<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_aquatic_vehicles" kindref="compound">AquaticVehicles</ref>(model,<sp/>HP,<sp/>damage,<sp/>speed);</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_factory_1a4908da4e870fd8774dd27a653d7bc8fc" kindref="member">setVehicle</ref>(v);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>v;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="AquaticVehicleFactory.cpp"/>
+  </compounddef>
+</doxygen>
