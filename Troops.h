@@ -2,9 +2,8 @@
 #define TROOPS_H
 #include "Area.h"
 #include "Infrastructure.h"
-#include "Vehicles.h"
 #include "TroopType.h"
-
+class Vehicles;
 class Troops {
     protected:
         double HP;
@@ -18,6 +17,7 @@ class Troops {
         void attack(Vehicles*);
         double takeDamage(double);
         double getHP();
+        double getDamage();
         Troops * clone();
         Troops** clone(int);
 };

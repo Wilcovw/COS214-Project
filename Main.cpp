@@ -157,21 +157,21 @@ void testAddingToList(){
 }
 
 void testCodeTogether() {
-    TroopType *test = new Generals();
-    Area *testArea = new Area();
-    Troops* testGroundTroops = new GroundTroops(testArea, test);
-
-    //testGroundTroops->getHP();
-    Vehicles *v = new LandVehicles("BMW",1,1,1);
-
+    TroopType *theType = new Generals();
+    Area *theArea = new Area();
+    Troops* theGroundTroops = new GroundTroops(theArea, theType);
+    Vehicles *theVehicle = new LandVehicles("BMW",4545,2,1);
+    theVehicle->attack(theGroundTroops);
+    
+    // v->print();
 }
 
 int main() {
-    testVehicles(10);
-    testFactory(10);
-    testMultipleClones(5);
-    testAddingToList();
-    testArea();
+    // testVehicles(10);
+    // testFactory(10);
+    // testMultipleClones(5);
+    // testAddingToList();
+    // testArea();
     testCodeTogether();
 
     return 0;

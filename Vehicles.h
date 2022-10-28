@@ -4,9 +4,9 @@
 
 #ifndef FACTORY_AND_OBSERVER_VEHICLES_H
 #define FACTORY_AND_OBSERVER_VEHICLES_H
-
 #include <string>
 
+class Troops;
 
 using namespace std;
 class Vehicles {
@@ -86,8 +86,11 @@ public:
      * @param theEnemy
      */
     void attack(Vehicles *theEnemy);
+    void attack(Troops *theEnemy);
 
 
 };
+
+#include "Troops.h"
 
 #endif //FACTORY_AND_OBSERVER_VEHICLES_H
