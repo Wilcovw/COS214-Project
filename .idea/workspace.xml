@@ -11,7 +11,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ea40739-6012-498d-8434-3d351079868f" name="Changes" comment="Some doxygen comments added, as well as a few changes made" />
+    <list default="true" id="6ea40739-6012-498d-8434-3d351079868f" name="Changes" comment="Some doxygen comments added, as well as a few changes made">
+      <change beforePath="$PROJECT_DIR$/AquaticVehicles.h" beforeDir="false" afterPath="$PROJECT_DIR$/AquaticVehicles.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vehicles.h" beforeDir="false" afterPath="$PROJECT_DIR$/Vehicles.h" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,6 +23,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -47,7 +51,7 @@
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="cmake.loaded.for.project" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Documents/GitHub/COS214-Project/factory and observer" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
@@ -60,6 +64,11 @@
     <configuration name="factory_and_observer" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="factory_and_observer" TARGET_NAME="factory_and_observer" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="factory_and_observer" RUN_TARGET_NAME="factory_and_observer">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
   </component>
@@ -89,8 +98,7 @@
       <workItem from="1666635922108" duration="1340000" />
       <workItem from="1666674996594" duration="2851000" />
       <workItem from="1666680144037" duration="3990000" />
-      <workItem from="1666948323665" duration="1230000" />
-      <workItem from="1666949790182" duration="1000" />
+      <workItem from="1666948323665" duration="1454000" />
     </task>
     <task id="LOCAL-00001" summary="First commit of Observer and Factory">
       <created>1666095921941</created>

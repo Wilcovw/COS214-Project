@@ -1,0 +1,78 @@
+\hypertarget{class_factory}{}\doxysection{Factory Class Reference}
+\label{class_factory}\index{Factory@{Factory}}
+
+
+{\ttfamily \#include $<$Factory.\+h$>$}
+
+Inheritance diagram for Factory\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_factory}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_vehicles}{Vehicles}} $\ast$ \mbox{\hyperlink{class_factory_a19e6331ae3eca8c4a3242df7dc786044}{create\+Vehicle}} (string model, double HP, double damage, double speed)=0
+\item 
+void \mbox{\hyperlink{class_factory_a4908da4e870fd8774dd27a653d7bc8fc}{set\+Vehicle}} (\mbox{\hyperlink{class_vehicles}{Vehicles}} $\ast$v)
+\item 
+\mbox{\hyperlink{class_vehicles}{Vehicles}} $\ast$ \mbox{\hyperlink{class_factory_a5cf29733525cdecf9327d4d33e15c217}{get\+Vehicle}} ()
+\item 
+void \mbox{\hyperlink{class_factory_a1711bb7dac12c0badaacd18d5fba332d}{destroy}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_factory_a19e6331ae3eca8c4a3242df7dc786044}\label{class_factory_a19e6331ae3eca8c4a3242df7dc786044}} 
+\index{Factory@{Factory}!createVehicle@{createVehicle}}
+\index{createVehicle@{createVehicle}!Factory@{Factory}}
+\doxysubsubsection{\texorpdfstring{createVehicle()}{createVehicle()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_vehicles}{Vehicles}} $\ast$ Factory\+::create\+Vehicle (\begin{DoxyParamCaption}\item[{string}]{model,  }\item[{double}]{HP,  }\item[{double}]{damage,  }\item[{double}]{speed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & \\
+\hline
+{\em HP} & \\
+\hline
+{\em damage} & \\
+\hline
+{\em speed} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vehicle is returned with parameters given as attributes 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_aircraft_factory_a12eaf0614eaf14c8a3ec46f9b7ad2696}{Aircraft\+Factory}}, \mbox{\hyperlink{class_aquatic_vehicle_factory_ad3b796188f11458cda8f82272ca867c8}{Aquatic\+Vehicle\+Factory}}, and \mbox{\hyperlink{class_land_vehicle_factory_a4a56b7485402388677e1bc8bd9d46529}{Land\+Vehicle\+Factory}}.
+
+\mbox{\Hypertarget{class_factory_a1711bb7dac12c0badaacd18d5fba332d}\label{class_factory_a1711bb7dac12c0badaacd18d5fba332d}} 
+\index{Factory@{Factory}!destroy@{destroy}}
+\index{destroy@{destroy}!Factory@{Factory}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily void Factory\+::destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_infrastructure_afeb7bb200bf923d63e33436ad63578b7}{Infrastructure}}.
+
+\mbox{\Hypertarget{class_factory_a5cf29733525cdecf9327d4d33e15c217}\label{class_factory_a5cf29733525cdecf9327d4d33e15c217}} 
+\index{Factory@{Factory}!getVehicle@{getVehicle}}
+\index{getVehicle@{getVehicle}!Factory@{Factory}}
+\doxysubsubsection{\texorpdfstring{getVehicle()}{getVehicle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vehicles}{Vehicles}} $\ast$ Factory\+::get\+Vehicle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_factory_a4908da4e870fd8774dd27a653d7bc8fc}\label{class_factory_a4908da4e870fd8774dd27a653d7bc8fc}} 
+\index{Factory@{Factory}!setVehicle@{setVehicle}}
+\index{setVehicle@{setVehicle}!Factory@{Factory}}
+\doxysubsubsection{\texorpdfstring{setVehicle()}{setVehicle()}}
+{\footnotesize\ttfamily void Factory\+::set\+Vehicle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vehicles}{Vehicles}} $\ast$}]{v }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_factory_8h}{Factory.\+h}}\item 
+\mbox{\hyperlink{_factory_8cpp}{Factory.\+cpp}}\end{DoxyCompactItemize}

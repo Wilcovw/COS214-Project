@@ -1,16 +1,19 @@
-#ifndef INFASTRUCTURE_H
-#define INFASTRUCTURE_H
-#include "Area.h"
+//
+// Created by wilco on 2022/10/16.
+//
+
+#ifndef FACTORY_AND_OBSERVER_INFRASTRUCTURE_H
+#define FACTORY_AND_OBSERVER_INFRASTRUCTURE_H
+
 
 class Infrastructure {
-    private:
-        double HP;
-        Area* location;
-    public:
-        Infrastructure();
-        double getHP();
-        void destroy();
-        void takeDamage(double);
+private:
+    double HP;
+//    Area *location;
+public:
+    double getHP();
+    virtual void destroy();
 };
 
-#endif
+
+#endif //FACTORY_AND_OBSERVER_INFRASTRUCTURE_H

@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="_aircraft_8h" kind="file" language="C++">
+    <compoundname>Aircraft.h</compoundname>
+    <includes local="no">string</includes>
+    <includes refid="_vehicles_8h" local="yes">Vehicles.h</includes>
+    <includes refid="_research_and_development_centre_8h" local="yes">ResearchAndDevelopmentCentre.h</includes>
+    <includedby refid="_aircraft_8cpp" local="yes">Aircraft.cpp</includedby>
+    <includedby refid="_aircraft_development_8h" local="yes">AircraftDevelopment.h</includedby>
+    <includedby refid="_aircraft_factory_8h" local="yes">AircraftFactory.h</includedby>
+    <includedby refid="main_8cpp" local="yes">main.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>Aircraft.h</label>
+        <link refid="_aircraft_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Infrastructure.h</label>
+        <link refid="_infrastructure_8h"/>
+      </node>
+      <node id="4">
+        <label>ResearchAndDevelopmentCentre.h</label>
+        <link refid="_research_and_development_centre_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Vehicles.h</label>
+        <link refid="_vehicles_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>string</label>
+      </node>
+      <node id="5">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>Aircraft.cpp</label>
+        <link refid="_aircraft_8cpp"/>
+      </node>
+      <node id="1">
+        <label>Aircraft.h</label>
+        <link refid="_aircraft_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>AircraftDevelopment.cpp</label>
+        <link refid="_aircraft_development_8cpp"/>
+      </node>
+      <node id="3">
+        <label>AircraftDevelopment.h</label>
+        <link refid="_aircraft_development_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>AircraftFactory.cpp</label>
+        <link refid="_aircraft_factory_8cpp"/>
+      </node>
+      <node id="6">
+        <label>AircraftFactory.h</label>
+        <link refid="_aircraft_factory_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>main.cpp</label>
+        <link refid="main_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_aircraft" prot="public">Aircraft</innerclass>
+    <innernamespace refid="namespacestd">std</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Created<sp/>by<sp/>wilco<sp/>on<sp/>2022/10/16.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>FACTORY_AND_OBSERVER_AIRCRAFT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FACTORY_AND_OBSERVER_AIRCRAFT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_vehicles_8h" kindref="compound">Vehicles.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_research_and_development_centre_8h" kindref="compound">ResearchAndDevelopmentCentre.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">std;</highlight></codeline>
+<codeline lineno="13" refid="class_aircraft" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_aircraft" kindref="compound">Aircraft</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_vehicles" kindref="compound">Vehicles</ref>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_aircraft" kindref="compound">Aircraft</ref>(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>model,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>hp,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>damage,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>speed);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_aircraft_1aff5908917582785f9d716a4d7a9ad1a6" kindref="member">update</ref>();</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_aircraft_1a913bb6cb00aeec38ee67a605cff1147a" kindref="member">readyToUpgrade</ref>(<ref refid="class_research_and_development_centre" kindref="compound">ResearchAndDevelopmentCentre</ref><sp/>*r);<sp/><sp/></highlight><highlight class="comment">//arrives<sp/>at<sp/>researchAndDevelopmentCentre<sp/>for<sp/>upgrade</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//FACTORY_AND_OBSERVER_AIRCRAFT_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="Aircraft.h"/>
+  </compounddef>
+</doxygen>

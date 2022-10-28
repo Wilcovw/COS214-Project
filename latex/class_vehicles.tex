@@ -1,0 +1,216 @@
+\hypertarget{class_vehicles}{}\doxysection{Vehicles Class Reference}
+\label{class_vehicles}\index{Vehicles@{Vehicles}}
+
+
+{\ttfamily \#include $<$Vehicles.\+h$>$}
+
+Inheritance diagram for Vehicles\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_vehicles}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_vehicles_aa2df1fbccabbb0ea340bd468b1bc0b58}{Vehicles}} (string model, double HP, double damage, double speed)
+\begin{DoxyCompactList}\small\item\em constructor for vehicle class \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_vehicles_aa193233d151e5445362e1653d0ee84d7}{get\+Model}} ()
+\item 
+double \mbox{\hyperlink{class_vehicles_a82892beb6d2c189ea2c2017f4490de55}{get\+HP}} ()
+\item 
+double \mbox{\hyperlink{class_vehicles_a7f2287429b153e854816e8d87044d8c2}{get\+Damage}} ()
+\item 
+double \mbox{\hyperlink{class_vehicles_a883a932fcb6d9311819c8f1342f6a3ef}{get\+Speed}} ()
+\item 
+int \mbox{\hyperlink{class_vehicles_a97440c0756cc995386c33da153b3c60a}{get\+Level}} ()
+\item 
+\mbox{\hyperlink{class_vehicles}{Vehicles}} $\ast$ \mbox{\hyperlink{class_vehicles_a7af555dca13197831dec6a29960ebca1}{clone}} ()
+\item 
+\mbox{\hyperlink{class_vehicles}{Vehicles}} $\ast$$\ast$ \mbox{\hyperlink{class_vehicles_a0cf80dbfa1a6453e39d7bb3d5ae13968}{clone}} (int n)
+\item 
+virtual void \mbox{\hyperlink{class_vehicles_a211459063a1c20f5ca4d1c83bafb4779}{update}} ()
+\begin{DoxyCompactList}\small\item\em method that calls the vehicle\textquotesingle{}s increments level method \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_vehicles_aae3d6a7e6fec7ff6f0167d18e53d413f}{take\+Damage}} (double dmg)
+\begin{DoxyCompactList}\small\item\em decreases HP according to the damage done \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_vehicles_a2e2544908fae0fe028acbb2f1462325a}{inc\+Level}} ()
+\item 
+void \mbox{\hyperlink{class_vehicles_ae80e43b8e1b19caf998f29f3f068aaf3}{print}} ()
+\begin{DoxyCompactList}\small\item\em outputs the current vehicle\textquotesingle{}s stats, which includes type, model, HP, damage, speed, level \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_vehicles_a561aeec7ac39618f337c117048a7a9c2}{attack}} (\mbox{\hyperlink{class_vehicles}{Vehicles}} $\ast$the\+Enemy)
+\begin{DoxyCompactList}\small\item\em takes in the enemy that should be attacked as the parameter \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_vehicles_a03fd617c5824380ac207eba83a24cdfd}{type}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_vehicles_aa2df1fbccabbb0ea340bd468b1bc0b58}\label{class_vehicles_aa2df1fbccabbb0ea340bd468b1bc0b58}} 
+\index{Vehicles@{Vehicles}!Vehicles@{Vehicles}}
+\index{Vehicles@{Vehicles}!Vehicles@{Vehicles}}
+\doxysubsubsection{\texorpdfstring{Vehicles()}{Vehicles()}}
+{\footnotesize\ttfamily Vehicles\+::\+Vehicles (\begin{DoxyParamCaption}\item[{string}]{model,  }\item[{double}]{HP,  }\item[{double}]{damage,  }\item[{double}]{speed }\end{DoxyParamCaption})}
+
+
+
+constructor for vehicle class 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & \\
+\hline
+{\em HP} & \\
+\hline
+{\em damage} & \\
+\hline
+{\em speed} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_vehicles_a561aeec7ac39618f337c117048a7a9c2}\label{class_vehicles_a561aeec7ac39618f337c117048a7a9c2}} 
+\index{Vehicles@{Vehicles}!attack@{attack}}
+\index{attack@{attack}!Vehicles@{Vehicles}}
+\doxysubsubsection{\texorpdfstring{attack()}{attack()}}
+{\footnotesize\ttfamily void Vehicles\+::attack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vehicles}{Vehicles}} $\ast$}]{the\+Enemy }\end{DoxyParamCaption})}
+
+
+
+takes in the enemy that should be attacked as the parameter 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the\+Enemy} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_vehicles_a7af555dca13197831dec6a29960ebca1}\label{class_vehicles_a7af555dca13197831dec6a29960ebca1}} 
+\index{Vehicles@{Vehicles}!clone@{clone}}
+\index{clone@{clone}!Vehicles@{Vehicles}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vehicles}{Vehicles}} $\ast$ Vehicles\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+a clone of the current vehicle 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_vehicles_a0cf80dbfa1a6453e39d7bb3d5ae13968}\label{class_vehicles_a0cf80dbfa1a6453e39d7bb3d5ae13968}} 
+\index{Vehicles@{Vehicles}!clone@{clone}}
+\index{clone@{clone}!Vehicles@{Vehicles}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vehicles}{Vehicles}} $\ast$$\ast$ Vehicles\+::clone (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an array of size n, which is how many clones should be made 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_vehicles_a7f2287429b153e854816e8d87044d8c2}\label{class_vehicles_a7f2287429b153e854816e8d87044d8c2}} 
+\index{Vehicles@{Vehicles}!getDamage@{getDamage}}
+\index{getDamage@{getDamage}!Vehicles@{Vehicles}}
+\doxysubsubsection{\texorpdfstring{getDamage()}{getDamage()}}
+{\footnotesize\ttfamily double Vehicles\+::get\+Damage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+the damage able to be done by the vehicle 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_vehicles_a82892beb6d2c189ea2c2017f4490de55}\label{class_vehicles_a82892beb6d2c189ea2c2017f4490de55}} 
+\index{Vehicles@{Vehicles}!getHP@{getHP}}
+\index{getHP@{getHP}!Vehicles@{Vehicles}}
+\doxysubsubsection{\texorpdfstring{getHP()}{getHP()}}
+{\footnotesize\ttfamily double Vehicles\+::get\+HP (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+the HP of the vehicle 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_vehicles_a97440c0756cc995386c33da153b3c60a}\label{class_vehicles_a97440c0756cc995386c33da153b3c60a}} 
+\index{Vehicles@{Vehicles}!getLevel@{getLevel}}
+\index{getLevel@{getLevel}!Vehicles@{Vehicles}}
+\doxysubsubsection{\texorpdfstring{getLevel()}{getLevel()}}
+{\footnotesize\ttfamily int Vehicles\+::get\+Level (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+the level of the vehicle 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_vehicles_aa193233d151e5445362e1653d0ee84d7}\label{class_vehicles_aa193233d151e5445362e1653d0ee84d7}} 
+\index{Vehicles@{Vehicles}!getModel@{getModel}}
+\index{getModel@{getModel}!Vehicles@{Vehicles}}
+\doxysubsubsection{\texorpdfstring{getModel()}{getModel()}}
+{\footnotesize\ttfamily string Vehicles\+::get\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+the model type of the vehicle 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_vehicles_a883a932fcb6d9311819c8f1342f6a3ef}\label{class_vehicles_a883a932fcb6d9311819c8f1342f6a3ef}} 
+\index{Vehicles@{Vehicles}!getSpeed@{getSpeed}}
+\index{getSpeed@{getSpeed}!Vehicles@{Vehicles}}
+\doxysubsubsection{\texorpdfstring{getSpeed()}{getSpeed()}}
+{\footnotesize\ttfamily double Vehicles\+::get\+Speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+the speed of the vehicle 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_vehicles_a2e2544908fae0fe028acbb2f1462325a}\label{class_vehicles_a2e2544908fae0fe028acbb2f1462325a}} 
+\index{Vehicles@{Vehicles}!incLevel@{incLevel}}
+\index{incLevel@{incLevel}!Vehicles@{Vehicles}}
+\doxysubsubsection{\texorpdfstring{incLevel()}{incLevel()}}
+{\footnotesize\ttfamily void Vehicles\+::inc\+Level (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+increments the vehicle\textquotesingle{}s level \mbox{\Hypertarget{class_vehicles_ae80e43b8e1b19caf998f29f3f068aaf3}\label{class_vehicles_ae80e43b8e1b19caf998f29f3f068aaf3}} 
+\index{Vehicles@{Vehicles}!print@{print}}
+\index{print@{print}!Vehicles@{Vehicles}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void Vehicles\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+outputs the current vehicle\textquotesingle{}s stats, which includes type, model, HP, damage, speed, level 
+
+\mbox{\Hypertarget{class_vehicles_aae3d6a7e6fec7ff6f0167d18e53d413f}\label{class_vehicles_aae3d6a7e6fec7ff6f0167d18e53d413f}} 
+\index{Vehicles@{Vehicles}!takeDamage@{takeDamage}}
+\index{takeDamage@{takeDamage}!Vehicles@{Vehicles}}
+\doxysubsubsection{\texorpdfstring{takeDamage()}{takeDamage()}}
+{\footnotesize\ttfamily void Vehicles\+::take\+Damage (\begin{DoxyParamCaption}\item[{double}]{dmg }\end{DoxyParamCaption})}
+
+
+
+decreases HP according to the damage done 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dmg} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_vehicles_a211459063a1c20f5ca4d1c83bafb4779}\label{class_vehicles_a211459063a1c20f5ca4d1c83bafb4779}} 
+\index{Vehicles@{Vehicles}!update@{update}}
+\index{update@{update}!Vehicles@{Vehicles}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Vehicles\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+method that calls the vehicle\textquotesingle{}s increments level method 
+
+
+
+Reimplemented in \mbox{\hyperlink{class_aircraft_aff5908917582785f9d716a4d7a9ad1a6}{Aircraft}}, \mbox{\hyperlink{class_aquatic_vehicles_a013752f969baee73a5d55002cf03277f}{Aquatic\+Vehicles}}, and \mbox{\hyperlink{class_land_vehicles_ad34fdffafac3715a2e2f9ab4038d73dd}{Land\+Vehicles}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_vehicles_a03fd617c5824380ac207eba83a24cdfd}\label{class_vehicles_a03fd617c5824380ac207eba83a24cdfd}} 
+\index{Vehicles@{Vehicles}!type@{type}}
+\index{type@{type}!Vehicles@{Vehicles}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily string Vehicles\+::type\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_vehicles_8h}{Vehicles.\+h}}\item 
+\mbox{\hyperlink{_vehicles_8cpp}{Vehicles.\+cpp}}\end{DoxyCompactItemize}

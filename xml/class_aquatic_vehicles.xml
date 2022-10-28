@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="class_aquatic_vehicles" kind="class" language="C++" prot="public">
+    <compoundname>AquaticVehicles</compoundname>
+    <basecompoundref refid="class_vehicles" prot="public" virt="non-virtual">Vehicles</basecompoundref>
+    <includes refid="_aquatic_vehicles_8h" local="no">AquaticVehicles.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_aquatic_vehicles_1a6bd846d6cae7e7be5be90b7fa753f245" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AquaticVehicles::AquaticVehicles</definition>
+        <argsstring>(string model, double hp, double damage, double speed)</argsstring>
+        <name>AquaticVehicles</name>
+        <qualifiedname>AquaticVehicles::AquaticVehicles</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>model</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>hp</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>damage</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>speed</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="AquaticVehicles.h" line="15" column="5" bodyfile="AquaticVehicles.cpp" bodystart="7" bodyend="9"/>
+        <references refid="class_vehicles_1a03fd617c5824380ac207eba83a24cdfd" compoundref="_vehicles_8h" startline="20">Vehicles::type</references>
+      </memberdef>
+      <memberdef kind="function" id="class_aquatic_vehicles_1a013752f969baee73a5d55002cf03277f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void AquaticVehicles::update</definition>
+        <argsstring>()</argsstring>
+        <name>update</name>
+        <qualifiedname>AquaticVehicles::update</qualifiedname>
+        <reimplements refid="class_vehicles_1a211459063a1c20f5ca4d1c83bafb4779">update</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="AquaticVehicles.h" line="16" column="10" bodyfile="AquaticVehicles.cpp" bodystart="11" bodyend="13"/>
+        <references refid="class_vehicles_1a2e2544908fae0fe028acbb2f1462325a" compoundref="_vehicles_8cpp" startline="65" endline="72">Vehicles::incLevel</references>
+      </memberdef>
+      <memberdef kind="function" id="class_aquatic_vehicles_1a377395b9ee26ee708c8d41a3cc922d9d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AquaticVehicles::readyToUpgrade</definition>
+        <argsstring>(ResearchAndDevelopmentCentre *r)</argsstring>
+        <name>readyToUpgrade</name>
+        <qualifiedname>AquaticVehicles::readyToUpgrade</qualifiedname>
+        <param>
+          <type><ref refid="class_research_and_development_centre" kindref="compound">ResearchAndDevelopmentCentre</ref> *</type>
+          <declname>r</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="AquaticVehicles.h" line="17" column="10" bodyfile="AquaticVehicles.cpp" bodystart="15" bodyend="17"/>
+        <references refid="class_research_and_development_centre_1a057bbd7a3e9b01a9333f0c4d3a2b6bcf" compoundref="_research_and_development_centre_8cpp" startline="45" endline="50">ResearchAndDevelopmentCentre::addToList</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AquaticVehicles</label>
+        <link refid="class_aquatic_vehicles"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Vehicles</label>
+        <link refid="class_vehicles"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AquaticVehicles</label>
+        <link refid="class_aquatic_vehicles"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Vehicles</label>
+        <link refid="class_vehicles"/>
+      </node>
+    </collaborationgraph>
+    <location file="AquaticVehicles.h" line="13" column="1" bodyfile="AquaticVehicles.h" bodystart="13" bodyend="18"/>
+    <listofallmembers>
+      <member refid="class_aquatic_vehicles_1a6bd846d6cae7e7be5be90b7fa753f245" prot="public" virt="non-virtual"><scope>AquaticVehicles</scope><name>AquaticVehicles</name></member>
+      <member refid="class_vehicles_1a561aeec7ac39618f337c117048a7a9c2" prot="public" virt="non-virtual"><scope>AquaticVehicles</scope><name>attack</name></member>
+      <member refid="class_vehicles_1a7af555dca13197831dec6a29960ebca1" prot="public" virt="non-virtual"><scope>AquaticVehicles</scope><name>clone</name></member>
+      <member refid="class_vehicles_1a0cf80dbfa1a6453e39d7bb3d5ae13968" prot="public" virt="non-virtual"><scope>AquaticVehicles</scope><name>clone</name></member>
+      <member refid="class_vehicles_1a7f2287429b153e854816e8d87044d8c2" prot="public" virt="non-virtual"><scope>AquaticVehicles</scope><name>getDamage</name></member>
+      <member refid="class_vehicles_1a82892beb6d2c189ea2c2017f4490de55" prot="public" virt="non-virtual"><scope>AquaticVehicles</scope><name>getHP</name></member>
+      <member refid="class_vehicles_1a97440c0756cc995386c33da153b3c60a" prot="public" virt="non-virtual"><scope>AquaticVehicles</scope><name>getLevel</name></member>
+      <member refid="class_vehicles_1aa193233d151e5445362e1653d0ee84d7" prot="public" virt="non-virtual"><scope>AquaticVehicles</scope><name>getModel</name></member>
+      <member refid="class_vehicles_1a883a932fcb6d9311819c8f1342f6a3ef" prot="public" virt="non-virtual"><scope>AquaticVehicles</scope><name>getSpeed</name></member>
+      <member refid="class_vehicles_1a2e2544908fae0fe028acbb2f1462325a" prot="public" virt="non-virtual"><scope>AquaticVehicles</scope><name>incLevel</name></member>
+      <member refid="class_vehicles_1ae80e43b8e1b19caf998f29f3f068aaf3" prot="public" virt="non-virtual"><scope>AquaticVehicles</scope><name>print</name></member>
+      <member refid="class_aquatic_vehicles_1a377395b9ee26ee708c8d41a3cc922d9d" prot="public" virt="non-virtual"><scope>AquaticVehicles</scope><name>readyToUpgrade</name></member>
+      <member refid="class_vehicles_1aae3d6a7e6fec7ff6f0167d18e53d413f" prot="public" virt="non-virtual"><scope>AquaticVehicles</scope><name>takeDamage</name></member>
+      <member refid="class_vehicles_1a03fd617c5824380ac207eba83a24cdfd" prot="protected" virt="non-virtual"><scope>AquaticVehicles</scope><name>type</name></member>
+      <member refid="class_aquatic_vehicles_1a013752f969baee73a5d55002cf03277f" prot="public" virt="virtual"><scope>AquaticVehicles</scope><name>update</name></member>
+      <member refid="class_vehicles_1aa2df1fbccabbb0ea340bd468b1bc0b58" prot="public" virt="non-virtual"><scope>AquaticVehicles</scope><name>Vehicles</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

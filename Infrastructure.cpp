@@ -1,15 +1,14 @@
-#ifndef INFRASTRUCTURE_CPP
-#define INFRASTRUCTURE_CPP
-#include "Infrastructure.h"
+//
+// Created by wilco on 2022/10/16.
+//
 
-void Infrastructure::takeDamage(double theDamage) {
-    
-}
+#include "Infrastructure.h"
 
 double Infrastructure::getHP() {
-    return 0;
+    return HP;
 }
 
-#include "Infrastructure.h"
-
-#endif
+//TODO: Make virtual and expand to children
+void Infrastructure::destroy() {
+//    ~Infrastructure();
+}
