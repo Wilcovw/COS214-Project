@@ -15,6 +15,10 @@ class AreaIterator;
 //The Graph
 class WarMap{
 	private:
+		/**
+		 * @brief stores all the Area's in the graph
+		 * 
+		 */
 		list<Area*> areasWT;
 	public:
 		/**
@@ -103,12 +107,18 @@ class WarMap{
 		 */
 		list<Area *>::iterator begin();
 		/**
-		 * @brief 
+		 * @brief Gets the end of Areas list
 		 * 
 		 * @return list<Area *>::iterator 
 		 */
 		list<Area *>::iterator end();
-
+		/**
+		 * @brief Determines the sortest path between the source and destination
+		 * 
+		 * @param source , The start point
+		 * @param destination , The end point
+		 * @return list<Area*> , List of Area's contained in sortest path
+		 */
 		list<Area*> shortestPath(Area *source, Area* destination);
 };
 
