@@ -20,11 +20,6 @@ private:
      */
     std::string name;
     /**
-     * @brief The WarMap of the all areas of importance throuout the war
-     *
-     */
-    // Map map;
-    /**
      * @brief Array of all the citzens of the country and thier state
      *
      */
@@ -77,6 +72,11 @@ public:
      * @param area  The Area to remove from the vector containing all the areas that are controlled by this Country
      */
     void removeArea(Area *area);
+    /**
+     * @brief print all the areas that are controlled by this Country
+     *
+     */
+    std::string printAreas();
     /**
      * @brief Returns all the citzens of the country
      *

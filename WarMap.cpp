@@ -26,7 +26,7 @@ Area *WarMap::getArea(string name)
 bool WarMap::isAccessible(Area *source, Area *destination)
 {
 	reset();
-	
+
 	if (source == nullptr || destination == nullptr)
 	{
 		return false;
@@ -123,12 +123,12 @@ list<Area *> WarMap::shortestPath(Area *source, Area *destination)
 	{
 		return ans;
 	}
-	
+
 	if (isAccessible(source, destination) == false)
 	{
 		return ans;
 	}
-	
+
 	for (auto a : areasWT)
 	{
 		a->setDist(INT_MAX);
@@ -153,7 +153,7 @@ list<Area *> WarMap::shortestPath(Area *source, Area *destination)
 
 				if (NewDist < v->getDist())
 				{
-					cout << "Hello" << endl;
+					// cout << "Hello" << endl;
 					v->setDist(NewDist);
 					v->setPrev(curr);
 					if (find(toBeChecked.begin(), toBeChecked.end(), v) == toBeChecked.end())
