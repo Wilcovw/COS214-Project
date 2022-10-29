@@ -8,8 +8,8 @@ using namespace std;
 
 class Road : public Infrastructure{
     private:
-        string name;
-        Edge *theRoad;
+        Edge **theRoad = new Edge*[2];
+        double distance;
     public:
         Road(Area *destination, string name);
         void destroy();

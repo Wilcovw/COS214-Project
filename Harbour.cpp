@@ -1,11 +1,19 @@
-#include "Harbour.h";
+#include "Harbour.h"
 
 #include <vector>
 
 Harbour::Harbour(Area *destination, string name){
-    srand(time(0));
-    int distance = (rand() % 10) + 1;
-    this->name = name;
+    addConnection(destination,name);
+};
 
-    Edge *connectedHarbour = new Edge(distance, name, "Road", this->location, destination);
+void Harbour::addConnection(Area *destination, string name){
+    srand(time(0));
+    double distance = (rand() % 100) + 10;
+
+    Edge *connectedHarbour = new Edge(distance, name, "Harbour", this->location, destination);
+    connectedHarbours.push_back(*connectedHarbour);
+    this->location->addEdge(connectedHarbour);
+
+    Edge *flippedConnectedHarbour = new Edge(distance, name, "Harbour", destination, this->location);
+    destination->addEdge(flippedConnectedHarbour);
 };

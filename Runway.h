@@ -3,16 +3,17 @@
 
 #include <iostream>
 #include "Infrastructure.h"
+#include <vector>
 
 using namespace std;
 
 class Runway : public Infrastructure{
     private:
         string name;
-        Edge flights[];
+        vector<Edge> flights;
     public:
-        Runway(Area destination);
-        void addConnection(Area destination);
+        Runway(Area *destination, string name);
+        void addConnection(Area *destination, string name);
         void destroy();
 };
 

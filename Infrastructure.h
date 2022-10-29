@@ -1,16 +1,3 @@
-#ifndef INFASTRUCTURE_H
-#define INFASTRUCTURE_H
-#include "Area.h"
+class Infrastructure{
 
-class Infrastructure {
-    protected:
-        double HP;
-        Area* location;
-    public:
-        Infrastructure();
-        double getHP();
-        void destroy();
-        void takeDamage(double);
 };
-
-#endif
