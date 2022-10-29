@@ -1,43 +1,20 @@
+#ifndef INFRASTRUCTURE_CPP
+#define INFRASTRUCTURE_CPP
 #include "Infrastructure.h"
-#include "Area.h"
 
-Infrastructure::Infrastructure(double hp, Area *area)
-{
-    location = area;
-    HP = hp;
+
+Infrastructure::Infrastructure() {
+
 }
 
-// Infrastructure::~Infrastructure()
-//{
-//     delete location;
-// }
-
-void Infrastructure::takeDamage(double theDamage)
-{
-    HP -= theDamage;
+void Infrastructure::takeDamage(double theDamage) {
+    
 }
 
-double Infrastructure::getHP()
-{
-    return HP;
+double Infrastructure::getHP() {
+    return 0;
 }
 
-void Infrastructure::destroy()
-{
-    delete this;
-}
+// #include "Infrastructure.h"
 
-Infrastructure *Infrastructure::clone(Area *newArea)
-{
-    return nullptr;
-}
-
-Area *Infrastructure::getArea()
-{
-    return location;
-}
-
-typeOfInfrastructure Infrastructure::getType()
-{
-    return type;
-}
+#endif
