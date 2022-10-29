@@ -6,20 +6,21 @@ WarMap::WarMap()
 
 WarMap::~WarMap()
 {
+	for (auto a : areasWT)
+	{
+		delete a;
+	}
 }
 
 Area *WarMap::getArea(string name)
 {
-	list<Area *>::iterator it;
-
-	for (it = areasWT.begin(); it != areasWT.end(); it++)
+	for (auto a : areasWT)
 	{
-		if ((*it)->getName() == name)
+		if (a->getName() == name)
 		{
-			return *it;
+			return a;
 		}
 	}
-
 	return nullptr;
 }
 
@@ -84,9 +85,9 @@ void WarMap::reset()
 	{
 		return;
 	}
-	for (it = areasWT.begin(); it != areasWT.end(); it++)
+	for (auto a : areasWT)
 	{
-		(*it)->visited = false;
+		a->visited == false;
 	}
 }
 
