@@ -2,14 +2,11 @@
 
 Road::Road(Area *destination, string name){
     srand(time(0));
-    double distance = (rand() % 10) + 1;
-    this->name = name;
+    this->distance = (rand() % 10) + 1;
 
-    this->theRoad = new Edge(distance, name, "Road", this->location, destination);
-    // source.addEdge(&theRoad);
+    this->theRoad[0] = new Edge(distance, name, "Road", this->location, destination);
+    this->location->addEdge(theRoad[0]);
 
-    Edge *roadFlipped = new Edge(distance, name, "Road", destination, this->location);
-    // destination->addEdge(&roadFlipped);
-
-    delete roadFlipped;
+    this->theRoad[1] = new Edge(distance, name, "Road", destination, this->location);
+    destination->addEdge(theRoad[1]);
 };
