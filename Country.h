@@ -99,7 +99,7 @@ public:
      * @brief Destroy the Country object
      *
      */
-    // virtual ~Country();
+    virtual ~Country();
     /**
      * @brief Allows this object to receive messages from other AssociatedCountries objects
      *

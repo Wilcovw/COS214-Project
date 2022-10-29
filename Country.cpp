@@ -73,14 +73,20 @@ int Country::getNumCitzenGroups()
 //     return entities;
 // }
 
-// Country::~Country()
-// {
-//     // for (int i = 0; i < citzens.length; i++)
-//     // {
-//     //     delete citzens[i];
-//     // }
-//     // delete citzens;
-// }
+Country::~Country()
+{
+    std::vector<Area *>::iterator it;
+    for (it = areas.begin(); it != areas.end(); ++it)
+    {
+        delete *it;
+    }
+
+    for (int i = 0; i < numCitzenGroups; i++)
+    {
+        delete citizens[i];
+    }
+    delete citizens;
+}
 
 void Country::receiveMessage(std::string message)
 {
