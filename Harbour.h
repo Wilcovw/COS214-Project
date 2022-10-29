@@ -1,21 +1,19 @@
-#ifndef Harbour_H
-#define Harbour_H
-#include <list>
-#include "Edge.h"
-#include "Area.h"
-#include <string>
+#ifndef HARBOUR_H
+#define HARBOUR_H
+
+#include <vector>
+#include <iostream>
+#include "Infrastructure.h"
+
 using namespace std;
-class Harbour
-{
-private:
-	string name;
-	list<Edge*> connectedHarbours;
-public:
-	Harbour(Area *destination);
-	bool addConnection(Area* destination, double v,string name);
-	void destroy();
-	~Harbour();
+
+class Harbour : public Infrastructure{
+    public:
+        Harbour(Area *destination, string name);
+        void addConnection(Area *destination, string name);
+        void destroy();
+    private:
+        string name;
+        vector<Edge> connectedHarbours;
 };
-
 #endif
-
