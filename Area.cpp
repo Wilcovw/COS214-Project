@@ -3,8 +3,8 @@
 Area::Area(string name, Country *controllingCountry)
 {
 	this->name = name;
-	std::cout << controllingCountry->getName() << std::endl;
 	this->controllingCountry = controllingCountry;
+	this->controllingCountry->addArea(this);
 }
 
 void Area::setControllingCountry(Country *controllingCountry)
@@ -38,7 +38,7 @@ bool Area::isAccessible(Area *d)
 	}
 	queue<Area *> queue;
 	queue.push(this);
-	
+
 	while (queue.empty() == false)
 	{
 		Area *v = queue.front();
@@ -182,6 +182,7 @@ void Area::setDist(double d)
 	this->dist = d;
 }
 
-Country *Area::getControllingCountry(){
+Country *Area::getControllingCountry()
+{
 	return this->controllingCountry;
 }

@@ -34,6 +34,19 @@ void Country::addArea(Area *area)
     areas.push_back(area);
 }
 
+std::string Country::printAreas()
+{
+    std::string out = "Areas controlled by " + name + ": ";
+    std::vector<Area *>::iterator it;
+    for (it = areas.begin(); it != areas.end(); ++it)
+    {
+        out += (*it)->getName() + ", ";
+    }
+    out = out.substr(0, out.length() - 2);
+    out += "\n";
+    return out;
+}
+
 void Country::removeArea(Area *area)
 {
     std::vector<Area *>::iterator it;
