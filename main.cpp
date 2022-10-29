@@ -35,6 +35,7 @@ int main()
 	graph->addArea(a4);
 	graph->addArea(a5);
 	graph->addArea(a6);
+	graph->addArea(a7);
 
 	graph->addEdge(a1, a2, 100, "Duncan Street", "Road");
 	graph->addEdge(a2, a3, 400, "Sydney Harbour", "Harbour");
@@ -90,43 +91,49 @@ int main()
 		isAccessible(a5, a1, graph, "Harbour");
 	}
 	// testing shortest path algortihm
-	{
-		list<Area *> path = graph->shortestPath(a1, a5);
-		cout << endl
-			 << "Shortest path from " << a1->getName() << " to " << a5->getName() << endl
-			 << endl;
-		cout << "Size: " << path.size() << endl;
-		cout << "Hello" << endl;
-		for (auto a : path)
-		{
-			cout << a->getName() << endl;
-		}
-		cout << endl
-			 << "Print all the areas:" << endl;
-		AreaIterator *areaIter = graph->createAreaIterator();
-		areaIter->first();
-		while (areaIter->isDone() == false)
-		{
-			Area *currentArea = areaIter->currentItem();
-			cout << currentArea->getName() << endl;
 
-			areaIter->next();
-		}
+	list<Area *> path = graph->shortestPath(a1, a5);
+	cout << endl
+		 << "Shortest path from " << a1->getName() << " to " << a5->getName() << endl
+		 << endl;
+	cout << "Size: " << path.size() << endl;
+	cout << "Hello" << endl;
+	for (auto a : path)
+	{
+		cout << a->getName() << endl;
 	}
+	cout << endl
+		 << "Print all the areas:" << endl;
+	AreaIterator *areaIter = graph->createAreaIterator();
+	areaIter->first();
+	while (areaIter->isDone() == false)
+	{
+		Area *currentArea = areaIter->currentItem();
+		cout << currentArea->getName() << endl;
+
+		areaIter->next();
+	}
+
 	// printing out all edges in graph
-	{
-		cout << endl
-			 << "Print all the Edges:" << endl;
-		EdgeIterator *edgeIter = graph->createEdgeIterator();
-		edgeIter->first();
-		while (edgeIter->isDone() == false)
-		{
-			Edge *currentEdge = edgeIter->currentItem();
-			cout << currentEdge->getName() << endl;
 
-			edgeIter->next();
-		}
+	cout << endl
+		 << "Print all the Edges:" << endl;
+	EdgeIterator *edgeIter = graph->createEdgeIterator();
+	edgeIter->first();
+	while (edgeIter->isDone() == false)
+	{
+		Edge *currentEdge = edgeIter->currentItem();
+		cout << currentEdge->getName() << endl;
+
+		edgeIter->next();
 	}
+
+	//Deleting all memory used
+	//Deletes the graph and al the Area in the graph
+	delete graph;
+
+	delete edgeIter;
+	delete areaIter;
 	return 0;
 }
 
