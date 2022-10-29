@@ -56,29 +56,29 @@ int main()
 	{
 		cout << a->getName() << endl;
 	}
-	// cout << endl
-	// 	 << "Print all the areas:" << endl;
-	// AreaIterator *areaIter = graph->createAreaIterator();
-	// areaIter->first();
-	// while (areaIter->isDone() == false)
-	// {
-	// 	Area *currentArea = areaIter->currentItem();
-	// 	cout << currentArea->getName() << endl;
+	cout << endl
+		 << "Print all the areas:" << endl;
+	AreaIterator *areaIter = graph->createAreaIterator();
+	areaIter->first();
+	while (areaIter->isDone() == false)
+	{
+		Area *currentArea = areaIter->currentItem();
+		cout << currentArea->getName() << endl;
 
-	// 	areaIter->next();
-	// }
+		areaIter->next();
+	}
 
-	// cout << endl
-	// 	 << "Print all the Edges:" << endl;
-	// EdgeIterator *edgeIter = graph->createEdgeIterator();
-	// edgeIter->first();
-	// while (edgeIter->isDone() == false)
-	// {
-	// 	Edge *currentEdge = edgeIter->currentItem();
-	// 	cout << currentEdge->getName() << endl;
+	cout << endl
+		 << "Print all the Edges:" << endl;
+	EdgeIterator *edgeIter = graph->createEdgeIterator();
+	edgeIter->first();
+	while (edgeIter->isDone() == false)
+	{
+		Edge *currentEdge = edgeIter->currentItem();
+		cout << currentEdge->getName() << endl;
 
-	// 	edgeIter->next();
-	// }
+		edgeIter->next();
+	}
 	return 0;
 }
 
