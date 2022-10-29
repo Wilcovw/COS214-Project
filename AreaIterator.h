@@ -12,7 +12,15 @@ class WarMap;
 class AreaIterator : public MapIterator
 {
 private:	
+	/**
+	 * @brief Stores the graph which to iterate over
+	 * 
+	 */
 	WarMap *graph = nullptr;
+	/**
+	 * @brief Stores an iterator of type Area, to keep track of the iteration
+	 * 
+	 */
 	list<Area *>::iterator trav;
 public:
 	/**
