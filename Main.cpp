@@ -44,9 +44,9 @@ void testAllTroops() {
     delete testArea;
 };
 
-int main() {
-    cout << "=============================Start testing=============================" << endl;
-    testAllTroops();
+void testVehiclesAndFactories() {
+    
+    
 
     //Vehicles and Factories
     TestVehiclesCloneAndFactories *testVehiclesCloneAndFactories = new TestVehiclesCloneAndFactories();
@@ -56,6 +56,14 @@ int main() {
     testVehiclesCloneAndFactories->testAddingToDevList();
 
     delete testVehiclesCloneAndFactories;
+};
+
+int main() {
+    cout << "=============================Start testing=============================" << endl;
+    testAllTroops();
+    cout << "Troops Success!" << endl;
+    testVehiclesAndFactories();
+    cout << "Vehicles and Factories Success!" << endl;
     cout << "=============================End testing=============================" << endl;
     return 0;
-};
+}

@@ -10,6 +10,8 @@
 
 class AquaticVehicleFactory : public Factory{
 public:
+    AquaticVehicleFactory() {};
+    virtual ~AquaticVehicleFactory() {};
     Vehicles* createVehicle(string model, double HP, double damage, double speed);
 
 };

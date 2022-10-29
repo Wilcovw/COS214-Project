@@ -33,8 +33,6 @@ void TestVehiclesCloneAndFactories::testVehicles(int numVehicles){
             case 2:
                 vehicles[i] = new AquaticVehicles("BO-AT", 100, 30, 50);
                 break;
-
-
         }
         vehicles[i]->print();
     }
@@ -84,8 +82,9 @@ void TestVehiclesCloneAndFactories::testFactory(int numVehicles){
     for (int i = 0; i < numFactories; ++i) {
         delete f[i];
     }
-
+    
     delete clone;
+    
 }
 
 void TestVehiclesCloneAndFactories::testMultipleClones(int numClones){
@@ -101,9 +100,9 @@ void TestVehiclesCloneAndFactories::testMultipleClones(int numClones){
 
     //deallocate
     for (int i = 0; i < numClones; ++i) {
-        delete[] clones[i];
+        delete clones[i];
     }
-    delete clones;
+    delete[] clones;
     delete v;
 
 }

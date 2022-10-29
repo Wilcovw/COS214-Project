@@ -13,6 +13,9 @@ private:
     Vehicles* vehicle;
 
 public:
+    Factory() {};
+    virtual ~Factory() {};
+
     /**
      * @param model
      * @param HP

@@ -10,6 +10,9 @@
 
 class AircraftFactory : public Factory{
 public:
+    AircraftFactory() {};
+    virtual ~AircraftFactory(){}
+
     Vehicles* createVehicle(string model, double HP, double damage, double speed);
 
 };

@@ -10,6 +10,8 @@
 
 class LandVehicleFactory : public Factory {
 public:
+    LandVehicleFactory() {};
+    virtual ~LandVehicleFactory() {};
     Vehicles* createVehicle(string model, double HP, double damage, double speed);
 
 };
