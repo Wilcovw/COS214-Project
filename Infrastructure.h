@@ -3,7 +3,7 @@
 #include "Area.h"
 
 class Infrastructure {
-    private:
+    protected:
         double HP;
         Area* location;
     public:
