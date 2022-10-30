@@ -17,16 +17,27 @@ public:
     virtual ~Factory() {};
 
     /**
+     * @brief Creates Vehicle
      * @param model
      * @param HP
      * @param damage
      * @param speed
-     * @return
-     * Vehicle is returned with parameters given as attributes
+     * @return a single vehicle is returned, with parameters given as attributes
      */
     virtual Vehicles* createVehicle(string model, double HP, double damage, double speed) = 0;
+    /**
+     * @brief sets the private variable of this class to passed in parameter
+     * @param v
+     */
     void setVehicle(Vehicles *v);
+    /**
+     * @brief returns the private variable of this class.
+     * @return vehicle
+     */
     Vehicles *getVehicle();
+    /**
+     * @brief destructor
+     */
     void destroy();
 };
 

@@ -10,9 +10,22 @@
 
 class AircraftFactory : public Factory{
 public:
+    /**
+     * @brief default constructor
+     */
     AircraftFactory() {};
+    /**
+     * @brief virtual destructor
+     */
     virtual ~AircraftFactory(){}
-
+    /**
+     * @brief creates a vehicle with passed in parameters as values and returns that vehicle
+     * @param model
+     * @param HP
+     * @param damage
+     * @param speed
+     * @return vehicle with passed in parameters
+     */
     Vehicles* createVehicle(string model, double HP, double damage, double speed);
 
 };

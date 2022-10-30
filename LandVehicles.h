@@ -13,7 +13,7 @@ using namespace std;
 class LandVehicles : public Vehicles {
 public:
     /**
-     * @brief Constructor fot LandVehicles class
+     * @brief Constructor for LandVehicles class
      * @param model
      * @param hp
      * @param damage

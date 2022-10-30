@@ -5,6 +5,7 @@
 #ifndef FACTORY_AND_OBSERVER_VEHICLES_H
 #define FACTORY_AND_OBSERVER_VEHICLES_H
 #include <string>
+#include "Infrastructure.h"
 
 class Troops;
 
@@ -82,11 +83,20 @@ public:
      */
     void print();
     /**
-     * @brief takes in the enemy that should be attacked as the parameter
+     * @brief takes in the an enemy vehicle that should be attacked as the parameter
      * @param theEnemy
      */
     void attack(Vehicles *theEnemy);
+    /**
+     * @brief takes in the an enemy troop that should be attacked as the parameter
+     * @param theEnemy
+     */
     void attack(Troops *theEnemy);
+    /**
+     * @brief takes in the an enemy building that should be attacked as the parameter
+     * @param theEnemy
+     */
+    void attack(Infrastructure *theEnemy);
 
 
 };

@@ -98,3 +98,9 @@ void Vehicles::attack(Troops *theEnemy) {
         takeDamage(theEnemy->takeDamage(this->getDamage()));
     }
 }
+
+void Vehicles::attack(Infrastructure *theEnemy) {
+    while (theEnemy->getHP() > 0) {
+        theEnemy->takeDamage(this->getDamage());
+    }
+}
