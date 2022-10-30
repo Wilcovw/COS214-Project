@@ -17,10 +17,12 @@ class Troops {
         void attack(Vehicles*);
         double takeDamage(double);
         double getHP();
+        Area* getLocation();
+        TroopType* getType();
         double getDamage();
+        double getMaxHP();
+        double getSpeed();
         Troops * clone();
         Troops** clone(int);
-
-        ;
 };
 #endif

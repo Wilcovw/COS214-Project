@@ -46,6 +46,23 @@ double Troops::getHP() {
     return HP;
 }
 
+Area* Troops::getLocation() {
+    return location;
+}
+
+TroopType* Troops::getType() {
+    return type;
+}
+
+double Troops::getMaxHP() {
+    return type->getMaxHP();
+}
+
+double Troops::getSpeed() {
+    return type->getSpeed();
+}
+
+
 double Troops::getDamage() {
     return type->getDamage();
 }
