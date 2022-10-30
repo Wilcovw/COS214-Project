@@ -1,7 +1,3 @@
-//
-// Created by wilco on 2022/10/16.
-//
-
 #ifndef FACTORY_AND_OBSERVER_RESEARCHANDDEVELOPMENTCENTRE_H
 #define FACTORY_AND_OBSERVER_RESEARCHANDDEVELOPMENTCENTRE_H
 
@@ -9,19 +5,37 @@
 #include "Infrastructure.h"
 #include "Vehicles.h"
 
-class ResearchAndDevelopmentCentre : public Infrastructure {
+class ResearchAndDevelopmentCentre : public Infrastructure
+{
 protected:
-    vector<Vehicles*> vehicleToBeUpgraded;
-public:
-    //developing per vehicle
-    void startDeveloping();
-    void stopDeveloping();
-    void notifyDevelop();
-    void destroy();
-    void printList();
-    void addToList(Vehicles *v);
+    vector<Vehicles *> vehicleToBeUpgraded;
 
+public:
+    /**
+     * @brief starts the developing of upgrades for vehicles
+     */
+    void startDeveloping();
+    /**
+     * @brief stops the development of upgrades for vehicles
+     */
+    void stopDeveloping();
+    /**
+     * @brief Notifies the vehicles in  the list that their upgrade() functions have to be called
+     */
+    void notifyDevelop();
+    /**
+     * @brief Destructor for the class
+     */
+    void destroy();
+    /**
+     * @brief prints vehicleToBeUpgraded vector
+     */
+    void printList();
+    /**
+     * @brief adds v to vehicleToBeUpgraded vector
+     * @param v
+     */
+    void addToList(Vehicles *v);
 };
 
-
-#endif //FACTORY_AND_OBSERVER_RESEARCHANDDEVELOPMENTCENTRE_H
+#endif // FACTORY_AND_OBSERVER_RESEARCHANDDEVELOPMENTCENTRE_H

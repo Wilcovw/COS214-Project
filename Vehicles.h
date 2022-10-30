@@ -6,16 +6,19 @@
 #define FACTORY_AND_OBSERVER_VEHICLES_H
 #include <string>
 
-class Troops;
-
 using namespace std;
-class Vehicles {
+
+class Infrastructure;
+class Troops;
+class Vehicles
+{
 private:
     string model;
     double HP;
     double damage;
     double speed;
     int level;
+
 protected:
     string type;
 
@@ -57,17 +60,17 @@ public:
      *
      * @return a clone of the current vehicle
      */
-    Vehicles* clone();
+    Vehicles *clone();
     /**
      *
      * @param n
      * @return an array of size n, which is how many clones should be made
      */
-    Vehicles** clone(int n);
+    Vehicles **clone(int n);
     /**
      * @brief method that calls the vehicle's increments level method
      */
-    virtual void update();  //ready for upgrade
+    virtual void update(); // ready for upgrade
     /**
      * @brief decreases HP according to the damage done
      * @param dmg
@@ -82,15 +85,20 @@ public:
      */
     void print();
     /**
-     * @brief takes in the enemy that should be attacked as the parameter
+     * @brief takes in the an enemy vehicle that should be attacked as the parameter
      * @param theEnemy
      */
     void attack(Vehicles *theEnemy);
+    /**
+     * @brief takes in the an enemy troop that should be attacked as the parameter
+     * @param theEnemy
+     */
     void attack(Troops *theEnemy);
-
-
+    /**
+     * @brief takes in the an enemy building that should be attacked as the parameter
+     * @param theEnemy
+     */
+    void attack(Infrastructure *theEnemy);
 };
 
-#include "Troops.h"
-
-#endif //FACTORY_AND_OBSERVER_VEHICLES_H
+#endif // FACTORY_AND_OBSERVER_VEHICLES_H

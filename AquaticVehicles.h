@@ -1,6 +1,3 @@
-//
-// Created by wilco on 2022/10/16.
-//
 
 #ifndef FACTORY_AND_OBSERVER_AQUATICVEHICLES_H
 #define FACTORY_AND_OBSERVER_AQUATICVEHICLES_H
@@ -10,7 +7,8 @@
 #include "ResearchAndDevelopmentCentre.h"
 
 using namespace std;
-class AquaticVehicles : public Vehicles {
+class AquaticVehicles : public Vehicles
+{
 public:
     /**
      * @brief Constructor for AquaticVehicles class
@@ -31,5 +29,4 @@ public:
     void readyToUpgrade(ResearchAndDevelopmentCentre *r);
 };
 
-
-#endif //FACTORY_AND_OBSERVER_AQUATICVEHICLES_H
+#endif // FACTORY_AND_OBSERVER_AQUATICVEHICLES_H

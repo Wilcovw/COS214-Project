@@ -1,7 +1,3 @@
-//
-// Created by wilco on 2022/10/16.
-//
-
 #ifndef FACTORY_AND_OBSERVER_AIRCRAFT_H
 #define FACTORY_AND_OBSERVER_AIRCRAFT_H
 
@@ -10,10 +6,11 @@
 #include "ResearchAndDevelopmentCentre.h"
 
 using namespace std;
-class Aircraft : public Vehicles{
+class Aircraft : public Vehicles
+{
 public:
     /**
-     * @brief Constructor fot Aircraft class
+     * @brief Constructor for Aircraft class
      * @param model
      * @param hp
      * @param damage
@@ -31,5 +28,4 @@ public:
     void readyToUpgrade(ResearchAndDevelopmentCentre *r);
 };
 
-
-#endif //FACTORY_AND_OBSERVER_AIRCRAFT_H
+#endif // FACTORY_AND_OBSERVER_AIRCRAFT_H

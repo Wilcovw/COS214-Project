@@ -7,6 +7,7 @@
 #include "WarEntities.h"
 #include "TrainingCamp.h"
 #include "Generals.h"
+#include "Infrastructure.h"
 #include "LandVehicleFactory.h"
 #include <iostream>
 #include <string>
