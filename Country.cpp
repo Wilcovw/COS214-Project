@@ -11,7 +11,6 @@ Country::Country(std::string name, Communication *t)
     tele->storeMe(this);
 
     numCitzenGroups = 5 + (rand() % 10);
-
     citizens = new Citizens *[numCitzenGroups];
     for (int i = 0; i < numCitzenGroups; i++)
     {
