@@ -3,6 +3,7 @@
 #include "Area.h"
 #include "Infrastructure.h"
 #include "TroopType.h"
+#include "Citizens.h"
 
 class Vehicles;
 class Troops {
@@ -10,8 +11,9 @@ class Troops {
         double HP;
         Area* location;
         TroopType* type;
+        Citizens* associatedCitizens;
     public:
-        Troops(double,Area* ,TroopType*);
+        Troops(double,Area* ,TroopType*, Citizens*);
         virtual ~Troops() {};
         void attack(Troops*);
         void attack(Infrastructure*);

@@ -4,8 +4,9 @@
 
 class Navy : public Troops {
     public:
-        Navy(Area*, TroopType*);
+        Navy(Area*, TroopType*, Citizens*);
         virtual ~Navy();
+
 };
 
 #endif

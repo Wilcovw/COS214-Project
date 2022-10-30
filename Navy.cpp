@@ -3,7 +3,7 @@
 #include "Navy.h"
 
 //Values to be changed
-Navy::Navy(Area* theLocation, TroopType* theType) : Troops(0, theLocation, theType) {
+Navy::Navy(Area* theLocation, TroopType* theType, Citizens* theCitizen) : Troops(0, theLocation, theType, theCitizen) {
 
 }
 

@@ -1,6 +1,7 @@
 #include "Country.h"
 #include "Relationship.h"
 #include "Communication.h"
+#include "WarEntities.h"
 #include <iostream>
 #include <cstdlib>
 

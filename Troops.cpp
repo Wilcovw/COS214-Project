@@ -9,108 +9,91 @@
 #include "Soldiers.h"
 #include "Vehicles.h"
 
-Troops::Troops(double theHP, Area *theArea, TroopType *theType)
-{
+Troops::Troops(double theHP, Area* theArea, TroopType * theType, Citizens* theCitizen) {
+    associatedCitizens = theCitizen;   
     HP = theHP;
     location = theArea;
     type = theType;
 }
 
-void Troops::attack(Troops *theEnemy)
-{
-    while (HP > 0 && theEnemy->HP > 0)
-    {
+void Troops::attack(Troops * theEnemy) {
+    while(HP > 0 && theEnemy->HP > 0) {
         takeDamage(theEnemy->takeDamage(type->getDamage()));
     }
 }
 
-void Troops::attack(Infrastructure *theBuilding)
-{
-    while (theBuilding->getHP() > 0)
-    {
+void Troops::attack(Infrastructure* theBuilding) {
+    while (theBuilding->getHP() > 0) {
         theBuilding->takeDamage(type->getDamage());
     }
 }
 
-void Troops::attack(Vehicles *theVehicle)
-{
-    while (HP > 0 && theVehicle->getHP() > 0)
-    {
+void Troops::attack(Vehicles* theVehicle) {
+    while(HP > 0 && theVehicle->getHP() > 0) {
         takeDamage(theVehicle->takeDamage(type->getDamage()));
     }
 }
 
-double Troops::takeDamage(double theDamage)
-{
+double Troops::takeDamage(double theDamage) {
     HP -= theDamage;
-    if (HP > 0)
-    {
+    if(HP > 0) {
         return type->getDamage();
-    }
-    else
-    {
-        // TODO: Set functions to change status to dead
+    } else {
+        //TODO: Set functions to change status to dead
     }
     return 0;
 }
-
-double Troops::getHP()
-{
+ 
+double Troops::getHP() {
     return HP;
 }
 
-Area *Troops::getLocation()
-{
-    return location;
+Area* Troops::getLocation() {
+    return this->location;
 }
 
-TroopType *Troops::getType()
-{
+TroopType* Troops::getType() {
     return type;
 }
 
-double Troops::getMaxHP()
-{
+double Troops::getMaxHP() {
     return type->getMaxHP();
 }
 
-double Troops::getSpeed()
-{
+double Troops::getSpeed() {
     return type->getSpeed();
 }
 
-double Troops::getDamage()
-{
+
+double Troops::getDamage() {
     return type->getDamage();
 }
 
-Troops *Troops::clone()
-{
-    // Possiblility that by cloning there is not enough citizens. Check with francios how to fix this
-    if (type->getType() == ::theGenerals)
-    {
-        return new Troops(this->HP, this->location, new Generals());
+Troops * Troops::clone() {
+    Citizens * citizens = new Citizens();
+    if(associatedCitizens->getStatus() == "Enlisted") {
+        citizens->setStatus(new Enlisted());
+    } else if(associatedCitizens->getStatus() == "Stationed") {
+        citizens->setStatus(new Stationed());
+    } else if(associatedCitizens->getStatus() == "Fighting") {
+        citizens->setStatus(new Fighting());
     }
-    else if (type->getType() == ::theMedics)
-    {
-        return new Troops(this->HP, this->location, new Medics());
-    }
-    else if (type->getType() == ::theSoldiers)
-    {
-        return new Troops(this->HP, this->location, new Soldiers());
+    if(type->getType() == ::theGenerals) {
+        return new Troops(this->HP, this->location, new Generals(), citizens);
+    } else if(type->getType() == ::theMedics) {
+        return new Troops(this->HP, this->location, new Medics(), citizens);
+    } else if(type->getType() == ::theSoldiers) {
+        return new Troops(this->HP, this->location, new Soldiers(), citizens);
     }
     return nullptr;
 }
 
-Troops **Troops::clone(int n)
-{
-    if (n < 1)
-    {
+Troops** Troops::clone(int n) {
+    if(n < 1) {
         n = 1;
     }
-    Troops **troops = new Troops *[n];
-    for (int i = 0; i < n; i++)
-    {
+    Troops** troops = new Troops* [n];
+    for(int i = 0; i < n; i++) {
         troops[i] = clone();
     }
     return troops;

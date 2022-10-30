@@ -2,12 +2,24 @@
 #define GROUNDTROOPTRAINING_P
 #include "GroundTroopTraining.h"
 
-GroundTroopTraining::GroundTroopTraining() : TrainingCamp() {
+GroundTroopTraining::GroundTroopTraining(double theHP, Area* theLocation)  : TrainingCamp(theHP, theLocation) {
 
 }
 
 GroundTroopTraining::~GroundTroopTraining() {
     
+}
+
+bool GroundTroopTraining::removeTroop(Troops *theTroops) {
+    return false;
+}
+
+void GroundTroopTraining::addTroop(Troops *theTroops) {
+
+}
+
+Troops** GroundTroopTraining::getTroops() {
+    return this->troops;
 }
 
 void GroundTroopTraining::startTraining(Troops* theTroops) {
@@ -19,4 +31,14 @@ void GroundTroopTraining::startTraining(Troops* theTroops) {
     troops[numTroops - 1] = theTroops;
 }
 
+Troops* GroundTroopTraining::startDrafting(Citizens* c) {
+    Troops* newTroops = nullptr;
+    if (c->getStatus() == "Enlisted") {
+        newTroops = new GroundTroops(this->location, new Soldiers(), c);
+        c->changeStatus();
+        return newTroops;
+    }
+    
+    return newTroops;
+}
 #endif

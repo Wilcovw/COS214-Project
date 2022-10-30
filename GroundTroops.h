@@ -4,7 +4,7 @@
 
 class GroundTroops : public Troops {
     public:
-        GroundTroops(Area*, TroopType*);
+        GroundTroops(Area*, TroopType*, Citizens*);
         virtual ~GroundTroops();
 };
 

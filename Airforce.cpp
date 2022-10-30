@@ -3,7 +3,7 @@
 #include "Airforce.h"
 
 //Values to be changed
-Airforce::Airforce(Area* theLocation, TroopType* theType) : Troops(0, theLocation, theType) {
+Airforce::Airforce(Area* theLocation, TroopType* theType, Citizens* theCitizens) : Troops(0, theLocation, theType, theCitizens) {
 
 }
 

@@ -4,9 +4,13 @@
 
 class GroundTroopTraining : public TrainingCamp {
     public:
-        GroundTroopTraining();
+        GroundTroopTraining(double HP, Area* location);
         virtual ~GroundTroopTraining();
         void startTraining(Troops*);
+        virtual void addTroop(Troops *theTroops);
+        virtual bool removeTroop(Troops *theTroops);
+        virtual Troops** getTroops();
+        Troops* startDrafting(Citizens*);
 };
 
 #endif

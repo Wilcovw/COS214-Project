@@ -3,10 +3,10 @@
 #include "AssociatedCountries.h"
 #include "Citizens.h"
 #include "Area.h"
-#include "WarEntities.h"
 #include <string>
 #include <vector>
 
+class WarEntities;
 class Area;
 /**
  * @brief Country takes the role of the Leaf class in the composite pattern and ConcreteColleague in the Mediator pattern

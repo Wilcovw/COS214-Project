@@ -4,7 +4,7 @@
 
 class Airforce : public Troops {
     public:
-        Airforce(Area*, TroopType*);
+        Airforce(Area*, TroopType*, Citizens*);
         virtual ~Airforce();
 };
 

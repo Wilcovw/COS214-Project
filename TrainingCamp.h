@@ -1,18 +1,22 @@
 #ifndef TRAININGCAMP_H
 #define TRAININGCAMP_H
 #include "Troops.h"
+#include "Citizens.h"
+#include "GroundTroops.h"
+#include "Navy.h"
+#include "Airforce.h"
+#include "Soldiers.h"
 
-class TrainingCamp
-{
+class TrainingCamp : public Infrastructure {
 protected:
     Troops **troops;
     int numTroops;
-
 public:
-    TrainingCamp(){};
+    TrainingCamp(double, Area*);
     virtual ~TrainingCamp(){};
-    void addTroop(Troops *theTroops);
-    bool removeTroop(Troops *theTroops);
+    virtual void addTroop(Troops *theTroops) = 0;
+    virtual bool removeTroop(Troops *theTroops) = 0;
+    virtual Troops** getTroops() = 0;
 };
 
 #endif

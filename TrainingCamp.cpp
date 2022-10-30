@@ -5,6 +5,10 @@
 #include "NavyTraining.h"
 #include "AirforceTraining.h"
 
+TrainingCamp::TrainingCamp(double theHP , Area* theLocation) : Infrastructure(theHP, theLocation) {
+
+}
+
 void TrainingCamp::addTroop(Troops *theTroops)
 {
     Troops **temp = troops;

@@ -4,8 +4,13 @@
 
 class NavyTraining : public TrainingCamp {
     public:
-        NavyTraining();
+        NavyTraining(double, Area*);
         virtual ~NavyTraining();
+        virtual void addTroop(Troops *theTroops);
+        virtual bool removeTroop(Troops *theTroops);
+        virtual Troops** getTroops();
+        void startTraining();
+        Troops* startDrafting(Citizens*);
 };
 
 #endif
