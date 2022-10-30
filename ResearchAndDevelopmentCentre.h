@@ -11,6 +11,7 @@ protected:
     vector<Vehicles *> vehicleToBeUpgraded;
 
 public:
+    ResearchAndDevelopmentCentre(double hp, Area *area) : Infrastructure(hp, area){};
     /**
      * @brief starts the developing of upgrades for vehicles
      */

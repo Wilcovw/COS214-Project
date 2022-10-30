@@ -1,18 +1,20 @@
-// #ifndef ROAD_H
-// #define ROAD_H
+#ifndef ROAD_H
+#define ROAD_H
 
-// #include <iostream>
-// #include "Infrastructure.h"
+#include <iostream>
+#include "Infrastructure.h"
 
-// using namespace std;
+using namespace std;
 
-// class Road : public Infrastructure{
-//     private:
-//         Edge **theRoad = new Edge*[2];
-//         double distance;
-//     public:
-//         Road(Area *destination, string name);
-//         void destroy();
-// };
+class Road : public Infrastructure
+{
+private:
+    Edge **theRoad = new Edge *[2];
+    double distance;
 
-// #endif
+public:
+    Road(Area *destination, string name, double hp);
+    void destroy();
+};
+
+#endif

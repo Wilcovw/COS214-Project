@@ -38,7 +38,7 @@ int main()
 	TroopType *general = new Generals();
 	Vehicles *vehicle = new Vehicles("Gen 3", 10.5, 3.5, 20);
 	Troops *troop = new Troops(10, a1, general);
-	Infrastructure *infrastructure = new LandVehicleFactory();
+	Infrastructure *infrastructure = new LandVehicleFactory(15, a1);
 
 	graph->addArea(a1);
 	graph->addArea(a2);
@@ -63,105 +63,103 @@ int main()
 
 		std::cout << "Vehicles in England: ";
 		england->getWarEntities()->getVehicles().at(0)->print();
-		std::cout << "Troop HP in England: ";
-		england->getWarEntities()->getTroops().at(0)->getHP();
-		std::cout << "Infrastructure HP in England: ";
-		england->getWarEntities()->getInfrastructure().at(0)->getHP();
+		std::cout << "Troop HP in England: " << england->getWarEntities()->getTroops().at(0)->getHP() << std::endl;
+		std::cout << "Infrastructure HP in England: " << england->getWarEntities()->getInfrastructure().at(0)->getHP() << "\n";
 	}
 
 	// testing changing citizen state
-	{
-		for (int i = 0; i < 5; i++)
-		{
-			citizens[i]->changeStatus();
-			if (i == 3)
-			{
-				citizens[i]->die();
-			}
-		}
+	// {
+	// 	for (int i = 0; i < 5; i++)
+	// 	{
+	// 		citizens[i]->changeStatus();
+	// 		if (i == 3)
+	// 		{
+	// 			citizens[i]->die();
+	// 		}
+	// 	}
 
-		for (int i = 0; i < germany->getNumCitzenGroups(); i++)
-		{
-			cout << "Group " << i << " citizens current state: " << citizens[i]->getStatus() << endl;
-		}
-	}
+	// 	for (int i = 0; i < germany->getNumCitzenGroups(); i++)
+	// 	{
+	// 		cout << "Group " << i << " citizens current state: " << citizens[i]->getStatus() << endl;
+	// 	}
+	// }
 
 	// testing if areas store controlling countries correctly and the other way around
-	{
-		std::cout << "The country that controls area a1 is : " << a1->getControllingCountry()->getName() << std::endl;
-		a1->setControllingCountry(england);
-		std::cout << "The country that controls area a1 is : " << a1->getControllingCountry()->getName() << std::endl;
-		std::cout << england->printAreas();
-	}
+	// {
+	// 	std::cout << "The country that controls area a1 is : " << a1->getControllingCountry()->getName() << std::endl;
+	// 	a1->setControllingCountry(england);
+	// 	std::cout << "The country that controls area a1 is : " << a1->getControllingCountry()->getName() << std::endl;
+	// 	std::cout << england->printAreas();
+	// }
 
 	// testing the accessibility of areas in the graph
-	{
-		isAccessible(a1, a2, graph);
-		isAccessible(a3, a4, graph);
-		isAccessible(a1, a3, graph);
-		isAccessible(a1, a4, graph);
-		// From a4 to a1
-		isAccessible(a4, a1, graph);
-		// From a5 to a1
+	// {
+	// 	isAccessible(a1, a2, graph);
+	// 	isAccessible(a3, a4, graph);
+	// 	isAccessible(a1, a3, graph);
+	// 	isAccessible(a1, a4, graph);
+	// 	// From a4 to a1
+	// 	isAccessible(a4, a1, graph);
+	// 	// From a5 to a1
 
-		isAccessible(a1, a5, graph);
+	// 	isAccessible(a1, a5, graph);
 
-		cout << endl;
+	// 	cout << endl;
 
-		isAccessible(a2, a4, graph, "Harbour");
-		isAccessible(a1, a4, graph, "Harbour");
-		isAccessible(a1, a3, graph, "Harbour");
-		isAccessible(a2, a3, graph, "Harbour");
-		// From a4 to a1 via Runway
-		isAccessible(a4, a1, graph, "Runway");
-		// From a4 to a1 via Harbour
-		isAccessible(a5, a1, graph, "Harbour");
-	}
+	// 	isAccessible(a2, a4, graph, "Harbour");
+	// 	isAccessible(a1, a4, graph, "Harbour");
+	// 	isAccessible(a1, a3, graph, "Harbour");
+	// 	isAccessible(a2, a3, graph, "Harbour");
+	// 	// From a4 to a1 via Runway
+	// 	isAccessible(a4, a1, graph, "Runway");
+	// 	// From a4 to a1 via Harbour
+	// 	isAccessible(a5, a1, graph, "Harbour");
+	// }
 
 	// testing shortest path algortihm
 
-	list<Area *> path = graph->shortestPath(a1, a5);
-	cout << endl
-		 << "Shortest path from " << a1->getName() << " to " << a5->getName() << endl
-		 << endl;
-	cout << "Size: " << path.size() << endl;
-	cout << "Hello" << endl;
-	for (auto a : path)
-	{
-		cout << a->getName() << endl;
-	}
-	cout << endl
-		 << "Print all the areas:" << endl;
-	AreaIterator *areaIter = graph->createAreaIterator();
-	areaIter->first();
-	while (areaIter->isDone() == false)
-	{
-		Area *currentArea = areaIter->currentItem();
-		cout << currentArea->getName() << endl;
+	// list<Area *> path = graph->shortestPath(a1, a5);
+	// cout << endl
+	// 	 << "Shortest path from " << a1->getName() << " to " << a5->getName() << endl
+	// 	 << endl;
+	// cout << "Size: " << path.size() << endl;
+	// cout << "Hello" << endl;
+	// for (auto a : path)
+	// {
+	// 	cout << a->getName() << endl;
+	// }
+	// cout << endl
+	// 	 << "Print all the areas:" << endl;
+	// AreaIterator *areaIter = graph->createAreaIterator();
+	// areaIter->first();
+	// while (areaIter->isDone() == false)
+	// {
+	// 	Area *currentArea = areaIter->currentItem();
+	// 	cout << currentArea->getName() << endl;
 
-		areaIter->next();
-	}
+	// 	areaIter->next();
+	// }
 
-	// printing out all edges in graph
+	// // printing out all edges in graph
 
-	cout << endl
-		 << "Print all the Edges:" << endl;
-	EdgeIterator *edgeIter = graph->createEdgeIterator();
-	edgeIter->first();
-	while (edgeIter->isDone() == false)
-	{
-		Edge *currentEdge = edgeIter->currentItem();
-		cout << currentEdge->getName() << endl;
+	// cout << endl
+	// 	 << "Print all the Edges:" << endl;
+	// EdgeIterator *edgeIter = graph->createEdgeIterator();
+	// edgeIter->first();
+	// while (edgeIter->isDone() == false)
+	// {
+	// 	Edge *currentEdge = edgeIter->currentItem();
+	// 	cout << currentEdge->getName() << endl;
 
-		edgeIter->next();
-	}
+	// 	edgeIter->next();
+	// }
 
-	// Deleting all memory used
-	// Deletes the graph and al the Area in the graph
-	delete graph;
+	// // Deleting all memory used
+	// // Deletes the graph and al the Area in the graph
+	// delete graph;
 
-	delete edgeIter;
-	delete areaIter;
+	// delete edgeIter;
+	// delete areaIter;
 	return 0;
 }
 

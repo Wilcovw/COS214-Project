@@ -1,7 +1,9 @@
 #include "Infrastructure.h"
 
-Infrastructure::Infrastructure()
+Infrastructure::Infrastructure(double hp, Area *area)
 {
+    location = area;
+    HP = hp;
 }
 
 void Infrastructure::takeDamage(double theDamage)

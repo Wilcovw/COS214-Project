@@ -4,7 +4,7 @@
 
 class Infrastructure
 {
-private:
+protected:
     double HP;
     Area *location;
 
@@ -12,11 +12,18 @@ public:
     /**
      * @brief default constructor
      */
-    Infrastructure();
+    // Infrastructure(){};
     /**
-     * @brief Returns class private variable HP
-     * @return HP
+     * @brief Construct a new Infrastructure object
+     *
+     * @param area
+     * @param hp
      */
+    Infrastructure(double hp, Area *area);
+    // /**
+    //  * @brief Returns class private variable HP
+    //  * @return HP
+    //  */
     double getHP();
     /**
      * @brief destructor

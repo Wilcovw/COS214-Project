@@ -8,9 +8,9 @@ class LandVehicleFactory : public Factory
 {
 public:
     /**
-     * @brief default constructor
+     * @brief constructor
      */
-    LandVehicleFactory(){};
+    LandVehicleFactory(double hp, Area *area) : Factory(hp, area){};
     /**
      * @brief virtual destructor
      */

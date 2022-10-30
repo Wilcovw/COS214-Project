@@ -10,7 +10,7 @@ private:
     Vehicles *vehicle;
 
 public:
-    Factory(){};
+    Factory(double hp, Area *area) : Infrastructure(hp, area){};
     virtual ~Factory(){};
 
     /**

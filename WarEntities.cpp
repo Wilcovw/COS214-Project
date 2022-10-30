@@ -2,7 +2,6 @@
 
 WarEntities::WarEntities()
 {
-    std::cout << "New WarEntities" << std::endl;
 }
 WarEntities::~WarEntities()
 {
