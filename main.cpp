@@ -56,7 +56,7 @@ void testAllTroops() {
     delete testGroundTroops;
     delete testNavy;
     delete testAirforce;
-    delete testArea;
+	delete testCountry;
 };
 
 int main() {
