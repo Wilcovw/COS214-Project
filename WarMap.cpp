@@ -87,7 +87,7 @@ void WarMap::reset()
 	}
 	for (auto a : areasWT)
 	{
-		a->visited == false;
+		a->visited = false;
 	}
 }
 

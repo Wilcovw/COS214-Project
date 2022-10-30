@@ -1,4 +1,3 @@
-
 #ifndef INFASTRUCTURE_H
 #define INFASTRUCTURE_H
 #include "Area.h"
