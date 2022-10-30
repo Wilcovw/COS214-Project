@@ -32,7 +32,7 @@ public:
      *
      * @param al  The country to be added to the tree
      */
-    virtual void addAssociatedCountries(AssociatedCountries *al) = 0;
+    virtual void addAssociatedCountries(AssociatedCountries *al){};
     /**
      * @brief Remove a country from the tree of associated couintries
      *
@@ -49,7 +49,7 @@ public:
      * @brief Destroys the dynbamic objects in the object
      *
      */
-    // virtual ~AssociatedCountries();
+    virtual ~AssociatedCountries(){};
     /**
      * @brief Allows this object to receive messages from other AssociatedCountries objects
      *
