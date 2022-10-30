@@ -7,6 +7,7 @@
 #include "Generals.h"
 #include "Medics.h"
 #include "Soldiers.h"
+#include "Vehicles.h"
 
 Troops::Troops(double theHP, Area* theArea, TroopType * theType) {
     HP = theHP;

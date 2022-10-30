@@ -3,6 +3,7 @@
 #include "Area.h"
 #include "Infrastructure.h"
 #include "TroopType.h"
+
 class Vehicles;
 class Troops {
     protected:

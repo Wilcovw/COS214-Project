@@ -1,4 +1,6 @@
 #include "Area.h"
+#include "Country.h"
+
 
 Area::Area(string name, Country *controllingCountry)
 {
