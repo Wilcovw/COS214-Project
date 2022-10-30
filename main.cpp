@@ -47,14 +47,16 @@ int main(){
 
 	//delete warMap and Areas in it
 	delete warMap;
-	//Delete all countries
-	delete germany;
-	delete france;
-	delete spain;
-	delete italy;
-	delete poland;
-	delete austria;
-	delete hungary;
+	//Delete all countries - Not necessary since WapMap already does that
+
+	// delete germany;
+	// delete france;
+	// delete spain;
+	// delete italy;
+	// delete poland;
+	// delete austria;
+	// delete hungary;
+	
 
 
 
