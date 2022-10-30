@@ -2,16 +2,16 @@
 #define INFRASTRUCTURE_CPP
 #include "Infrastructure.h"
 
-
-Infrastructure::Infrastructure() {
-
+Infrastructure::Infrastructure()
+{
 }
 
-void Infrastructure::takeDamage(double theDamage) {
-    
+void Infrastructure::takeDamage(double theDamage)
+{
 }
 
-double Infrastructure::getHP() {
+double Infrastructure::getHP()
+{
     return 0;
 }
 

@@ -9,6 +9,7 @@ Country::Country(std::string name, Communication *t)
     tele = t;
     this->name = name;
     tele->storeMe(this);
+    entities = new WarEntities();
 
     numCitzenGroups = 5 + (rand() % 10);
 
@@ -68,10 +69,11 @@ int Country::getNumCitzenGroups()
 {
     return numCitzenGroups;
 }
-// WarEntities Country::getWarEntities()
-// {
-//     return entities;
-// }
+
+WarEntities *Country::getWarEntities()
+{
+    return entities;
+}
 
 Country::~Country()
 {

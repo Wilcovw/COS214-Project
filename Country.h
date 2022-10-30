@@ -3,6 +3,7 @@
 #include "AssociatedCountries.h"
 #include "Citizens.h"
 #include "Area.h"
+#include "WarEntities.h"
 #include <string>
 #include <vector>
 
@@ -33,7 +34,7 @@ private:
      * @brief All the WarEntities the country owns
      *
      */
-    // WarEntities* entities;
+    WarEntities *entities;
     /**
      * @brief All the areas that this country controls
      *
@@ -94,7 +95,7 @@ public:
      *
      * @return WarEntities*
      */
-    // WarEntities* getWarEntities();
+    WarEntities *getWarEntities();
     /**
      * @brief Destroy the Country object
      *
@@ -143,6 +144,11 @@ public:
      * @return std::string - The string containing the contents of this AssociatedCountries object
      */
     virtual std::string print();
+    /**
+     * @brief Allows the citizens of a country to revolt
+     *
+     * @param revolt Whether or not the citizerns are revolting
+     */
     void revolt(bool revolt);
 };
 #endif

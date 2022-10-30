@@ -29,6 +29,11 @@ public:
      * @param r The type of relationship between the countries
      */
     Relationship(std::string r, Communication *tele);
+    /**
+     * @brief Get the Relationship Type object
+     *
+     * @return std::string The relationship type name
+     */
     std::string getRelationshipType();
     /**
      * @brief Add a new AssociatedCountries object to the tree

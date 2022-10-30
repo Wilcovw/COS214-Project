@@ -4,7 +4,12 @@
 #include "CommunicationBroadcast.h"
 #include "Relationship.h"
 #include "Country.h"
+#include "WarEntities.h"
+#include "TrainingCamp.h"
+#include "Generals.h"
+#include "LandVehicleFactory.h"
 #include <iostream>
+#include <string>
 using namespace std;
 void isAccessible(Area *a1, Area *a2, WarMap *graph);
 void isAccessible(Area *a1, Area *a2, WarMap *graph, string type);
@@ -29,6 +34,11 @@ int main()
 	Area *a6 = new Area("Luban", germany);
 	Area *a7 = new Area("Goldap", germany);
 
+	TroopType *general = new Generals();
+	Vehicles *vehicle = new Vehicles("Gen 3", 10.5, 3.5, 20);
+	Troops *troop = new Troops(10, a1, general);
+	Infrastructure *infrastructure = new LandVehicleFactory();
+
 	graph->addArea(a1);
 	graph->addArea(a2);
 	graph->addArea(a3);
@@ -43,6 +53,20 @@ int main()
 	graph->addEdge(a4, a1, 350, "OR Tambo", "Runway");
 	graph->addEdge(a4, a5, 350, "Durban International Airport", "Runway");
 	graph->addEdge(a5, a4, 180, "Cape Town International Airport", "Runway");
+
+	// Testing WarEntities briefly
+	{
+		england->getWarEntities()->addVehicles(vehicle);
+		england->getWarEntities()->addTroops(troop);
+		england->getWarEntities()->addInfrastructure(infrastructure);
+
+		std::cout << "Vehicles in England: ";
+		england->getWarEntities()->getVehicles().at(0)->print();
+		std::cout << "Troop HP in England: ";
+		england->getWarEntities()->getTroops().at(0)->getHP();
+		std::cout << "Infrastructure HP in England: ";
+		england->getWarEntities()->getInfrastructure().at(0)->getHP();
+	}
 
 	// testing changing citizen state
 	{
@@ -60,6 +84,7 @@ int main()
 			cout << "Group " << i << " citizens current state: " << citizens[i]->getStatus() << endl;
 		}
 	}
+
 	// testing if areas store controlling countries correctly and the other way around
 	{
 		std::cout << "The country that controls area a1 is : " << a1->getControllingCountry()->getName() << std::endl;
@@ -67,6 +92,7 @@ int main()
 		std::cout << "The country that controls area a1 is : " << a1->getControllingCountry()->getName() << std::endl;
 		std::cout << england->printAreas();
 	}
+
 	// testing the accessibility of areas in the graph
 	{
 		isAccessible(a1, a2, graph);
@@ -90,6 +116,7 @@ int main()
 		// From a4 to a1 via Harbour
 		isAccessible(a5, a1, graph, "Harbour");
 	}
+
 	// testing shortest path algortihm
 
 	list<Area *> path = graph->shortestPath(a1, a5);
@@ -128,8 +155,8 @@ int main()
 		edgeIter->next();
 	}
 
-	//Deleting all memory used
-	//Deletes the graph and al the Area in the graph
+	// Deleting all memory used
+	// Deletes the graph and al the Area in the graph
 	delete graph;
 
 	delete edgeIter;
