@@ -8,6 +8,7 @@ class Infrastructure {
         Area* location = nullptr;
     public:
         Infrastructure();
+		Infrastructure(Area* l);
         double getHP();
         void destroy();
         void takeDamage(double);

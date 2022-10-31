@@ -44,7 +44,16 @@ int main(){
 	warMap->addArea(warsaw);
 	warMap->addArea(vienna);
 	warMap->addArea(budapest);
+	AreaIterator *areaIter = warMap->createAreaIterator();
+	cout << endl << "Print all the Area's" << endl;
+	areaIter->first();
+	while (areaIter->isDone() == false)
+	{
+		Area *currentArea = areaIter->currentItem();
+		cout << currentArea->getName() << endl;
 
+		areaIter->next();
+	}
 	//delete warMap and Areas in it
 	delete warMap;
 	//Delete all countries - Not necessary since WapMap already does that

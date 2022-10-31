@@ -2,6 +2,10 @@
 #define INFRASTRUCTURE_CPP
 #include "Infrastructure.h"
 
+Infrastructure::Infrastructure(Area* l){
+	this->location = l;
+}
+
 void Infrastructure::takeDamage(double theDamage) {
     
 }
