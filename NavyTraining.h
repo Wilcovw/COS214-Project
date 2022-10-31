@@ -11,6 +11,7 @@ class NavyTraining : public TrainingCamp {
         virtual Troops** getTroops();
         void startTraining();
         Troops* startDrafting(Citizens*);
+        virtual void destroy();
 };
 
 #endif

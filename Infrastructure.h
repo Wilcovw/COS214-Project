@@ -7,7 +7,6 @@ class Infrastructure
 protected:
     double HP;
     Area *location;
-
 public:
     /**
      * @brief default constructor
@@ -28,7 +27,7 @@ public:
     /**
      * @brief destructor
      */
-    void destroy();
+    virtual void destroy();
     /**
      * @brief Decreases HP of this class by the amount of the parameter passed in
      * @param theDamage

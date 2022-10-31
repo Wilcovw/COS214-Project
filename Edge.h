@@ -24,11 +24,6 @@ private:
 	 */
 	double distance = 0;
 	/**
-	 * @brief Name of the Edge
-	 * 
-	 */
-	string name;
-	/**
 	 * @brief Type of Edge
 	 * 
 	 */
@@ -38,12 +33,11 @@ public:
 	 * @brief Construct a new Edge object
 	 * 
 	 * @param v , The distance to traverse
-	 * @param name , The name of Edge
 	 * @param type , The type of Edge
 	 * @param s , The start point
 	 * @param d , The end point
 	 */
-	Edge(double v,string name, string type,Area* s, Area* d);
+	Edge(double v, string type,Area* s, Area* d);
 	/**
 	 * @brief Destroy the Edge object
 	 * 

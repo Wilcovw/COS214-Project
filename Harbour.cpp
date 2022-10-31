@@ -2,20 +2,26 @@
 
 #include <vector>
 
-Harbour::Harbour(Area *destination, string name, double hp) : Infrastructure(hp, destination)
+Harbour::Harbour(Area *source, double hp) : Infrastructure(hp, source)
 {
-    addConnection(destination, name);
+    
 };
 
-void Harbour::addConnection(Area *destination, string name)
+void Harbour::addConnection(Area *destination)
 {
     srand(time(0));
     double distance = (rand() % 100) + 10;
 
-    Edge *connectedHarbour = new Edge(distance, name, "Harbour", this->location, destination);
-    connectedHarbours.push_back(*connectedHarbour);
+    Edge *connectedHarbour = new Edge(distance, "Harbour", this->location, destination);
+    connectedHarbours.push_back(connectedHarbour);
     this->location->addEdge(connectedHarbour);
 
-    Edge *flippedConnectedHarbour = new Edge(distance, name, "Harbour", destination, this->location);
+    Edge *flippedConnectedHarbour = new Edge(distance, "Harbour", destination, this->location);
     destination->addEdge(flippedConnectedHarbour);
 };
+
+void Harbour::destroy(){
+    for (auto e : connectedHarbours){
+        this->location->removeEdge(e);
+    }
+}

@@ -11,10 +11,9 @@ class Road : public Infrastructure
 private:
     Edge **theRoad = new Edge *[2];
     double distance;
-
 public:
-    Road(Area *destination, string name, double hp);
-    void destroy();
+    Road(Area*, Area *, double);
+    virtual void destroy();
 };
 
 #endif

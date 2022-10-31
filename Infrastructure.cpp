@@ -15,3 +15,7 @@ double Infrastructure::getHP()
 {
     return 0;
 }
+
+void Infrastructure::destroy() {
+    
+}

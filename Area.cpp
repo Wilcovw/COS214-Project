@@ -118,32 +118,6 @@ bool Area::isAccessible(Area *d, string type)
 				}
 			}
 		}
-		// list<Edge *>::iterator it;
-		// if (v->getEdges().size() != 0)
-		// {
-		// 	int total = v->getEdges().size(), count = 0;
-		// 	it = v->getEdges().begin();
-		// 	while (count != total)
-		// 	{
-		// 		if ((*it)->getType() == type)
-		// 		{
-		// 			Area *u = (*it)->getDestination();
-
-		// 			if (u == d)
-		// 			{
-		// 				return true;
-		// 			}
-		// 			if (u->visited == false)
-		// 			{
-		// 				queue.push(u);
-		// 				u->visited = true;
-		// 			}
-		// 		}
-
-		// 		count++;
-		// 		it++;
-		// 	}
-		// }
 	}
 
 	return false;
@@ -187,4 +161,8 @@ void Area::setDist(double d)
 Country *Area::getControllingCountry()
 {
 	return this->controllingCountry;
+}
+
+void Area::removeEdge(Edge * e){
+	connectedEdges.remove(e);
 }

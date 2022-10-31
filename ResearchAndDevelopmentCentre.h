@@ -27,7 +27,7 @@ public:
     /**
      * @brief Destructor for the class
      */
-    void destroy();
+    virtual void destroy();
     /**
      * @brief prints vehicleToBeUpgraded vector
      */

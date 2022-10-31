@@ -6,6 +6,7 @@ class GroundTroops : public Troops {
     public:
         GroundTroops(Area*, TroopType*, Citizens*);
         virtual ~GroundTroops();
+        virtual void destroy();
 };
 
 #endif

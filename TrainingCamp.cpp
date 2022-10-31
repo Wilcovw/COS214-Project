@@ -47,4 +47,8 @@ bool TrainingCamp::removeTroop(Troops *theTroops)
     return isThere;
 }
 
+void TrainingCamp::destroy() {
+
+}
+
 #endif

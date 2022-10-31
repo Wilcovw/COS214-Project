@@ -35,7 +35,7 @@ public:
     /**
      * @brief destructor
      */
-    void destroy();
+    virtual void destroy();
 };
 
 #endif // FACTORY_AND_OBSERVER_FACTORY_H

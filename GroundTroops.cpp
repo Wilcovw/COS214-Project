@@ -11,4 +11,8 @@ GroundTroops::~GroundTroops() {
 
 }
 
+void GroundTroops::destroy() {
+    
+}
+
 #endif

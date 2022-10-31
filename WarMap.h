@@ -68,7 +68,7 @@ class WarMap{
 		 * @return true 
 		 * @return false 
 		 */
-		bool addEdge(Area* source,  Area* destination, double distance, string name, string type);
+		bool addEdge(Area* source,  Area* destination, double distance, string type);
 		/**
 		 * @brief 
 		 * 

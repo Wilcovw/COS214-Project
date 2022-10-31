@@ -36,4 +36,8 @@ Troops* AirforceTraining::startDrafting(Citizens* c) {
     return newTroops;
 }
 
+void AirforceTraining::destroy() {
+    
+}
+
 #endif

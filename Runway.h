@@ -11,12 +11,12 @@ class Runway : public Infrastructure
 {
 private:
     string name;
-    vector<Edge> flights;
+    vector<Edge*> flights;
 
 public:
-    Runway(Area *destination, string name, double hp);
-    void addConnection(Area *destination, string name);
-    void destroy();
+    Runway(Area *, double);
+    void addConnection(Area *destination);
+    virtual void destroy();
 };
 
 #endif

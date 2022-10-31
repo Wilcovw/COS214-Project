@@ -37,4 +37,8 @@ Troops* NavyTraining::startDrafting(Citizens* c) {
     return newTroops;
 }
 
+void NavyTraining::destroy() {
+    
+}
+
 #endif

@@ -133,6 +133,7 @@ public:
 	 * @param d 
 	 */
 	void setDist(double d);
+	void removeEdge(Edge *);
 };
 
 #endif

@@ -17,6 +17,7 @@ public:
     virtual void addTroop(Troops *theTroops) = 0;
     virtual bool removeTroop(Troops *theTroops) = 0;
     virtual Troops** getTroops() = 0;
+    virtual void destroy();
 };
 
 #endif

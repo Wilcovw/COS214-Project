@@ -23,7 +23,9 @@
 #include "AirforceTraining.h"
 #include "GroundTroopTraining.h"
 #include "TestVehiclesCloneAndFactories.h"
-
+#include "Road.h"
+#include "Harbour.h"
+#include "Runway.h"
 #include <iostream>
 using namespace std;
 
@@ -59,10 +61,55 @@ void testAllTroops() {
 	delete testCountry;
 };
 
+void testMap() {
+    CommunicationBroadcast* communication = new CommunicationBroadcast();
+	Country* america = new Country("America", communication);
+    Area* newYork = new Area("NewYork", america);
+    Area* sydney = new Area("Sydney", america);
+    Area* lasVegas = new Area("LasVegas", america);
+    WarMap* graph = new WarMap();
+    graph->addArea(sydney);
+    graph->addArea(newYork);
+    graph->addArea(lasVegas);
+    Road *r1 = new Road(newYork, sydney, 2);
+    Harbour *h1 = new Harbour(newYork, 2);
+    h1->addConnection(sydney);
+    Runway *rw1 = new Runway(newYork, 2);
+    rw1->addConnection(sydney);
+    rw1->addConnection(lasVegas);
+    
+    r1->destroy();
+    h1->destroy();
+    rw1->destroy();
+    //Code to interface with all the Areas in a graph
+    AreaIterator *areaIter = graph->createAreaIterator();
+	areaIter->first();
+	while(areaIter->isDone() == false){
+		Area* currentArea = areaIter->currentItem();
+		cout << currentArea->getName() << endl;
+
+		areaIter->next();
+	}
+
+
+    //Code to get all the edges in the graph
+
+    EdgeIterator *edgeIter = graph->createEdgeIterator();
+	edgeIter->first();
+	while(edgeIter->isDone() == false){
+		Edge* currentEdge = edgeIter->currentItem();
+		cout << currentEdge->getDescription() << endl;
+		edgeIter->next();
+    }
+
+
+};
+
 int main() {
     cout << "=============================Start testing=============================" << endl;
-    testAllTroops();
-    cout << "Troops Success!" << endl;
+    // testAllTroops();
+    // cout << "Troops Success!" << endl;
+    testMap();
     cout << "=============================End testing=============================" << endl;
     return 0;
 }
