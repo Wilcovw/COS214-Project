@@ -11,6 +11,13 @@ Relationship::Relationship(std::string r, Communication *t)
     tele->storeMe(this);
 }
 
+Relationship::Relationship(Relationship &relationship, Communication *comm)
+{
+    this->tele = comm;
+    this->tele->storeMe(this);
+    this->relationshipType = relationship.relationshipType;
+}
+
 std::string Relationship::getRelationshipType()
 {
     return relationshipType;
@@ -102,4 +109,9 @@ std::string Relationship::print()
     out = out.substr(0, out.length() - 2);
     out += "\n";
     return out;
+}
+
+AssociatedCountries *Relationship::clone(Communication *comm)
+{
+    return new Relationship(*this, comm);
 }

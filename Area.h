@@ -27,17 +27,17 @@ private:
 	list<Edge *> connectedEdges;
 	/**
 	 * @brief Used to store the previous Area in the shortest Path
-	 * 
+	 *
 	 */
 	Area *prev = nullptr;
 	/**
 	 * @brief Represents the distance from the current Area to the closet Area before it. Used in the shortest path algorithm
-	 * 
+	 *
 	 */
 	double dist = 0;
 
 	Country *controllingCountry = nullptr;
-	Area* clonedArea = nullptr;
+	Area *clonedArea = nullptr;
 
 public:
 	/**
@@ -112,40 +112,40 @@ public:
 	int num = 0;
 	/**
 	 * @brief Set the Prev object
-	 * 
+	 *
 	 * @param p The Area object to set the prev pointer
 	 */
 	void setPrev(Area *p);
 	/**
 	 * @brief Get the Prev object
-	 * 
-	 * @return Area* 
+	 *
+	 * @return Area*
 	 */
 	Area *getPrev();
 	/**
 	 * @brief Get the dist varaible
-	 * 
-	 * @return double 
+	 *
+	 * @return double
 	 */
 	double getDist();
 	/**
 	 * @brief Set the dist object
-	 * 
-	 * @param d 
+	 *
+	 * @param d
 	 */
 	void setDist(double d);
 	/**
 	 * @brief remove the passed in Edge from the Area
-	 * 
+	 *
 	 */
 	void removeEdge(Edge *);
 	/**
 	 * @brief Returns a copy of current Object
-	 * 
-	 * @return Area* 
+	 *
+	 * @return Area*
 	 */
-	Area* clone(Country * c);
-	Area* getClonedArea();
+	Area *clone(Country *c);
+	Area *getClonedArea();
 };
 
 #endif

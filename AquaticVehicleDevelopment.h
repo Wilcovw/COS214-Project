@@ -4,10 +4,11 @@
 #include "ResearchAndDevelopmentCentre.h"
 #include "AquaticVehicles.h"
 
-class AquaticVehicleDevelopment : ResearchAndDevelopmentCentre
+class AquaticVehicleDevelopment : public ResearchAndDevelopmentCentre
 {
 public:
     AquaticVehicleDevelopment(double hp, Area *area) : ResearchAndDevelopmentCentre(hp, area){};
+    void destroy();
 };
 
 #endif // FACTORY_AND_OBSERVER_AQUATICVEHICLEDEVELOPMENT_H

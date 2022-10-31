@@ -26,6 +26,10 @@ public:
      * @param r
      */
     void readyToUpgrade(ResearchAndDevelopmentCentre *r);
+    /**
+    * @brief calls class destructor
+    */
+    void destroy();
 };
 
 #endif // FACTORY_AND_OBSERVER_LANDVEHICLES_H

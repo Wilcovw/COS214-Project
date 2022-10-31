@@ -10,7 +10,7 @@ class WarPhase;
 class Memento{
 private:
     friend class WarEngine;
-    Memento(vector<Country*>, vector<Area*>, WarMap map);
+    Memento(vector<Country*> countryGroup, vector<Area*> warTheatreGraph, WarMap map);
     WarPhase* warphase;
 public:
     virtual ~Memento();

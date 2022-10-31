@@ -1,13 +1,8 @@
-//
-// Created by wilco on 2022/10/16.
-//
 
 #include "ResearchAndDevelopmentCentre.h"
 
-// TODO: Make virtual and expand to children
-void ResearchAndDevelopmentCentre::destroy()
+virtual void ResearchAndDevelopmentCentre::destroy()
 {
-    vehicleToBeUpgraded.clear();
     delete this;
 }
 void ResearchAndDevelopmentCentre::notifyDevelop()
@@ -22,7 +17,6 @@ void ResearchAndDevelopmentCentre::notifyDevelop()
 
 void ResearchAndDevelopmentCentre::startDeveloping()
 {
-
     stopDeveloping();
 }
 
@@ -46,4 +40,8 @@ void ResearchAndDevelopmentCentre::addToList(Vehicles *v)
         return;
 
     vehicleToBeUpgraded.push_back(v);
+}
+
+ResearchAndDevelopmentCentre *ResearchAndDevelopmentCentre::clone() {
+    return new ResearchAndDevelopmentCentre(this->HP, this->location);
 }

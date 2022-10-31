@@ -14,14 +14,14 @@ private:
     Command *toggleCommand;
 
 public:
-    Citizens(); 
+    Citizens();
     ~Citizens();
 
     void changeStatus();
     void setStatus(Status *status);
     string getStatus();
     void die();
-
     void toggleRevolution();
+    Citizens *clone();
 };
 #endif

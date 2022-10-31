@@ -5,7 +5,7 @@
 
 CommunicationBroadcast::CommunicationBroadcast()
 {
-    std::cout << "New communication platform setup" << std::endl;
+    // std::cout << "New communication platform setup" << std::endl;
 }
 
 void CommunicationBroadcast::storeMe(AssociatedCountries *me)

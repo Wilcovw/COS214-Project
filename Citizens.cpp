@@ -1,47 +1,73 @@
 #include "Citizens.h"
 
-Citizens::Citizens() {
+Citizens::Citizens()
+{
     // cout << "Citizens constructor called" << endl;
     this->status = new Unlisted();
     this->toggleCommand = new RevolutionCommand(false);
 }
 
-Citizens::~Citizens() {
+Citizens::~Citizens()
+{
     // cout << "Citizens destructor called" << endl;
     delete status;
     status = 0;
 }
 
-void Citizens::setStatus(Status* status) {
+void Citizens::setStatus(Status *status)
+{
     // cout << "setStatus called" << endl;
     delete this->status;
     this->status = status;
 }
 
-void Citizens::changeStatus() {
+void Citizens::changeStatus()
+{
     this->status->handleChange(this);
 }
 
-string Citizens::getStatus() {
+string Citizens::getStatus()
+{
     return this->status->getStatus();
 }
 
-void Citizens::die() {
+void Citizens::die()
+{
     status->die(this);
 }
 
-void Citizens::toggleRevolution() {
+void Citizens::toggleRevolution()
+{
     if (this->getStatus() == "Unlisted")
     {
         this->toggleCommand->execute();
     }
-    else {
+    else
+    {
         if (this->toggleCommand->isActive())
         {
             this->toggleCommand->execute();
-        } else {
+        }
+        else
+        {
             this->setStatus(new Unlisted());
             this->toggleCommand->execute();
         }
     }
+}
+
+Citizens *Citizens::clone()
+{
+    Citizens *citizen = nullptr;
+    if (getStatus() == "Unlisted")
+    {
+        citizen = new Citizens();
+        citizen->setStatus(new Unlisted());
+    }
+    else if (getStatus() == "Dead")
+    {
+        citizen = new Citizens();
+        citizen->setStatus(new Dead());
+    }
+    return citizen;
 }

@@ -37,6 +37,11 @@ public:
      * @param theDamage
      */
     void takeDamage(double theDamage);
+    /**
+     *
+     * @param newArea
+     * @return
+     */
 	virtual Infrastructure* clone(Area* newArea);
 };
 

@@ -30,6 +30,12 @@ public:
      */
     Relationship(std::string r, Communication *tele);
     /**
+     * @brief Copy constructor for Relationship, This will create a full copy of the relationship all sub-relationships and countries
+     *
+     * @param relationship The relationship to copy
+     */
+    Relationship(Relationship &relationship, Communication *comm);
+    /**
      * @brief Get the Relationship Type object
      *
      * @return std::string The relationship type name
@@ -89,5 +95,12 @@ public:
      * @return std::string - The string containing the contents of this AssociatedCountries object
      */
     virtual std::string print();
+    /**
+     * @brief Returns a deep copy of the AssociatedCountries object and its children
+     *
+     * @param comm The comunication object used between all countries
+     * @return AssociatedCountries* The cloned copy of the AssociatedCountries object
+     */
+    virtual AssociatedCountries *clone(Communication *comm);
 };
 #endif
