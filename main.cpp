@@ -5,38 +5,41 @@
 #include "Relationship.h"
 #include "Country.h"
 #include <iostream>
+#include "Runway.h"
+#include "Harbour.h"
+#include "Road.h"
 using namespace std;
 void isAccessible(Area *a1, Area *a2, WarMap *graph);
 void isAccessible(Area *a1, Area *a2, WarMap *graph, string type);
-int main(){
-	WarMap * warMap = new WarMap();
+int main()
+{
+	WarMap *warMap = new WarMap();
 	Communication *tele = new CommunicationBroadcast();
 	Country *germany = new Country("Germany", tele);
 	Country *france = new Country("France", tele);
 	Country *spain = new Country("Spain", tele);
-	
-	//Areas in Germnay
-	Area *berlin = new Area("Berlin", germany);
-	//Areas in France
-	Area *paris = new Area("Paris", france);
-	//Areas in Spain
-	Area *madrid = new Area("Madrid",spain);
 
-	
+	// Areas in Germnay
+	Area *berlin = new Area("Berlin", germany);
+	// Areas in France
+	Area *paris = new Area("Paris", france);
+	// Areas in Spain
+	Area *madrid = new Area("Madrid", spain);
+
 	Country *italy = new Country("Italy", tele);
 	Country *poland = new Country("Poland", tele);
 	Country *austria = new Country("Austria", tele);
 	Country *hungary = new Country("Hungary", tele);
-	//Areas in Italy
-	Area *rome = new Area("Rome",italy);
-	//Areas in Poland
-	Area *warsaw = new Area("Warsaw",poland);
-	//Areas in Austria
-	Area *vienna = new Area("Vienna",austria);
-	//Areas in Hungary
-	Area *budapest = new Area("Budapest",hungary);
+	// Areas in Italy
+	Area *rome = new Area("Rome", italy);
+	// Areas in Poland
+	Area *warsaw = new Area("Warsaw", poland);
+	// Areas in Austria
+	Area *vienna = new Area("Vienna", austria);
+	// Areas in Hungary
+	Area *budapest = new Area("Budapest", hungary);
 
-	//Add all Area's to the graph
+	// Add all Area's to the graph
 	warMap->addArea(berlin);
 	warMap->addArea(paris);
 	warMap->addArea(madrid);
@@ -44,19 +47,60 @@ int main(){
 	warMap->addArea(warsaw);
 	warMap->addArea(vienna);
 	warMap->addArea(budapest);
-	AreaIterator *areaIter = warMap->createAreaIterator();
-	cout << endl << "Print all the Area's" << endl;
-	areaIter->first();
-	while (areaIter->isDone() == false)
+	// Roads
+	Road *road1 = new Road(madrid, "Duncan Street", paris);
+	Road *road2 = new Road(paris, "Benny Road", berlin);
+	// Runway will be in Berlin
+	Runway *runway1 = new Runway(madrid, "Air travel One", berlin);
+	runway1->addConnection(warsaw, "Air Travel Two");
+	Harbour *harbour1 = new Harbour(madrid, "Shiping dock", rome);
+	isAccessible(berlin, warsaw, warMap);
+	isAccessible(berlin, warsaw, warMap, "Runway");
+	isAccessible(madrid, warsaw, warMap, "Runway");
+	isAccessible(rome, madrid, warMap);
+	list<Area *> path = warMap->shortestPath(madrid, warsaw);
+	cout << endl
+		 << "Shortest path from " << madrid->getName() << " to " << warsaw->getName() << ": " << endl;
+	for (auto a : path)
 	{
-		Area *currentArea = areaIter->currentItem();
-		cout << currentArea->getName() << endl;
-
-		areaIter->next();
+		cout << a->getName() << endl;
 	}
-	//delete warMap and Areas in it
+
+	list<Area *> path2 = warMap->shortestPath(madrid, rome);
+	cout << endl
+		 << "Shortest path from " << madrid->getName() << " to " << rome->getName() << ": " << endl;
+	for (auto a : path2)
+	{
+		cout << a->getName() << endl;
+	}
+	// isAccessible(madrid, berlin, warMap,"Runway");
+	// isAccessible(madrid, paris, warMap,"Runway");
+
+	// AreaIterator *areaIter = warMap->createAreaIterator();
+
+	// cout << endl << "Print all the Area's" << endl;
+	// areaIter->first();
+	// while (areaIter->isDone() == false)
+	// {
+	// 	Area *currentArea = areaIter->currentItem();
+	// 	cout << currentArea->getName() << endl;
+
+	// 	areaIter->next();
+	// }
+	cout << endl
+		 << "Print all the Edges:" << endl;
+	EdgeIterator *edgeIter = warMap->createEdgeIterator();
+	edgeIter->first();
+	while (edgeIter->isDone() == false)
+	{
+		Edge *currentEdge = edgeIter->currentItem();
+		cout << currentEdge->getDescription() << endl;
+
+		edgeIter->next();
+	}
+	// delete warMap and Areas in it
 	delete warMap;
-	//Delete all countries - Not necessary since WapMap already does that
+	// Delete all countries - Not necessary since WapMap already does that
 
 	// delete germany;
 	// delete france;
@@ -65,9 +109,6 @@ int main(){
 	// delete poland;
 	// delete austria;
 	// delete hungary;
-	
-
-
 
 	return 0;
 }
@@ -202,10 +243,10 @@ int main(){
 
 void isAccessible(Area *a1, Area *a2, WarMap *graph)
 {
-	cout << a2->getName() << (graph->isAccessible(a1, a2) == true ? " is" : " is not") << " accessible from " << a1->getName() << endl;
+	cout << "You " << (graph->isAccessible(a1, a2) == true ? "CAN " : "CANNOT ") << "get from " << a1->getName() << " to " << a2->getName() << endl;
 }
 
 void isAccessible(Area *a1, Area *a2, WarMap *graph, string type)
 {
-	cout << a2->getName() << (graph->isAccessible(a1, a2, type) == true ? " is" : " is not") << " accessible from " << a1->getName() << " via " << type << endl;
+	cout << "You " << (graph->isAccessible(a1, a2, type) == true ? "CAN " : "CANNOT ") << "get from " << a1->getName() << " to " << a2->getName() << " via " << type << endl;
 }

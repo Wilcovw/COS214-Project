@@ -80,7 +80,6 @@ bool WarMap::addArea(Area *a)
 
 void WarMap::reset()
 {
-	list<Area *>::iterator it;
 	if (areasWT.size() == 0)
 	{
 		return;
@@ -124,7 +123,6 @@ list<Area *> WarMap::shortestPath(Area *source, Area *destination)
 	{
 		return ans;
 	}
-
 	if (isAccessible(source, destination) == false)
 	{
 		return ans;
@@ -139,33 +137,30 @@ list<Area *> WarMap::shortestPath(Area *source, Area *destination)
 	list<Area *> toBeChecked;
 	toBeChecked.push_back(source);
 	source->setDist(0);
+	
 	while (toBeChecked.empty() == false)
 	{
 		Area *curr = toBeChecked.front();
 		toBeChecked.pop_front();
 
-		if (curr->getEdges().empty() == false)
+		for (auto e : curr->getEdges())
 		{
+			Area *v = e->getDestination();
+			double NewDist = curr->getDist() + e->getDistance();
 
-			for (auto e : curr->getEdges())
+			if (NewDist < v->getDist())
 			{
-				Area *v = e->getDestination();
-				double NewDist = curr->getDist() + e->getDistance();
-
-				if (NewDist < v->getDist())
+				v->setDist(NewDist);
+				v->setPrev(curr);
+				if (find(toBeChecked.begin(), toBeChecked.end(), v) == toBeChecked.end())
 				{
-					// cout << "Hello" << endl;
-					v->setDist(NewDist);
-					v->setPrev(curr);
-					if (find(toBeChecked.begin(), toBeChecked.end(), v) == toBeChecked.end())
-					{
 
-						toBeChecked.push_back(v);
-					}
+					toBeChecked.push_back(v);
 				}
 			}
 		}
 	}
+
 	if (destination->getPrev() == nullptr)
 	{
 		return ans;

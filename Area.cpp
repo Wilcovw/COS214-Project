@@ -40,7 +40,6 @@ bool Area::isAccessible(Area *d)
 	}
 	queue<Area *> queue;
 	queue.push(this);
-
 	while (queue.empty() == false)
 	{
 		Area *v = queue.front();
@@ -82,6 +81,7 @@ bool Area::isAccessible(Area *d, string type)
 		queue.pop();
 		for (auto e : v->getEdges())
 		{
+
 			if (e->getType() == type)
 			{
 				Area *u = e->getDestination();
@@ -109,11 +109,12 @@ void Area::printEdges()
 		cout << name << " is not conncted to anything" << endl;
 		return;
 	}
-
+	cout << "Edges of " << this->name  << ":"<< endl;
 	for (it = connectedEdges.begin(); it != connectedEdges.end(); it++)
 	{
 		cout << (*it)->getDescription() << endl;
 	}
+	cout << endl;
 }
 
 void Area::setPrev(Area *p)
