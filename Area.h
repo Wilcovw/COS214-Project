@@ -133,7 +133,17 @@ public:
 	 * @param d 
 	 */
 	void setDist(double d);
+	/**
+	 * @brief remove the passed in Edge from the Area
+	 * 
+	 */
 	void removeEdge(Edge *);
+	/**
+	 * @brief Returns a copy of current Object
+	 * 
+	 * @return Area* 
+	 */
+	Area* clone(Country * c);
 };
 
 #endif
