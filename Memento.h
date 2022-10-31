@@ -14,7 +14,6 @@ private:
     WarPhase* warphase;
 public:
     virtual ~Memento();
-    void print();
 };
 
 #endif
