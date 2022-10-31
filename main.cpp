@@ -26,6 +26,7 @@
 #include "Road.h"
 #include "Harbour.h"
 #include "Runway.h"
+#include "WarEngine.h"
 #include <iostream>
 using namespace std;
 
@@ -105,11 +106,86 @@ void testMap() {
 
 };
 
+void testMemento(){
+    Communication* c;
+
+    vector<Country*> countrygroup;
+    Country* america = new Country("America", c);
+    Country* columbia = new Country("Columbia", c);
+    countrygroup.push_back(america);
+    countrygroup.push_back(columbia);
+
+
+    vector<Area*> areas;
+    areas.push_back(new Area("Caeser's Palace",america));
+
+    WarMap* map = new WarMap();
+
+    WarHistory* history = new WarHistory();
+
+    WarEngine* engine = new WarEngine(countrygroup, areas, *map);
+    engine->addCountry(new Country("Sri Lanka", c));
+    engine->addArea (new Area("Escobar's Palace", columbia));
+    
+    cout<<"-----Before Change-----"<<endl;
+
+    cout<<"--Countries:--"<<endl;
+    for(int i = 0; i < engine->getCountryGroup().size(); i++){
+        cout << engine->getCountryGroup().at(i)->getName() << endl;
+    }
+    cout<<"--Areas:--"<<endl;
+    for(int i = 0; i < engine->getWarTheatreGraph().size(); i++){
+        cout << engine->getWarTheatreGraph().at(i)->getName() << endl;
+    }
+
+    //Saving Current Snapshot
+    history->storeMemento(engine->createMemento());
+
+    Country* peru = new Country("peru", c);
+    columbia = peru;
+
+    engine->removeCountryAt(0);
+    engine->removeAreaAt(0);
+    engine->removeAreaAt(0);
+
+    vector<Area*> newAreas;
+    newAreas.push_back(new Area("Paris",america));
+    newAreas.push_back(new Area("Paris",america));
+
+    engine->setWarTheatreGraph(newAreas);
+
+    cout << "-----After Changes-----" << endl;
+    cout<<"--Countries:--"<<endl;
+    for(int i = 0; i < engine->getCountryGroup().size(); i++){
+        cout << engine->getCountryGroup().at(i)->getName() << endl;
+    }
+    cout<<"--Areas:--"<<endl;
+    for(int i = 0; i < engine->getWarTheatreGraph().size(); i++){
+        cout << engine->getWarTheatreGraph().at(i)->getName() << endl;
+    }
+
+    //Reverting back
+    engine->reinstateMemento(history->getLastMemento());
+
+    cout << "-----Reverting Changes-----" << endl;
+    for(int i = 0; i < engine->getCountryGroup().size(); i++){
+        cout << engine->getCountryGroup().at(i)->getName() << endl;
+    }
+    cout<<"--Areas:--"<<endl;
+    for(int i = 0; i < engine->getWarTheatreGraph().size(); i++){
+        cout << engine->getWarTheatreGraph().at(i)->getName() << endl;
+    }
+
+    delete engine;
+    delete history;
+};
+
 int main() {
     cout << "=============================Start testing=============================" << endl;
     // testAllTroops();
     // cout << "Troops Success!" << endl;
-    testMap();
-    cout << "=============================End testing=============================" << endl;
+    //testMap();
+    testMemento();
+    cout << "=============================End testing===============================" << endl;
     return 0;
 }
