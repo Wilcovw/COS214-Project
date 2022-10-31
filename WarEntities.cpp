@@ -62,7 +62,7 @@ WarEntities *WarEntities::clone() {
 	}
 
 	for(auto i: infrastructure){
-		// newEntities->addInfrastructure(i->clone());
+		newEntities->addInfrastructure(i->clone());
 	}
 
 	return newEntities;
