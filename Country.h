@@ -47,8 +47,9 @@ public:
      *
      * @param name The name of the country
      * @param tele The Communication object used for communication between associatedCountries
+     * @param numCitzenGroups The number of citizens inside the country to be created
      */
-    Country(std::string name, Communication *tele);
+    Country(std::string name, Communication *tele, int numCitzenGroups);
     /**
      * @brief default constructor
      *

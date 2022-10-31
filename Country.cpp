@@ -5,15 +5,14 @@
 #include <iostream>
 #include <cstdlib>
 
-Country::Country(std::string name, Communication *t)
+Country::Country(std::string name, Communication *t, int numCitzenGroups)
 {
     tele = t;
     this->name = name;
     tele->storeMe(this);
     entities = new WarEntities();
 
-    numCitzenGroups = 5 + (rand() % 10);
-
+    this->numCitzenGroups = numCitzenGroups;
     citizens = new Citizens *[numCitzenGroups];
     for (int i = 0; i < numCitzenGroups; i++)
     {

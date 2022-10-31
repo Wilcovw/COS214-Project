@@ -4,20 +4,26 @@
 #include "Medics.h"
 #include "Generals.h"
 
-//VALUES TO BE CHANGED
-Soldiers::Soldiers() : TroopType(15, 15, 15) {
+// VALUES TO BE CHANGED
+Soldiers::Soldiers() : TroopType(15, 15, 15)
+{
     type = ::theSoldiers;
 }
 
-Soldiers::~Soldiers() {
-    
+Soldiers::~Soldiers()
+{
 }
 
-TroopType* Soldiers::changeType(theTroopTypes theType) {
-    if(theType != ::theSoldiers) {
-        if(theType == ::theMedics) {
+TroopType *Soldiers::changeType(theTroopTypes theType)
+{
+    if (theType != ::theSoldiers)
+    {
+        if (theType == ::theMedics)
+        {
             return new Medics();
-        } else if(theType == ::theGenerals) {
+        }
+        else if (theType == ::theGenerals)
+        {
             return new Generals();
         }
     }

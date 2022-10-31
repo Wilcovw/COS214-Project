@@ -2,13 +2,15 @@
 #define NAVYTRAINING_H
 #include "TrainingCamp.h"
 
-class NavyTraining : public TrainingCamp {
-    public:
-        NavyTraining(double, Area*);
-        virtual ~NavyTraining();;
-        Troops* startDrafting(Citizens*);
-        virtual void destroy();
-        virtual Infrastructure* clone(Area*);
+class NavyTraining : public TrainingCamp
+{
+public:
+    NavyTraining(double, Area *);
+    virtual ~NavyTraining();
+    ;
+    virtual Troops *startDrafting(Citizens *);
+    virtual void destroy();
+    virtual Infrastructure *clone(Area *);
 };
 
 #endif

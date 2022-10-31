@@ -7,17 +7,20 @@
 #include "Airforce.h"
 #include "Soldiers.h"
 
-class TrainingCamp : public Infrastructure {
+class TrainingCamp : public Infrastructure
+{
 protected:
-   vector<Troops*> troops;
+    vector<Troops *> troops;
+
 public:
-    TrainingCamp(double, Area*);
+    TrainingCamp(double, Area *);
     virtual ~TrainingCamp(){};
     void addTroop(Troops *theTroops);
     bool removeTroop(Troops *theTroops);
-    Troops** getTroops();
+    Troops **getTroops();
     virtual void destroy() = 0;
-    virtual Infrastructure* clone(Area*) = 0;
+    virtual Infrastructure *clone(Area *) = 0;
+    virtual Troops *startDrafting(Citizens *) = 0;
 };
 
 #endif

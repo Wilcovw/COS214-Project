@@ -5,8 +5,8 @@
 #include "NavyTraining.h"
 #include "AirforceTraining.h"
 
-TrainingCamp::TrainingCamp(double theHP , Area* theLocation) : Infrastructure(theHP, theLocation) {
-
+TrainingCamp::TrainingCamp(double theHP, Area *theLocation) : Infrastructure(theHP, theLocation)
+{
 }
 
 void TrainingCamp::addTroop(Troops *theTroops)
@@ -28,11 +28,17 @@ bool TrainingCamp::removeTroop(Troops *theTroops)
     return false;
 }
 
-void TrainingCamp::destroy() {
-    
+void TrainingCamp::destroy()
+{
 }
 
-Infrastructure* TrainingCamp::clone(Area* newArea) {
+Infrastructure *TrainingCamp::clone(Area *newArea)
+{
+    return nullptr;
+}
+
+Troops *TrainingCamp::startDrafting(Citizens *)
+{
     return nullptr;
 }
 
