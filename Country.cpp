@@ -47,7 +47,7 @@ Country::Country(Country &country, Communication *comm)
     // Temporary code: might need to receive cloned areas instead of creating new ones here, cause they not setup properly
     for (int i = 0; i < country.areas.size(); i++)
     {
-        this->areas.push_back(country.areas.at(i)->clone());
+        this->areas.push_back(country.areas.at(i)->clone(this));
     }
 }
 

@@ -6,7 +6,8 @@ Infrastructure::Infrastructure(double hp, Area *area)
     HP = hp;
 }
 
-Infrastructure::~Infrastructure(){
+Infrastructure::~Infrastructure()
+{
     delete location;
 }
 
@@ -20,10 +21,17 @@ double Infrastructure::getHP()
     return 0;
 }
 
-void Infrastructure::destroy() {
+void Infrastructure::destroy()
+{
     delete this;
 }
 
-Infrastructure* Infrastructure::clone(Area* newArea) {
+Infrastructure *Infrastructure::clone(Area *newArea)
+{
     return nullptr;
+}
+
+Area *Infrastructure::getArea()
+{
+    return location;
 }

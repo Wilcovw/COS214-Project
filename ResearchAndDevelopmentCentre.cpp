@@ -1,7 +1,7 @@
 
 #include "ResearchAndDevelopmentCentre.h"
 
-virtual void ResearchAndDevelopmentCentre::destroy()
+void ResearchAndDevelopmentCentre::destroy()
 {
     delete this;
 }
@@ -42,6 +42,7 @@ void ResearchAndDevelopmentCentre::addToList(Vehicles *v)
     vehicleToBeUpgraded.push_back(v);
 }
 
-ResearchAndDevelopmentCentre *ResearchAndDevelopmentCentre::clone() {
+ResearchAndDevelopmentCentre *ResearchAndDevelopmentCentre::clone()
+{
     return new ResearchAndDevelopmentCentre(this->HP, this->location);
 }

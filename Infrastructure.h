@@ -7,6 +7,7 @@ class Infrastructure
 protected:
     double HP;
     Area *location;
+
 public:
     /**
      * @brief default constructor
@@ -42,7 +43,13 @@ public:
      * @param newArea
      * @return
      */
-	virtual Infrastructure* clone(Area* newArea);
+    virtual Infrastructure *clone(Area *newArea);
+    /**
+     * @brief Get the Area object
+     *
+     * @return Area*
+     */
+    Area *getArea();
 };
 
 #endif

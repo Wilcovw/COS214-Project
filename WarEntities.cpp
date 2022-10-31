@@ -21,6 +21,30 @@ WarEntities::~WarEntities()
     }
 }
 
+WarEntities *WarEntities::clone()
+{
+    WarEntities *newEntities = new WarEntities();
+    for (auto v : vehicles)
+    {
+        newEntities->addVehicles(v->clone());
+    }
+
+    for (auto t : troops)
+    {
+        newEntities->addTroops(t->clone());
+    }
+
+    for (auto i : infrastructure)
+    {
+        if (i->getArea()->getClonedArea() != nullptr)
+        {
+            newEntities->addInfrastructure(i->clone(i->getArea()->getClonedArea()));
+        }
+    }
+
+    return newEntities;
+}
+
 void WarEntities::addVehicles(Vehicles *theVehicle)
 {
     vehicles.push_back(theVehicle);
@@ -50,28 +74,12 @@ std::vector<Infrastructure *> WarEntities::getInfrastructure()
 {
     return infrastructure;
 }
-WarEntities *WarEntities::clone() {
-    WarEntities* newEntities = new WarEntities();
-	for(auto v: vehicles) {
-		newEntities->addVehicles(v->clone());
-	}
-
-	for(auto t: troops) {
-		newEntities->addTroops(t->clone());
-	}
-
-	for(auto i: infrastructure){
-	    // newEntities->addInfrastructure(i->clone());
-	}
-
-	return newEntities;
-}
-
-std::vector<Citizens *>  WarEntities::getFightingCitizens(){
+std::vector<Citizens *> WarEntities::getFightingCitizens()
+{
     std::vector<Citizens *> ans;
-    for(auto t: troops) {
-		ans.push_back(t->getAssociatedCitizen());
-	}
+    for (auto t : troops)
+    {
+    }
 
     return ans;
 }
