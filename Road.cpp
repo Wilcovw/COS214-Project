@@ -17,6 +17,9 @@ void Road::destroy(){
      this->location->removeEdge(theRoad[1]);
 }
 
-Infrastructure* Road::clone(Area* newArea) {
+Infrastructure* Road::clone(Area* newArea) {    
+    if(theRoad[0]->getDestination() != nullptr && theRoad[0]->getDestination()->getClonedArea() != nullptr) {
+        Infrastructure* newRoad = new Road(newArea, theRoad[0]->getDestination()->getClonedArea(), this->HP);
+    }
     return nullptr;
 }

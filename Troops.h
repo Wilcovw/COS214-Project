@@ -12,6 +12,7 @@ class Troops {
         Area* location;
         TroopType* type;
         Citizens* associatedCitizens;
+        Troops* clonedTroop;
     public:
         Troops(double,Area* ,TroopType*, Citizens*);
         virtual ~Troops() {};
@@ -27,5 +28,7 @@ class Troops {
         double getSpeed();
         Troops * clone();
         Troops** clone(int);
+        Citizens* getAssociatedCitizen();
+        Troops* getClone();
 };
 #endif

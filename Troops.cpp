@@ -78,14 +78,15 @@ Troops * Troops::clone() {
     } else if(associatedCitizens->getStatus() == "Fighting") {
         citizens->setStatus(new Fighting());
     }
+    clonedTroop = nullptr;
     if(type->getType() == ::theGenerals) {
-        return new Troops(this->HP, this->location, new Generals(), citizens);
+        clonedTroop = new Troops(this->HP, this->location, new Generals(), citizens);
     } else if(type->getType() == ::theMedics) {
-        return new Troops(this->HP, this->location, new Medics(), citizens);
+        clonedTroop = new Troops(this->HP, this->location, new Medics(), citizens);
     } else if(type->getType() == ::theSoldiers) {
-        return new Troops(this->HP, this->location, new Soldiers(), citizens);
+        clonedTroop = new Troops(this->HP, this->location, new Soldiers(), citizens);
     }
-    return nullptr;
+    return clonedTroop;
 }
 
 Troops** Troops::clone(int n) {
@@ -97,4 +98,12 @@ Troops** Troops::clone(int n) {
         troops[i] = clone();
     }
     return troops;
+}
+
+Citizens* Troops::getAssociatedCitizen(){
+    return associatedCitizens;
+}
+
+Troops* Troops::getClone() {
+    return clonedTroop;
 }

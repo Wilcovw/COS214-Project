@@ -11,44 +11,29 @@ TrainingCamp::TrainingCamp(double theHP , Area* theLocation) : Infrastructure(th
 
 void TrainingCamp::addTroop(Troops *theTroops)
 {
-    Troops **temp = troops;
-    troops = new Troops *[++numTroops];
-    for (int i = 0; i < numTroops - 1; i++)
-    {
-        troops[i] = temp[i];
-    }
-    troops[numTroops - 1] = theTroops;
+    troops.push_back(theTroops);
 }
 
 bool TrainingCamp::removeTroop(Troops *theTroops)
 {
-    bool isThere = false;
-    for (int i = 0; i < numTroops; i++)
+    std::vector<Troops *>::iterator it;
+    for (it = troops.begin(); it != troops.end(); ++it)
     {
-        if (troops[i] == theTroops)
+        if (theTroops == *it)
         {
-            isThere = true;
+            troops.erase(it);
+            return true;
         }
     }
-    if (isThere)
-    {
-        Troops **temp = troops;
-        troops = new Troops *[numTroops];
-        int x = 0;
-        for (int i = 0; i < numTroops; i++)
-        {
-            if (theTroops != temp[i])
-            {
-                troops[x++] = temp[i];
-            }
-        }
-        --numTroops;
-    }
-    return isThere;
+    return false;
 }
 
 void TrainingCamp::destroy() {
+    
+}
 
+Infrastructure* TrainingCamp::clone(Area* newArea) {
+    return nullptr;
 }
 
 #endif

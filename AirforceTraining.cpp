@@ -10,22 +10,6 @@ AirforceTraining::~AirforceTraining() {
 
 }
 
-void AirforceTraining::addTroop(Troops *theTroops) {
-
-}
-
-bool AirforceTraining::removeTroop(Troops *theTroops) {
-    return false;
-}
-
-Troops** AirforceTraining::getTroops() {
-    return this->troops;
-}
-
-void AirforceTraining::startTraining() {
-    
-}
-
 Troops* AirforceTraining::startDrafting(Citizens* c) {
     Troops* newTroops = nullptr;
     if (c->getStatus() == "Enlisted") {
@@ -37,7 +21,17 @@ Troops* AirforceTraining::startDrafting(Citizens* c) {
 }
 
 void AirforceTraining::destroy() {
-    
+    delete this;
+}
+
+Infrastructure* AirforceTraining::clone(Area* newArea) {
+    AirforceTraining* clone = new AirforceTraining(HP, newArea);
+    for(auto t : troops) {
+        if(t->getClone() != nullptr) {
+            clone->addTroop(t->getClone());
+        }
+    }
+    return clone;
 }
 
 #endif

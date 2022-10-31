@@ -70,7 +70,7 @@ WarEntities *WarEntities::clone() {
 std::vector<Citizens *>  WarEntities::getFightingCitizens(){
     std::vector<Citizens *> ans;
     for(auto t: troops) {
-		
+		ans.push_back(t->getAssociatedCitizen());
 	}
 
     return ans;

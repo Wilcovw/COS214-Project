@@ -25,6 +25,12 @@ void Runway::destroy() {
 }
 
 
-Infrastructure* Runway::clone(Area* newArea){
-    return nullptr;
+Infrastructure* Runway::clone(Area* newArea) {
+    Runway* newRunway = new Runway(newArea, this->HP);
+    for(auto f : flights) {
+        if(f != nullptr && f->getDestination() != nullptr && f->getDestination()->getClonedArea() != nullptr && f->getDestination()->getClonedArea() != newArea) {
+            newRunway->addConnection(f->getDestination()->getClonedArea());
+        }
+    }
+    return newRunway;
 }

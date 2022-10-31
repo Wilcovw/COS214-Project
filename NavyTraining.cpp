@@ -10,22 +10,6 @@ NavyTraining::~NavyTraining() {
     
 }
 
-void NavyTraining::addTroop(Troops *theTroops) {
-
-}
-
-bool NavyTraining::removeTroop(Troops *theTroops) {
-    return false;
-}
-
-Troops** NavyTraining::getTroops() {
-    return this->troops;
-}
-
-void NavyTraining::startTraining() {
-
-}
-
 Troops* NavyTraining::startDrafting(Citizens* c) {
     Troops* newTroops = nullptr;
     if (c->getStatus() == "Enlisted") {
@@ -33,12 +17,21 @@ Troops* NavyTraining::startDrafting(Citizens* c) {
         c->changeStatus();
         return newTroops;
     }
-    
     return newTroops;
 }
 
 void NavyTraining::destroy() {
-    
+    delete this;
+}
+
+Infrastructure* NavyTraining::clone(Area* newArea) {
+    NavyTraining* clone = new NavyTraining(HP, newArea);
+    for(auto t : troops) {
+        if(t->getClone() != nullptr) {
+            clone->addTroop(t->getClone());
+        }
+    }
+    return clone;
 }
 
 #endif

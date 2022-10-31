@@ -10,27 +10,6 @@ GroundTroopTraining::~GroundTroopTraining() {
     
 }
 
-bool GroundTroopTraining::removeTroop(Troops *theTroops) {
-    return false;
-}
-
-void GroundTroopTraining::addTroop(Troops *theTroops) {
-
-}
-
-Troops** GroundTroopTraining::getTroops() {
-    return this->troops;
-}
-
-void GroundTroopTraining::startTraining(Troops* theTroops) {
-    Troops** temp = troops;
-    troops = new Troops * [++numTroops];
-    for(int i = 0; i < numTroops - 1; i++) {
-        troops[i] = temp[i];
-    }
-    troops[numTroops - 1] = theTroops;
-}
-
 Troops* GroundTroopTraining::startDrafting(Citizens* c) {
     Troops* newTroops = nullptr;
     if (c->getStatus() == "Enlisted") {
@@ -38,7 +17,20 @@ Troops* GroundTroopTraining::startDrafting(Citizens* c) {
         c->changeStatus();
         return newTroops;
     }
-    
     return newTroops;
+}
+
+void GroundTroopTraining::destroy() {
+    delete this;
+}
+
+Infrastructure* GroundTroopTraining::clone(Area* newArea) {
+    GroundTroopTraining* clone = new GroundTroopTraining(HP, newArea);
+    for(auto t : troops) {
+        if(t->getClone() != nullptr) {
+            clone->addTroop(t->getClone());
+        }
+    }
+    return clone;
 }
 #endif

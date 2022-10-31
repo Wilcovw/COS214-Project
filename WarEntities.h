@@ -80,5 +80,6 @@ public:
 	WarEntities *clone();
 
     std::vector<Citizens *>  getFightingCitizens();
+
 };
 #endif

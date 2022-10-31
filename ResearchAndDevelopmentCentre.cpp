@@ -12,12 +12,10 @@ void ResearchAndDevelopmentCentre::destroy()
 }
 void ResearchAndDevelopmentCentre::notifyDevelop()
 {
-
     vector<Vehicles *>::iterator it = vehicleToBeUpgraded.begin();
     while (it != vehicleToBeUpgraded.end())
     {
         (*it)->update();
-
         vehicleToBeUpgraded.erase(it);
     }
 }

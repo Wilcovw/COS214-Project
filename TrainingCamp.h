@@ -9,15 +9,15 @@
 
 class TrainingCamp : public Infrastructure {
 protected:
-    Troops **troops;
-    int numTroops;
+   vector<Troops*> troops;
 public:
     TrainingCamp(double, Area*);
     virtual ~TrainingCamp(){};
-    virtual void addTroop(Troops *theTroops) = 0;
-    virtual bool removeTroop(Troops *theTroops) = 0;
-    virtual Troops** getTroops() = 0;
-    virtual void destroy();
+    void addTroop(Troops *theTroops);
+    bool removeTroop(Troops *theTroops);
+    Troops** getTroops();
+    virtual void destroy() = 0;
+    virtual Infrastructure* clone(Area*) = 0;
 };
 
 #endif
