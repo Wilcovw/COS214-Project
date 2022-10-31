@@ -4,6 +4,7 @@
 #include "Vehicles.h"
 #include "Troops.h"
 #include "Infrastructure.h"
+#include "Citizens.h"
 #include <vector>
 /**
  * @brief THe WarEntities class holds all the vehicles, troops and infrastructure of a country
@@ -75,6 +76,9 @@ public:
      * @return std::vector<Infrastructure*> The infrastructure vector
      */
     std::vector<Infrastructure *> getInfrastructure();
+    
 	WarEntities *clone();
+
+    std::vector<Citizens *>  getFightingCitizens();
 };
 #endif

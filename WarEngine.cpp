@@ -62,19 +62,18 @@ vector<Country*> WarEngine::getCountryGroup(){
 };
 
 Memento* WarEngine::createMemento(){
-    vector<Country*> newCountryGroup;
-    vector<Area*> newWarTheatreGraph;
-    WarMap newMap;
+    // vector<Country*> newCountryGroup;
+    // vector<Area*> newWarTheatreGraph;
+    // WarMap* newMap = new WarMap();
 
-    for(int i = 0; i < this->countryGroup.size(); i++){
-        newCountryGroup.push_back(this->countryGroup.at(i)->clone());
-    }
-    for(int i = 0; i < this->warTheatreGraph.size(); i++){
-        newWarTheatreGraph.push_back(this->warTheatreGraph.at(i)->clone());
-    }
-    newMap = *this->map.clone();
-
-    return new Memento(newCountryGroup, newWarTheatreGraph, newMap);
+    // for(int i = 0; i < this->countryGroup.size(); i++){
+    //     newCountryGroup.push_back(this->countryGroup.at(i)->clone());
+    // }
+    // for(int i = 0; i < this->warTheatreGraph.size(); i++){
+    //     newWarTheatreGraph.push_back(this->warTheatreGraph.at(i)->clone());
+    // }
+    // return new Memento(newCountryGroup, newWarTheatreGraph, newMap);
+    return nullptr;
 };
 
 void WarEngine::reinstateMemento(Memento* memento){

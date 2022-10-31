@@ -146,5 +146,10 @@ void Area::removeEdge(Edge * e){
 }
 
 Area* Area::clone(Country * c) {
-    return new Area(name, c);
+	Area* clonedArea = new Area(name, c);
+    return clonedArea;
+}
+
+Area* Area::getClonedArea() {
+		return clonedArea;
 }

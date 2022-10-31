@@ -23,3 +23,8 @@ void Runway::destroy() {
         this->location->removeEdge(e);
     }
 }
+
+
+Infrastructure* Runway::clone(Area* newArea){
+    return nullptr;
+}

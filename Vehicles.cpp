@@ -61,7 +61,7 @@ double Vehicles::takeDamage(double dmg) {
     if(HP > 0) {
         return getDamage();
     } else {
-        //TODO: Set functions to destroy vehicle
+        destroy();
     }
     return 0;
 }
@@ -97,4 +97,8 @@ void Vehicles::attack(Troops *theEnemy) {
     while(HP > 0 && theEnemy->getHP() > 0) {
         takeDamage(theEnemy->takeDamage(this->getDamage()));
     }
+}
+
+void Vehicles::destroy() {
+    delete this;
 }

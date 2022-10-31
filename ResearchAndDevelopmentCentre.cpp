@@ -7,10 +7,8 @@
 // TODO: Make virtual and expand to children
 void ResearchAndDevelopmentCentre::destroy()
 {
-    // TODO: stop developing
-
-    // destroy
-    //    ~ResearchAndDevelopmentCentre();
+    vehicleToBeUpgraded.clear();
+    delete this;
 }
 void ResearchAndDevelopmentCentre::notifyDevelop()
 {

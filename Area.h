@@ -37,6 +37,7 @@ private:
 	double dist = 0;
 
 	Country *controllingCountry = nullptr;
+	Area* clonedArea = nullptr;
 
 public:
 	/**
@@ -144,6 +145,7 @@ public:
 	 * @return Area* 
 	 */
 	Area* clone(Country * c);
+	Area* getClonedArea();
 };
 
 #endif

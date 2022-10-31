@@ -1,5 +1,4 @@
 #include "WarEntities.h"
-
 WarEntities::WarEntities()
 {
 }
@@ -53,17 +52,26 @@ std::vector<Infrastructure *> WarEntities::getInfrastructure()
 }
 WarEntities *WarEntities::clone() {
     WarEntities* newEntities = new WarEntities();
-	for(auto v: vehicles){
+	for(auto v: vehicles) {
 		newEntities->addVehicles(v->clone());
 	}
 
-	for(auto t: troops){
+	for(auto t: troops) {
 		newEntities->addTroops(t->clone());
 	}
 
 	for(auto i: infrastructure){
-		// newEntities->addInfrastructure(i->clone());
+	    // newEntities->addInfrastructure(i->clone());
 	}
 
 	return newEntities;
+}
+
+std::vector<Citizens *>  WarEntities::getFightingCitizens(){
+    std::vector<Citizens *> ans;
+    for(auto t: troops) {
+		
+	}
+
+    return ans;
 }

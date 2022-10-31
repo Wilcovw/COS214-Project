@@ -25,3 +25,7 @@ void Harbour::destroy(){
         this->location->removeEdge(e);
     }
 }
+
+Infrastructure* Harbour::clone(Area* newArea) {
+    return nullptr;
+}
