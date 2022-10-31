@@ -1,5 +1,4 @@
 #include "WarEntities.h"
-
 WarEntities::WarEntities()
 {
 }
@@ -66,9 +65,4 @@ std::vector<Troops *> WarEntities::getTroops()
 std::vector<Infrastructure *> WarEntities::getInfrastructure()
 {
     return infrastructure;
-}
-
-WarEntities *WarEntities::clone()
-{
-    return new WarEntities(*this);
 }

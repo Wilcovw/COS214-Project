@@ -99,6 +99,10 @@ public:
      * @param theEnemy
      */
     void attack(Infrastructure *theEnemy);
+    /**
+     * @brief Calls class' destructor
+     */
+    void destroy();
 };
 
 #endif // FACTORY_AND_OBSERVER_VEHICLES_H

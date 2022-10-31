@@ -58,28 +58,6 @@ bool Area::isAccessible(Area *d)
 				u->visited = true;
 			}
 		}
-		// list<Edge *>::iterator it;
-		// if (v->getEdges().size() != 0)
-		// {
-		// 	int total = v->getEdges().size(), count = 0;
-		// 	it = v->getEdges().begin();
-		// 	while (count != total)
-		// 	{
-		// 		Area *u = (*it)->getDestination();
-
-		// 		if (u == d)
-		// 		{
-		// 			return true;
-		// 		}
-		// 		if (u->visited == false)
-		// 		{
-		// 			queue.push(u);
-		// 			u->visited = true;
-		// 		}
-		// 		count++;
-		// 		it++;
-		// 	}
-		// }
 	}
 
 	return false;
@@ -165,4 +143,13 @@ Country *Area::getControllingCountry()
 
 void Area::removeEdge(Edge * e){
 	connectedEdges.remove(e);
+}
+
+Area* Area::clone(Country * c) {
+	Area* clonedArea = new Area(name, c);
+    return clonedArea;
+}
+
+Area* Area::getClonedArea() {
+		return clonedArea;
 }

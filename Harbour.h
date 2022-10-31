@@ -17,5 +17,6 @@ public:
 private:
     string name;
     vector<Edge*> connectedHarbours;
+    virtual Infrastructure* clone(Area* newArea);
 };
 #endif

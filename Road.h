@@ -14,6 +14,7 @@ private:
 public:
     Road(Area*, Area *, double);
     virtual void destroy();
+    virtual Infrastructure* clone(Area* newArea);
 };
 
 #endif

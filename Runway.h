@@ -17,6 +17,7 @@ public:
     Runway(Area *, double);
     void addConnection(Area *destination);
     virtual void destroy();
+    virtual Infrastructure* clone(Area* newArea);
 };
 
 #endif

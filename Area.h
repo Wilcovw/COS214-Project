@@ -35,11 +35,9 @@ private:
 	 *
 	 */
 	double dist = 0;
-	/**
-	 * @brief The country that currently controls this area
-	 *
-	 */
-	Country *controllingCountry = NULL;
+
+	Country *controllingCountry = nullptr;
+	Area *clonedArea = nullptr;
 
 public:
 	/**
@@ -136,7 +134,18 @@ public:
 	 * @param d
 	 */
 	void setDist(double d);
+	/**
+	 * @brief remove the passed in Edge from the Area
+	 *
+	 */
 	void removeEdge(Edge *);
+	/**
+	 * @brief Returns a copy of current Object
+	 *
+	 * @return Area*
+	 */
+	Area *clone(Country *c);
+	Area *getClonedArea();
 };
 
 #endif
