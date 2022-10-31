@@ -20,6 +20,10 @@ public:
      */
     Infrastructure(double hp, Area *area);
     /**
+     * @brief destructor
+     */
+    ~Infrastructure();
+    /**
      * @brief Returns class private variable HP
      * @return HP
      */
