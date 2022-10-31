@@ -3,9 +3,9 @@
 #include "Area.h"
 
 class Infrastructure {
-    private:
-        double HP;
-        Area* location;
+    protected:
+        double HP = 0;
+        Area* location = nullptr;
     public:
         Infrastructure();
         double getHP();
