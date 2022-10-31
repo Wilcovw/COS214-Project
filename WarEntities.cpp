@@ -51,3 +51,19 @@ std::vector<Infrastructure *> WarEntities::getInfrastructure()
 {
     return infrastructure;
 }
+WarEntities *WarEntities::clone() {
+    WarEntities* newEntities = new WarEntities();
+	for(auto v: vehicles){
+		newEntities->addVehicles(v->clone());
+	}
+
+	for(auto t: troops){
+		newEntities->addTroops(t->clone());
+	}
+
+	for(auto i: infrastructure){
+		// newEntities->addInfrastructure(i->clone());
+	}
+
+	return newEntities;
+}

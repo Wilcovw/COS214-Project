@@ -19,3 +19,7 @@ double Infrastructure::getHP()
 void Infrastructure::destroy() {
     
 }
+
+Infrastructure* Infrastructure::clone(){
+	return new Infrastructure(HP,location->clone(location->getControllingCountry()));
+}

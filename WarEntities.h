@@ -75,5 +75,6 @@ public:
      * @return std::vector<Infrastructure*> The infrastructure vector
      */
     std::vector<Infrastructure *> getInfrastructure();
+	WarEntities *clone();
 };
 #endif

@@ -19,10 +19,10 @@ public:
      * @param hp
      */
     Infrastructure(double hp, Area *area);
-    // /**
-    //  * @brief Returns class private variable HP
-    //  * @return HP
-    //  */
+    /**
+     * @brief Returns class private variable HP
+     * @return HP
+     */
     double getHP();
     /**
      * @brief destructor
@@ -33,6 +33,7 @@ public:
      * @param theDamage
      */
     void takeDamage(double theDamage);
+	Infrastructure* clone();
 };
 
 #endif
