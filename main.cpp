@@ -48,16 +48,22 @@ int main()
 	warMap->addArea(vienna);
 	warMap->addArea(budapest);
 	// Roads
-	Road *road1 = new Road(madrid, "Duncan Street", paris);
-	Road *road2 = new Road(paris, "Benny Road", berlin);
+	Road *road1 = new Road(paris, madrid, 50);
+	Road *road2 = new Road(berlin, paris, 100);
 	// Runway will be in Berlin
-	Runway *runway1 = new Runway(madrid, "Air travel One", berlin);
-	runway1->addConnection(warsaw, "Air Travel Two");
-	Harbour *harbour1 = new Harbour(madrid, "Shiping dock", rome);
+	Runway *runway1 = new Runway(berlin, 5000);
+	runway1->addConnection(madrid);
+	runway1->addConnection(warsaw);
+	Harbour *harbour1 = new Harbour(rome, 10000);
+	harbour1->addConnection(madrid);
+	isAccessible(budapest, warsaw, warMap);
+	Road *road3 = new Road(budapest, warsaw, 250);
+	isAccessible(budapest, warsaw, warMap);
 	isAccessible(berlin, warsaw, warMap);
 	isAccessible(berlin, warsaw, warMap, "Runway");
 	isAccessible(madrid, warsaw, warMap, "Runway");
 	isAccessible(rome, madrid, warMap);
+	isAccessible(rome, paris, warMap, "Harbour");
 	list<Area *> path = warMap->shortestPath(madrid, warsaw);
 	cout << endl
 		 << "Shortest path from " << madrid->getName() << " to " << warsaw->getName() << ": " << endl;
@@ -101,14 +107,6 @@ int main()
 	// delete warMap and Areas in it
 	delete warMap;
 	// Delete all countries - Not necessary since WapMap already does that
-
-	// delete germany;
-	// delete france;
-	// delete spain;
-	// delete italy;
-	// delete poland;
-	// delete austria;
-	// delete hungary;
 
 	return 0;
 }
