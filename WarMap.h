@@ -101,7 +101,7 @@ class WarMap{
 		 */
 		EdgeIterator* createEdgeIterator();
 		/**
-		 * @brief 
+		 * @brief Retunrns the beginning of the Area List
 		 * 
 		 * @return list<Area *>::iterator 
 		 */

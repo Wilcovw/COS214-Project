@@ -37,11 +37,7 @@ public:
      * @param theDamage
      */
     void takeDamage(double theDamage);
-    /**
-     * @brief Clones Infrastructure
-     * @return returns a copy of current class
-     */
-     Infrastructure* clone();
+	Infrastructure* clone();
 };
 
 #endif

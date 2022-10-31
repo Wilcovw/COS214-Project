@@ -24,6 +24,6 @@ void Infrastructure::destroy() {
     delete this;
 }
 
-Infrastructure* Infrastructure::clone() {
-    return new Infrastructure(this->HP, this->location);
+Infrastructure* Infrastructure::clone(){
+	return new Infrastructure(HP,location->clone(location->getControllingCountry()));
 }
