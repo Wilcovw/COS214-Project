@@ -7,14 +7,16 @@
 
 using namespace std;
 
-class Runway : public Infrastructure{
-    private:
-        string name;
-        vector<Edge> flights;
-    public:
-        Runway(Area *destination, string name, Area* location);
-        void addConnection(Area *destination, string name);
-        void destroy();
+class Runway : public Infrastructure
+{
+private:
+    string name;
+    vector<Edge*> flights;
+
+public:
+    Runway(Area *, double);
+    void addConnection(Area *destination);
+    virtual void destroy();
 };
 
 #endif

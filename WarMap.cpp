@@ -46,7 +46,7 @@ bool WarMap::isAccessible(Area *source, Area *destination, string type)
 	return source->isAccessible(destination, type);
 }
 
-bool WarMap::addEdge(Area *source, Area *destination, double distance, string name, string type)
+bool WarMap::addEdge(Area *source, Area *destination, double distance, string type)
 {
 	if (source == nullptr || destination == nullptr)
 	{
@@ -59,7 +59,7 @@ bool WarMap::addEdge(Area *source, Area *destination, double distance, string na
 	{
 		return false;
 	}
-	Edge *e = new Edge(distance, name, type, source, destination);
+	Edge *e = new Edge(distance, type, source, destination);
 	return s->addEdge(e);
 }
 

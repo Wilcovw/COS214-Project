@@ -68,7 +68,7 @@ class WarMap{
 		 * @return true 
 		 * @return false 
 		 */
-		bool addEdge(Area* source,  Area* destination, double distance, string name, string type);
+		bool addEdge(Area* source,  Area* destination, double distance, string type);
 		/**
 		 * @brief 
 		 * 
@@ -101,7 +101,7 @@ class WarMap{
 		 */
 		EdgeIterator* createEdgeIterator();
 		/**
-		 * @brief 
+		 * @brief Retunrns the beginning of the Area List
 		 * 
 		 * @return list<Area *>::iterator 
 		 */

@@ -7,13 +7,15 @@
 
 using namespace std;
 
-class Harbour : public Infrastructure{
-    public:
-        Harbour(Area *destination, string name, Area* location);
-        void addConnection(Area *destination, string name);
-        void destroy();
-    private:
-        string name;
-        vector<Edge> connectedHarbours;
+class Harbour : public Infrastructure
+{
+public:
+    Harbour(Area *, double);
+    void addConnection(Area *destination);
+    virtual void destroy();
+
+private:
+    string name;
+    vector<Edge*> connectedHarbours;
 };
 #endif
