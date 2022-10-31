@@ -24,6 +24,10 @@ public:
      * @return vehicle with passed in parameters
      */
     Vehicles *createVehicle(string model, double HP, double damage, double speed);
+    /**
+     * @brief Calls class destructor
+     */
+    void destroy();
 };
 
 #endif // FACTORY_AND_OBSERVER_LANDVEHICLEFACTORY_H

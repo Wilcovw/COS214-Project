@@ -1,6 +1,3 @@
-//
-// Created by wilco on 2022/10/16.
-//
 #include "Vehicles.h"
 #include "Troops.h"
 #include <string>
@@ -80,7 +77,6 @@ void Vehicles::print() {
          << HP << "\ndamage: " << damage << "\nspeed: " << speed
          << "\nlevel: " << level << endl << endl;
 }
-
 
 void Vehicles::update() {
     incLevel();

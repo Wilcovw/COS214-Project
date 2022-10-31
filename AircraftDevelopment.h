@@ -8,6 +8,7 @@ class AircraftDevelopment : public ResearchAndDevelopmentCentre
 {
 public:
     AircraftDevelopment(double hp, Area *area) : ResearchAndDevelopmentCentre(hp, area){};
+    void destroy();
 };
 
 #endif // FACTORY_AND_OBSERVER_AIRCRAFTDEVELOPMENT_H

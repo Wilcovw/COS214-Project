@@ -1,4 +1,3 @@
-
 #ifndef FACTORY_AND_OBSERVER_AQUATICVEHICLES_H
 #define FACTORY_AND_OBSERVER_AQUATICVEHICLES_H
 
@@ -27,6 +26,10 @@ public:
      * @param r
      */
     void readyToUpgrade(ResearchAndDevelopmentCentre *r);
+    /**
+    * @brief calls class destructor
+    */
+    void destroy();
 };
 
 #endif // FACTORY_AND_OBSERVER_AQUATICVEHICLES_H

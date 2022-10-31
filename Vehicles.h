@@ -100,7 +100,7 @@ public:
      */
     void attack(Infrastructure *theEnemy);
     /**
-     * @brief Calls class' destructor
+     * @brief Calls class destructor
      */
     void destroy();
 };

@@ -25,7 +25,7 @@ public:
      */
     void notifyDevelop();
     /**
-     * @brief Destructor for the class
+     * @brief calls destructor for the class
      */
     virtual void destroy();
     /**
@@ -37,6 +37,11 @@ public:
      * @param v
      */
     void addToList(Vehicles *v);
+    /**
+     * @brief returns a clone of the current class
+     * @return a clone of the current class is returned
+     */
+    ResearchAndDevelopmentCentre* clone();
 };
 
 #endif // FACTORY_AND_OBSERVER_RESEARCHANDDEVELOPMENTCENTRE_H
