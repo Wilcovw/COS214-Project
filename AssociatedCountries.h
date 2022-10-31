@@ -69,5 +69,12 @@ public:
      * @return std::string - The string containing the contents of this AssociatedCountries object
      */
     virtual std::string print() = 0;
+    /**
+     * @brief Returns a deep copy of the AssociatedCountries object and its children
+     *
+     * @param comm The comunication object used between all countries
+     * @return AssociatedCountries* The cloned copy of the AssociatedCountries object
+     */
+    virtual AssociatedCountries *clone(Communication *comm) = 0;
 };
 #endif

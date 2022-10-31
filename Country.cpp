@@ -21,6 +21,36 @@ Country::Country(std::string name, Communication *t)
     }
 }
 
+Country::Country(Country &country, Communication *comm)
+{
+    this->tele = comm;
+    this->tele->storeMe(this);
+    this->name = country.name;
+    this->numCitzenGroups = country.numCitzenGroups;
+
+    this->citizens = new Citizens *[country.numCitzenGroups];
+    int counter = 0;
+    for (int i = 0; i < numCitzenGroups; i++)
+    {
+        if (country.citizens[i]->getStatus().compare("Unlisted") || country.citizens[i]->getStatus().compare("Dead"))
+        {
+            this->citizens[counter] = country.citizens[i]->clone();
+            counter++;
+        }
+    }
+    this->entities = country.entities->clone();
+    for (int i = 0; i < entities->getTroops().size(); i++)
+    {
+        this->citizens[counter] = entities->getFightingCitizens().at(i);
+    }
+
+    // Temporary code: might need to receive cloned areas instead of creating new ones here, cause they not setup properly
+    for (int i = 0; i < country.areas.size(); i++)
+    {
+        this->areas.push_back(country.areas.at(i)->clone());
+    }
+}
+
 std::string Country::getName()
 {
     return name;
@@ -145,4 +175,9 @@ void Country::revolt(bool active)
     {
         std::cout << name << "'s revolution has ended" << std::endl;
     }
+}
+
+AssociatedCountries *Country::clone(Communication *comm)
+{
+    return new Country(*this, comm);
 }

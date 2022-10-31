@@ -35,6 +35,12 @@ public:
      */
     WarEntities();
     /**
+     * @brief Create a copy of the passed in WarEntities object
+     *
+     * @param WarEnt THe WarEntities object to be copied
+     */
+    WarEntities(WarEntities &warEnt);
+    /**
      * @brief Destroy the War Entities object
      *
      */
@@ -75,5 +81,11 @@ public:
      * @return std::vector<Infrastructure*> The infrastructure vector
      */
     std::vector<Infrastructure *> getInfrastructure();
+    /**
+     * @brief return a clone of this object
+     *
+     * @return WarEntities The cloned object
+     */
+    WarEntities *clone();
 };
 #endif

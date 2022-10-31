@@ -22,6 +22,22 @@ WarEntities::~WarEntities()
     }
 }
 
+WarEntities::WarEntities(WarEntities &warEnt)
+{
+    for (int i = 0; i < warEnt.vehicles.size(); i++)
+    {
+        this->vehicles.push_back(warEnt.vehicles.at(i)->clone());
+    }
+    for (int i = 0; i < warEnt.troops.size(); i++)
+    {
+        this->troops.push_back(warEnt.troops.at(i)->clone());
+    }
+    for (int i = 0; i < warEnt.infrastructure.size(); i++)
+    {
+        this->infrastructure.push_back(warEnt.infrastructure.at(i)->clone());
+    }
+}
+
 void WarEntities::addVehicles(Vehicles *theVehicle)
 {
     vehicles.push_back(theVehicle);
@@ -50,4 +66,9 @@ std::vector<Troops *> WarEntities::getTroops()
 std::vector<Infrastructure *> WarEntities::getInfrastructure()
 {
     return infrastructure;
+}
+
+WarEntities *WarEntities::clone()
+{
+    return new WarEntities(*this);
 }

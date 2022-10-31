@@ -50,6 +50,11 @@ public:
      */
     Country(std::string name, Communication *tele);
     /**
+     * @brief default constructor
+     *
+     */
+    Country(Country &country, Communication *comm);
+    /**
      * @brief Return the name of the Country
      *
      * @return std::string
@@ -150,5 +155,12 @@ public:
      * @param revolt Whether or not the citizerns are revolting
      */
     void revolt(bool revolt);
+    /**
+     * @brief Returns a deep copy of the AssociatedCountries object and its children
+     *
+     * @param comm The comunication object used between all countries
+     * @return AssociatedCountries* The cloned copy of the AssociatedCountries object
+     */
+    virtual AssociatedCountries *clone(Communication *comm);
 };
 #endif
