@@ -12,7 +12,7 @@ private:
     Edge **theRoad = new Edge *[2];
     double distance;
 public:
-    Road(Area*, Area *, double);
+    Road(Area*, Area *, double, double);
     virtual void destroy();
     virtual Infrastructure* clone(Area* newArea);
 };

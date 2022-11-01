@@ -1,8 +1,8 @@
 #include "Runway.h"
 #include <vector>
 
-Runway::Runway(Area *source, double hp) : Infrastructure(hp, source) {
-
+Runway::Runway(Area *source, double hp, double distanec) : Infrastructure(hp, source) {
+    this->distance = distance;
 };
 
 void Runway::addConnection(Area *destination)
@@ -26,7 +26,7 @@ void Runway::destroy() {
 
 
 Infrastructure* Runway::clone(Area* newArea) {
-    Runway* newRunway = new Runway(newArea, this->HP);
+    Runway* newRunway = new Runway(newArea, this->HP, this->distance);
     for(auto f : flights) {
         if(f != nullptr && f->getDestination() != nullptr && f->getDestination()->getClonedArea() != nullptr && f->getDestination()->getClonedArea() != newArea) {
             newRunway->addConnection(f->getDestination()->getClonedArea());

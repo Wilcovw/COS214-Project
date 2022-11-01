@@ -1,10 +1,8 @@
 #include "Road.h"
 
-Road::Road(Area* source, Area *destination, double hp) : Infrastructure(hp, source)
+Road::Road(Area* source, Area *destination, double hp, double distance) : Infrastructure(hp, source)
 {
-    srand(time(0));
-    this->distance = (rand() % 10) + 1;
-
+    this->distance = distance;
     this->theRoad[0] = new Edge(distance, "Road", this->location, destination);
     this->location->addEdge(theRoad[0]);
 
@@ -19,7 +17,7 @@ void Road::destroy(){
 
 Infrastructure* Road::clone(Area* newArea) {    
     if(theRoad[0]->getDestination() != nullptr && theRoad[0]->getDestination()->getClonedArea() != nullptr) {
-        Infrastructure* newRoad = new Road(newArea, theRoad[0]->getDestination()->getClonedArea(), this->HP);
+        Infrastructure* newRoad = new Road(newArea, theRoad[0]->getDestination()->getClonedArea(), this->HP, this->distance);
     }
     return nullptr;
 }
