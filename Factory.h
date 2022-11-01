@@ -11,7 +11,7 @@ private:
 
 public:
     Factory(double hp, Area *area) : Infrastructure(hp, area){};
-    virtual ~Factory(){};
+    virtual ~Factory() {};
 
     /**
      * @brief Creates Vehicle
@@ -21,7 +21,7 @@ public:
      * @param speed
      * @return a single vehicle is returned, with parameters given as attributes
      */
-    virtual Vehicles *createVehicle(string model, double HP, double damage, double speed) = 0;
+    virtual Vehicles *createVehicle(string model, Area* location, double HP, double damage, double speed);
     /**
      * @brief sets the private variable of this class to passed in parameter
      * @param v
@@ -36,6 +36,7 @@ public:
      * @brief destructor
      */
     virtual void destroy();
+    virtual Infrastructure* clone();
 };
 
 #endif // FACTORY_AND_OBSERVER_FACTORY_H

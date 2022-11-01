@@ -16,7 +16,7 @@ public:
      * @param damage
      * @param speed
      */
-    AquaticVehicles(string model, double hp, double damage, double speed);
+    AquaticVehicles(string model, Area* location, double hp, double damage, double speed);
     /**
      * @brief method that calls the vehicle's increments level method
      */
@@ -30,6 +30,7 @@ public:
     * @brief calls class destructor
     */
     void destroy();
+    Vehicles* clone();
 };
 
 #endif // FACTORY_AND_OBSERVER_AQUATICVEHICLES_H

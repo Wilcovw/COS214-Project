@@ -6,10 +6,10 @@ Infrastructure::Infrastructure(double hp, Area *area)
     HP = hp;
 }
 
-Infrastructure::~Infrastructure()
-{
-    delete location;
-}
+//Infrastructure::~Infrastructure()
+//{
+//    delete location;
+//}
 
 void Infrastructure::takeDamage(double theDamage)
 {

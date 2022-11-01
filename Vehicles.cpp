@@ -3,8 +3,9 @@
 #include <string>
 #include <iostream>
 using namespace std;
-Vehicles::Vehicles(string model, double HP, double damage, double speed) {
+Vehicles::Vehicles(string model, Area* location, double HP, double damage, double speed) {
     this->model = model;
+    this->location = location;
     this->HP = HP;
     this->damage=damage;
     this->speed=speed;
@@ -14,6 +15,10 @@ Vehicles::Vehicles(string model, double HP, double damage, double speed) {
 
 string Vehicles::getModel() {
     return model;
+}
+
+Area *Vehicles::getLocation() {
+    return location;
 }
 
 double Vehicles::getHP() {
@@ -34,7 +39,7 @@ int Vehicles::getLevel() {
 
 //use as: vehicle = vehicle.clone()
 Vehicles *Vehicles::clone() {
-    Vehicles* ret = new Vehicles(model, HP, damage, speed);
+    Vehicles* ret = new Vehicles(model, location, HP, damage, speed);
     ret->type = this->type;
     return ret;
 }

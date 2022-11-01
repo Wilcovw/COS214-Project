@@ -5,6 +5,7 @@
 #ifndef FACTORY_AND_OBSERVER_VEHICLES_H
 #define FACTORY_AND_OBSERVER_VEHICLES_H
 #include <string>
+#include "Area.h"
 
 using namespace std;
 
@@ -18,6 +19,7 @@ private:
     double damage;
     double speed;
     int level;
+    Area* location;
 
 protected:
     string type;
@@ -26,11 +28,12 @@ public:
     /**
      * @brief constructor for vehicle class
      * @param model
+     * @param location
      * @param HP
      * @param damage
      * @param speed
      */
-    Vehicles(string model, double HP, double damage, double speed);
+    Vehicles(string model, Area* location, double HP, double damage, double speed);
     /**
      *
      * @return the model type of the vehicle
@@ -40,6 +43,7 @@ public:
      *
      * @return the HP of the vehicle
      */
+     Area* getLocation();
     double getHP();
     /**
      *

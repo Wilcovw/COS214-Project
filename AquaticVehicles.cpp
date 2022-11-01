@@ -1,6 +1,6 @@
 #include "AquaticVehicles.h"
 
-AquaticVehicles::AquaticVehicles(string model, double hp, double damage, double speed) : Vehicles(model, hp, damage,speed) {
+AquaticVehicles::AquaticVehicles(string model, Area* location, double hp, double damage, double speed) : Vehicles(model, location, hp, damage,speed) {
     type = "Aquatic Vehicle";
 }
 
@@ -14,4 +14,8 @@ void AquaticVehicles::readyToUpgrade(ResearchAndDevelopmentCentre *r) {
 
 void AquaticVehicles::destroy() {
     delete this;
+}
+
+Vehicles *AquaticVehicles::clone() {
+    return new AquaticVehicles(getModel(), getLocation(), getHP(), getDamage(), getSpeed());
 }

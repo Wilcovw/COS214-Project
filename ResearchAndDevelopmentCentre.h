@@ -41,7 +41,7 @@ public:
      * @brief returns a clone of the current class
      * @return a clone of the current class is returned
      */
-    ResearchAndDevelopmentCentre* clone();
+    Infrastructure* clone();
 };
 
 #endif // FACTORY_AND_OBSERVER_RESEARCHANDDEVELOPMENTCENTRE_H

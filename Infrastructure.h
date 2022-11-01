@@ -23,7 +23,7 @@ public:
     /**
      * @brief destructor
      */
-    ~Infrastructure();
+    virtual ~Infrastructure(){};
     /**
      * @brief Returns class private variable HP
      * @return HP

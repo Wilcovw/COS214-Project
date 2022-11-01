@@ -239,9 +239,9 @@ void showcasing()
     Factory *cvf1 = new LandVehicleFactory(2, vancouver);
     Factory *cvf2 = new AquaticVehicleFactory(2, toronto);
     Factory *cvf3 = new AircraftFactory(2, montreal);
-    caneighdia->getWarEntities()->addVehicles(cvf1->createVehicle("Mercedes", 2, 2, 2));
-    caneighdia->getWarEntities()->addVehicles(cvf2->createVehicle("Mercedes", 2, 2, 2));
-    caneighdia->getWarEntities()->addVehicles(cvf3->createVehicle("Mercedes", 2, 2, 2));
+    caneighdia->getWarEntities()->addVehicles(cvf1->createVehicle("Mercedes", montreal, 2, 2, 2));
+    caneighdia->getWarEntities()->addVehicles(cvf2->createVehicle("Mercedes", montreal, 2, 2, 2));
+    caneighdia->getWarEntities()->addVehicles(cvf3->createVehicle("Mercedes", montreal, 2, 2, 2));
 
     ResearchAndDevelopmentCentre *crdc1 = new LandVehicleDevelopment(2, vancouver);
     ResearchAndDevelopmentCentre *crdc2 = new AquaticVehicleDevelopment(2, toronto);
@@ -287,9 +287,9 @@ void showcasing()
     russia->getWarEntities()->addInfrastructure(rrdc1);
     russia->getWarEntities()->addInfrastructure(rrdc2);
     russia->getWarEntities()->addInfrastructure(rrdc3);
-    russia->getWarEntities()->addVehicles(rf3->createVehicle("AUDI", 20, 20, 120));
-    russia->getWarEntities()->addVehicles(rf2->createVehicle("Submarine", 500, 100, 200));
-    russia->getWarEntities()->addVehicles(rf2->createVehicle("Fighter Jet", 50, 30, 1000));
+    russia->getWarEntities()->addVehicles(rf3->createVehicle("AUDI", montreal, 20, 20, 120));
+    russia->getWarEntities()->addVehicles(rf2->createVehicle("Submarine", montreal, 500, 100, 200));
+    russia->getWarEntities()->addVehicles(rf2->createVehicle("Fighter Jet", montreal, 50, 30, 1000));
     Troops *rs1 = rtc->startDrafting(russia->getCitizens()[0]);
     russia->getWarEntities()->addTroops(rs1);
     Troops *rs2 = rtc2->startDrafting(russia->getCitizens()[1]);
@@ -343,9 +343,9 @@ void showcasing()
     america->getWarEntities()->addInfrastructure(ardc1);
     america->getWarEntities()->addInfrastructure(ardc2);
     america->getWarEntities()->addInfrastructure(ardc3);
-    america->getWarEntities()->addVehicles(af1->createVehicle("BMW", 2, 2, 2));
-    america->getWarEntities()->addVehicles(af2->createVehicle("FloatBoat", 2, 2, 2));
-    america->getWarEntities()->addVehicles(af3->createVehicle("Fly@UP", 2, 2, 2));
+    america->getWarEntities()->addVehicles(af1->createVehicle("BMW", sydney, 2, 2, 2));
+    america->getWarEntities()->addVehicles(af2->createVehicle("FloatBoat", sydney, 2, 2, 2));
+    america->getWarEntities()->addVehicles(af3->createVehicle("Fly@UP", sydney, 2, 2, 2));
     Troops *as1 = atc1->startDrafting(america->getCitizens()[0]);
     america->getWarEntities()->addTroops(as1);
     Troops *as2 = atc1->startDrafting(america->getCitizens()[1]);
