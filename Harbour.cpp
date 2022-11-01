@@ -2,9 +2,9 @@
 
 #include <vector>
 
-Harbour::Harbour(Area *source, double hp) : Infrastructure(hp, source)
+Harbour::Harbour(Area *source, double hp, double distance) : Infrastructure(hp, source)
 {
-    
+    this->distance = distance;
 };
 
 void Harbour::addConnection(Area *destination)
@@ -27,7 +27,7 @@ void Harbour::destroy(){
 }
 
 Infrastructure* Harbour::clone(Area* newArea) {
-    Harbour* newHarbour = new Harbour(newArea, this->HP);
+    Harbour* newHarbour = new Harbour(newArea, this->HP, this->distance);
     for(auto c : connectedHarbours) {
         if(c != nullptr && c->getDestination() != nullptr && c->getDestination()->getClonedArea() != nullptr && c->getDestination()->getClonedArea() != newArea) {
             newHarbour->addConnection(c->getDestination()->getClonedArea());
