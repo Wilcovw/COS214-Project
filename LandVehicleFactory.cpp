@@ -1,16 +1,11 @@
 #include "LandVehicleFactory.h"
 
-<<<<<<< Updated upstream
-Vehicles *LandVehicleFactory::createVehicle(string model, Area* location, double HP, double damage, double speed) {
-    Vehicles *v = new LandVehicles(model, location, HP, damage, speed);
-=======
 LandVehicleFactory::LandVehicleFactory(double hp, Area *area) : Factory(hp, area) {
     type = ::iLandFactory;
 }
 
 Vehicles *LandVehicleFactory::createVehicle(string model, double HP, double damage, double speed) {
-    Vehicles *v = new LandVehicles(model, HP, damage, speed);
->>>>>>> Stashed changes
+    Vehicles *v = new LandVehicles(model, location, HP, damage, speed);
     setVehicle(v);
     return v;
 }
