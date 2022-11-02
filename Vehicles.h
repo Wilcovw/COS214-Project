@@ -40,10 +40,14 @@ public:
      */
     string getModel();
     /**
-     *
-     * @return the HP of the vehicle
-     */
+    *
+    * @return the location of the vehicle
+    */
      Area* getLocation();
+    /**
+    *
+    * @return the HP of the vehicle
+    */
     double getHP();
     /**
      *
@@ -72,9 +76,14 @@ public:
      */
     Vehicles **clone(int n);
     /**
+     * @brief method that changes the location of the vehicle to a passed in area
+     * @param area
+     */
+    void changeLocation(Area* area);
+    /**
      * @brief method that calls the vehicle's increments level method
      */
-    virtual void update(); // ready for upgrade
+    virtual void update();
     /**
      * @brief decreases HP according to the damage done
      * @param dmg
