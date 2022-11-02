@@ -7,14 +7,14 @@ using namespace std;
 class WarPhase
 {
 private:
-	vector<Country*> countryGroup;
-    vector<Area*> warTheatreGraph;
-    WarMap map;
+	vector<Country*> allCountries;
+    WarMap* map;
+    Communication* communication;
 public:
-    WarPhase(vector<Country*> countryGroup, vector<Area*> warTheatreGraph, WarMap map);
+    WarPhase(vector<Country*> allCountries, Communication* c, WarMap* map);
     vector<Country*> getCountryGroup();
-    vector<Area*> getWarTheatreGraph();
-    WarMap getMap();
+    WarMap* getMap();
+    Communication* getCommunication();
 };
 
 #endif

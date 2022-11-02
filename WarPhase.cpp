@@ -1,19 +1,18 @@
 #include "WarPhase.h"
 
-WarPhase::WarPhase(vector<Country*> countryGroup, vector<Area*> warTheatreGraph, WarMap map){
-    this->countryGroup = countryGroup;
-    this->warTheatreGraph = warTheatreGraph;
+WarPhase::WarPhase(vector<Country*> allCountries, Communication* c, WarMap* map){
+    this->allCountries = allCountries;
     this->map = map;
 };
 
 vector<Country*> WarPhase::getCountryGroup(){
-    return  this->countryGroup;
+    return  this->allCountries;
 };
 
-vector<Area*> WarPhase::getWarTheatreGraph(){
-    return this->warTheatreGraph;
+Communication* WarPhase::getCommunication(){
+    return this->communication;
 };
 
-WarMap WarPhase::getMap(){
+WarMap* WarPhase::getMap(){
     return this-> map;
 };

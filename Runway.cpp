@@ -1,15 +1,12 @@
 #include "Runway.h"
 #include <vector>
 
-Runway::Runway(Area *source, double hp, double distanec) : Infrastructure(hp, source) {
-    this->distance = distance;
+Runway::Runway(Area *source, double hp) : Infrastructure(hp, source) {
+    type = ::iRunway;
 };
 
-void Runway::addConnection(Area *destination)
+void Runway::addConnection(Area *destination, double distance)
 {
-    srand(time(0));
-    double distance = (rand() % 100) + 10;
-
     Edge *flight = new Edge(distance, "Runway", this->location, destination);
     flights.push_back(flight);
     this->location->addEdge(flight);
@@ -26,10 +23,10 @@ void Runway::destroy() {
 
 
 Infrastructure* Runway::clone(Area* newArea) {
-    Runway* newRunway = new Runway(newArea, this->HP, this->distance);
+    Runway* newRunway = new Runway(newArea, this->HP);
     for(auto f : flights) {
         if(f != nullptr && f->getDestination() != nullptr && f->getDestination()->getClonedArea() != nullptr && f->getDestination()->getClonedArea() != newArea) {
-            newRunway->addConnection(f->getDestination()->getClonedArea());
+            newRunway->addConnection(f->getDestination()->getClonedArea(), f->getDistance());
         }
     }
     return newRunway;

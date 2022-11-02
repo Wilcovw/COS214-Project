@@ -31,7 +31,11 @@ Infrastructure *Infrastructure::clone(Area *newArea)
     return nullptr;
 }
 
-Area *Infrastructure::getArea()
+Area* Infrastructure::getArea()
 {
     return location;
+}
+
+typeOfInfrastructure Infrastructure::getType() {
+    return type;
 }

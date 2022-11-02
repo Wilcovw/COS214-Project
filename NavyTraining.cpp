@@ -3,7 +3,7 @@
 #include "NavyTraining.h"
 
 NavyTraining::NavyTraining(double HP, Area* location) : TrainingCamp(HP, location) {
-    
+    type = ::iNavyCamp;
 }
 
 NavyTraining::~NavyTraining() {

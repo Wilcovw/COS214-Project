@@ -7,7 +7,7 @@
 class LandVehicleDevelopment : public ResearchAndDevelopmentCentre
 {
 public:
-    LandVehicleDevelopment(double hp, Area *area) : ResearchAndDevelopmentCentre(hp, area){};
+    LandVehicleDevelopment(double hp, Area *area);
     void destroy();
     Infrastructure* clone();
 };

@@ -10,7 +10,7 @@ public:
     /**
      * @brief constructor
      */
-    AquaticVehicleFactory(double hp, Area *area) : Factory(hp, area){};
+    AquaticVehicleFactory(double hp, Area *area);
     /**
      * @brief virtual destructor
      */

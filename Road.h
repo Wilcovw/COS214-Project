@@ -10,7 +10,6 @@ class Road : public Infrastructure
 {
 private:
     Edge **theRoad = new Edge *[2];
-    double distance;
 public:
     Road(Area*, Area *, double, double);
     virtual void destroy();

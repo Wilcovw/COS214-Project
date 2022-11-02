@@ -2,7 +2,7 @@
 
 Road::Road(Area* source, Area *destination, double hp, double distance) : Infrastructure(hp, source)
 {
-    this->distance = distance;
+    type = ::iRoad;
     this->theRoad[0] = new Edge(distance, "Road", this->location, destination);
     this->location->addEdge(theRoad[0]);
 
@@ -17,7 +17,7 @@ void Road::destroy(){
 
 Infrastructure* Road::clone(Area* newArea) {    
     if(theRoad[0]->getDestination() != nullptr && theRoad[0]->getDestination()->getClonedArea() != nullptr) {
-        Infrastructure* newRoad = new Road(newArea, theRoad[0]->getDestination()->getClonedArea(), this->HP, this->distance);
+        Infrastructure* newRoad = new Road(newArea, theRoad[0]->getDestination()->getClonedArea(), this->HP, this->theRoad[0]->getDistance());
     }
     return nullptr;
 }

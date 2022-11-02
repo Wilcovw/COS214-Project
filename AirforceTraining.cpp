@@ -3,7 +3,7 @@
 #include "AirforceTraining.h"
 
 AirforceTraining::AirforceTraining(double theHP, Area* theLocation) : TrainingCamp(theHP, theLocation) {
-
+    type = ::iAirforceCamp;
 }
 
 AirforceTraining::~AirforceTraining() {

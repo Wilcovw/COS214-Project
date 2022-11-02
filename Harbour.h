@@ -10,13 +10,12 @@ using namespace std;
 class Harbour : public Infrastructure
 {
 public:
-    Harbour(Area *, double, double);
-    void addConnection(Area *destination);
+    Harbour(Area *, double);
+    void addConnection(Area *destination, double distance);
     virtual void destroy();
 
 private:
     string name;
-    double distance;
     vector<Edge*> connectedHarbours;
     virtual Infrastructure* clone(Area* newArea);
 };

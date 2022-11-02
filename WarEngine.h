@@ -2,37 +2,37 @@
 #define WARENGINE_H
 #include <vector>
 #include "Country.h"
-#include "Memento.h"
 #include "WarMap.h"
 #include "WarPhase.h"
-
+#include "Infrastructure.h"
 using namespace std;
 
 class Memento;
-
 class WarEngine
 {
 private:
-	vector<Country*> countryGroup;
-    vector<Area*> warTheatreGraph;
-    WarMap map;
+    WarMap* map;
+    Communication* communication;
+	vector<Country*> allCountries;
 public:
-    WarEngine(vector<Country*> countryGroup, vector<Area*> warTheatreGraph, WarMap map);
+    WarEngine();
+    void addCountry(string name, int numCitizens);
+    Country* getCountry(string countryName);
+    Country* getCountryFromArea(string areaName);
+    void addArea(string areaName, string countryName);
+    Area* getArea(string areaName);
+    void addConnection(typeOfInfrastructure type, string sourceName, string destinationName, double distance);
+    void addInfrastructure(typeOfInfrastructure type, string areaName);
+    vector<Infrastructure*> getInfrastructureInArea(string areaName, typeOfInfrastructure type);
     void run(string Mode);
     Memento* createMemento();
     Country pickCountry();
-    vector<Area*> getWarTheatreGraph();
     vector<Country*> getCountryGroup();
-    void setWarTheatreGraph(vector<Area*> newWarTheatreGraph);
     void setCountryGroup(vector<Country*> newCountryGroup);
-    Country* getCountryAt(int index);
     void removeCountryAt(int index);
-    Area* getAreaAt(int index);
     void removeAreaAt(int index);
     void reinstateMemento(Memento *memento);
-    void addCountry(Country* newCountry);
-    void addArea(Area* newArea);
-    void setWarMap(WarMap newMap);
+    void setWarMap(WarMap* newMap);
 };
 
 #endif

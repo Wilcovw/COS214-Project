@@ -2,12 +2,27 @@
 #define INFASTRUCTURE_H
 #include "Area.h"
 
+enum typeOfInfrastructure {
+    iRoad,
+    iHarbour,
+    iRunway,
+    iLandDevlopment,
+    iAquaticDevelopment,
+    iAircraftDevelopment,
+    iLandFactory,
+    iAquaticFactory,
+    iAircraftFactory,
+    iGroundCamp,
+    iNavyCamp,
+    iAirforceCamp
+};
+
 class Infrastructure
 {
 protected:
     double HP;
     Area *location;
-
+    typeOfInfrastructure type;
 public:
     /**
      * @brief default constructor
@@ -50,6 +65,8 @@ public:
      * @return Area*
      */
     Area *getArea();
+
+    typeOfInfrastructure getType();
 };
 
 #endif

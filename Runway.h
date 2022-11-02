@@ -12,10 +12,9 @@ class Runway : public Infrastructure
 private:
     string name;
     vector<Edge*> flights;
-    double distance;
 public:
-    Runway(Area *, double, double);
-    void addConnection(Area *destination);
+    Runway(Area *, double);
+    void addConnection(Area *destination, double distance);
     virtual void destroy();
     virtual Infrastructure* clone(Area* newArea);
 };

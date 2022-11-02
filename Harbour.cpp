@@ -2,16 +2,13 @@
 
 #include <vector>
 
-Harbour::Harbour(Area *source, double hp, double distance) : Infrastructure(hp, source)
+Harbour::Harbour(Area *source, double hp) : Infrastructure(hp, source)
 {
-    this->distance = distance;
+    type = ::iHarbour;
 };
 
-void Harbour::addConnection(Area *destination)
+void Harbour::addConnection(Area *destination, double distance)
 {
-    srand(time(0));
-    double distance = (rand() % 100) + 10;
-
     Edge *connectedHarbour = new Edge(distance, "Harbour", this->location, destination);
     connectedHarbours.push_back(connectedHarbour);
     this->location->addEdge(connectedHarbour);
@@ -27,10 +24,10 @@ void Harbour::destroy(){
 }
 
 Infrastructure* Harbour::clone(Area* newArea) {
-    Harbour* newHarbour = new Harbour(newArea, this->HP, this->distance);
+    Harbour* newHarbour = new Harbour(newArea, this->HP);
     for(auto c : connectedHarbours) {
         if(c != nullptr && c->getDestination() != nullptr && c->getDestination()->getClonedArea() != nullptr && c->getDestination()->getClonedArea() != newArea) {
-            newHarbour->addConnection(c->getDestination()->getClonedArea());
+            newHarbour->addConnection(c->getDestination()->getClonedArea(), c->getDistance());
         }
     }
     return newHarbour;

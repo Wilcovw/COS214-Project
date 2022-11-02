@@ -3,7 +3,7 @@
 #include "GroundTroopTraining.h"
 
 GroundTroopTraining::GroundTroopTraining(double theHP, Area* theLocation)  : TrainingCamp(theHP, theLocation) {
-
+    type = ::iGroundCamp;
 }
 
 GroundTroopTraining::~GroundTroopTraining() {
