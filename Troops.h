@@ -5,6 +5,12 @@
 #include "TroopType.h"
 #include "Citizens.h"
 
+enum kindOfTroops {
+    tGroundTroops,
+    tNavy,
+    tAirforce
+};
+
 class Vehicles;
 class Troops {
     protected:
@@ -14,7 +20,7 @@ class Troops {
         Citizens* associatedCitizens;
         Troops* clonedTroop;
     public:
-        Troops(double,Area* ,TroopType*, Citizens*);
+        Troops(double, Area*, TroopType*, Citizens*);
         virtual ~Troops();
         void attack(Troops*);
         void attack(Infrastructure*);

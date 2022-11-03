@@ -8,7 +8,11 @@
 #include "Area.h"
 
 using namespace std;
-
+enum vehicleType {
+    landVehicle,
+    AquaticVehicle,
+    AircraftVehicle
+};
 class Infrastructure;
 class Troops;
 class Vehicles

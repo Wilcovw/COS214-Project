@@ -7,6 +7,7 @@
 #include "Infrastructure.h"
 #include "TroopType.h"
 #include "Troops.h"
+#include "Vehicles.h"
 using namespace std;
 
 class Memento;
@@ -16,18 +17,21 @@ private:
     WarMap *map;
     Communication *communication;
     vector<Country *> allCountries;
+    Country *getCountry(string countryName);
+    Country *getCountryFromArea(string areaName);
+    Area *getArea(string areaName);
+    list<Infrastructure*> getInfrastructureInArea(string areaName, typeOfInfrastructure type);
 
 public:
     WarEngine();
     ~WarEngine();
     void addCountry(string name, int numCitizens);
-    Country *getCountry(string countryName);
-    Country *getCountryFromArea(string areaName);
     void addArea(string areaName, string countryName);
-    Area *getArea(string areaName);
     void addConnection(typeOfInfrastructure type, string sourceName, string destinationName, double distance);
     void addInfrastructure(typeOfInfrastructure type, string areaName);
-    list<Infrastructure *> getInfrastructureInArea(string areaName, typeOfInfrastructure type);
+    void addTroops(string areaName, kindOfTroops kind, theTroopTypes type);
+    void addVehicles(string areaName, vehicleType vehicleType);
+
     void run(string Mode);
     Memento *createMemento();
     Country pickCountry();
@@ -37,7 +41,6 @@ public:
     void removeAreaAt(int index);
     void reinstateMemento(Memento *memento);
     void setWarMap(WarMap *newMap);
-    void createTroops(string countryName, Citizens *citizens, string area, theTroopTypes type);
 };
 
 #endif

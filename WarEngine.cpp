@@ -18,6 +18,10 @@
 #include "Soldiers.h"
 #include "Generals.h"
 #include "Medics.h"
+#include "Troops.h"
+#include "LandVehicles.h"
+#include "AquaticVehicleFactory.h"
+#include "AircraftFactory.h"
 #include <set>
 #include <tuple>
 #include <typeindex>
@@ -243,6 +247,124 @@ list<Infrastructure *> WarEngine::getInfrastructureInArea(string areaName, typeO
     return output;
 }
 
+void WarEngine::addTroops(string areaName, kindOfTroops kind, theTroopTypes type)
+{
+    Country *country = getCountryFromArea(areaName);
+    if (country != nullptr)
+    {
+        if (country->getNumCitzenGroups() > 0)
+        {
+            Citizens **citizens = country->getCitizens();
+            Citizens *citizen = nullptr;
+            for (int i = 0; i < country->getNumCitzenGroups(); i++)
+            {
+                if (citizens[i]->getStatus() == "Unlisted")
+                {
+                    citizen = citizens[i];
+                    break;
+                }
+            }
+            if (citizens != nullptr)
+            {
+                citizen->changeStatus();
+                list<Infrastructure *> camp;
+                if (kind == ::tAirforce)
+                {
+                    camp = getInfrastructureInArea(areaName, ::iAirforceCamp);
+                }
+                else if (kind == ::tNavy)
+                {
+                    camp = getInfrastructureInArea(areaName, ::iNavyCamp);
+                }
+                else if (kind == ::tGroundTroops)
+                {
+                    camp = getInfrastructureInArea(areaName, ::iGroundCamp);
+                }
+                if (!camp.empty() && camp.front() != nullptr)
+                {
+                    Troops *newTroops = nullptr;
+                    if (kind == ::tGroundTroops)
+                    {
+                        GroundTroopTraining *theCamp = (GroundTroopTraining *)camp.front();
+                        newTroops = theCamp->startDrafting(citizen);
+                    }
+                    else if (kind == ::tNavy)
+                    {
+                        NavyTraining *theCamp = (NavyTraining *)camp.front();
+                        newTroops = theCamp->startDrafting(citizen);
+                    }
+                    else if (kind == ::tAirforce)
+                    {
+                        AirforceTraining *theCamp = (AirforceTraining *)camp.front();
+                    }
+                    if (newTroops != nullptr)
+                    {
+                        country->getWarEntities()->addTroops(newTroops);
+                    }
+                    else
+                    {
+                        cout << "Could not create Troops" << endl;
+                    }
+                }
+                else
+                {
+                    cout << "There is not a camp to create these troops in this area" << endl;
+                }
+            }
+            else
+            {
+                cout << "There is no more available citizens in you country" << endl;            
+            }
+        }
+        else
+        {
+            cout << "There is no citizens in you country" << endl;
+        }
+    }
+    else
+    {
+        cout << "The location was not found" << endl;
+    }
+}
+
+void WarEngine::addVehicles(string areaName, vehicleType vehicleType)
+{
+    Country *country = getCountry(areaName);
+    if (country == NULL)
+    {
+        cout << "The location was not found" << endl;
+        return;
+    }
+    list<Infrastructure *> factory;
+    if (vehicleType == ::landVehicle)
+    {
+        factory = getInfrastructureInArea(areaName, ::iLandFactory);
+        if (!factory.empty())
+        {
+            LandVehicleFactory *fac = (LandVehicleFactory *)factory.front();
+            country->getWarEntities()->addVehicles(fac->createVehicle("BMW", 2, 2, 2));
+        }
+    }
+    else if (vehicleType == ::AquaticVehicle)
+    {
+        factory = getInfrastructureInArea(areaName, ::iAquaticFactory);
+        if (!factory.empty())
+        {
+            AquaticVehicleFactory *fac = (AquaticVehicleFactory *)factory.front();
+            country->getWarEntities()->addVehicles(fac->createVehicle("submarineModel", 2, 2, 2));
+        }
+    }
+    else if (vehicleType == ::AircraftVehicle)
+    {
+        factory = getInfrastructureInArea(areaName, ::iAircraftFactory);
+        if (!factory.empty())
+        {
+            AircraftFactory *fac = (AircraftFactory *)factory.front();
+            country->getWarEntities()->addVehicles(fac->createVehicle("boooooing", 2, 2, 2));
+        }
+    }
+}
+
 void run(string Mode)
 {
     // TODO
@@ -299,31 +421,3 @@ void WarEngine::reinstateMemento(Memento *memento)
     this->allCountries = oldphase->getCountryGroup();
     this->map = oldphase->getMap();
 };
-
-// TODO change HP values
-void WarEngine::createTroops(string countryName, Citizens *citizens, string area, theTroopTypes type)
-{
-    Country *country = getCountry(countryName);
-    Area *stationedArea = getArea(area);
-    if (citizens->getStatus().compare("Unlisted") == 0)
-    {
-        citizens->changeStatus();
-        citizens->changeStatus();
-    }
-    else if (citizens->getStatus().compare("listed") == 0)
-    {
-        citizens->changeStatus();
-    }
-    if (type == ::theSoldiers)
-    {
-        country->getWarEntities()->addTroops(new Troops(2, stationedArea, new Soldiers(), citizens));
-    }
-    else if (type == ::theGenerals)
-    {
-        country->getWarEntities()->addTroops(new Troops(2, stationedArea, new Generals(), citizens));
-    }
-    else if (type == ::theMedics)
-    {
-        country->getWarEntities()->addTroops(new Troops(2, stationedArea, new Medics(), citizens));
-    }
-}
