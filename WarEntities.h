@@ -27,7 +27,7 @@ private:
      * @brief A vector containing all the infrastructure belonging to a country
      *
      */
-    std::vector<Infrastructure *> infrastructure;
+    std::list<Infrastructure *> infrastructure;
 
 public:
     /**
@@ -81,7 +81,7 @@ public:
      *
      * @return std::vector<Infrastructure*> The infrastructure vector
      */
-    std::vector<Infrastructure *> getInfrastructure();
+    std::list<Infrastructure *> getInfrastructure();
     /**
      * @brief return a clone of this object
      *
@@ -89,5 +89,6 @@ public:
      */
     WarEntities *clone();
     std::vector<Citizens *> getFightingCitizens();
+    void removeInfrastructure(Infrastructure *);
 };
 #endif

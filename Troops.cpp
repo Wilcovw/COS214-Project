@@ -17,6 +17,10 @@ Troops::Troops(double theHP, Area *theArea, TroopType *theType, Citizens *theCit
     type = theType;
 }
 
+Troops::~Troops() {
+    delete type;
+}
+
 void Troops::attack(Troops *theEnemy)
 {
     while (HP > 0 && theEnemy->HP > 0)

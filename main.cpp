@@ -331,12 +331,14 @@ void testWarEngine() {
 
    
     std::cout << "Creating Canada" << std::endl;
-    game->addCountry("Canada", 50000000);
+    game->addCountry("Canada", 100);
 
     game->addArea("Montreal", "Canada");
     game->addArea("Quebec","Canada");
     game->addArea("Toronto", "Canada");
     game->addArea("Vancouver", "Canada");
+
+    game->addConnection(::iRoad, "New York", "Montreal",40);
 
     game->addConnection(::iRoad, "Quebec", "Montreal",40);
     game->addConnection(::iRoad, "Montreal", "Toronto",70);
@@ -360,6 +362,8 @@ void testWarEngine() {
     game->addInfrastructure(::iAquaticDevelopment, "Montreal");
 
     std::cout << "Canada has been built, sorry" << std::endl;
+    delete game;
+    cout << "Everything was deleted" << endl;
 }
 
 int main()

@@ -105,14 +105,8 @@ WarEntities *Country::getWarEntities()
     return entities;
 }
 
-Country::~Country()
-{
-    std::vector<Area *>::iterator it;
-    for (it = areas.begin(); it != areas.end(); ++it)
-    {
-        delete *it;
-    }
-
+Country::~Country() {
+    delete entities;
     for (int i = 0; i < numCitzenGroups; i++)
     {
         delete citizens[i];

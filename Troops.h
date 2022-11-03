@@ -15,7 +15,7 @@ class Troops {
         Troops* clonedTroop;
     public:
         Troops(double,Area* ,TroopType*, Citizens*);
-        virtual ~Troops() {};
+        virtual ~Troops();
         void attack(Troops*);
         void attack(Infrastructure*);
         void attack(Vehicles*);

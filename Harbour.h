@@ -9,14 +9,18 @@ using namespace std;
 
 class Harbour : public Infrastructure
 {
-public:
-    Harbour(Area *, double);
-    void addConnection(Area *destination, double distance);
-    virtual void destroy();
-
 private:
     string name;
-    vector<Edge*> connectedHarbours;
+    list<Edge*> edges;
+
+public:
+    Harbour(Area *, double);
+    ~Harbour();
+    void addConnection(Area* destination, double distance, Harbour* otherHarbour);
+    void removeConnection(Area* destination, Harbour* otherHarbour, Edge* path);
+    virtual void destroy();
     virtual Infrastructure* clone(Area* newArea);
 };
+
+
 #endif

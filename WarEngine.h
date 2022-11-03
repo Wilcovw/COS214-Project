@@ -5,6 +5,7 @@
 #include "WarMap.h"
 #include "WarPhase.h"
 #include "Infrastructure.h"
+#include "Troops.h"
 using namespace std;
 
 class Memento;
@@ -17,6 +18,7 @@ private:
 
 public:
     WarEngine();
+    ~WarEngine();
     void addCountry(string name, int numCitizens);
     Country *getCountry(string countryName);
     Country *getCountryFromArea(string areaName);
@@ -24,7 +26,7 @@ public:
     Area *getArea(string areaName);
     void addConnection(typeOfInfrastructure type, string sourceName, string destinationName, double distance);
     void addInfrastructure(typeOfInfrastructure type, string areaName);
-    vector<Infrastructure *> getInfrastructureInArea(string areaName, typeOfInfrastructure type);
+    list<Infrastructure*> getInfrastructureInArea(string areaName, typeOfInfrastructure type);
     void run(string Mode);
     Memento *createMemento();
     Country pickCountry();

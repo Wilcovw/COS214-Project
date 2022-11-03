@@ -1,23 +1,43 @@
 #include "Road.h"
+#include "Country.h"
+#include "WarEntities.h"
 
 Road::Road(Area* source, Area *destination, double hp, double distance) : Infrastructure(hp, source)
 {
     type = ::iRoad;
-    this->theRoad[0] = new Edge(distance, "Road", this->location, destination);
-    this->location->addEdge(theRoad[0]);
-
-    this->theRoad[1] = new Edge(distance, "Road", destination, this->location);
-    destination->addEdge(theRoad[1]);
+    edges[0] = new Edge(distance, "Road", location, destination);
+    edges[1] = new Edge(distance, "Road", destination, location);
+    
+    location->addEdge(edges[0]);
+    destination->addEdge(edges[1]);
+    location->getControllingCountry()->getWarEntities()->addInfrastructure(this);
+    if(location->getControllingCountry() != destination->getControllingCountry()) {
+        destination->getControllingCountry()->getWarEntities()->addInfrastructure(this);
+    }
 };
 
+Road::~Road() {
+    if(edges[0]->getSource()->getControllingCountry() != edges[0]->getDestination()->getControllingCountry()) {
+        edges[0]->getDestination()->getControllingCountry()->getWarEntities()->removeInfrastructure(this);
+    }
+    Area* destination;
+    if(edges[0]->getSource() == location) {
+        destination = edges[0]->getDestination();
+    } else {
+        destination = edges[0]->getSource();
+    }
+    location->removeEdge(edges[0]);
+    destination->removeEdge(edges[1]);
+}
+
 void Road::destroy(){
-    this->location->removeEdge(theRoad[0]);
-     this->location->removeEdge(theRoad[1]);
+    edges[0]->getSource()->getControllingCountry()->getWarEntities()->removeInfrastructure(this);
+    delete this;
 }
 
 Infrastructure* Road::clone(Area* newArea) {    
-    if(theRoad[0]->getDestination() != nullptr && theRoad[0]->getDestination()->getClonedArea() != nullptr) {
-        Infrastructure* newRoad = new Road(newArea, theRoad[0]->getDestination()->getClonedArea(), this->HP, this->theRoad[0]->getDistance());
+    if(edges[0]->getDestination() != nullptr && edges[0]->getDestination()->getClonedArea() != nullptr) {
+        Infrastructure* newRoad = new Road(newArea, edges[0]->getDestination()->getClonedArea(), HP, edges[0]->getDistance());
     }
     return nullptr;
 }
