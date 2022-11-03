@@ -9,6 +9,39 @@ Area::Area(string name, Country *controllingCountry)
 	this->controllingCountry->addArea(this);
 }
 
+Area::~Area() {
+	if(!connectedEdges.empty()) {
+		for(auto e : connectedEdges) {
+			if(e != nullptr) {
+				connectedEdges.remove(e);
+				e->getDescription();
+				if(e->getSource() == this) {
+					e->getDestination()->removeEdge(e);
+				} else {
+					e->getSource()->removeEdge(e);
+				}
+			}
+		}
+	}
+}
+
+
+void Area::addHarbour(Harbour* theHarbour) {
+	harbour = theHarbour;	
+}
+
+void Area::addRunway(Runway* theRunway) {
+	runway = theRunway;
+}
+
+Harbour* Area::getHarbourInArea() {
+	return harbour;
+}
+
+Runway * Area::getRunwayInArea() {
+	return runway;
+}
+
 void Area::setControllingCountry(Country *controllingCountry)
 {
 	controllingCountry->removeArea(this);
@@ -143,6 +176,7 @@ Country *Area::getControllingCountry()
 
 void Area::removeEdge(Edge * e){
 	connectedEdges.remove(e);
+	delete e;
 }
 
 Area* Area::clone(Country * c) {

@@ -11,6 +11,8 @@ using namespace std;
 
 class Country;
 class Edge;
+class Harbour;
+class Runway;
 class Area
 {
 private:
@@ -38,7 +40,8 @@ private:
 
 	Country *controllingCountry = nullptr;
 	Area *clonedArea = nullptr;
-
+	Harbour* harbour = nullptr;
+	Runway* runway = nullptr;
 public:
 	/**
 	 * @brief Construct a new Area object
@@ -46,6 +49,11 @@ public:
 	 * @param name: Is the name of the the Edge
 	 */
 	Area(string name, Country *controllingCountry);
+	~Area();
+	void addHarbour(Harbour* theHarbour);
+	void addRunway(Runway* theRunway);
+	Harbour* getHarbourInArea();
+	Runway * getRunwayInArea();
 	/**
 	 * @brief Set the Controlling Country object
 	 *

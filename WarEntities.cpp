@@ -9,12 +9,14 @@ WarEntities::~WarEntities()
     {
         delete *it;
     }
+
     std::vector<Troops *>::iterator itt;
     for (itt = troops.begin(); itt != troops.end(); ++itt)
     {
         delete *itt;
     }
-    std::vector<Infrastructure *>::iterator iti;
+
+    std::list<Infrastructure *>::iterator iti;
     for (iti = infrastructure.begin(); iti != infrastructure.end(); ++iti)
     {
         delete *iti;
@@ -70,7 +72,7 @@ std::vector<Troops *> WarEntities::getTroops()
     return troops;
 }
 
-std::vector<Infrastructure *> WarEntities::getInfrastructure()
+std::list<Infrastructure *> WarEntities::getInfrastructure()
 {
     return infrastructure;
 }
@@ -82,4 +84,8 @@ std::vector<Citizens *> WarEntities::getFightingCitizens()
     }
 
     return ans;
+}
+
+void WarEntities::removeInfrastructure(Infrastructure * theObject) {
+    infrastructure.remove(theObject);
 }

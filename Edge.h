@@ -68,12 +68,6 @@ public:
 	 */
 	string getDescription();
 	/**
-	 * @brief Get the Name of the Edge
-	 * 
-	 * @return string 
-	 */
-	string getName();
-	/**
 	 * @brief Get the Distance the Edge represents
 	 * 
 	 * @return double 

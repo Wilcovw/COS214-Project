@@ -154,12 +154,10 @@ list<Area *> WarMap::shortestPath(Area *source, Area *destination)
 
 				if (NewDist < v->getDist())
 				{
-					// cout << "Hello" << endl;
 					v->setDist(NewDist);
 					v->setPrev(curr);
 					if (find(toBeChecked.begin(), toBeChecked.end(), v) == toBeChecked.end())
 					{
-
 						toBeChecked.push_back(v);
 					}
 				}

@@ -56,9 +56,4 @@ void CommunicationBroadcast::notify(AssociatedCountries *associatedCountry, std:
 
 CommunicationBroadcast::~CommunicationBroadcast()
 {
-    std::vector<AssociatedCountries *>::iterator it;
-    for (it = countryList.begin(); it != countryList.end(); ++it)
-    {
-        delete *it;
-    }
 }

@@ -30,6 +30,16 @@ WarEngine::WarEngine()
     communication = new CommunicationBroadcast();
 };
 
+WarEngine::~WarEngine()
+{
+    for (auto c : allCountries)
+    {
+        delete c;
+    }
+    delete map;
+    delete communication;
+}
+
 void WarEngine::addCountry(string name, int numCitizens)
 {
     if (communication != nullptr)
@@ -91,15 +101,17 @@ Area *WarEngine::getArea(string areaName)
 void WarEngine::addConnection(typeOfInfrastructure type, string sourceName, string destinationName, double distance)
 {
     Country *country = getCountryFromArea(sourceName);
-    if (country != nullptr)
+    Country *destination = getCountryFromArea(destinationName);
+    if (country != nullptr && destination != nullptr)
     {
         if (type == ::iRoad)
         {
-            country->getWarEntities()->addInfrastructure(new Road(getArea(sourceName), getArea(destinationName), 3, distance));
+            Road *newRoad = new Road(getArea(sourceName), getArea(destinationName), 3, distance);
         }
         else if (type == ::iHarbour)
         {
             Harbour *theHarbour;
+            Harbour *theOtherHarbour;
             if (getInfrastructureInArea(sourceName, type).empty())
             {
                 theHarbour = new Harbour(getArea(sourceName), 3);
@@ -111,13 +123,19 @@ void WarEngine::addConnection(typeOfInfrastructure type, string sourceName, stri
             }
             if (getInfrastructureInArea(destinationName, type).empty())
             {
-                country->getWarEntities()->addInfrastructure(new Harbour(getArea(sourceName), 3));
+                theOtherHarbour = new Harbour(getArea(destinationName), 3);
+                destination->getWarEntities()->addInfrastructure(theOtherHarbour);
             }
-            theHarbour->addConnection(getArea(destinationName), 7);
+            else
+            {
+                theOtherHarbour = (Harbour *)getInfrastructureInArea(destinationName, type).front();
+            }
+            theHarbour->addConnection(getArea(destinationName), distance, theOtherHarbour);
         }
         else if (type == ::iRunway)
         {
             Runway *theRunway;
+            Runway *theOtherRunway;
             if (getInfrastructureInArea(sourceName, type).empty())
             {
                 theRunway = new Runway(getArea(sourceName), 3);
@@ -129,9 +147,14 @@ void WarEngine::addConnection(typeOfInfrastructure type, string sourceName, stri
             }
             if (getInfrastructureInArea(destinationName, type).empty())
             {
-                country->getWarEntities()->addInfrastructure(new Runway(getArea(sourceName), 3));
+                theOtherRunway = new Runway(getArea(destinationName), 3);
+                destination->getWarEntities()->addInfrastructure(theOtherRunway);
             }
-            theRunway->addConnection(getArea(destinationName), 3);
+            else
+            {
+                theOtherRunway = (Runway *)getInfrastructureInArea(destinationName, type).front();
+            }
+            theRunway->addConnection(getArea(destinationName), distance, theOtherRunway);
         }
     }
     else
@@ -201,17 +224,17 @@ void WarEngine::addInfrastructure(typeOfInfrastructure type, string areaName)
     }
 }
 
-vector<Infrastructure *> WarEngine::getInfrastructureInArea(string areaName, typeOfInfrastructure type)
+list<Infrastructure *> WarEngine::getInfrastructureInArea(string areaName, typeOfInfrastructure type)
 {
-    vector<Infrastructure *> output;
+    list<Infrastructure *> output;
     Country *country = getCountryFromArea(areaName);
     if (country != nullptr && !country->getWarEntities()->getInfrastructure().empty())
     {
-        vector<Infrastructure *> allInfrastructure = country->getWarEntities()->getInfrastructure();
+        list<Infrastructure *> allInfrastructure = country->getWarEntities()->getInfrastructure();
         for (auto i : allInfrastructure)
         {
             Infrastructure *temp = i;
-            if (type == temp->getType())
+            if (type == temp->getType() && i->getArea()->getName() == areaName)
             {
                 output.push_back(temp);
             }
