@@ -37,84 +37,83 @@
 #include <iostream>
 using namespace std;
 
-void testMemento()
-{
-   /* Communication *c;
-    WarMap *map = new WarMap();
-    vector<Country *> countrygroup;
-    Country *america = new Country("America", c, 20);
-    Country *columbia = new Country("Columbia", c, 25);
-    countrygroup.push_back(america);
-    countrygroup.push_back(columbia);
+void testMemento(){
+    /* Communication *c;
+     WarMap *map = new WarMap();
+     vector<Country *> countrygroup;
+     Country *america = new Country("America", c, 20);
+     Country *columbia = new Country("Columbia", c, 25);
+     countrygroup.push_back(america);
+     countrygroup.push_back(columbia);
 
-    vector<Area *> areas;
-    areas.push_back(new Area("Caeser's Palace", america));
-    
-    
+     vector<Area *> areas;
+     areas.push_back(new Area("Caeser's Palace", america));
 
-    WarHistory *history = new WarHistory();
 
-    WarEngine *engine = new WarEngine(countrygroup, areas, *map);
-    engine->addCountry(new Country("Sri Lanka", c, 30));
-    engine->addArea(new Area("Escobar's Palace", columbia));
 
-    cout << "-----Before Change-----" << endl;
+     WarHistory *history = new WarHistory();
 
-    cout << "--Countries:--" << endl;
-    for (int i = 0; i < engine->getCountryGroup().size(); i++)
-    {
-        cout << engine->getCountryGroup().at(i)->getName() << endl;
-    }
-    cout << "--Areas:--" << endl;
-    for (int i = 0; i < engine->getWarTheatreGraph().size(); i++)
-    {
-        cout << engine->getWarTheatreGraph().at(i)->getName() << endl;
-    }
+     WarEngine *engine = new WarEngine(countrygroup, areas, *map);
+     engine->addCountry(new Country("Sri Lanka", c, 30));
+     engine->addArea(new Area("Escobar's Palace", columbia));
 
-    // Saving Current Snapshot
-    history->storeMemento(engine->createMemento());
+     cout << "-----Before Change-----" << endl;
 
-    Country *peru = new Country("peru", c, 15);
-    columbia = peru;
+     cout << "--Countries:--" << endl;
+     for (int i = 0; i < engine->getCountryGroup().size(); i++)
+     {
+         cout << engine->getCountryGroup().at(i)->getName() << endl;
+     }
+     cout << "--Areas:--" << endl;
+     for (int i = 0; i < engine->getWarTheatreGraph().size(); i++)
+     {
+         cout << engine->getWarTheatreGraph().at(i)->getName() << endl;
+     }
 
-    engine->removeCountryAt(0);
-    engine->removeAreaAt(0);
-    engine->removeAreaAt(0);
+     // Saving Current Snapshot
+     history->storeMemento(engine->createMemento());
 
-    vector<Area *> newAreas;
-    newAreas.push_back(new Area("Paris", america));
-    newAreas.push_back(new Area("Paris", america));
+     Country *peru = new Country("peru", c, 15);
+     columbia = peru;
 
-    engine->setWarTheatreGraph(newAreas);
+     engine->removeCountryAt(0);
+     engine->removeAreaAt(0);
+     engine->removeAreaAt(0);
 
-    cout << "-----After Changes-----" << endl;
-    cout << "--Countries:--" << endl;
-    for (int i = 0; i < engine->getCountryGroup().size(); i++)
-    {
-        cout << engine->getCountryGroup().at(i)->getName() << endl;
-    }
-    cout << "--Areas:--" << endl;
-    for (int i = 0; i < engine->getWarTheatreGraph().size(); i++)
-    {
-        cout << engine->getWarTheatreGraph().at(i)->getName() << endl;
-    }
+     vector<Area *> newAreas;
+     newAreas.push_back(new Area("Paris", america));
+     newAreas.push_back(new Area("Paris", america));
 
-    // Reverting back
-    engine->reinstateMemento(history->getLastMemento());
+     engine->setWarTheatreGraph(newAreas);
 
-    cout << "-----Reverting Changes-----" << endl;
-    for (int i = 0; i < engine->getCountryGroup().size(); i++)
-    {
-        cout << engine->getCountryGroup().at(i)->getName() << endl;
-    }
-    cout << "--Areas:--" << endl;
-    for (int i = 0; i < engine->getWarTheatreGraph().size(); i++)
-    {
-        cout << engine->getWarTheatreGraph().at(i)->getName() << endl;
-    }
+     cout << "-----After Changes-----" << endl;
+     cout << "--Countries:--" << endl;
+     for (int i = 0; i < engine->getCountryGroup().size(); i++)
+     {
+         cout << engine->getCountryGroup().at(i)->getName() << endl;
+     }
+     cout << "--Areas:--" << endl;
+     for (int i = 0; i < engine->getWarTheatreGraph().size(); i++)
+     {
+         cout << engine->getWarTheatreGraph().at(i)->getName() << endl;
+     }
 
-    delete engine;
-    delete history;*/
+     // Reverting back
+     engine->reinstateMemento(history->getLastMemento());
+
+     cout << "-----Reverting Changes-----" << endl;
+     for (int i = 0; i < engine->getCountryGroup().size(); i++)
+     {
+         cout << engine->getCountryGroup().at(i)->getName() << endl;
+     }
+     cout << "--Areas:--" << endl;
+     for (int i = 0; i < engine->getWarTheatreGraph().size(); i++)
+     {
+         cout << engine->getWarTheatreGraph().at(i)->getName() << endl;
+     }
+
+     delete engine;
+     delete history;*/
 };
 
 void showcasing()
@@ -304,9 +303,9 @@ void showcasing()
     cout << "Graph was built successfully" << endl;
 }
 
-void testWarEngine() {
-    WarEngine* game = new WarEngine();
-
+void testWarEngine()
+{
+    WarEngine *game = new WarEngine();
 
     game->addCountry("America", 20);
     game->addArea("New York", "America");
@@ -319,7 +318,7 @@ void testWarEngine() {
     game->addConnection(::iHarbour, "New York", "Sydney", 15);
     game->addConnection(::iRunway, "Las Vegas", "New York", 60);
     game->addInfrastructure(::iGroundCamp, "Las Vegas");
-    game->addInfrastructure(::iNavyCamp, "New York");  
+    game->addInfrastructure(::iNavyCamp, "New York");
     game->addInfrastructure(::iAirforceCamp, "Sydney");
     game->addInfrastructure(::iAircraftFactory, "Las Vegas");
     game->addInfrastructure(::iAquaticFactory, "Sydney");
@@ -329,19 +328,18 @@ void testWarEngine() {
     cout << "America has been built baby!!!!!" << endl;
     cout << "Guns for everyone!!!!!!" << endl;
 
-   
     std::cout << "Creating Canada" << std::endl;
-    game->addCountry("Canada", 50000000);
+    game->addCountry("Canada", 50);
 
     game->addArea("Montreal", "Canada");
-    game->addArea("Quebec","Canada");
+    game->addArea("Quebec", "Canada");
     game->addArea("Toronto", "Canada");
     game->addArea("Vancouver", "Canada");
 
-    game->addConnection(::iRoad, "Quebec", "Montreal",40);
-    game->addConnection(::iRoad, "Montreal", "Toronto",70);
-    game->addConnection(::iRoad, "Toronto", "Vancouver",80);
-    game->addConnection(::iRoad, "Vancouver", "Montreal",80);
+    game->addConnection(::iRoad, "Quebec", "Montreal", 40);
+    game->addConnection(::iRoad, "Montreal", "Toronto", 70);
+    game->addConnection(::iRoad, "Toronto", "Vancouver", 80);
+    game->addConnection(::iRoad, "Vancouver", "Montreal", 80);
 
     game->addInfrastructure(::iHarbour, "Quebec");
     game->addInfrastructure(::iHarbour, "Toronto");
@@ -360,6 +358,10 @@ void testWarEngine() {
     game->addInfrastructure(::iAquaticDevelopment, "Montreal");
 
     std::cout << "Canada has been built, sorry" << std::endl;
+}
+
+void testTroopCreation(WarEngine *game)
+{
 }
 
 int main()

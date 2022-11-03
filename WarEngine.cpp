@@ -15,6 +15,9 @@
 #include "NavyTraining.h"
 #include "AirforceTraining.h"
 #include "Memento.h"
+#include "Soldiers.h"
+#include "Generals.h"
+#include "Medics.h"
 #include <set>
 #include <tuple>
 #include <typeindex>
@@ -288,12 +291,16 @@ void WarEngine::createTroops(string countryName, Citizens *citizens, string area
     {
         citizens->changeStatus();
     }
-    // if (type == ::Soldiers)
-    // {
-    //     Troops *troops = new Troops(2, stationedArea, ::Soldiers, citizens);
-    // }
-
-    Troops *troops = new Troops(2, stationedArea, type, citizens);
-
-    country->getWarEntities()->addTroops(troops);
+    if (type == ::theSoldiers)
+    {
+        country->getWarEntities()->addTroops(new Troops(2, stationedArea, new Soldiers(), citizens));
+    }
+    else if (type == ::theGenerals)
+    {
+        country->getWarEntities()->addTroops(new Troops(2, stationedArea, new Generals(), citizens));
+    }
+    else if (type == ::theMedics)
+    {
+        country->getWarEntities()->addTroops(new Troops(2, stationedArea, new Medics(), citizens));
+    }
 }

@@ -5,6 +5,7 @@
 #include "WarMap.h"
 #include "WarPhase.h"
 #include "Infrastructure.h"
+#include "TroopType.h"
 using namespace std;
 
 class Memento;
