@@ -18,7 +18,6 @@ class Troops;
 class Vehicles
 {
 private:
-    string model;
     double HP;
     double damage;
     double speed;
@@ -31,18 +30,12 @@ protected:
 public:
     /**
      * @brief constructor for vehicle class
-     * @param model
      * @param location
      * @param HP
      * @param damage
      * @param speed
      */
-    Vehicles(string model, Area* location, double HP, double damage, double speed);
-    /**
-     *
-     * @return the model type of the vehicle
-     */
-    string getModel();
+    Vehicles(Area* location, double HP, double damage, double speed);
     /**
     *
     * @return the location of the vehicle

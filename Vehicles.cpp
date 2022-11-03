@@ -3,18 +3,13 @@
 #include <string>
 #include <iostream>
 using namespace std;
-Vehicles::Vehicles(string model, Area* location, double HP, double damage, double speed) {
-    this->model = model;
+Vehicles::Vehicles(Area* location, double HP, double damage, double speed) {
     this->location = location;
     this->HP = HP;
     this->damage=damage;
     this->speed=speed;
     this->level=1;
 
-}
-
-string Vehicles::getModel() {
-    return model;
 }
 
 Area *Vehicles::getLocation() {
@@ -39,7 +34,7 @@ int Vehicles::getLevel() {
 
 //use as: vehicle = vehicle.clone()
 Vehicles *Vehicles::clone() {
-    Vehicles* ret = new Vehicles(model, location, HP, damage, speed);
+    Vehicles* ret = new Vehicles(location, HP, damage, speed);
     ret->type = this->type;
     return ret;
 }
@@ -85,7 +80,7 @@ void Vehicles::incLevel() {
 }
 
 void Vehicles::print() {
-    cout << "Type: " << type << "\nmodel: " << model + "\nHP: "
+    cout << "Type: " << type << "\nHP: "
          << HP << "\ndamage: " << damage << "\nspeed: " << speed
          << "\nlevel: " << level << endl << endl;
 }

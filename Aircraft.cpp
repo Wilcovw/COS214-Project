@@ -1,6 +1,6 @@
 #include "Aircraft.h"
 
-Aircraft::Aircraft(string model, Area* location, double hp, double damage, double speed) : Vehicles(model, location, hp, damage, speed) {
+Aircraft::Aircraft(Area* location, double hp, double damage, double speed) : Vehicles(location, hp, damage, speed) {
     type = "Aircraft";
 }
 
@@ -17,5 +17,5 @@ void Aircraft::destroy() {
 }
 
 Vehicles *Aircraft::clone() {
-    return new Aircraft(getModel(), getLocation(), getHP(), getDamage(), getSpeed());
+    return new Aircraft(getLocation(), getHP(), getDamage(), getSpeed());
 }

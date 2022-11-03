@@ -4,8 +4,8 @@ AircraftFactory::AircraftFactory(double hp, Area *area) : Factory(hp, area) {
     type = ::iAircraftFactory;
 }
 
-Vehicles *AircraftFactory::createVehicle(string model, double HP, double damage, double speed) {
-    Vehicles *v = new Aircraft(model, location, HP, damage, speed);
+Vehicles *AircraftFactory::createVehicle(double HP, double damage, double speed) {
+    Vehicles *v = new Aircraft(location, HP, damage, speed);
     setVehicle(v);
     return v;
 }

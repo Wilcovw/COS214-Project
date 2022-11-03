@@ -11,12 +11,12 @@ class Aircraft : public Vehicles
 public:
     /**
      * @brief Constructor for Aircraft class
-     * @param model
+     * @param location
      * @param hp
      * @param damage
      * @param speed
      */
-    Aircraft(string model, Area* location, double hp, double damage, double speed);
+    Aircraft(Area* location, double hp, double damage, double speed);
     /**
      * @brief method that calls the vehicle's increments level method
      */

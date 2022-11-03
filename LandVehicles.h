@@ -11,12 +11,11 @@ class LandVehicles : public Vehicles
 public:
     /**
      * @brief Constructor for LandVehicles class
-     * @param model
      * @param hp
      * @param damage
      * @param speed
      */
-    LandVehicles(string model, Area* location, double hp, double damage, double speed);
+    LandVehicles(Area* location, double hp, double damage, double speed);
     /**
      * @brief method that calls the vehicle's increments level method
      */

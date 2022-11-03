@@ -1,6 +1,6 @@
 #include "LandVehicles.h"
 
-LandVehicles::LandVehicles(string model, Area* location, double hp, double damage, double speed) : Vehicles(model, location, hp, damage, speed) {
+LandVehicles::LandVehicles(Area* location, double hp, double damage, double speed) : Vehicles(location, hp, damage, speed) {
     type = "Land Vehicle";
 }
 
@@ -17,5 +17,5 @@ void LandVehicles::destroy() {
 }
 
 Vehicles *LandVehicles::clone() {
-    return new LandVehicles(getModel(), getLocation(), getHP(), getDamage(), getSpeed());
+    return new LandVehicles(getLocation(), getHP(), getDamage(), getSpeed());
 }

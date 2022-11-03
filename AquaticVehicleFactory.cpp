@@ -4,8 +4,8 @@ AquaticVehicleFactory::AquaticVehicleFactory(double hp, Area *area) : Factory(hp
     type = ::iAquaticFactory;
 }
 
-Vehicles *AquaticVehicleFactory::createVehicle(string model, double HP, double damage, double speed) {
-    Vehicles *v = new AquaticVehicles(model, location, HP, damage, speed);
+Vehicles *AquaticVehicleFactory::createVehicle(double HP, double damage, double speed) {
+    Vehicles *v = new AquaticVehicles(location, HP, damage, speed);
     setVehicle(v);
     return v;
 }

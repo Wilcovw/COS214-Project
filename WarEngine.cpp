@@ -342,7 +342,7 @@ void WarEngine::addVehicles(string areaName, vehicleType vehicleType)
         if (!factory.empty())
         {
             LandVehicleFactory *fac = (LandVehicleFactory *)factory.front();
-            country->getWarEntities()->addVehicles(fac->createVehicle("BMW", 2, 2, 2));
+            country->getWarEntities()->addVehicles(fac->createVehicle(2, 2, 2));
         }
     }
     else if (vehicleType == ::AquaticVehicle)
@@ -351,7 +351,7 @@ void WarEngine::addVehicles(string areaName, vehicleType vehicleType)
         if (!factory.empty())
         {
             AquaticVehicleFactory *fac = (AquaticVehicleFactory *)factory.front();
-            country->getWarEntities()->addVehicles(fac->createVehicle("submarineModel", 2, 2, 2));
+            country->getWarEntities()->addVehicles(fac->createVehicle(2, 2, 2));
         }
     }
     else if (vehicleType == ::AircraftVehicle)
@@ -360,7 +360,7 @@ void WarEngine::addVehicles(string areaName, vehicleType vehicleType)
         if (!factory.empty())
         {
             AircraftFactory *fac = (AircraftFactory *)factory.front();
-            country->getWarEntities()->addVehicles(fac->createVehicle("boooooing", 2, 2, 2));
+            country->getWarEntities()->addVehicles(fac->createVehicle(2, 2, 2));
         }
     }
 }

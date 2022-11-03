@@ -1,7 +1,7 @@
 #include "Factory.h"
 
-Vehicles *Factory::createVehicle(string model, Area *location, double HP, double damage, double speed) {
-    return new Vehicles(model, location, HP, damage, speed);
+Vehicles *Factory::createVehicle(Area *location, double HP, double damage, double speed) {
+    return new Vehicles(location, HP, damage, speed);
 }
 
 void Factory::setVehicle(Vehicles *v) {

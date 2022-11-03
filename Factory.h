@@ -21,7 +21,7 @@ public:
      * @param speed
      * @return a single vehicle is returned, with parameters given as attributes
      */
-    virtual Vehicles *createVehicle(string model, Area* location, double HP, double damage, double speed);
+    virtual Vehicles *createVehicle(Area* location, double HP, double damage, double speed);
     /**
      * @brief sets the private variable of this class to passed in parameter
      * @param v

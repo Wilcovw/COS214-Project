@@ -17,13 +17,12 @@ public:
     virtual ~AircraftFactory() {};
     /**
      * @brief creates a vehicle with passed in parameters as values and returns that vehicle
-     * @param model
      * @param HP
      * @param damage
      * @param speed
      * @return vehicle with passed in parameters
      */
-    Vehicles *createVehicle(string model, double HP, double damage, double speed);
+    Vehicles *createVehicle(double HP, double damage, double speed);
     /**
      * @brief Calls class destructor
      */

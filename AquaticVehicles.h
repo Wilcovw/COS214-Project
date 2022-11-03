@@ -11,12 +11,11 @@ class AquaticVehicles : public Vehicles
 public:
     /**
      * @brief Constructor for AquaticVehicles class
-     * @param model
      * @param hp
      * @param damage
      * @param speed
      */
-    AquaticVehicles(string model, Area* location, double hp, double damage, double speed);
+    AquaticVehicles(Area* location, double hp, double damage, double speed);
     /**
      * @brief method that calls the vehicle's increments level method
      */
