@@ -21,6 +21,12 @@ private:
     Country *getCountryFromArea(string areaName);
     Area *getArea(string areaName);
     list<Infrastructure*> getInfrastructureInArea(string areaName, typeOfInfrastructure type);
+    list<Troops*> getTroopsInArea(string areaName, string countryName);
+    list<Vehicles*> getVehiclesInArea(string areaName, string countryName);
+    double getTravelDistance(Vehicles* vehicle, string areaName);
+    double getTravelDistance(Troops* troops, string areaName);
+    list<Area*> getTravelPath(Vehicles* vehicle, string areaName);
+    list<Area*> getTravelPath(Troops* troops, string areaName);
 
 public:
     WarEngine();
@@ -31,6 +37,9 @@ public:
     void addInfrastructure(typeOfInfrastructure type, string areaName);
     void addTroops(string areaName, kindOfTroops kind, theTroopTypes type);
     void addVehicles(string areaName, vehicleType vehicleType);
+    void attackArea(string areaName, string countryName);
+    void moveTroops(string areaName, string countryName);
+    void moveVehicles(string areaName, string countryName);
 
     void run(string Mode);
     Memento *createMemento();

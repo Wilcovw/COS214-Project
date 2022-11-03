@@ -41,7 +41,7 @@ void testMemento(){
     /* Communication *c;
      WarMap *map = new WarMap();
      vector<Country *> countrygroup;
-     Country *america = new Country("America", c, 20);
+     Country *america = new Country(America, c, 20);
      Country *columbia = new Country("Columbia", c, 25);
      countrygroup.push_back(america);
      countrygroup.push_back(columbia);
@@ -120,26 +120,32 @@ void testWarEngine()
 {
     WarEngine *game = new WarEngine();
 
-    game->addCountry("America", 20);
-    game->addArea("New York", "America");
-    game->addArea("Sydney", "America");
-    game->addArea("Las Vegas", "America");
-    game->addConnection(::iRoad, "New York", "Sydney", 20);
-    game->addConnection(::iRoad, "Sydney", "Las Vegas", 40);
-    game->addConnection(::iRoad, "New York", "Las Vegas", 20);
-    game->addConnection(::iHarbour, "New York", "Las Vegas", 10);
-    game->addConnection(::iHarbour, "New York", "Sydney", 15);
-    game->addConnection(::iRunway, "Las Vegas", "New York", 60);
-    game->addInfrastructure(::iGroundCamp, "Las Vegas");
-    game->addInfrastructure(::iNavyCamp, "New York");
-    game->addInfrastructure(::iAirforceCamp, "Sydney");
-    game->addInfrastructure(::iAircraftFactory, "Las Vegas");
-    game->addInfrastructure(::iAquaticFactory, "Sydney");
-    game->addInfrastructure(::iLandFactory, "Sydney");
-    game->addInfrastructure(::iLandDevlopment, "New York");
-    game->addInfrastructure(::iAircraftFactory, "Las Vegas");
-    game->addTroops("New York", ::tNavy, ::theSoldiers);
-    game->addVehicles("Las Vegas", ::landVehicle);
+    string America = "America";
+    game->addCountry(America, 20);
+    string NewYork = "New York";
+    string Sydney = "Sydney";
+    string LasVegas = "Las Vegas";
+    game->addArea(NewYork, America);
+    game->addArea(Sydney, America);
+    game->addArea(LasVegas, America);
+    game->addConnection(::iRoad, NewYork, Sydney, 20);
+    game->addConnection(::iRoad, Sydney, LasVegas, 40);
+    game->addConnection(::iRoad, NewYork, LasVegas, 20);
+    game->addConnection(::iHarbour, NewYork, LasVegas, 10);
+    game->addConnection(::iHarbour, NewYork, Sydney, 15);
+    game->addConnection(::iRunway, LasVegas, NewYork, 60);
+    game->addInfrastructure(::iGroundCamp, LasVegas);
+    game->addInfrastructure(::iNavyCamp, NewYork);
+    game->addInfrastructure(::iAirforceCamp, Sydney);
+    game->addInfrastructure(::iAircraftFactory, LasVegas);
+    game->addInfrastructure(::iAquaticFactory, Sydney);
+    game->addInfrastructure(::iLandFactory, Sydney);
+    game->addInfrastructure(::iLandDevlopment, NewYork);
+    game->addInfrastructure(::iAircraftFactory, LasVegas);
+    game->addTroops(NewYork, ::tNavy, ::theSoldiers);
+    game->addVehicles(LasVegas, ::landVehicle);
+    game->moveTroops(Sydney, America);
+    game->moveVehicles(NewYork, America);
     cout << "America has been built baby!!!!!" << endl;
     cout << "Guns for everyone!!!!!!" << endl;
 
@@ -151,7 +157,7 @@ void testWarEngine()
     game->addArea("Toronto", "Canada");
     game->addArea("Vancouver", "Canada");
 
-    game->addConnection(::iRoad, "New York", "Montreal", 40);
+    game->addConnection(::iRoad, NewYork, "Montreal", 40);
 
     game->addConnection(::iRoad, "Quebec", "Montreal", 40);
     game->addConnection(::iRoad, "Montreal", "Toronto", 70);

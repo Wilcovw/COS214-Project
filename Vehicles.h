@@ -10,8 +10,8 @@
 using namespace std;
 enum vehicleType {
     landVehicle,
-    AquaticVehicle,
-    AircraftVehicle
+    aquaticVehicle,
+    aircraftVehicle
 };
 class Infrastructure;
 class Troops;
@@ -23,9 +23,9 @@ private:
     double speed;
     int level;
     Area* location;
-
+    
 protected:
-    string type;
+    vehicleType type;
 
 public:
     /**
@@ -113,6 +113,7 @@ public:
      * @brief Calls class destructor
      */
     void destroy();
+    vehicleType getType();
 };
 
 #endif // FACTORY_AND_OBSERVER_VEHICLES_H

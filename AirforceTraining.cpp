@@ -7,7 +7,7 @@ AirforceTraining::AirforceTraining(double theHP, Area* theLocation) : TrainingCa
 }
 
 AirforceTraining::~AirforceTraining() {
-
+    
 }
 
 Troops* AirforceTraining::startDrafting(Citizens* c) {

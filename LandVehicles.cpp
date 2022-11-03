@@ -1,7 +1,7 @@
 #include "LandVehicles.h"
 
 LandVehicles::LandVehicles(Area* location, double hp, double damage, double speed) : Vehicles(location, hp, damage, speed) {
-    type = "Land Vehicle";
+    type = ::landVehicle;
 }
 
 void LandVehicles::update() {

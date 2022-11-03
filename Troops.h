@@ -19,6 +19,7 @@ class Troops {
         TroopType* type;
         Citizens* associatedCitizens;
         Troops* clonedTroop;
+        kindOfTroops kind;
     public:
         Troops(double, Area*, TroopType*, Citizens*);
         virtual ~Troops();
@@ -28,10 +29,12 @@ class Troops {
         double takeDamage(double);
         double getHP();
         Area* getLocation();
+        void setLocation(Area*);
         TroopType* getType();
         double getDamage();
         double getMaxHP();
         double getSpeed();
+        kindOfTroops getKind();
         Troops * clone();
         Troops** clone(int);
         Citizens* getAssociatedCitizen();

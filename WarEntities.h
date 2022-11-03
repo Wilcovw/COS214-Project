@@ -17,12 +17,12 @@ private:
      * @brief A vector containing all the vehicles belonging to a country
      *
      */
-    std::vector<Vehicles *> vehicles;
+    std::list<Vehicles *> vehicles;
     /**
      * @brief A vector containing all the troops belonging to a country
      *
      */
-    std::vector<Troops *> troops;
+    std::list<Troops *> troops;
     /**
      * @brief A vector containing all the infrastructure belonging to a country
      *
@@ -69,13 +69,13 @@ public:
      *
      * @return std::vector<Vehicles*> The vehicles vector
      */
-    std::vector<Vehicles *> getVehicles();
+    std::list<Vehicles *> getVehicles();
     /**
      * @brief Return the Troops vector
      *
      * @return std::vector<Troops*> The troops vector
      */
-    std::vector<Troops *> getTroops();
+    std::list<Troops *> getTroops();
     /**
      * @brief Return the Infrastructure vector
      *
@@ -88,7 +88,7 @@ public:
      * @return WarEntities The cloned object
      */
     WarEntities *clone();
-    std::vector<Citizens *> getFightingCitizens();
     void removeInfrastructure(Infrastructure *);
+    std::list<Citizens *> getFightingCitizens();
 };
 #endif

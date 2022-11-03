@@ -4,7 +4,7 @@
 
 //Values to be changed
 GroundTroops::GroundTroops(Area* theLocation, TroopType* theType, Citizens* theCitizen) : Troops(theType->getMaxHP(), theLocation, theType, theCitizen) {
-    
+    kind = ::tGroundTroops;
 }
 
 GroundTroops::~GroundTroops() {

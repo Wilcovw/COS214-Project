@@ -101,6 +101,190 @@ Area *WarEngine::getArea(string areaName)
     return map->getArea(areaName);
 }
 
+list<Area *> WarEngine::getTravelPath(Vehicles *vehicle, string areaName)
+{
+    list<Area *> result;
+    Area *source = vehicle->getLocation();
+    Area *destination = getArea(areaName);
+    if (vehicle != nullptr)
+    {
+        if (destination != nullptr || source != nullptr)
+        {
+            list<Area *> path;
+            if (vehicle->getType() == ::landVehicle)
+            {
+                result = map->shortestPath(source, destination, "Road");
+            }
+            else if (vehicle->getType() == ::aquaticVehicle)
+            {
+                result = map->shortestPath(source, destination, "Harbour");
+            }
+            else if (vehicle->getType() == ::aircraftVehicle)
+            {
+                result = map->shortestPath(source, destination, "Runwa");
+            }
+        }
+    }
+    return result;
+}
+
+list<Area *> WarEngine::getTravelPath(Troops *troops, string areaName)
+{
+    list<Area *> result;
+    if (troops != nullptr)
+    {
+        if (getArea(areaName) != nullptr)
+        {
+            list<Area *> path;
+            if (troops->getKind() == ::tGroundTroops)
+            {
+                result = map->shortestPath(troops->getLocation(), getArea(areaName), "Road");
+            }
+            else if (troops->getKind() == ::tAirforce)
+            {
+                result = map->shortestPath(troops->getLocation(), getArea(areaName), "Runway");
+            }
+            else if (troops->getKind() == ::tNavy)
+            {
+                result = map->shortestPath(troops->getLocation(), getArea(areaName), "Harbour");
+            }
+        }
+    }
+    return result;
+}
+
+double WarEngine::getTravelDistance(Vehicles *vehicle, string areaName)
+{
+    Area *source = vehicle->getLocation();
+    Area *destination = getArea(areaName);
+    int distance = -1;
+    if (vehicle != nullptr)
+    {
+        if (destination != nullptr || source != nullptr)
+        {
+            list<Area *> path;
+            if (vehicle->getType() == ::landVehicle)
+            {
+                path = map->shortestPath(source, destination, "Road");
+            }
+            else if (vehicle->getType() == ::aquaticVehicle)
+            {
+                path = map->shortestPath(source, destination, "Harbour");
+            }
+            else if (vehicle->getType() == ::aircraftVehicle)
+            {
+                path = map->shortestPath(source, destination, "Runwa");
+            }
+            if (!path.empty())
+            {
+                distance = 0;
+                for (auto e : path)
+                {
+                    distance += e->getDist();
+                }
+            }
+        }
+    }
+    return distance;
+}
+
+// TODO: change distance value
+void WarEngine::moveVehicles(string areaName, string countryName)
+{
+    Country *country = getCountry(countryName);
+    if (country != nullptr)
+    {
+        Area *destination = getArea(areaName);
+        if (destination != nullptr)
+        {
+            list<Vehicles *> vehicles = country->getWarEntities()->getVehicles();
+            if (!vehicles.empty())
+            {
+                for (auto e : vehicles)
+                {
+                    if (getTravelDistance(e, areaName) <= 200)
+                    {
+                        e->changeLocation(destination);
+                    }
+                }
+            }
+        }
+        else
+        {
+            cout << "Area was not found" << endl;
+        }
+    }
+    else
+    {
+        cout << "Country was not found" << endl;
+    }
+}
+
+double WarEngine::getTravelDistance(Troops *troops, string areaName)
+{
+    double distance = -1;
+    if (troops != nullptr)
+    {
+        if (getArea(areaName) != nullptr)
+        {
+            list<Area *> path;
+            if (troops->getKind() == ::tGroundTroops)
+            {
+                path = map->shortestPath(troops->getLocation(), getArea(areaName), "Road");
+            }
+            else if (troops->getKind() == ::tAirforce)
+            {
+                path = map->shortestPath(troops->getLocation(), getArea(areaName), "Runway");
+            }
+            else if (troops->getKind() == ::tNavy)
+            {
+                path = map->shortestPath(troops->getLocation(), getArea(areaName), "Harbour");
+            }
+            if (!path.empty())
+            {
+                distance = 0;
+                for (auto e : path)
+                {
+                    distance += e->getDist();
+                }
+            }
+        }
+    }
+    return distance;
+}
+
+// TODO: change distance value
+void WarEngine::moveTroops(string areaName, string countryName)
+{
+    Country *country = getCountry(countryName);
+    if (country != nullptr)
+    {
+        Area *destination = getArea(areaName);
+        if (destination != nullptr)
+        {
+            list<Troops *> troops = country->getWarEntities()->getTroops();
+            if (!troops.empty())
+            {
+                for (auto t : troops)
+                {
+                    if (getTravelDistance(t, areaName) <= 100)
+                    {
+                        t->setLocation(destination);
+                    }
+                }
+            }
+        }
+        else
+        {
+            cout << "Area was not found" << endl;
+        }
+    }
+    else
+    {
+        cout << "Country was not found" << endl;
+    }
+}
+
 // TODO: change HP values
 void WarEngine::addConnection(typeOfInfrastructure type, string sourceName, string destinationName, double distance)
 {
@@ -247,6 +431,36 @@ list<Infrastructure *> WarEngine::getInfrastructureInArea(string areaName, typeO
     return output;
 }
 
+list<Troops*> WarEngine::getTroopsInArea(string areaName, string countryName) {
+    list<Troops*> result;
+    Country* country = getCountry(countryName);
+    Area* area = getArea(areaName);
+    if(country != nullptr && area != nullptr) {
+        list<Troops *> troops = country->getWarEntities()->getTroops();
+        for(auto t : troops) {
+            if(t->getLocation() == area) {
+                result.push_back(t);
+            }
+        }
+    }
+    return result;
+}
+
+list<Vehicles*> WarEngine::getVehiclesInArea(string areaName, string countryName) {
+    list<Vehicles*> result;
+    Country* country = getCountry(countryName);
+    Area* area = getArea(areaName);
+    if(country != nullptr && area != nullptr) {
+        list<Vehicles *> troops = country->getWarEntities()->getVehicles();
+        for(auto t : troops) {
+            if(t->getLocation() == area) {
+                result.push_back(t);
+            }
+        }
+    }
+    return result;
+}
+
 void WarEngine::addTroops(string areaName, kindOfTroops kind, theTroopTypes type)
 {
     Country *country = getCountryFromArea(areaName);
@@ -313,7 +527,7 @@ void WarEngine::addTroops(string areaName, kindOfTroops kind, theTroopTypes type
             }
             else
             {
-                cout << "There is no more available citizens in you country" << endl;            
+                cout << "There is no more available citizens in you country" << endl;
             }
         }
         else
@@ -329,7 +543,7 @@ void WarEngine::addTroops(string areaName, kindOfTroops kind, theTroopTypes type
 
 void WarEngine::addVehicles(string areaName, vehicleType vehicleType)
 {
-    Country *country = getCountry(areaName);
+    Country *country = getCountryFromArea(areaName);
     if (country == NULL)
     {
         cout << "The location was not found" << endl;
@@ -345,7 +559,7 @@ void WarEngine::addVehicles(string areaName, vehicleType vehicleType)
             country->getWarEntities()->addVehicles(fac->createVehicle(2, 2, 2));
         }
     }
-    else if (vehicleType == ::AquaticVehicle)
+    else if (vehicleType == ::aquaticVehicle)
     {
         factory = getInfrastructureInArea(areaName, ::iAquaticFactory);
         if (!factory.empty())
@@ -354,7 +568,7 @@ void WarEngine::addVehicles(string areaName, vehicleType vehicleType)
             country->getWarEntities()->addVehicles(fac->createVehicle(2, 2, 2));
         }
     }
-    else if (vehicleType == ::AircraftVehicle)
+    else if (vehicleType == ::aircraftVehicle)
     {
         factory = getInfrastructureInArea(areaName, ::iAircraftFactory);
         if (!factory.empty())
@@ -362,6 +576,53 @@ void WarEngine::addVehicles(string areaName, vehicleType vehicleType)
             AircraftFactory *fac = (AircraftFactory *)factory.front();
             country->getWarEntities()->addVehicles(fac->createVehicle(2, 2, 2));
         }
+    }
+}
+
+// TODO: change distance value
+void WarEngine::attackArea(string areaName, string countryName)
+{
+    Country *country = getCountry(countryName);
+    if (country != nullptr)
+    {
+        Area *area = getArea(areaName);
+        if (area != nullptr)
+        {
+            if (area->getControllingCountry() != country)
+            {
+                Country* enemy = area->getControllingCountry();
+                bool isAccessible = false;
+                for(auto c : country->getAreas()) {
+                    if(map->isAccessible(c, area)) {
+                        isAccessible = true;
+                    }
+                }
+                if(isAccessible) {
+                    moveVehicles(areaName, countryName);
+                    moveTroops(areaName, countryName);
+                    list<Vehicles*> vehicles = getVehiclesInArea(areaName, countryName);
+                    list<Troops*> troops = getTroopsInArea(areaName, countryName);
+                    list<Vehicles*> enemyVehicles = getVehiclesInArea(areaName, enemy->getName());
+                    list<Troops*> enemyTroops = getTroopsInArea(areaName, enemy->getName());
+                    //TODO: finish this
+
+                } else {
+                    cout << "The area is not accessible through safe land, try attacking another area" << endl;
+                }
+            }
+            else
+            {
+                cout << "This area is already under this county's control" << endl;
+            }
+        }
+        else
+        {
+            cout << "Area was not found" << endl;
+        }
+    }
+    else
+    {
+        cout << "Country was not found" << endl;
     }
 }
 

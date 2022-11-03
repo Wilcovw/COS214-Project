@@ -125,6 +125,7 @@ public:
 	 * @return list<Area*> , List of Area's contained in sortest path
 	 */
 	list<Area *> shortestPath(Area *source, Area *destination);
+	list<Area *> shortestPath(Area *source, Area *destination, string type);
 };
 
 #endif

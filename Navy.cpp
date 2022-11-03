@@ -4,7 +4,7 @@
 
 //Values to be changed
 Navy::Navy(Area* theLocation, TroopType* theType, Citizens* theCitizen) : Troops(0, theLocation, theType, theCitizen) {
-
+    kind = ::tNavy;
 }
 
 Navy::~Navy() {

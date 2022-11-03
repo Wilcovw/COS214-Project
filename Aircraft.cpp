@@ -1,7 +1,7 @@
 #include "Aircraft.h"
 
 Aircraft::Aircraft(Area* location, double hp, double damage, double speed) : Vehicles(location, hp, damage, speed) {
-    type = "Aircraft";
+    type = ::aircraftVehicle;
 }
 
 void Aircraft::update() {

@@ -40,7 +40,7 @@ Country::Country(Country &country, Communication *comm)
     this->entities = country.entities->clone();
     for (int i = 0; i < entities->getTroops().size(); i++)
     {
-        this->citizens[counter] = entities->getFightingCitizens().at(i);
+        //this->citizens[counter] = entities->getFightingCitizens().at(i);
     }
 
     // Temporary code: might need to receive cloned areas instead of creating new ones here, cause they not setup properly

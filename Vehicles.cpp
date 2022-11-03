@@ -105,3 +105,7 @@ void Vehicles::attack(Troops *theEnemy) {
 void Vehicles::destroy() {
     delete this;
 }
+
+vehicleType Vehicles::getType() {
+    return type;
+}

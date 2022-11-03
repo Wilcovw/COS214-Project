@@ -89,6 +89,14 @@ double Troops::getDamage()
     return type->getDamage();
 }
 
+kindOfTroops Troops::getKind() { 
+    return kind;
+}
+
+void Troops::setLocation(Area* theLocation) {
+    location = theLocation;
+}
+
 Troops *Troops::clone()
 {
     Citizens *citizens = new Citizens();

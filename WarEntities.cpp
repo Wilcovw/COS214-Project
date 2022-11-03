@@ -4,13 +4,13 @@ WarEntities::WarEntities()
 }
 WarEntities::~WarEntities()
 {
-    std::vector<Vehicles *>::iterator it;
+    std::list<Vehicles *>::iterator it;
     for (it = vehicles.begin(); it != vehicles.end(); ++it)
     {
         delete *it;
     }
 
-    std::vector<Troops *>::iterator itt;
+    std::list<Troops *>::iterator itt;
     for (itt = troops.begin(); itt != troops.end(); ++itt)
     {
         delete *itt;
@@ -62,12 +62,12 @@ void WarEntities::addInfrastructure(Infrastructure *theInfrastructure)
     infrastructure.push_back(theInfrastructure);
 }
 
-std::vector<Vehicles *> WarEntities::getVehicles()
+std::list<Vehicles *> WarEntities::getVehicles()
 {
     return vehicles;
 }
 
-std::vector<Troops *> WarEntities::getTroops()
+std::list<Troops *> WarEntities::getTroops()
 {
     return troops;
 }
@@ -76,9 +76,10 @@ std::list<Infrastructure *> WarEntities::getInfrastructure()
 {
     return infrastructure;
 }
-std::vector<Citizens *> WarEntities::getFightingCitizens()
+
+std::list<Citizens *> WarEntities::getFightingCitizens()
 {
-    std::vector<Citizens *> ans;
+    std::list<Citizens *> ans;
     for (auto t : troops)
     {
     }

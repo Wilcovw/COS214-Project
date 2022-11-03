@@ -1,7 +1,7 @@
 #include "AquaticVehicles.h"
 
 AquaticVehicles::AquaticVehicles(Area* location, double hp, double damage, double speed) : Vehicles(location, hp, damage,speed) {
-    type = "Aquatic Vehicle";
+    type = ::aquaticVehicle;
 }
 
 void AquaticVehicles::update() {
