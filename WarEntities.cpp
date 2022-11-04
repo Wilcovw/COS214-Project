@@ -77,16 +77,6 @@ std::list<Infrastructure *> WarEntities::getInfrastructure()
     return infrastructure;
 }
 
-std::list<Citizens *> WarEntities::getFightingCitizens()
-{
-    std::list<Citizens *> ans;
-    for (auto t : troops)
-    {
-    }
-
-    return ans;
-}
-
 void WarEntities::removeInfrastructure(Infrastructure *theObject)
 {
     infrastructure.remove(theObject);
@@ -109,4 +99,5 @@ std::list<Citizens *> WarEntities::getFightingCitizens()
     {
         list.push_back(troops.front()->getAssociatedCitizen());
     }
+    return list;
 }

@@ -14,7 +14,7 @@
 #include "TrainingCamp.h"
 #include "Generals.h"
 #include "Soldiers.h"
-#include "Medics.h"
+#include "SpecialForces.h"
 #include "GroundTroops.h"
 #include "Navy.h"
 #include "Airforce.h"

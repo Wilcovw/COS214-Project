@@ -8,7 +8,7 @@ using namespace std;
 enum theTroopTypes {
     theGenerals,
     theSoldiers,
-    theMedics
+    theSpecialForces
 };
 
 class Vehicles;
