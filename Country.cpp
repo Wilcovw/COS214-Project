@@ -38,15 +38,13 @@ Country::Country(Country &country, Communication *comm)
         }
     }
     this->entities = country.entities->clone();
-    for (int i = 0; i < entities->getTroops().size(); i++)
-    {
-        // this->citizens[counter] = entities->getFightingCitizens().at(i);
+    int x = 0;
+    for(auto t : entities->getTroops()) {
+        this->citizens[x++] = t->getAssociatedCitizen();
     }
 
-    // Temporary code: might need to receive cloned areas instead of creating new ones here, cause they not setup properly
-    for (int i = 0; i < country.areas.size(); i++)
-    {
-        this->areas.push_back(country.areas.at(i)->clone(this));
+    for(auto a : this->areas) {
+        this->areas.push_back(a->getClonedArea());
     }
 }
 
@@ -55,7 +53,7 @@ std::string Country::getName()
     return name;
 }
 
-std::vector<Area *> Country::getAreas()
+std::list<Area *> Country::getAreas()
 {
     return areas;
 }
@@ -68,7 +66,7 @@ void Country::addArea(Area *area)
 std::string Country::printAreas()
 {
     std::string out = "Areas controlled by " + name + ": ";
-    std::vector<Area *>::iterator it;
+    std::list<Area *>::iterator it;
     for (it = areas.begin(); it != areas.end(); ++it)
     {
         out += (*it)->getName() + ", ";
@@ -80,7 +78,7 @@ std::string Country::printAreas()
 
 void Country::removeArea(Area *area)
 {
-    std::vector<Area *>::iterator it;
+    std::list<Area *>::iterator it;
     for (it = areas.begin(); it != areas.end(); ++it)
     {
         if (area == *it)
@@ -107,6 +105,7 @@ WarEntities *Country::getWarEntities()
 
 Country::~Country()
 {
+    removeAssociatedCountries(this);
     delete entities;
     for (int i = 0; i < numCitzenGroups; i++)
     {
@@ -198,6 +197,48 @@ list<Country *> Country::getAllies()
         }
     }
     return allies;
+}
+
+list<Country *> Country::getEnemies()
+{
+    Relationship *relAllies = (Relationship *)getParent();
+    Relationship *relEnemies;
+    list<Country *> enemies;
+    if (relAllies == nullptr)
+    {
+        return enemies;
+    }
+    string alliesName = relAllies->getRelationshipType();
+    Relationship *relParent = (Relationship *)getParent();
+    if (relParent == nullptr)
+    {
+        return enemies;
+    }
+    for (int i = 0; i < relParent->getRelationships().size(); i++)
+    {
+        if (Relationship *relationship = dynamic_cast<Relationship *>(relParent->getRelationships().at(i)))
+        {
+            Relationship* r = (Relationship*)relationship->getRelationships().at(i);
+            if (r->getRelationshipType() != alliesName)
+            {
+                relEnemies = (Relationship *)relParent->getRelationships().at(i);
+                for (int i = 0; i < relEnemies->getRelationships().size(); i++)
+                {
+                    if (Relationship *relationship = dynamic_cast<Relationship *>(relEnemies->getRelationships().at(i)))
+                    {
+                        list<Country *> empty;
+                        return empty;
+                    }
+                    else
+                    {
+                        enemies.push_back((Country *)relEnemies->getRelationships().at(i));
+                    }
+                }
+            }
+        }
+    }
+
+    return enemies;
 }
 
 void Country::removeCitizen(Citizens *theCitizen)

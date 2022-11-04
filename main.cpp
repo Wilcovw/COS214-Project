@@ -116,83 +116,244 @@ void testMemento(){
      delete history;*/
 };
 
-void testWarEngine()
+void populate(WarEngine *game)
 {
-    WarEngine *game = new WarEngine();
+    // Teams
+    string Blue = "Blue";
+    string Red = "Red";
 
-    string America = "America";
-    game->addCountry(America, 20);
-    string NewYork = "New York";
-    string Sydney = "Sydney";
-    string LasVegas = "Las Vegas";
-    game->addArea(NewYork, America);
-    game->addArea(Sydney, America);
-    game->addArea(LasVegas, America);
-    game->addConnection(::iRoad, NewYork, Sydney, 20);
-    game->addConnection(::iRoad, Sydney, LasVegas, 40);
-    game->addConnection(::iRoad, NewYork, LasVegas, 20);
-    game->addConnection(::iHarbour, NewYork, LasVegas, 10);
-    game->addConnection(::iHarbour, NewYork, Sydney, 15);
-    game->addConnection(::iRunway, LasVegas, NewYork, 60);
-    game->addInfrastructure(::iGroundCamp, LasVegas);
-    game->addInfrastructure(::iNavyCamp, NewYork);
-    game->addInfrastructure(::iAirforceCamp, Sydney);
-    game->addInfrastructure(::iAircraftFactory, LasVegas);
-    game->addInfrastructure(::iAquaticFactory, Sydney);
-    game->addInfrastructure(::iLandFactory, Sydney);
-    game->addInfrastructure(::iLandDevlopment, NewYork);
-    game->addInfrastructure(::iAircraftFactory, LasVegas);
-    game->addTroops(NewYork, ::tNavy, ::theSoldiers);
-    game->addVehicles(LasVegas, ::landVehicle);
-    game->moveTroops(Sydney, America);
-    game->moveVehicles(NewYork, America);
-    cout << "America has been built baby!!!!!" << endl;
-    cout << "Guns for everyone!!!!!!" << endl;
+    // Countries
+    string UK = "United Kingdom";
+    string Ireland = "Ireland";
+    string France = "France";
+    string Germany = "Germany";
+    string Netherlands = "Netherlands";
+    string Denmark = "Denmark";
+    string Belgium = "Belgium";
 
-    std::cout << "Creating Canada" << std::endl;
-    game->addCountry("Canada", 100);
+    game->addCountry(UK, 673);
+    game->addCountry(Ireland, 50);
+    game->addCountry(France, 675);
+    game->addCountry(Germany, 831);
+    game->addCountry(Netherlands, 175);
+    game->addCountry(Denmark, 58);
+    game->addCountry(Belgium, 116);
 
-    game->addArea("Montreal", "Canada");
-    game->addArea("Quebec", "Canada");
-    game->addArea("Toronto", "Canada");
-    game->addArea("Vancouver", "Canada");
+    game->addRelationship("All countries");
+    game->addRelationship(Red);
+    game->addRelationship(Blue);
+    game->addCountrytoRelationship(UK, Red);
+    game->addCountrytoRelationship(France, Red);
+    game->addCountrytoRelationship(Denmark, Red);
+    game->addCountrytoRelationship(Germany, Blue);
+    game->addCountrytoRelationship(Netherlands, Blue);
+    game->addCountrytoRelationship(Belgium, Blue);
+    game->addCountrytoRelationship(Ireland, Blue);
+    game->addRelationshipToRelationship("All countries", Red);
+    game->addRelationshipToRelationship("All countries", Blue);
 
-    game->addConnection(::iRoad, NewYork, "Montreal", 40);
+    // Populate areas of UK
+    string Scotland = "Scotland";
+    string London = "London";
+    string NorthernIreland = "Northern Ireland";
+    string Wales = "Wales";
+    game->addArea(Scotland, UK);
+    game->addArea(Wales, UK);
+    game->addArea(London, UK);
+    game->addArea(NorthernIreland, UK);
+    game->addConnection(::iRoad, London, Scotland, 678);
+    game->addConnection(::iRoad, London, Wales, 203);
+    game->addInfrastructure(::iHarbour, London);
+    game->addInfrastructure(::iHarbour, NorthernIreland);
+    game->addInfrastructure(::iHarbour, Wales);
+    game->addInfrastructure(::iRunway, London);
+    game->addInfrastructure(::iRunway, Scotland);
+    game->addInfrastructure(::iAirforceCamp, London);
+    game->addInfrastructure(::iNavyCamp, London);
+    game->addInfrastructure(::iGroundCamp, London);
+    game->addInfrastructure(::iGroundCamp, Wales);
 
-    game->addConnection(::iRoad, "Quebec", "Montreal", 40);
-    game->addConnection(::iRoad, "Montreal", "Toronto", 70);
-    game->addConnection(::iRoad, "Toronto", "Vancouver", 80);
-    game->addConnection(::iRoad, "Vancouver", "Montreal", 80);
+    // Populate areas of Ireland
+    string Dublin = "Dublin";
+    string Cork = "Cork";
+    string Limerick = "Limerick";
+    string Galway = "Galway";
+    game->addArea(Dublin, Ireland);
+    game->addArea(Cork, Ireland);
+    game->addArea(Limerick, Ireland);
+    game->addArea(Galway, Ireland);
+    game->addConnection(::iRoad, Dublin, NorthernIreland, 140);
+    game->addConnection(::iRoad, Dublin, Cork, 210);
+    game->addConnection(::iRoad, Dublin, Limerick, 170);
+    game->addConnection(::iRoad, Dublin, Galway, 175);
+    game->addConnection(::iRoad, Limerick, Cork, 85);
+    game->addConnection(::iRoad, Limerick, Galway, 73);
+    game->addInfrastructure(::iHarbour, Dublin);
+    game->addInfrastructure(::iRunway, Dublin);
+    game->addInfrastructure(::iAirforceCamp, Dublin);
+    game->addInfrastructure(::iNavyCamp, Dublin);
+    game->addInfrastructure(::iGroundCamp, Dublin);
+    game->addInfrastructure(::iGroundCamp, Limerick);
 
-    game->addInfrastructure(::iHarbour, "Quebec");
-    game->addInfrastructure(::iHarbour, "Toronto");
-    game->addInfrastructure(::iHarbour, "Vancouver");
-    game->addInfrastructure(::iRunway, "Montreal");
-    game->addInfrastructure(::iRunway, "Quebec");
-    game->addInfrastructure(::iGroundCamp, "Vancouver");
-    game->addInfrastructure(::iNavyCamp, "Toronto");
-    game->addInfrastructure(::iAirforceCamp, "Montreal");
-    game->addInfrastructure(::iLandFactory, "Vancouver");
-    game->addInfrastructure(::iLandFactory, "Vancouver");
-    game->addInfrastructure(::iAircraftFactory, "Montreal");
-    game->addInfrastructure(::iAquaticFactory, "Montreal");
-    game->addInfrastructure(::iLandDevlopment, "Toronto");
-    game->addInfrastructure(::iAircraftDevelopment, "Vancouver");
-    game->addInfrastructure(::iAquaticDevelopment, "Montreal");
+    // Populate areas of France
+    string Paris = "Paris";
+    string Nantes = "Nantes";
+    string Toulouse = "Toulouse";
+    string Marseille = "Marseille";
+    string Lille = "Lille";
+    string Strasbourg = "Strasbourg";
+    string Lyon = "Lyon";
+    game->addArea(Paris, France);
+    game->addArea(Nantes, France);
+    game->addArea(Toulouse, France);
+    game->addArea(Lille, France);
+    game->addArea(Marseille, France);
+    game->addArea(Strasbourg, France);
+    game->addArea(Lyon, France);
+    game->addConnection(::iRoad, Paris, Nantes, 345);
+    game->addConnection(::iRoad, Paris, Toulouse, 580);
+    game->addConnection(::iRoad, Paris, Lille, 213);
+    game->addConnection(::iRoad, Paris, Strasbourg, 377);
+    game->addConnection(::iRoad, Paris, Lyon, 80);
+    game->addConnection(::iRoad, Lyon, Marseille, 272);
+    game->addConnection(::iRoad, Lyon, Strasbourg, 380);
+    game->addConnection(::iRoad, Lyon, Toulouse, 368);
+    game->addConnection(::iRoad, Strasbourg, Lille, 410);
+    game->addConnection(::iRoad, Toulouse, Nantes, 475);
+    game->addConnection(::iRoad, Toulouse, Marseille, 320);
+    game->addInfrastructure(::iHarbour, Marseille);
+    game->addInfrastructure(::iHarbour, Nantes);
+    game->addInfrastructure(::iRunway, Paris);
+    game->addInfrastructure(::iRunway, Toulouse);
+    game->addInfrastructure(::iAirforceCamp, Paris);
+    game->addInfrastructure(::iNavyCamp, Marseille);
+    game->addInfrastructure(::iGroundCamp, Lille);
+    game->addInfrastructure(::iGroundCamp, Paris);
 
-    std::cout << "Canada has been built, sorry" << std::endl;
 
-    game->addRelationship("CountriesAtWar");
-    game->addRelationship("NorthAmerica");
-    game->addRelationshipToRelationship("CountriesAtWar", "NorthAmerica");
-    game->addCountrytoRelationship("Canada", "NorthAmerica");
-    game->addCountrytoRelationship("America", "NorthAmerica");
-    delete game;
-    cout << "Everything was deleted" << endl;
+    // Populate areas of Germany
+    string Berlin = "Berlin";
+    string Bremen = "Bremen";
+    string Hannover = "Hannover";
+    string Dusseldorf = "Dusseldorf";
+    string Stuttgart = "Stuttgart";
+    string Munich = "Munich";
+    game->addArea(Berlin, Germany);
+    game->addArea(Bremen, Germany);
+    game->addArea(Hannover, Germany);
+    game->addArea(Dusseldorf, Germany);
+    game->addArea(Stuttgart, Germany);
+    game->addArea(Munich, Germany);
+    game->addConnection(::iRoad, Strasbourg, Stuttgart, 105);
+    game->addConnection(::iRoad, Dusseldorf, Stuttgart, 320);
+    game->addConnection(::iRoad, Berlin, Stuttgart, 513);
+    game->addConnection(::iRoad, Munich, Stuttgart, 194);
+    game->addConnection(::iRoad, Berlin, Munich, 515);
+    game->addConnection(::iRoad, Berlin, Bremen, 318);
+    game->addConnection(::iRoad, Hannover, Bremen, 95);
+    game->addConnection(::iRoad, Hannover, Berlin, 249);
+    game->addConnection(::iRoad, Hannover, Dusseldorf, 231);
+    game->addInfrastructure(::iHarbour, Munich);
+    game->addInfrastructure(::iRunway, Stuttgart);
+    game->addInfrastructure(::iRunway, Berlin);
+    game->addInfrastructure(::iAirforceCamp, Berlin);
+    game->addInfrastructure(::iNavyCamp, Munich);
+    game->addInfrastructure(::iGroundCamp, Berlin);
+    game->addInfrastructure(::iGroundCamp, Stuttgart);
+
+
+    // Populate areas of Netherlands
+    string Amsterdam = "Amsterdam";
+    game->addArea(Amsterdam, Netherlands);
+    game->addConnection(::iRoad, Amsterdam, Hannover, 320);
+    game->addConnection(::iRoad, Amsterdam, Bremen, 278);
+    game->addConnection(::iRoad, Amsterdam, Dusseldorf, 165);
+    game->addInfrastructure(::iHarbour, Amsterdam);
+    game->addInfrastructure(::iRunway, Amsterdam);
+    game->addInfrastructure(::iAirforceCamp, London);
+    game->addInfrastructure(::iNavyCamp, London);
+    game->addInfrastructure(::iGroundCamp, London);
+    game->addInfrastructure(::iGroundCamp, Wales);
+
+
+    // Populate areas of Denmark
+    string Copenhagen = "Copenhagen";
+    string Abenta = "Abenta";
+    string Alborg = "Alborg";
+    game->addArea(Copenhagen, Denmark);
+    game->addArea(Abenta, Denmark);
+    game->addArea(Alborg, Denmark);
+    game->addConnection(::iRoad, Bremen, Abenta, 190);
+    game->addConnection(::iRoad, Abenta, Berlin, 367);
+    game->addConnection(::iRoad, Copenhagen, Abenta, 290);
+    game->addConnection(::iRoad, Alborg, Abenta, 250);
+    game->addConnection(::iRoad, Copenhagen, Alborg, 370);
+    game->addInfrastructure(::iHarbour, Copenhagen);
+    game->addInfrastructure(::iHarbour, Alborg);
+    game->addInfrastructure(::iRunway, Abenta);
+
+
+    // Populate areas of Belgium
+    string Brussels = "Brussels";
+    game->addArea(Brussels, Belgium);
+    game->addConnection(::iRoad, Brussels, Amsterdam, 175);
+    game->addConnection(::iRoad, Brussels, Lille, 93);
+    game->addConnection(::iRoad, Brussels, Dusseldorf, 176);
+    game->addInfrastructure(::iRunway, Brussels);
+
+
+    // Add connections for harbours
+    game->addConnection(::iHarbour, Dublin, Wales, 170);
+    game->addConnection(::iHarbour, Dublin, NorthernIreland, 250);
+    game->addConnection(::iHarbour, Dublin, Nantes, 605);
+    game->addConnection(::iHarbour, Wales, London, 405);
+    game->addConnection(::iHarbour, London, Amsterdam, 212);
+    game->addConnection(::iHarbour, Alborg, London, 630);
+    game->addConnection(::iHarbour, Alborg, Copenhagen, 613);
+    game->addConnection(::iHarbour, Nantes, Amsterdam, 985);
+    game->addConnection(::iHarbour, NorthernIreland, Wales, 175);
+    game->addConnection(::iHarbour, Munich, Marseille, 770);
+    game->addConnection(::iHarbour, Dublin, Amsterdam, 850);
+    game->addConnection(::iHarbour, Amsterdam, Alborg, 602);
+
+    //Add connection to runways
+    game->addConnection(::iRunway, London, Scotland, 670);
+    game->addConnection(::iRunway, Dublin, London, 450);
+    game->addConnection(::iRunway, Dublin, Scotland, 430);
+    game->addConnection(::iRunway, London, Paris, 350);
+    game->addConnection(::iRunway, London, Amsterdam, 360);
+    game->addConnection(::iRunway, London, Brussels, 325);
+    game->addConnection(::iRunway, London, Abenta, 735);
+    game->addConnection(::iRunway, Paris, Toulouse, 590);
+    game->addConnection(::iRunway, Berlin, Stuttgart, 510);
+    game->addConnection(::iRunway, Brussels, Amsterdam, 171);
+    game->addConnection(::iRunway, Brussels, Stuttgart, 412);
+    game->addConnection(::iRunway, Amsterdam, Abenta, 423);
+    game->addConnection(::iRunway, Berlin, Amsterdam, 570);
+    game->addConnection(::iRunway, Berlin, Abenta, 385);
+    game->addConnection(::iRunway, Dublin, Brussels, 843);
+    game->addConnection(::iRunway, Paris, Brussels, 258);
+    game->addConnection(::iRunway, Paris, Stuttgart, 508);
+    game->addConnection(::iRunway, Toulouse, Stuttgart, 836);
+    game->addConnection(::iRunway, Amsterdam, Stuttgart, 501);
+
+
+
+
+
+
+    
+
+
+    
+
+
 }
 
-void testTroopCreation(WarEngine *game) {
-    
+void finalMain()
+{
+    WarEngine *game = new WarEngine();
+    populate(game);
 }
 
 int main()
@@ -202,7 +363,7 @@ int main()
     // testMap();
     // testMemento();
     // showcasing();
-    testWarEngine();
-    cout << "=============================End testing===============================" << endl;
+    finalMain();
+//jasonIsDum    cout << "=============================End testing===============================" << endl;
     return 0;
 }

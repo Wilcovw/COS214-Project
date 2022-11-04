@@ -98,7 +98,7 @@ bool Area::isAccessible(Area *d)
 			}
 			if (allies.size() != 0)
 			{
-				if (find(allies.begin(), allies.end(), control) != allies.end())
+				if (find(allies.begin(), allies.end(), controllingCountry) != allies.end())
 				{
 
 					if (u->visited == false)
@@ -121,6 +121,9 @@ list<Edge *> Area::getEdges()
 
 bool Area::isAccessible(Area *d, string type)
 {
+	if (type != "Harbour"){
+		return isAccessible(d);
+	}
 	if (this == d || d == nullptr)
 	{
 		return false;
@@ -144,7 +147,7 @@ bool Area::isAccessible(Area *d, string type)
 				}
 				if (allies.size() != 0)
 				{
-					if (find(allies.begin(), allies.end(), control) != allies.end())
+					if (find(allies.begin(), allies.end(), controllingCountry) != allies.end())
 					{
 
 						if (u->visited == false)

@@ -23,6 +23,7 @@
 #include "AquaticVehicleFactory.h"
 #include "AircraftFactory.h"
 #include <iostream>
+
 using namespace std;
 
 WarEngine::WarEngine()
@@ -41,6 +42,14 @@ WarEngine::~WarEngine()
     delete communication;
 }
 
+void newWarPhase()
+{
+}
+
+void reverseWarPhase()
+{
+}
+
 void WarEngine::addCountry(string name, int numCitizens)
 {
     if (communication != nullptr)
@@ -51,7 +60,7 @@ void WarEngine::addCountry(string name, int numCitizens)
 
 void WarEngine::addRelationship(string relationshipName)
 {
-    if (getRelationship(relationshipName) == nullptr and communication != nullptr)
+    if (getRelationship(relationshipName) == nullptr && communication != nullptr)
     {
         allRelationships.push_back(new Relationship(relationshipName, communication));
     }
@@ -83,6 +92,7 @@ Country *WarEngine::getCountry(string countryName)
             }
         }
     }
+    cout << "Country: " << countryName << " was not found" << endl;
     return nullptr;
 };
 
@@ -117,6 +127,7 @@ Country *WarEngine::getCountryFromArea(string areaName)
             }
         }
     }
+    cout << "The country with area: " << areaName << " was not found." << endl;
     return nullptr;
 }
 
@@ -132,14 +143,21 @@ void WarEngine::addArea(string areaName, string countryName)
 
 Area *WarEngine::getArea(string areaName)
 {
-    return map->getArea(areaName);
+    if (map->getArea(areaName) != nullptr)
+    {
+        return map->getArea(areaName);
+    }
+    else
+    {
+        cout << "Area " << areaName << " was not found" << endl;
+        return nullptr;
+    }
 }
 
-list<Area *> WarEngine::getTravelPath(Vehicles *vehicle, string areaName)
+list<Area *> WarEngine::getTravelPath(Vehicles *vehicle, Area *destination)
 {
     list<Area *> result;
     Area *source = vehicle->getLocation();
-    Area *destination = getArea(areaName);
     if (vehicle != nullptr)
     {
         if (destination != nullptr || source != nullptr)
@@ -162,35 +180,34 @@ list<Area *> WarEngine::getTravelPath(Vehicles *vehicle, string areaName)
     return result;
 }
 
-list<Area *> WarEngine::getTravelPath(Troops *troops, string areaName)
+list<Area *> WarEngine::getTravelPath(Troops *troops, Area *destination)
 {
     list<Area *> result;
     if (troops != nullptr)
     {
-        if (getArea(areaName) != nullptr)
+        if (destination != nullptr)
         {
             list<Area *> path;
             if (troops->getKind() == ::tGroundTroops)
             {
-                result = map->shortestPath(troops->getLocation(), getArea(areaName), "Road");
+                result = map->shortestPath(troops->getLocation(), destination, "Road");
             }
             else if (troops->getKind() == ::tAirforce)
             {
-                result = map->shortestPath(troops->getLocation(), getArea(areaName), "Runway");
+                result = map->shortestPath(troops->getLocation(), destination, "Runway");
             }
             else if (troops->getKind() == ::tNavy)
             {
-                result = map->shortestPath(troops->getLocation(), getArea(areaName), "Harbour");
+                result = map->shortestPath(troops->getLocation(), destination, "Harbour");
             }
         }
     }
     return result;
 }
 
-double WarEngine::getTravelDistance(Vehicles *vehicle, string areaName)
+double WarEngine::getTravelDistance(Vehicles *vehicle, Area *destination)
 {
     Area *source = vehicle->getLocation();
-    Area *destination = getArea(areaName);
     int distance = -1;
     if (vehicle != nullptr)
     {
@@ -222,25 +239,25 @@ double WarEngine::getTravelDistance(Vehicles *vehicle, string areaName)
     return distance;
 }
 
-double WarEngine::getTravelDistance(Troops *troops, string areaName)
+double WarEngine::getTravelDistance(Troops *troops, Area *destination)
 {
     double distance = -1;
     if (troops != nullptr)
     {
-        if (getArea(areaName) != nullptr)
+        if (destination != nullptr)
         {
             list<Area *> path;
             if (troops->getKind() == ::tGroundTroops)
             {
-                path = map->shortestPath(troops->getLocation(), getArea(areaName), "Road");
+                path = map->shortestPath(troops->getLocation(), destination, "Road");
             }
             else if (troops->getKind() == ::tAirforce)
             {
-                path = map->shortestPath(troops->getLocation(), getArea(areaName), "Runway");
+                path = map->shortestPath(troops->getLocation(), destination, "Runway");
             }
             else if (troops->getKind() == ::tNavy)
             {
-                path = map->shortestPath(troops->getLocation(), getArea(areaName), "Harbour");
+                path = map->shortestPath(troops->getLocation(), destination, "Harbour");
             }
             if (!path.empty())
             {
@@ -255,11 +272,10 @@ double WarEngine::getTravelDistance(Troops *troops, string areaName)
     return distance;
 }
 
-void WarEngine::moveVehicles(string areaName, string countryName, int maxDistance) {
-    Country *country = getCountry(countryName);
+void WarEngine::moveVehicles(Area *destination, Country *country, int maxDistance)
+{
     if (country != nullptr)
     {
-        Area *destination = getArea(areaName);
         if (destination != nullptr)
         {
             list<Vehicles *> vehicles = country->getWarEntities()->getVehicles();
@@ -267,36 +283,26 @@ void WarEngine::moveVehicles(string areaName, string countryName, int maxDistanc
             {
                 for (auto e : vehicles)
                 {
-                    if (getTravelDistance(e, areaName) <= maxDistance)
+                    if (getTravelDistance(e, destination) <= maxDistance)
                     {
                         e->changeLocation(destination);
                     }
                 }
             }
         }
-        else
-        {
-            cout << "Area was not found" << endl;
-        }
-    }
-    else
-    {
-        cout << "Country was not found" << endl;
     }
 }
 
 // TODO: change distance value
 void WarEngine::moveVehicles(string areaName, string countryName)
 {
-   moveVehicles(areaName, countryName, 200);
+    moveVehicles(getArea(areaName), getCountry(countryName), 200);
 }
 
-
-void WarEngine::moveTroops(string areaName, string countryName, int maxDistance) {
-    Country *country = getCountry(countryName);
+void WarEngine::moveTroops(Area *destination, Country *country, int maxDistance)
+{
     if (country != nullptr)
     {
-        Area *destination = getArea(areaName);
         if (destination != nullptr)
         {
             list<Troops *> troops = country->getWarEntities()->getTroops();
@@ -304,27 +310,20 @@ void WarEngine::moveTroops(string areaName, string countryName, int maxDistance)
             {
                 for (auto t : troops)
                 {
-                    if (getTravelDistance(t, areaName) <= maxDistance)
+                    if (getTravelDistance(t, destination) <= maxDistance)
                     {
                         t->setLocation(destination);
                     }
                 }
             }
         }
-        else
-        {
-            cout << "Area was not found" << endl;
-        }
-    }
-    else
-    {
-        cout << "Country was not found" << endl;
     }
 }
 
 // TODO: change distance value
-void WarEngine::moveTroops(string areaName, string countryName) {
-    moveTroops(areaName, countryName, 100);
+void WarEngine::moveTroops(string areaName, string countryName)
+{
+    moveTroops(getArea(areaName), getCountry(countryName), 100);
 }
 
 // TODO: change HP values
@@ -342,23 +341,23 @@ void WarEngine::addConnection(typeOfInfrastructure type, string sourceName, stri
         {
             Harbour *theHarbour;
             Harbour *theOtherHarbour;
-            if (getInfrastructureInArea(sourceName, type).empty())
+            if (getInfrastructureInArea(getArea(sourceName), type).empty())
             {
                 theHarbour = new Harbour(getArea(sourceName), 3);
                 country->getWarEntities()->addInfrastructure(theHarbour);
             }
             else
             {
-                theHarbour = (Harbour *)getInfrastructureInArea(sourceName, type).front();
+                theHarbour = (Harbour *)getInfrastructureInArea(getArea(sourceName), type).front();
             }
-            if (getInfrastructureInArea(destinationName, type).empty())
+            if (getInfrastructureInArea(getArea(destinationName), type).empty())
             {
                 theOtherHarbour = new Harbour(getArea(destinationName), 3);
                 destination->getWarEntities()->addInfrastructure(theOtherHarbour);
             }
             else
             {
-                theOtherHarbour = (Harbour *)getInfrastructureInArea(destinationName, type).front();
+                theOtherHarbour = (Harbour *)getInfrastructureInArea(getArea(destinationName), type).front();
             }
             theHarbour->addConnection(getArea(destinationName), distance, theOtherHarbour);
         }
@@ -366,23 +365,23 @@ void WarEngine::addConnection(typeOfInfrastructure type, string sourceName, stri
         {
             Runway *theRunway;
             Runway *theOtherRunway;
-            if (getInfrastructureInArea(sourceName, type).empty())
+            if (getInfrastructureInArea(getArea(sourceName), type).empty())
             {
                 theRunway = new Runway(getArea(sourceName), 3);
                 country->getWarEntities()->addInfrastructure(theRunway);
             }
             else
             {
-                theRunway = (Runway *)getInfrastructureInArea(sourceName, type).front();
+                theRunway = (Runway *)getInfrastructureInArea(getArea(sourceName), type).front();
             }
-            if (getInfrastructureInArea(destinationName, type).empty())
+            if (getInfrastructureInArea(getArea(destinationName), type).empty())
             {
                 theOtherRunway = new Runway(getArea(destinationName), 3);
                 destination->getWarEntities()->addInfrastructure(theOtherRunway);
             }
             else
             {
-                theOtherRunway = (Runway *)getInfrastructureInArea(destinationName, type).front();
+                theOtherRunway = (Runway *)getInfrastructureInArea(getArea(destinationName), type).front();
             }
             theRunway->addConnection(getArea(destinationName), distance, theOtherRunway);
         }
@@ -454,17 +453,17 @@ void WarEngine::addInfrastructure(typeOfInfrastructure type, string areaName)
     }
 }
 
-list<Infrastructure *> WarEngine::getInfrastructureInArea(string areaName, typeOfInfrastructure type)
+list<Infrastructure *> WarEngine::getInfrastructureInArea(Area *area, typeOfInfrastructure type)
 {
     list<Infrastructure *> output;
-    Country *country = getCountryFromArea(areaName);
+    Country *country = getCountryFromArea(area->getName());
     if (country != nullptr && !country->getWarEntities()->getInfrastructure().empty())
     {
         list<Infrastructure *> allInfrastructure = country->getWarEntities()->getInfrastructure();
         for (auto i : allInfrastructure)
         {
             Infrastructure *temp = i;
-            if (type == temp->getType() && i->getArea()->getName() == areaName)
+            if (type == temp->getType() && i->getArea()->getName() == area->getName())
             {
                 output.push_back(temp);
             }
@@ -473,17 +472,17 @@ list<Infrastructure *> WarEngine::getInfrastructureInArea(string areaName, typeO
     return output;
 }
 
-list<Infrastructure *> WarEngine::getAllInfrastructureInArea(string areaName)
+list<Infrastructure *> WarEngine::getAllInfrastructureInArea(Area *area)
 {
     list<Infrastructure *> output;
-    Country *country = getCountryFromArea(areaName);
+    Country *country = getCountryFromArea(area->getName());
     if (country != nullptr && !country->getWarEntities()->getInfrastructure().empty())
     {
         list<Infrastructure *> allInfrastructure = country->getWarEntities()->getInfrastructure();
         for (auto i : allInfrastructure)
         {
             Infrastructure *temp = i;
-            if (i->getArea()->getName() == areaName)
+            if (i->getArea()->getName() == area->getName())
             {
                 output.push_back(temp);
             }
@@ -492,17 +491,17 @@ list<Infrastructure *> WarEngine::getAllInfrastructureInArea(string areaName)
     return output;
 }
 
-list<Infrastructure *> WarEngine::getAllFacilitiesInArea(string areaName)
+list<Infrastructure *> WarEngine::getAllFacilitiesInArea(Area *area)
 {
     list<Infrastructure *> output;
-    Country *country = getCountryFromArea(areaName);
+    Country *country = getCountryFromArea(area->getName());
     if (country != nullptr && !country->getWarEntities()->getInfrastructure().empty())
     {
         list<Infrastructure *> allInfrastructure = country->getWarEntities()->getInfrastructure();
         for (auto i : allInfrastructure)
         {
             Infrastructure *temp = i;
-            if (temp->getType() != iRoad && temp->getType() != ::iHarbour && temp->getType() != ::iRunway && i->getArea()->getName() == areaName)
+            if (temp->getType() != iRoad && temp->getType() != ::iHarbour && temp->getType() != ::iRunway && i->getArea()->getName() == area->getName())
             {
                 output.push_back(temp);
             }
@@ -511,11 +510,9 @@ list<Infrastructure *> WarEngine::getAllFacilitiesInArea(string areaName)
     return output;
 }
 
-list<Troops *> WarEngine::getTroopsInArea(string areaName, string countryName)
+list<Troops *> WarEngine::getTroopsInArea(Area *area, Country *country)
 {
     list<Troops *> result;
-    Country *country = getCountry(countryName);
-    Area *area = getArea(areaName);
     if (country != nullptr && area != nullptr)
     {
         list<Troops *> troops = country->getWarEntities()->getTroops();
@@ -530,11 +527,9 @@ list<Troops *> WarEngine::getTroopsInArea(string areaName, string countryName)
     return result;
 }
 
-list<Vehicles *> WarEngine::getVehiclesInArea(string areaName, string countryName)
+list<Vehicles *> WarEngine::getVehiclesInArea(Area *area, Country *country)
 {
     list<Vehicles *> result;
-    Country *country = getCountry(countryName);
-    Area *area = getArea(areaName);
     if (country != nullptr && area != nullptr)
     {
         list<Vehicles *> troops = country->getWarEntities()->getVehicles();
@@ -572,15 +567,15 @@ void WarEngine::addTroops(string areaName, kindOfTroops kind, theTroopTypes type
                 list<Infrastructure *> camp;
                 if (kind == ::tAirforce)
                 {
-                    camp = getInfrastructureInArea(areaName, ::iAirforceCamp);
+                    camp = getInfrastructureInArea(getArea(areaName), ::iAirforceCamp);
                 }
                 else if (kind == ::tNavy)
                 {
-                    camp = getInfrastructureInArea(areaName, ::iNavyCamp);
+                    camp = getInfrastructureInArea(getArea(areaName), ::iNavyCamp);
                 }
                 else if (kind == ::tGroundTroops)
                 {
-                    camp = getInfrastructureInArea(areaName, ::iGroundCamp);
+                    camp = getInfrastructureInArea(getArea(areaName), ::iGroundCamp);
                 }
                 if (!camp.empty() && camp.front() != nullptr)
                 {
@@ -640,7 +635,7 @@ void WarEngine::addVehicles(string areaName, vehicleType vehicleType)
     list<Infrastructure *> factory;
     if (vehicleType == ::landVehicle)
     {
-        factory = getInfrastructureInArea(areaName, ::iLandFactory);
+        factory = getInfrastructureInArea(getArea(areaName), ::iLandFactory);
         if (!factory.empty())
         {
             LandVehicleFactory *fac = (LandVehicleFactory *)factory.front();
@@ -649,7 +644,7 @@ void WarEngine::addVehicles(string areaName, vehicleType vehicleType)
     }
     else if (vehicleType == ::aquaticVehicle)
     {
-        factory = getInfrastructureInArea(areaName, ::iAquaticFactory);
+        factory = getInfrastructureInArea(getArea(areaName), ::iAquaticFactory);
         if (!factory.empty())
         {
             AquaticVehicleFactory *fac = (AquaticVehicleFactory *)factory.front();
@@ -658,13 +653,215 @@ void WarEngine::addVehicles(string areaName, vehicleType vehicleType)
     }
     else if (vehicleType == ::aircraftVehicle)
     {
-        factory = getInfrastructureInArea(areaName, ::iAircraftFactory);
+        factory = getInfrastructureInArea(getArea(areaName), ::iAircraftFactory);
         if (!factory.empty())
         {
             AircraftFactory *fac = (AircraftFactory *)factory.front();
             country->getWarEntities()->addVehicles(fac->createVehicle(2, 2, 2));
         }
     }
+}
+
+void WarEngine::printCountryStatus(string countryName)
+{
+    Country *country = getCountry(countryName);
+    cout << "-----------------------------------------------------------" << endl;
+    cout << countryName << " Status Report: " << endl;
+    cout << country->getParent()->print();
+    cout << country->printAreas();
+    int unlisted = 0;
+    int dead = 0;
+    int landGenerals = 0;
+    int navyGenerals = 0;
+    int airForceGenerals = 0;
+    int landSoldiers = 0;
+    int navySoldiers = 0;
+    int airForceSoldiers = 0;
+    int landSpecialForces = 0;
+    int navySpecialForces = 0;
+    int airForceSpecialForces = 0;
+    for (int i = 0; i < country->getNumCitzenGroups(); i++)
+    {
+        string status = country->getCitizens()[i]->getStatus();
+        if (status.compare("Unlisted") == 0)
+        {
+            unlisted++;
+        }
+        else if (status.compare("Dead") == 0)
+        {
+            dead++;
+        }
+    }
+    for (auto t : country->getWarEntities()->getTroops())
+    {
+        if (t->getKind() == ::tGroundTroops)
+        {
+            if (t->getType()->getType() == ::theGenerals)
+            {
+                landGenerals++;
+            }
+            else if (t->getType()->getType() == ::theSoldiers)
+            {
+                landSoldiers++;
+            }
+            else if (t->getType()->getType() == ::theSpecialForces)
+            {
+                landSpecialForces++;
+            }
+        }
+        else if (t->getKind() == ::tNavy)
+        {
+            if (t->getType()->getType() == ::theGenerals)
+            {
+                navyGenerals++;
+            }
+            else if (t->getType()->getType() == ::theSoldiers)
+            {
+                navySoldiers++;
+            }
+            else if (t->getType()->getType() == ::theSpecialForces)
+            {
+                navySpecialForces++;
+            }
+        }
+        else if (t->getKind() == ::tAirforce)
+        {
+            if (t->getType()->getType() == ::theGenerals)
+            {
+                airForceGenerals++;
+            }
+            else if (t->getType()->getType() == ::theSoldiers)
+            {
+                airForceSoldiers++;
+            }
+            else if (t->getType()->getType() == ::theSpecialForces)
+            {
+                airForceSpecialForces++;
+            }
+        }
+    }
+
+    cout << "\nNumber of groups/battalions of citizens/troops :" << endl;
+    cout << "Unlisted citizens: \t\t" << unlisted << endl;
+    cout << "Land generals: \t\t" << landGenerals << endl;
+    cout << "Navy generals: \t\t" << navyGenerals << endl;
+    cout << "Air force generals: \t" << airForceGenerals << endl;
+    cout << "Land special forces: \t" << landSpecialForces << endl;
+    cout << "Navy special forces: \t" << navySpecialForces << endl;
+    cout << "Air force special forces: \t" << airForceSpecialForces << endl;
+    cout << "Land soldiers: \t\t" << landSoldiers << endl;
+    cout << "Navy soldiers: \t\t" << navySoldiers << endl;
+    cout << "Air force soldiers: \t" << airForceSoldiers << endl;
+    cout << "Dead citizens: \t\t" << dead << endl;
+
+    int landVehicles = 0;
+    int navyVehicles = 0;
+    int airForceVehicles = 0;
+    for (auto v : country->getWarEntities()->getVehicles())
+    {
+        if (v->getType() == ::landVehicle)
+        {
+            landVehicles++;
+        }
+        else if (v->getType() == ::aquaticVehicle)
+        {
+            navyVehicles++;
+        }
+        else if (v->getType() == ::aircraftVehicle)
+        {
+            airForceVehicles++;
+        }
+    }
+    cout << "\nNumber of different types of vehicles: " << endl;
+    cout << "Land vehicles: \t" << landVehicles << endl;
+    cout << "Navy vehicles: \t" << navyVehicles << endl;
+    cout << "Air Force vehicles: \t" << airForceVehicles << endl;
+    int roads = 0;
+    int harbours = 0;
+    int runways = 0;
+    int landDevelopments = 0;
+    int navyDevelopments = 0;
+    int airForceDevelopments = 0;
+    int landFactory = 0;
+    int navyFactory = 0;
+    int airForceFactory = 0;
+    int landCamps = 0;
+    int navyCamps = 0;
+    int airForceCamps = 0;
+    for (auto i : country->getWarEntities()->getInfrastructure())
+    {
+        if (i->getType() == ::iRoad)
+        {
+            roads++;
+        }
+        else if (i->getType() == ::iHarbour)
+        {
+            harbours++;
+        }
+        else if (i->getType() == ::iRunway)
+        {
+            runways++;
+        }
+        else if (i->getType() == ::iLandDevlopment)
+        {
+            landDevelopments++;
+        }
+        else if (i->getType() == ::iAquaticDevelopment)
+        {
+            navyDevelopments++;
+        }
+        else if (i->getType() == ::iAircraftDevelopment)
+        {
+            airForceDevelopments++;
+        }
+        else if (i->getType() == ::iLandFactory)
+        {
+            landFactory++;
+        }
+        else if (i->getType() == ::iAquaticFactory)
+        {
+            navyFactory++;
+        }
+        else if (i->getType() == ::iAircraftFactory)
+        {
+            airForceFactory++;
+        }
+        else if (i->getType() == ::iGroundCamp)
+        {
+            landCamps++;
+        }
+        else if (i->getType() == ::iNavyCamp)
+        {
+            navyCamps++;
+        }
+        else if (i->getType() == ::iAirforceCamp)
+        {
+            airForceCamps++;
+        }
+    }
+    cout << "\nInfrastructure: " << endl;
+
+    cout << "Number of roads/harbours/runways under " << country->getName() << "'s control: " << endl;
+    cout << "Number of roads: \t" << roads << endl;
+    cout << "Number of harbours: \t" << harbours << endl;
+    cout << "Number of runways: \t" << runways << endl;
+
+    cout << "Number of research and development centres: " << endl;
+    cout << "Number of land research centres: \t" << landDevelopments << endl;
+    cout << "Number of navy research centres: \t" << navyDevelopments << endl;
+    cout << "Number of air force research centres: \t" << airForceDevelopments << endl;
+
+    cout << "Number of vehicle factories: " << endl;
+    cout << "Number of land vehicle factories: \t" << landFactory << endl;
+    cout << "Number of navy vehicle factories: \t" << navyFactory << endl;
+    cout << "Number of air force vehicle factories: \t" << airForceFactory << endl;
+
+    cout << "Number of trop training camps: " << endl;
+    cout << "Number of land troop training camps: \t" << landCamps << endl;
+    cout << "Number of navy troop training camps: \t" << navyCamps << endl;
+    cout << "Number of airForce troop training camps: \t" << airForceCamps << endl;
+
+    cout << "-----------------------------------------------------------" << endl;
 }
 
 // TODO: change distance value
@@ -676,23 +873,38 @@ void WarEngine::attackArea(string areaName, string countryName)
         Area *area = getArea(areaName);
         if (area != nullptr)
         {
-            // check if this is an ally area
-            if (area->getControllingCountry() != country)
+            if (area->getControllingCountry() != country && country->getParent() != getCountryFromArea(areaName)->getParent())
             {
                 Country *enemy = area->getControllingCountry();
                 bool isAccessible = false;
-                for(auto a : country->getAreas()) {
-                    if(map->isAccessible(a, area)) {
+                for (auto a : country->getAreas())
+                {
+                    if (map->isAccessible(a, area))
+                    {
                         isAccessible = true;
-                        break;                    
+                        break;
                     }
                 }
                 if (isAccessible)
                 {
                     moveVehicles(areaName, countryName);
                     moveTroops(areaName, countryName);
-                    list<Vehicles *> vehicles = getVehiclesInArea(areaName, countryName);
-                    list<Troops *> troops = getTroopsInArea(areaName, countryName);
+                    list<Vehicles *> vehicles = getVehiclesInArea(getArea(areaName), getCountry(countryName));
+                    list<Troops *> troops = getTroopsInArea(getArea(areaName), getCountry(countryName));
+                    for (auto c : country->getAllies())
+                    {
+                        moveVehicles(areaName, c->getName());
+                        for (auto v : getVehiclesInArea(getArea(areaName), c))
+                        {
+                            vehicles.push_back(v);
+                        }
+                        moveTroops(areaName, c->getName());
+                        for (auto t : getTroopsInArea(getArea(areaName), c))
+                        {
+                            troops.push_back(t);
+                        }
+                    }
+
                     if (!troops.empty())
                     {
                         for (auto t : troops)
@@ -700,8 +912,23 @@ void WarEngine::attackArea(string areaName, string countryName)
                             t->getAssociatedCitizen()->setStatus(new Fighting());
                         }
                     }
-                    list<Vehicles *> enemyVehicles = getVehiclesInArea(areaName, enemy->getName());
-                    list<Troops *> enemyTroops = getTroopsInArea(areaName, enemy->getName());
+
+                    list<Vehicles *> enemyVehicles = getVehiclesInArea(getArea(areaName), enemy);
+                    list<Troops *> enemyTroops = getTroopsInArea(getArea(areaName), enemy);
+                    for (auto c : enemy->getAllies())
+                    {
+                        moveVehicles(getArea(areaName), c, 100);
+                        for (auto v : getVehiclesInArea(getArea(areaName), c))
+                        {
+                            enemyVehicles.push_back(v);
+                        }
+                        moveTroops(getArea(areaName), c, 50);
+                        for (auto t : getTroopsInArea(getArea(areaName), c))
+                        {
+                            enemyTroops.push_back(t);
+                        }
+                    }
+
                     if (!enemyTroops.empty())
                     {
                         for (auto t : enemyTroops)
@@ -709,6 +936,7 @@ void WarEngine::attackArea(string areaName, string countryName)
                             t->getAssociatedCitizen()->setStatus(new Fighting());
                         }
                     }
+
                     while ((!troops.empty() || !vehicles.empty()) && (!enemyTroops.empty() || !enemyVehicles.empty()))
                     {
                         if (!vehicles.empty())
@@ -733,8 +961,7 @@ void WarEngine::attackArea(string areaName, string countryName)
                                 {
                                     enemyTroops.remove(enemyTroop);
                                     enemy->getWarEntities()->removeTroops(enemyTroop);
-                                    enemy->removeCitizen(enemyTroop->getAssociatedCitizen());
-                                    delete enemyTroop->getAssociatedCitizen();
+                                    enemyTroop->getAssociatedCitizen()->die();
                                     delete enemyTroop;
                                 }
                             }
@@ -767,8 +994,7 @@ void WarEngine::attackArea(string areaName, string countryName)
                                 {
                                     enemyTroops.remove(enemyTroop);
                                     enemy->getWarEntities()->removeTroops(enemyTroop);
-                                    enemy->removeCitizen(enemyTroop->getAssociatedCitizen());
-                                    delete enemyTroop->getAssociatedCitizen();
+                                    enemyTroop->getAssociatedCitizen()->die();
                                     delete enemyTroop;
                                 }
                             }
@@ -776,8 +1002,7 @@ void WarEngine::attackArea(string areaName, string countryName)
                             {
                                 troops.remove(troop);
                                 country->getWarEntities()->removeTroops(troop);
-                                country->removeCitizen(troop->getAssociatedCitizen());
-                                delete troop->getAssociatedCitizen();
+                                troop->getAssociatedCitizen()->die();
                                 delete troop;
                             }
                         }
@@ -787,9 +1012,9 @@ void WarEngine::attackArea(string areaName, string countryName)
                         if (!vehicles.empty())
                         {
                             Vehicles *vehicle = vehicles.front();
-                            while (!getAllFacilitiesInArea(areaName).empty())
+                            while (!getAllFacilitiesInArea(getArea(areaName)).empty())
                             {
-                                Infrastructure *i = getAllFacilitiesInArea(areaName).front();
+                                Infrastructure *i = getAllFacilitiesInArea(getArea(areaName)).front();
                                 vehicle->attack(i);
                                 enemy->getWarEntities()->removeInfrastructure(i);
                                 i->destroy();
@@ -798,15 +1023,15 @@ void WarEngine::attackArea(string areaName, string countryName)
                         else
                         {
                             Troops *troop = troops.front();
-                            while (!getAllFacilitiesInArea(areaName).empty())
+                            while (!getAllFacilitiesInArea(getArea(areaName)).empty())
                             {
-                                Infrastructure *i = getAllFacilitiesInArea(areaName).front();
+                                Infrastructure *i = getAllFacilitiesInArea(getArea(areaName)).front();
                                 troop->attack(i);
                                 enemy->getWarEntities()->removeInfrastructure(i);
                                 i->destroy();
                             }
                         }
-                        list<Infrastructure *> connections = getAllInfrastructureInArea(areaName);
+                        list<Infrastructure *> connections = getAllInfrastructureInArea(getArea(areaName));
                         if (!connections.empty())
                         {
                             for (auto c : connections)
@@ -818,9 +1043,50 @@ void WarEngine::attackArea(string areaName, string countryName)
                         enemy->removeArea(getArea(areaName));
                         country->addArea(getArea(areaName));
                         getArea(areaName)->setControllingCountry(country);
+                        if (!troops.empty())
+                        {
+                            for (auto t : troops)
+                            {
+                                t->getAssociatedCitizen()->setStatus(new Stationed());
+                            }
+                        }
+                        cout << "The area was successfully overthrown" << endl;
+
+                        distributeTroopsAndVehicles(countryName);
+                        for (auto c : country->getAllies())
+                        {
+                            distributeTroopsAndVehicles(c->getName());
+                        }
+
+                        distributeTroopsAndVehicles(enemy->getName());
+                        for (auto c : enemy->getAllies())
+                        {
+                            distributeTroopsAndVehicles(c->getName());
+                        }
+
+                        if (enemy->getAreas().empty())
+                        {
+                            cout << enemy->getName() << " has no more Areas to control and has successfully been defeated" << endl;
+                            allCountries.remove(enemy);
+                            Relationship *relationship = (Relationship *)enemy->getParent();
+                            allCountries.remove(enemy);
+                            delete enemy;
+                            if (relationship->getRelationships().empty())
+                            {
+                                allRelationships.remove(relationship);
+                                delete relationship;
+                            }
+                        }
                     }
                     else
                     {
+                        if (!enemyTroops.empty())
+                        {
+                            for (auto t : enemyTroops)
+                            {
+                                t->getAssociatedCitizen()->setStatus(new Stationed());
+                            }
+                        }
                         cout << "The defending side managed to handle the attack" << endl;
                     }
                 }
@@ -831,18 +1097,49 @@ void WarEngine::attackArea(string areaName, string countryName)
             }
             else
             {
-                cout << "This area is already under this county's control" << endl;
+                cout << "This area is not in enemy's control" << endl;
             }
         }
-        else
+    }
+}
+
+void WarEngine::distributeTroopsAndVehicles(string countryName)
+{
+    Country *country = getCountry(countryName);
+    if (country != nullptr)
+    {
+        list<Troops *> troops = country->getWarEntities()->getTroops();
+        list<Vehicles *> vehicles = country->getWarEntities()->getVehicles();
+        list<Area *> areas = country->getAreas();
+        while (!troops.empty() || !vehicles.empty())
         {
-            cout << "Area was not found" << endl;
+            for (auto a : areas)
+            {
+                if (!troops.empty())
+                {
+                    Troops *troop = troops.front();
+                    troops.remove(troops.front());
+                    troop->setLocation(a);
+                }
+                if (!vehicles.empty())
+                {
+                    Vehicles *vehicle = vehicles.front();
+                    vehicles.remove(vehicle);
+                    vehicle->changeLocation(a);
+                }
+            }
         }
     }
-    else
+}
+
+bool WarEngine::countryStillExists(string countryName)
+{
+    Country *country = getCountry(countryName);
+    if (country == nullptr)
     {
-        cout << "Country was not found" << endl;
+        return false;
     }
+    return true;
 }
 
 void run(string Mode)
@@ -851,31 +1148,19 @@ void run(string Mode)
     cout << "War mode " + Mode + " activated" << endl;
 };
 
-Country WarEngine::pickCountry()
-{
-    // TODO
-    return *this->allCountries.at(0);
-};
-
-void WarEngine::removeCountryAt(int index)
-{
-    this->allCountries.erase(this->allCountries.begin() + index);
-};
-
 void WarEngine::setWarMap(WarMap *newMap)
 {
     this->map = newMap;
 };
 
-void WarEngine::setCountryGroup(vector<Country *> newCountryGroup)
+void WarEngine::setCountryGroup(list<Country *> newCountryGroup)
 {
     this->allCountries = newCountryGroup;
 };
 
-vector<Country *> WarEngine::getCountryGroup()
+list<Country *> WarEngine::getCountryGroup()
 {
     return this->allCountries;
-    ;
 };
 
 Memento *WarEngine::createMemento()
@@ -898,6 +1183,6 @@ void WarEngine::reinstateMemento(Memento *memento)
 {
     WarPhase *oldphase = memento->warphase;
 
-    this->allCountries = oldphase->getCountryGroup();
+    // this->allCountries = oldphase->getCountryGroup();
     this->map = oldphase->getMap();
 };
