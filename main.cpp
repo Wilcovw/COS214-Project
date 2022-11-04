@@ -185,8 +185,8 @@ void testWarEngine()
     cout << "Everything was deleted" << endl;
 }
 
-void testTroopCreation(WarEngine *game)
-{
+void testTroopCreation(WarEngine *game) {
+    
 }
 
 int main()
