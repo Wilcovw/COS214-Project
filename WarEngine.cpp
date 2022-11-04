@@ -52,6 +52,28 @@ void WarEngine::addCountry(string name, int numCitizens)
     }
 };
 
+void WarEngine::addRelationship(string relationshipName)
+{
+    if (getRelationship(relationshipName) == nullptr and communication != nullptr)
+    {
+        allRelationships.push_back(new Relationship(relationshipName, communication));
+    }
+}
+
+void WarEngine::addCountrytoRelationship(string countryName, string relationshipName)
+{
+    Country *country = getCountry(countryName);
+    Relationship *relationship = getRelationship(relationshipName);
+    relationship->addAssociatedCountries(country);
+}
+
+void WarEngine::addRelationshipToRelationship(string relationshipNameParent, string relationshipNameChild)
+{
+    Relationship *relParent = getRelationship(relationshipNameParent);
+    Relationship *relChild = getRelationship(relationshipNameChild);
+    relParent->addAssociatedCountries(relChild);
+}
+
 Country *WarEngine::getCountry(string countryName)
 {
     if (!allCountries.empty())
@@ -66,6 +88,21 @@ Country *WarEngine::getCountry(string countryName)
     }
     return nullptr;
 };
+
+Relationship *WarEngine::getRelationship(string relationshipName)
+{
+    if (!allCountries.empty())
+    {
+        for (auto c : allRelationships)
+        {
+            if (c->getRelationshipType() == relationshipName)
+            {
+                return c;
+            }
+        }
+    }
+    return nullptr;
+}
 
 Country *WarEngine::getCountryFromArea(string areaName)
 {
@@ -431,14 +468,18 @@ list<Infrastructure *> WarEngine::getInfrastructureInArea(string areaName, typeO
     return output;
 }
 
-list<Troops*> WarEngine::getTroopsInArea(string areaName, string countryName) {
-    list<Troops*> result;
-    Country* country = getCountry(countryName);
-    Area* area = getArea(areaName);
-    if(country != nullptr && area != nullptr) {
+list<Troops *> WarEngine::getTroopsInArea(string areaName, string countryName)
+{
+    list<Troops *> result;
+    Country *country = getCountry(countryName);
+    Area *area = getArea(areaName);
+    if (country != nullptr && area != nullptr)
+    {
         list<Troops *> troops = country->getWarEntities()->getTroops();
-        for(auto t : troops) {
-            if(t->getLocation() == area) {
+        for (auto t : troops)
+        {
+            if (t->getLocation() == area)
+            {
                 result.push_back(t);
             }
         }
@@ -446,14 +487,18 @@ list<Troops*> WarEngine::getTroopsInArea(string areaName, string countryName) {
     return result;
 }
 
-list<Vehicles*> WarEngine::getVehiclesInArea(string areaName, string countryName) {
-    list<Vehicles*> result;
-    Country* country = getCountry(countryName);
-    Area* area = getArea(areaName);
-    if(country != nullptr && area != nullptr) {
+list<Vehicles *> WarEngine::getVehiclesInArea(string areaName, string countryName)
+{
+    list<Vehicles *> result;
+    Country *country = getCountry(countryName);
+    Area *area = getArea(areaName);
+    if (country != nullptr && area != nullptr)
+    {
         list<Vehicles *> troops = country->getWarEntities()->getVehicles();
-        for(auto t : troops) {
-            if(t->getLocation() == area) {
+        for (auto t : troops)
+        {
+            if (t->getLocation() == area)
+            {
                 result.push_back(t);
             }
         }
@@ -590,23 +635,27 @@ void WarEngine::attackArea(string areaName, string countryName)
         {
             if (area->getControllingCountry() != country)
             {
-                Country* enemy = area->getControllingCountry();
+                Country *enemy = area->getControllingCountry();
                 bool isAccessible = false;
-                for(auto c : country->getAreas()) {
-                    if(map->isAccessible(c, area)) {
+                for (auto c : country->getAreas())
+                {
+                    if (map->isAccessible(c, area))
+                    {
                         isAccessible = true;
                     }
                 }
-                if(isAccessible) {
+                if (isAccessible)
+                {
                     moveVehicles(areaName, countryName);
                     moveTroops(areaName, countryName);
-                    list<Vehicles*> vehicles = getVehiclesInArea(areaName, countryName);
-                    list<Troops*> troops = getTroopsInArea(areaName, countryName);
-                    list<Vehicles*> enemyVehicles = getVehiclesInArea(areaName, enemy->getName());
-                    list<Troops*> enemyTroops = getTroopsInArea(areaName, enemy->getName());
-                    //TODO: finish this
-
-                } else {
+                    list<Vehicles *> vehicles = getVehiclesInArea(areaName, countryName);
+                    list<Troops *> troops = getTroopsInArea(areaName, countryName);
+                    list<Vehicles *> enemyVehicles = getVehiclesInArea(areaName, enemy->getName());
+                    list<Troops *> enemyTroops = getTroopsInArea(areaName, enemy->getName());
+                    // TODO: finish this
+                }
+                else
+                {
                     cout << "The area is not accessible through safe land, try attacking another area" << endl;
                 }
             }
@@ -682,3 +731,16 @@ void WarEngine::reinstateMemento(Memento *memento)
     this->allCountries = oldphase->getCountryGroup();
     this->map = oldphase->getMap();
 };
+
+void WarEngine::printAllies(string countryName)
+{
+    Country *country = getCountry(countryName);
+
+    vector<Country *> allies = country->getAllies();
+    cout << " Allies of " << countryName << ": ";
+    for (int i = 0; i < allies.size(); i++)
+    {
+        cout << allies.at(i)->getName() << ", ";
+    }
+    cout << endl;
+}

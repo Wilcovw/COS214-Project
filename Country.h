@@ -163,5 +163,11 @@ public:
      * @return AssociatedCountries* The cloned copy of the AssociatedCountries object
      */
     virtual AssociatedCountries *clone(Communication *comm);
+    /**
+     * @brief Return all the allies of the current country, If this country has no allies or doesnt exist returns an empty vector
+     *
+     * @return vector<AssociatedCountries*> A vector containing all the allies of the current country
+     */
+    vector<Country *> getAllies();
 };
 #endif

@@ -40,7 +40,7 @@ Country::Country(Country &country, Communication *comm)
     this->entities = country.entities->clone();
     for (int i = 0; i < entities->getTroops().size(); i++)
     {
-        //this->citizens[counter] = entities->getFightingCitizens().at(i);
+        // this->citizens[counter] = entities->getFightingCitizens().at(i);
     }
 
     // Temporary code: might need to receive cloned areas instead of creating new ones here, cause they not setup properly
@@ -105,7 +105,8 @@ WarEntities *Country::getWarEntities()
     return entities;
 }
 
-Country::~Country() {
+Country::~Country()
+{
     delete entities;
     for (int i = 0; i < numCitzenGroups; i++)
     {
@@ -173,4 +174,28 @@ void Country::revolt(bool active)
 AssociatedCountries *Country::clone(Communication *comm)
 {
     return new Country(*this, comm);
+}
+
+vector<Country *> Country::getAllies()
+{
+    Relationship *rel = (Relationship *)getParent();
+    vector<Country *> allies;
+    if (rel == nullptr)
+    {
+        return allies;
+    }
+
+    for (int i = 0; i < rel->getRelationships().size(); i++)
+    {
+        if (Relationship *relationship = dynamic_cast<Relationship *>(rel->getRelationships().at(i)))
+        {
+            vector<Country *> empty;
+            return empty;
+        }
+        else
+        {
+            allies.push_back((Country *)rel->getRelationships().at(i));
+        }
+    }
+    return allies;
 }
