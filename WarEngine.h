@@ -12,8 +12,7 @@
 using namespace std;
 
 class Memento;
-class WarEngine
-{
+class WarEngine {
 private:
     WarMap *map;
     Communication *communication;
@@ -32,6 +31,8 @@ private:
     double getTravelDistance(Troops *troops, string areaName);
     list<Area *> getTravelPath(Vehicles *vehicle, string areaName);
     list<Area *> getTravelPath(Troops *troops, string areaName);
+    void moveTroops(string areaName, string country, int maxDistance);
+    void moveVehicles(string areaName, string countryName, int maxDistance);
 
 public:
     WarEngine();

@@ -225,38 +225,6 @@ double WarEngine::getTravelDistance(Vehicles *vehicle, string areaName)
     return distance;
 }
 
-// TODO: change distance value
-void WarEngine::moveVehicles(string areaName, string countryName)
-{
-    Country *country = getCountry(countryName);
-    if (country != nullptr)
-    {
-        Area *destination = getArea(areaName);
-        if (destination != nullptr)
-        {
-            list<Vehicles *> vehicles = country->getWarEntities()->getVehicles();
-            if (!vehicles.empty())
-            {
-                for (auto e : vehicles)
-                {
-                    if (getTravelDistance(e, areaName) <= 200)
-                    {
-                        e->changeLocation(destination);
-                    }
-                }
-            }
-        }
-        else
-        {
-            cout << "Area was not found" << endl;
-        }
-    }
-    else
-    {
-        cout << "Country was not found" << endl;
-    }
-}
-
 double WarEngine::getTravelDistance(Troops *troops, string areaName)
 {
     double distance = -1;
@@ -290,9 +258,44 @@ double WarEngine::getTravelDistance(Troops *troops, string areaName)
     return distance;
 }
 
+void WarEngine::moveVehicles(string areaName, string countryName, int maxDistance) {
+    Country *country = getCountry(countryName);
+    if (country != nullptr)
+    {
+        Area *destination = getArea(areaName);
+        if (destination != nullptr)
+        {
+            list<Vehicles *> vehicles = country->getWarEntities()->getVehicles();
+            if (!vehicles.empty())
+            {
+                for (auto e : vehicles)
+                {
+                    if (getTravelDistance(e, areaName) <= maxDistance)
+                    {
+                        e->changeLocation(destination);
+                    }
+                }
+            }
+        }
+        else
+        {
+            cout << "Area was not found" << endl;
+        }
+    }
+    else
+    {
+        cout << "Country was not found" << endl;
+    }
+}
+
 // TODO: change distance value
-void WarEngine::moveTroops(string areaName, string countryName)
+void WarEngine::moveVehicles(string areaName, string countryName)
 {
+   moveVehicles(areaName, countryName, 200);
+}
+
+
+void WarEngine::moveTroops(string areaName, string countryName, int maxDistance) {
     Country *country = getCountry(countryName);
     if (country != nullptr)
     {
@@ -304,7 +307,7 @@ void WarEngine::moveTroops(string areaName, string countryName)
             {
                 for (auto t : troops)
                 {
-                    if (getTravelDistance(t, areaName) <= 100)
+                    if (getTravelDistance(t, areaName) <= maxDistance)
                     {
                         t->setLocation(destination);
                     }
@@ -320,6 +323,11 @@ void WarEngine::moveTroops(string areaName, string countryName)
     {
         cout << "Country was not found" << endl;
     }
+}
+
+// TODO: change distance value
+void WarEngine::moveTroops(string areaName, string countryName) {
+    moveTroops(areaName, countryName, 100);
 }
 
 // TODO: change HP values
@@ -676,11 +684,10 @@ void WarEngine::attackArea(string areaName, string countryName)
             {
                 Country *enemy = area->getControllingCountry();
                 bool isAccessible = false;
-                for (auto c : country->getAreas())
-                {
-                    if (map->isAccessible(c, area))
-                    {
+                for(auto a : country->getAreas()) {
+                    if(map->isAccessible(a, area)) {
                         isAccessible = true;
+                        break;                    
                     }
                 }
                 if (isAccessible)
