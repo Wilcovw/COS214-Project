@@ -92,14 +92,15 @@ bool Area::isAccessible(Area *d)
 			Area *u = e->getDestination();
 			Country *control = u->getControllingCountry();
 			list<Country *> allies = control->getAllies();
+			if (u == d)
+			{
+				return true;
+			}
 			if (allies.size() != 0)
 			{
-				if (find(allies.begin(), allies.end(),control ) != allies.end())
+				if (find(allies.begin(), allies.end(), control) != allies.end())
 				{
-					if (u == d)
-					{
-						return true;
-					}
+
 					if (u->visited == false)
 					{
 						queue.push(u);
@@ -137,14 +138,15 @@ bool Area::isAccessible(Area *d, string type)
 				Area *u = e->getDestination();
 				Country *control = u->getControllingCountry();
 				list<Country *> allies = control->getAllies();
+				if (u == d)
+				{
+					return true;
+				}
 				if (allies.size() != 0)
 				{
-					if (find(allies.begin(), allies.end(),  control) != allies.end())
+					if (find(allies.begin(), allies.end(), control) != allies.end())
 					{
-						if (u == d)
-						{
-							return true;
-						}
+
 						if (u->visited == false)
 						{
 							queue.push(u);
