@@ -168,7 +168,7 @@ public:
      *
      * @return vector<AssociatedCountries*> A vector containing all the allies of the current country
      */
-    vector<Country *> getAllies();
+    list<Country *> getAllies();
     void removeCitizen(Citizens *);
 };
 #endif

@@ -2,9 +2,11 @@
 #define Area_H
 
 #include <list>
+#include <vector>
 #include <queue>
 #include <string>
-#include <iostream>
+#include <algorithm>
+// #include <iostream>
 #include "Edge.h"
 
 using namespace std;

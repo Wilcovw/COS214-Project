@@ -176,10 +176,10 @@ AssociatedCountries *Country::clone(Communication *comm)
     return new Country(*this, comm);
 }
 
-vector<Country *> Country::getAllies()
+list<Country *> Country::getAllies()
 {
     Relationship *rel = (Relationship *)getParent();
-    vector<Country *> allies;
+    list<Country *> allies;
     if (rel == nullptr)
     {
         return allies;
@@ -189,7 +189,7 @@ vector<Country *> Country::getAllies()
     {
         if (Relationship *relationship = dynamic_cast<Relationship *>(rel->getRelationships().at(i)))
         {
-            vector<Country *> empty;
+            list<Country *> empty;
             return empty;
         }
         else
