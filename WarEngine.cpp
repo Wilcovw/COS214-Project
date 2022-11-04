@@ -468,6 +468,44 @@ list<Infrastructure *> WarEngine::getInfrastructureInArea(string areaName, typeO
     return output;
 }
 
+list<Infrastructure *> WarEngine::getAllInfrastructureInArea(string areaName)
+{
+    list<Infrastructure *> output;
+    Country *country = getCountryFromArea(areaName);
+    if (country != nullptr && !country->getWarEntities()->getInfrastructure().empty())
+    {
+        list<Infrastructure *> allInfrastructure = country->getWarEntities()->getInfrastructure();
+        for (auto i : allInfrastructure)
+        {
+            Infrastructure *temp = i;
+            if (i->getArea()->getName() == areaName)
+            {
+                output.push_back(temp);
+            }
+        }
+    }
+    return output;
+}
+
+list<Infrastructure *> WarEngine::getAllFacilitiesInArea(string areaName)
+{
+    list<Infrastructure *> output;
+    Country *country = getCountryFromArea(areaName);
+    if (country != nullptr && !country->getWarEntities()->getInfrastructure().empty())
+    {
+        list<Infrastructure *> allInfrastructure = country->getWarEntities()->getInfrastructure();
+        for (auto i : allInfrastructure)
+        {
+            Infrastructure *temp = i;
+            if (temp->getType() != iRoad && temp->getType() != ::iHarbour && temp->getType() != ::iRunway && i->getArea()->getName() == areaName)
+            {
+                output.push_back(temp);
+            }
+        }
+    }
+    return output;
+}
+
 list<Troops *> WarEngine::getTroopsInArea(string areaName, string countryName)
 {
     list<Troops *> result;
@@ -633,6 +671,7 @@ void WarEngine::attackArea(string areaName, string countryName)
         Area *area = getArea(areaName);
         if (area != nullptr)
         {
+            // check if this is an ally area
             if (area->getControllingCountry() != country)
             {
                 Country *enemy = area->getControllingCountry();
@@ -650,9 +689,136 @@ void WarEngine::attackArea(string areaName, string countryName)
                     moveTroops(areaName, countryName);
                     list<Vehicles *> vehicles = getVehiclesInArea(areaName, countryName);
                     list<Troops *> troops = getTroopsInArea(areaName, countryName);
+                    if (!troops.empty())
+                    {
+                        for (auto t : troops)
+                        {
+                            t->getAssociatedCitizen()->setStatus(new Fighting());
+                        }
+                    }
                     list<Vehicles *> enemyVehicles = getVehiclesInArea(areaName, enemy->getName());
                     list<Troops *> enemyTroops = getTroopsInArea(areaName, enemy->getName());
-                    // TODO: finish this
+                    if (!enemyTroops.empty())
+                    {
+                        for (auto t : enemyTroops)
+                        {
+                            t->getAssociatedCitizen()->setStatus(new Fighting());
+                        }
+                    }
+                    while ((!troops.empty() || !vehicles.empty()) && (!enemyTroops.empty() || !enemyVehicles.empty()))
+                    {
+                        if (!vehicles.empty())
+                        {
+                            Vehicles *vehicle = vehicles.front();
+                            if (!enemyVehicles.empty())
+                            {
+                                Vehicles *enemyVehicle = enemyVehicles.front();
+                                vehicle->attack(enemyVehicle);
+                                if (enemyVehicle->getHP() <= 0)
+                                {
+                                    enemyVehicles.remove(enemyVehicle);
+                                    enemy->getWarEntities()->removeVehicles(enemyVehicle);
+                                    enemyVehicle->destroy();
+                                }
+                            }
+                            else
+                            {
+                                Troops *enemyTroop = enemyTroops.front();
+                                vehicle->attack(enemyTroop);
+                                if (enemyTroop->getHP() <= 0)
+                                {
+                                    enemyTroops.remove(enemyTroop);
+                                    enemy->getWarEntities()->removeTroops(enemyTroop);
+                                    enemy->removeCitizen(enemyTroop->getAssociatedCitizen());
+                                    delete enemyTroop->getAssociatedCitizen();
+                                    delete enemyTroop;
+                                }
+                            }
+                            if (vehicle->getHP() <= 0)
+                            {
+                                vehicles.remove(vehicle);
+                                country->getWarEntities()->removeVehicles(vehicle);
+                                vehicle->destroy();
+                            }
+                        }
+                        else
+                        {
+                            Troops *troop = troops.front();
+                            if (!enemyVehicles.empty())
+                            {
+                                Vehicles *enemyVehicle = enemyVehicles.front();
+                                troop->attack(enemyVehicle);
+                                if (enemyVehicle->getHP() <= 0)
+                                {
+                                    enemyVehicles.remove(enemyVehicle);
+                                    enemy->getWarEntities()->removeVehicles(enemyVehicle);
+                                    enemyVehicle->destroy();
+                                }
+                            }
+                            else
+                            {
+                                Troops *enemyTroop = enemyTroops.front();
+                                troop->attack(enemyTroop);
+                                if (enemyTroop->getHP() <= 0)
+                                {
+                                    enemyTroops.remove(enemyTroop);
+                                    enemy->getWarEntities()->removeTroops(enemyTroop);
+                                    enemy->removeCitizen(enemyTroop->getAssociatedCitizen());
+                                    delete enemyTroop->getAssociatedCitizen();
+                                    delete enemyTroop;
+                                }
+                            }
+                            if (troop->getHP() <= 0)
+                            {
+                                troops.remove(troop);
+                                country->getWarEntities()->removeTroops(troop);
+                                country->removeCitizen(troop->getAssociatedCitizen());
+                                delete troop->getAssociatedCitizen();
+                                delete troop;
+                            }
+                        }
+                    }
+                    if (!troops.empty() || !vehicles.empty())
+                    {
+                        if (!vehicles.empty())
+                        {
+                            Vehicles *vehicle = vehicles.front();
+                            while (!getAllFacilitiesInArea(areaName).empty())
+                            {
+                                Infrastructure *i = getAllFacilitiesInArea(areaName).front();
+                                vehicle->attack(i);
+                                enemy->getWarEntities()->removeInfrastructure(i);
+                                i->destroy();
+                            }
+                        }
+                        else
+                        {
+                            Troops *troop = troops.front();
+                            while (!getAllFacilitiesInArea(areaName).empty())
+                            {
+                                Infrastructure *i = getAllFacilitiesInArea(areaName).front();
+                                troop->attack(i);
+                                enemy->getWarEntities()->removeInfrastructure(i);
+                                i->destroy();
+                            }
+                        }
+                        list<Infrastructure *> connections = getAllInfrastructureInArea(areaName);
+                        if (!connections.empty())
+                        {
+                            for (auto c : connections)
+                            {
+                                enemy->getWarEntities()->removeInfrastructure(c);
+                                country->getWarEntities()->addInfrastructure(c);
+                            }
+                        }
+                        enemy->removeArea(getArea(areaName));
+                        country->addArea(getArea(areaName));
+                        getArea(areaName)->setControllingCountry(country);
+                    }
+                    else
+                    {
+                        cout << "The defending side managed to handle the attack" << endl;
+                    }
                 }
                 else
                 {
