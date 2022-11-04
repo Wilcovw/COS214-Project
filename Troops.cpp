@@ -54,7 +54,7 @@ double Troops::takeDamage(double theDamage)
     }
     else
     {
-        // TODO: Set functions to change status to dead
+        associatedCitizens->die();
     }
     return 0;
 }

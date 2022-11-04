@@ -64,8 +64,6 @@ double Vehicles::takeDamage(double dmg) {
     this->HP-=dmg;
     if(HP > 0) {
         return getDamage();
-    } else {
-        destroy();
     }
     return 0;
 }
@@ -99,6 +97,12 @@ void Vehicles::attack(Vehicles *theEnemy) {
 void Vehicles::attack(Troops *theEnemy) {
     while(HP > 0 && theEnemy->getHP() > 0) {
         takeDamage(theEnemy->takeDamage(this->getDamage()));
+    }
+}
+
+void Vehicles::attack(Infrastructure *theEnemy) {
+    while(theEnemy->getHP() > 0) {
+        theEnemy->takeDamage(getDamage());
     }
 }
 

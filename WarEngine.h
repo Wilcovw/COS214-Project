@@ -21,6 +21,8 @@ private:
     Country *getCountryFromArea(string areaName);
     Area *getArea(string areaName);
     list<Infrastructure*> getInfrastructureInArea(string areaName, typeOfInfrastructure type);
+    list<Infrastructure*> getAllInfrastructureInArea(string areaName);
+    list<Infrastructure*> getAllFacilitiesInArea(string areaName);
     list<Troops*> getTroopsInArea(string areaName, string countryName);
     list<Vehicles*> getVehiclesInArea(string areaName, string countryName);
     double getTravelDistance(Vehicles* vehicle, string areaName);

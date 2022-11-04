@@ -163,5 +163,6 @@ public:
      * @return AssociatedCountries* The cloned copy of the AssociatedCountries object
      */
     virtual AssociatedCountries *clone(Communication *comm);
+    void removeCitizen(Citizens*);
 };
 #endif

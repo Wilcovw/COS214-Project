@@ -90,3 +90,11 @@ std::list<Citizens *> WarEntities::getFightingCitizens()
 void WarEntities::removeInfrastructure(Infrastructure * theObject) {
     infrastructure.remove(theObject);
 }
+
+void WarEntities::removeTroops(Troops* theTroop) {
+    troops.remove(theTroop);
+}
+
+void WarEntities::removeVehicles(Vehicles* theVehicle) {
+    vehicles.remove(theVehicle);
+}

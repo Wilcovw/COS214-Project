@@ -174,3 +174,26 @@ AssociatedCountries *Country::clone(Communication *comm)
 {
     return new Country(*this, comm);
 }
+
+void Country::removeCitizen(Citizens* theCitizen) {
+    bool isThere = false;
+    for(int i = 0; i < numCitzenGroups; i++) {
+        if (citizens[i] == theCitizen) {
+            isThere = true;
+            break;
+        }
+        
+    }
+    if(isThere) {
+        Citizens** temp = citizens;
+        citizens = new Citizens*[--numCitzenGroups];
+        int x = 0;
+        for(int i = 0; i <= numCitzenGroups; i++) {
+            if (temp[i] != theCitizen) {
+                citizens[x++] = temp[i];
+            }
+        }
+    }
+    
+
+}
