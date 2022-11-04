@@ -17,14 +17,11 @@
 #include "Memento.h"
 #include "Soldiers.h"
 #include "Generals.h"
-#include "Medics.h"
+#include "SpecialForces.h"
 #include "Troops.h"
 #include "LandVehicles.h"
 #include "AquaticVehicleFactory.h"
 #include "AircraftFactory.h"
-#include <set>
-#include <tuple>
-#include <typeindex>
 #include <iostream>
 using namespace std;
 

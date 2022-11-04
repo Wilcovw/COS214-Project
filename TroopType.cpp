@@ -3,7 +3,7 @@
 #include "TroopType.h"
 #include "Troops.h"
 #include "Generals.h"
-#include "Medics.h"
+#include "SpecialForces.h"
 #include "Soldiers.h"
 
 TroopType::TroopType(double theDamage, double theMaxHP, double theSpeed) {

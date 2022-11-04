@@ -5,7 +5,7 @@
 #include "Navy.h"
 #include "Airforce.h"
 #include "Generals.h"
-#include "Medics.h"
+#include "SpecialForces.h"
 #include "Soldiers.h"
 #include "Vehicles.h"
 
@@ -115,8 +115,8 @@ Troops *Troops::clone()
     clonedTroop = nullptr;
     if(type->getType() == ::theGenerals) {
         clonedTroop = new Troops(this->HP, this->location, new Generals(), citizens);
-    } else if(type->getType() == ::theMedics) {
-        clonedTroop = new Troops(this->HP, this->location, new Medics(), citizens);
+    } else if(type->getType() == ::theSpecialForces) {
+        clonedTroop = new Troops(this->HP, this->location, new SpecialForces(), citizens);
     } else if(type->getType() == ::theSoldiers) {
         clonedTroop = new Troops(this->HP, this->location, new Soldiers(), citizens);
     }

@@ -1,7 +1,7 @@
 #ifndef SOLDIERS_CPP
 #define SOLDIERS_CPP
 #include "Soldiers.h"
-#include "Medics.h"
+#include "SpecialForces.h"
 #include "Generals.h"
 
 // VALUES TO BE CHANGED
@@ -18,9 +18,9 @@ TroopType *Soldiers::changeType(theTroopTypes theType)
 {
     if (theType != ::theSoldiers)
     {
-        if (theType == ::theMedics)
+        if (theType == ::theSpecialForces)
         {
-            return new Medics();
+            return new SpecialForces();
         }
         else if (theType == ::theGenerals)
         {
