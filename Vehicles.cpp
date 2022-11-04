@@ -54,10 +54,7 @@ Vehicles **Vehicles::clone(int n) {
 }
 
 void Vehicles::changeLocation(Area *area) {
-    if(this->location->isAccessible(area))
-        location=area;
-    else
-        cout << "Can not change locations since there is no correct edge between areas\n";
+    location = area;
 }
 
 double Vehicles::takeDamage(double dmg) {

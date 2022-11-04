@@ -7,7 +7,7 @@ class AirforceTraining : public TrainingCamp
 public:
     AirforceTraining(double, Area *);
     virtual ~AirforceTraining();
-    virtual Troops *startDrafting(Citizens *);
+    virtual Troops *startDrafting(Citizens *, theTroopTypes);
     virtual void destroy();
     virtual Infrastructure *clone(Area *);
 };

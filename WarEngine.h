@@ -53,8 +53,11 @@ public:
     void moveTroops(string areaName, string countryName);
     void moveVehicles(string areaName, string countryName);
     void printCountryStatus(string countryName);
+    void printAreaStatus(string areaName);
     void distributeTroopsAndVehicles(string countryName);
     bool countryStillExists(string countryName);
+    int getUnlistedCitizens(string countryName);
+    void upgradeVehiclesInArea(vehicleType type, string areaName);
 
     void run(string Mode);
     Memento *createMemento();

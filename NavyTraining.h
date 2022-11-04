@@ -8,7 +8,7 @@ public:
     NavyTraining(double, Area *);
     virtual ~NavyTraining();
     ;
-    virtual Troops *startDrafting(Citizens *);
+    virtual Troops *startDrafting(Citizens *, theTroopTypes type);
     virtual void destroy();
     virtual Infrastructure *clone(Area *);
 };

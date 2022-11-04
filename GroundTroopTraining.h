@@ -7,7 +7,7 @@ class GroundTroopTraining : public TrainingCamp
 public:
     GroundTroopTraining(double HP, Area *location);
     virtual ~GroundTroopTraining();
-    virtual Troops *startDrafting(Citizens *);
+    virtual Troops *startDrafting(Citizens *, theTroopTypes);
     virtual void destroy();
     virtual Infrastructure *clone(Area *);
 };

@@ -253,7 +253,7 @@ list<Area *> WarMap::shortestPath(Area *source, Area *destination, string type)
 							}
 						}
 					}
-				}else if (find(allies.begin(), allies.end(), v->getControllingCountry()) != allies.end()){
+				}else if (find(allies.begin(), allies.end(), source->getControllingCountry()) != allies.end()){
 					if (type == "Harbour")
 					{
 						if (e->getType() == type)

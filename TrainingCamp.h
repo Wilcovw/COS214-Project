@@ -20,7 +20,7 @@ public:
     Troops **getTroops();
     virtual void destroy() = 0;
     virtual Infrastructure *clone(Area *) = 0;
-    virtual Troops *startDrafting(Citizens *) = 0;
+    virtual Troops *startDrafting(Citizens *, theTroopTypes) = 0;
 };
 
 #endif

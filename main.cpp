@@ -169,9 +169,67 @@ void populate(WarEngine *game)
     game->addInfrastructure(::iRunway, London);
     game->addInfrastructure(::iRunway, Scotland);
     game->addInfrastructure(::iAirforceCamp, London);
+    game->addTroops(London, ::tAirforce, ::theGenerals);
+    for (int i = 0; i < 20; i++)
+    {
+        game->addTroops(London, ::tAirforce, ::theSpecialForces);
+    }
+    for (int i = 0; i < 90; i++)
+    {
+        game->addTroops(London, ::tAirforce, ::theSoldiers);
+    }
     game->addInfrastructure(::iNavyCamp, London);
+    game->addTroops(London, ::tNavy, ::theGenerals);
+    for (int i = 0; i < 20; i++)
+    {
+        game->addTroops(London, ::tNavy, ::theSpecialForces);
+    }
+    for (int i = 0; i < 100; i++)
+    {
+        game->addTroops(London, ::tNavy, ::theSoldiers);
+    }
+
     game->addInfrastructure(::iGroundCamp, London);
     game->addInfrastructure(::iGroundCamp, Wales);
+    game->addTroops(London, ::tGroundTroops, ::theGenerals);
+    for (int i = 0; i < 10; i++)
+    {
+        game->addTroops(London, ::tGroundTroops, ::theSpecialForces);
+    }
+    for (int i = 0; i < 70; i++)
+    {
+        game->addTroops(Wales, ::tGroundTroops, ::theSoldiers);
+    }
+
+    game->addInfrastructure(::iLandFactory, NorthernIreland);
+    game->addInfrastructure(::iLandFactory, Scotland);
+    game->addInfrastructure(::iAircraftFactory, London);
+    game->addInfrastructure(::iAquaticFactory, London);
+    game->addInfrastructure(::iAquaticFactory, Wales);
+
+    for (int i = 0; i < 25; i++)
+    {
+        game->addVehicles(NorthernIreland, ::landVehicle);
+    }
+    for (int i = 0; i < 30; i++)
+    {
+        game->addVehicles(London, ::aircraftVehicle);
+        game->addVehicles(Wales, ::aquaticVehicle);
+    }
+    for (int i = 0; i < 15; i++)
+    {
+        game->addVehicles(London, ::aquaticVehicle);
+    }
+
+    game->addInfrastructure(::iLandDevelopment, London);
+    game->addInfrastructure(::iLandDevelopment, NorthernIreland);
+    game->addInfrastructure(::iAquaticDevelopment, London);
+    game->addInfrastructure(::iAquaticDevelopment, Wales);
+    game->addInfrastructure(::iAircraftDevelopment, London);
+    game->upgradeVehiclesInArea(::landVehicle, NorthernIreland);
+    game->upgradeVehiclesInArea(::landVehicle, NorthernIreland);
+    game->upgradeVehiclesInArea(::aquaticVehicle, London);
+    game->upgradeVehiclesInArea(::aircraftVehicle, London);
 
     // Populate areas of Ireland
     string Dublin = "Dublin";
@@ -191,9 +249,55 @@ void populate(WarEngine *game)
     game->addInfrastructure(::iHarbour, Dublin);
     game->addInfrastructure(::iRunway, Dublin);
     game->addInfrastructure(::iAirforceCamp, Dublin);
+    game->addTroops(Dublin, ::tAirforce, ::theGenerals);
+    for (int i = 0; i < 8; i++)
+    {
+        game->addTroops(Dublin, ::tAirforce, ::theSoldiers);
+    }
     game->addInfrastructure(::iNavyCamp, Dublin);
+    game->addTroops(Dublin, ::tNavy, ::theGenerals);
+    for (int i = 0; i < 4; i++)
+    {
+        game->addTroops(Dublin, ::tNavy, ::theSpecialForces);
+    }
+    for (int i = 0; i < 8; i++)
+    {
+        game->addTroops(Dublin, ::tNavy, ::theSoldiers);
+    }
     game->addInfrastructure(::iGroundCamp, Dublin);
     game->addInfrastructure(::iGroundCamp, Limerick);
+    game->addTroops(Dublin, ::tGroundTroops, ::theGenerals);
+    for (int i = 0; i < 2; i++)
+    {
+        game->addTroops(Dublin, ::tGroundTroops, ::theSpecialForces);
+    }
+    for (int i = 0; i < 5; i++)
+    {
+        game->addTroops(Limerick, ::tGroundTroops, ::theSoldiers);
+    }
+
+    game->addInfrastructure(::iLandFactory, Cork);
+    game->addInfrastructure(::iAircraftFactory, Dublin);
+    game->addInfrastructure(::iAquaticFactory, Dublin);
+    for (int i = 0; i < 30; i++)
+    {
+        game->addVehicles(Cork, ::landVehicle);
+    }
+    for (int i = 0; i < 15; i++)
+    {
+        game->addVehicles(Dublin, ::aircraftVehicle);
+    }
+    for (int i = 0; i < 20; i++)
+    {
+        game->addVehicles(Dublin, ::aquaticVehicle);
+    }
+
+    game->addInfrastructure(::iLandDevelopment, Cork);
+    game->addInfrastructure(::iAquaticDevelopment, Dublin);
+    game->addInfrastructure(::iAircraftDevelopment, Dublin);
+    game->upgradeVehiclesInArea(::landVehicle, Cork);
+    game->upgradeVehiclesInArea(::aquaticVehicle, Dublin);
+    game->upgradeVehiclesInArea(::aircraftVehicle, Dublin);
 
     // Populate areas of France
     string Paris = "Paris";
@@ -226,10 +330,69 @@ void populate(WarEngine *game)
     game->addInfrastructure(::iRunway, Paris);
     game->addInfrastructure(::iRunway, Toulouse);
     game->addInfrastructure(::iAirforceCamp, Paris);
+    game->addTroops(Paris, ::tAirforce, ::theGenerals);
+    for (int i = 0; i < 10; i++)
+    {
+        game->addTroops(Paris, ::tAirforce, ::theSpecialForces);
+    }
+    for (int i = 0; i < 70; i++)
+    {
+        game->addTroops(Paris, ::tAirforce, ::theSoldiers);
+    }
     game->addInfrastructure(::iNavyCamp, Marseille);
+    game->addTroops(Marseille, ::tNavy, ::theGenerals);
+    for (int i = 0; i < 5; i++)
+    {
+        game->addTroops(Marseille, ::tNavy, ::theSpecialForces);
+    }
+    for (int i = 0; i < 45; i++)
+    {
+        game->addTroops(Marseille, ::tNavy, ::theSoldiers);
+    }
     game->addInfrastructure(::iGroundCamp, Lille);
     game->addInfrastructure(::iGroundCamp, Paris);
+    game->addTroops(Paris, ::tGroundTroops, ::theGenerals);
+    for (int i = 0; i < 30; i++)
+    {
+        game->addTroops(Paris, ::tGroundTroops, ::theSpecialForces);
+    }
+    for (int i = 0; i < 150; i++)
+    {
+        game->addTroops(Paris, ::tGroundTroops, ::theSoldiers);
+        game->addTroops(Lille, ::tGroundTroops, ::theSoldiers);
+    }
 
+    game->addInfrastructure(::iLandFactory, Nantes);
+    game->addInfrastructure(::iLandFactory, Lyon);
+    game->addInfrastructure(::iLandFactory, Strasbourg);
+    game->addInfrastructure(::iLandFactory, Lille);
+    game->addInfrastructure(::iAircraftFactory, Paris);
+    game->addInfrastructure(::iAquaticFactory, Nantes);
+    for (int i = 0; i < 40; i++)
+    {
+        game->addVehicles(Nantes, ::landVehicle);
+        game->addVehicles(Lyon, ::landVehicle);
+        game->addVehicles(Strasbourg, ::landVehicle);
+        game->addVehicles(Lille, ::landVehicle);
+    }
+    for (int i = 0; i < 20; i++)
+    {
+        game->addVehicles(Paris, ::aircraftVehicle);
+    }
+    for (int i = 0; i < 15; i++)
+    {
+        game->addVehicles(Nantes, ::aquaticVehicle);
+    }
+
+    game->addInfrastructure(::iLandDevelopment, Nantes);
+    game->addInfrastructure(::iLandDevelopment, Toulouse);
+    game->addInfrastructure(::iAquaticDevelopment, Nantes);
+    game->addInfrastructure(::iAquaticDevelopment, Marseille);
+    game->addInfrastructure(::iAircraftDevelopment, Paris);
+    game->addInfrastructure(::iAircraftDevelopment, Lyon);
+    game->upgradeVehiclesInArea(::landVehicle, Nantes);
+    game->upgradeVehiclesInArea(::aquaticVehicle, Nantes);
+    game->upgradeVehiclesInArea(::aircraftVehicle, Paris);
 
     // Populate areas of Germany
     string Berlin = "Berlin";
@@ -257,10 +420,68 @@ void populate(WarEngine *game)
     game->addInfrastructure(::iRunway, Stuttgart);
     game->addInfrastructure(::iRunway, Berlin);
     game->addInfrastructure(::iAirforceCamp, Berlin);
+    game->addTroops(Berlin, ::tAirforce, ::theGenerals);
+    for (int i = 0; i < 20; i++)
+    {
+        game->addTroops(Berlin, ::tAirforce, ::theSpecialForces);
+    }
+    for (int i = 0; i < 120; i++)
+    {
+        game->addTroops(Berlin, ::tAirforce, ::theSoldiers);
+    }
     game->addInfrastructure(::iNavyCamp, Munich);
+    game->addTroops(Munich, ::tNavy, ::theGenerals);
+    for (int i = 0; i < 15; i++)
+    {
+        game->addTroops(Munich, ::tNavy, ::theSpecialForces);
+    }
+    for (int i = 0; i < 55; i++)
+    {
+        game->addTroops(Munich, ::tNavy, ::theSoldiers);
+    }
     game->addInfrastructure(::iGroundCamp, Berlin);
     game->addInfrastructure(::iGroundCamp, Stuttgart);
+    game->addTroops(Berlin, ::tGroundTroops, ::theGenerals);
+    for (int i = 0; i < 50; i++)
+    {
+        game->addTroops(Berlin, ::tGroundTroops, ::theSpecialForces);
+    }
+    for (int i = 0; i < 160; i++)
+    {
+        game->addTroops(Berlin, ::tGroundTroops, ::theSoldiers);
+        game->addTroops(Stuttgart, ::tGroundTroops, ::theSoldiers);
+    }
 
+    game->addInfrastructure(::iLandFactory, Dusseldorf);
+    game->addInfrastructure(::iLandFactory, Bremen);
+    game->addInfrastructure(::iLandFactory, Munich);
+    game->addInfrastructure(::iAircraftFactory, Berlin);
+    game->addInfrastructure(::iAquaticFactory, Munich);
+    for (int i = 0; i < 40; i++)
+    {
+        game->addVehicles(Dusseldorf, ::landVehicle);
+        game->addVehicles(Bremen, ::landVehicle);
+        game->addVehicles(Munich, ::landVehicle);
+    }
+    for (int i = 0; i < 25; i++)
+    {
+        game->addVehicles(Berlin, ::aircraftVehicle);
+    }
+    for (int i = 0; i < 20; i++)
+    {
+        game->addVehicles(Munich, ::aquaticVehicle);
+    }
+
+    game->addInfrastructure(::iLandDevelopment, Dusseldorf);
+    game->addInfrastructure(::iLandDevelopment, Bremen);
+    game->addInfrastructure(::iLandDevelopment, Munich);
+    game->addInfrastructure(::iAquaticDevelopment, Munich);
+    game->addInfrastructure(::iAircraftDevelopment, Berlin);
+    game->upgradeVehiclesInArea(::landVehicle, Dusseldorf);
+    game->upgradeVehiclesInArea(::landVehicle, Bremen);
+    game->upgradeVehiclesInArea(::landVehicle, Munich);
+    game->upgradeVehiclesInArea(::aquaticVehicle, Munich);
+    game->upgradeVehiclesInArea(::aircraftVehicle, Berlin);
 
     // Populate areas of Netherlands
     string Amsterdam = "Amsterdam";
@@ -270,11 +491,58 @@ void populate(WarEngine *game)
     game->addConnection(::iRoad, Amsterdam, Dusseldorf, 165);
     game->addInfrastructure(::iHarbour, Amsterdam);
     game->addInfrastructure(::iRunway, Amsterdam);
-    game->addInfrastructure(::iAirforceCamp, London);
-    game->addInfrastructure(::iNavyCamp, London);
-    game->addInfrastructure(::iGroundCamp, London);
-    game->addInfrastructure(::iGroundCamp, Wales);
+    game->addInfrastructure(::iAirforceCamp, Amsterdam);
+    game->addTroops(Amsterdam, ::tAirforce, ::theGenerals);
+    for (int i = 0; i < 10; i++)
+    {
+        game->addTroops(Amsterdam, ::tAirforce, ::theSpecialForces);
+    }
+    for (int i = 0; i < 15; i++)
+    {
+        game->addTroops(Amsterdam, ::tAirforce, ::theSoldiers);
+    }
+    game->addInfrastructure(::iNavyCamp, Amsterdam);
+    game->addTroops(Amsterdam, ::tNavy, ::theGenerals);
+    for (int i = 0; i < 15; i++)
+    {
+        game->addTroops(Amsterdam, ::tNavy, ::theSpecialForces);
+    }
+    for (int i = 0; i < 20; i++)
+    {
+        game->addTroops(Amsterdam, ::tNavy, ::theSoldiers);
+    }
+    game->addInfrastructure(::iGroundCamp, Amsterdam);
+    game->addTroops(Amsterdam, ::tGroundTroops, ::theGenerals);
+    for (int i = 0; i < 15; i++)
+    {
+        game->addTroops(Amsterdam, ::tGroundTroops, ::theSpecialForces);
+    }
+    for (int i = 0; i < 20; i++)
+    {
+        game->addTroops(Amsterdam, ::tGroundTroops, ::theSoldiers);
+    }
 
+    game->addInfrastructure(::iLandFactory, Amsterdam);
+    game->addInfrastructure(::iAircraftFactory, Amsterdam);
+    game->addInfrastructure(::iAquaticFactory, Amsterdam);
+    for (int i = 0; i < 20; i++)
+    {
+        game->addVehicles(Amsterdam, ::landVehicle);
+    }
+    for (int i = 0; i < 15; i++)
+    {
+        game->addVehicles(Amsterdam, ::aircraftVehicle);
+    }
+    for (int i = 0; i < 60; i++)
+    {
+        game->addVehicles(Amsterdam, ::aquaticVehicle);
+    }
+    game->addInfrastructure(::iAircraftDevelopment, Amsterdam);
+    game->addInfrastructure(::iLandDevelopment, Amsterdam);
+    game->addInfrastructure(::iAquaticDevelopment, Amsterdam);
+    game->upgradeVehiclesInArea(::landVehicle, Amsterdam);
+    game->upgradeVehiclesInArea(::aircraftVehicle, Amsterdam);
+    game->upgradeVehiclesInArea(::aquaticVehicle, Amsterdam);
 
     // Populate areas of Denmark
     string Copenhagen = "Copenhagen";
@@ -291,7 +559,59 @@ void populate(WarEngine *game)
     game->addInfrastructure(::iHarbour, Copenhagen);
     game->addInfrastructure(::iHarbour, Alborg);
     game->addInfrastructure(::iRunway, Abenta);
+    game->addInfrastructure(::iAirforceCamp, Abenta);
+    game->addTroops(Abenta, ::tAirforce, ::theGenerals);
+    for (int i = 0; i < 3; i++)
+    {
+        game->addTroops(Abenta, ::tAirforce, ::theSpecialForces);
+    }
+    for (int i = 0; i < 5; i++)
+    {
+        game->addTroops(Abenta, ::tAirforce, ::theSoldiers);
+    }
+    game->addInfrastructure(::iNavyCamp, Copenhagen);
+    game->addTroops(Copenhagen, ::tNavy, ::theGenerals);
+    for (int i = 0; i < 3; i++)
+    {
+        game->addTroops(Copenhagen, ::tNavy, ::theSpecialForces);
+    }
+    for (int i = 0; i < 5; i++)
+    {
+        game->addTroops(Copenhagen, ::tNavy, ::theSoldiers);
+    }
+    game->addInfrastructure(::iGroundCamp, Copenhagen);
+    game->addTroops(Copenhagen, ::tGroundTroops, ::theGenerals);
+    for (int i = 0; i < 3; i++)
+    {
+        game->addTroops(Copenhagen, ::tGroundTroops, ::theSpecialForces);
+    }
+    for (int i = 0; i < 5; i++)
+    {
+        game->addTroops(Copenhagen, ::tGroundTroops, ::theSoldiers);
+    }
 
+    game->addInfrastructure(::iLandFactory, Copenhagen);
+    game->addInfrastructure(::iAircraftFactory, Abenta);
+    game->addInfrastructure(::iAquaticFactory, Alborg);
+    for (int i = 0; i < 30; i++)
+    {
+        game->addVehicles(Copenhagen, ::landVehicle);
+    }
+    for (int i = 0; i < 25; i++)
+    {
+        game->addVehicles(Abenta, ::aircraftVehicle);
+    }
+    for (int i = 0; i < 30; i++)
+    {
+        game->addVehicles(Alborg, ::aquaticVehicle);
+    }
+
+    game->addInfrastructure(::iLandDevelopment, Copenhagen);
+    game->addInfrastructure(::iAquaticDevelopment, Alborg);
+    game->addInfrastructure(::iAircraftDevelopment, Abenta);
+    game->upgradeVehiclesInArea(::landVehicle, Copenhagen);
+    game->upgradeVehiclesInArea(::aquaticVehicle, Alborg);
+    game->upgradeVehiclesInArea(::aircraftVehicle, Abenta);
 
     // Populate areas of Belgium
     string Brussels = "Brussels";
@@ -300,7 +620,41 @@ void populate(WarEngine *game)
     game->addConnection(::iRoad, Brussels, Lille, 93);
     game->addConnection(::iRoad, Brussels, Dusseldorf, 176);
     game->addInfrastructure(::iRunway, Brussels);
+    game->addInfrastructure(::iAirforceCamp, Brussels);
+    game->addTroops(Brussels, ::tAirforce, ::theGenerals);
+    for (int i = 0; i < 5; i++)
+    {
+        game->addTroops(Brussels, ::tAirforce, ::theSpecialForces);
+    }
+    for (int i = 0; i < 10; i++)
+    {
+        game->addTroops(Brussels, ::tAirforce, ::theSoldiers);
+    }
+    game->addInfrastructure(::iGroundCamp, Brussels);
+    game->addTroops(Brussels, ::tGroundTroops, ::theGenerals);
+    for (int i = 0; i < 5; i++)
+    {
+        game->addTroops(Brussels, ::tGroundTroops, ::theSpecialForces);
+    }
+    for (int i = 0; i < 10; i++)
+    {
+        game->addTroops(Brussels, ::tGroundTroops, ::theSoldiers);
+    }
+    game->addInfrastructure(::iLandFactory, Brussels);
+    game->addInfrastructure(::iAircraftFactory, Brussels);
 
+    for (int i = 0; i < 20; i++)
+    {
+        game->addVehicles(Brussels, ::landVehicle);
+    }
+    for (int i = 0; i < 65; i++)
+    {
+        game->addVehicles(Brussels, ::aircraftVehicle);
+    }
+    game->addInfrastructure(::iLandDevelopment, Brussels);     //                                                   __
+    game->addInfrastructure(::iAircraftDevelopment, Brussels); //                                                 <(o )___
+    game->upgradeVehiclesInArea(::landVehicle, Brussels);      //                                                  ( ._> /
+    game->upgradeVehiclesInArea(::aircraftVehicle, Brussels);  //                                                   `---'
 
     // Add connections for harbours
     game->addConnection(::iHarbour, Dublin, Wales, 170);
@@ -315,8 +669,9 @@ void populate(WarEngine *game)
     game->addConnection(::iHarbour, Munich, Marseille, 770);
     game->addConnection(::iHarbour, Dublin, Amsterdam, 850);
     game->addConnection(::iHarbour, Amsterdam, Alborg, 602);
+    game->addConnection(::iHarbour, Nantes, Wales, 786);
 
-    //Add connection to runways
+    // Add connection to runways
     game->addConnection(::iRunway, London, Scotland, 670);
     game->addConnection(::iRunway, Dublin, London, 450);
     game->addConnection(::iRunway, Dublin, Scotland, 430);
@@ -335,18 +690,18 @@ void populate(WarEngine *game)
     game->addConnection(::iRunway, Paris, Brussels, 258);
     game->addConnection(::iRunway, Paris, Stuttgart, 508);
     game->addConnection(::iRunway, Toulouse, Stuttgart, 836);
-    game->addConnection(::iRunway, Amsterdam, Stuttgart, 501);
 
+    game->distributeTroopsAndVehicles(France);
+    game->distributeTroopsAndVehicles(Ireland);
+    game->distributeTroopsAndVehicles(UK);
+    game->distributeTroopsAndVehicles(Belgium);
+    game->distributeTroopsAndVehicles(Netherlands);
+    game->distributeTroopsAndVehicles(Germany);
+    game->distributeTroopsAndVehicles(Denmark);
 
-
-
-
-
-    
-
-
-    
-
+    game->printCountryStatus(France);
+    game->attackArea(Stuttgart, France);
+    game->printCountryStatus(France);
 
 }
 
@@ -364,6 +719,6 @@ int main()
     // testMemento();
     // showcasing();
     finalMain();
-//jasonIsDum    cout << "=============================End testing===============================" << endl;
+    cout << "=============================End testing===============================" << endl;
     return 0;
 }

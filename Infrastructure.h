@@ -6,7 +6,7 @@ enum typeOfInfrastructure {
     iRoad,
     iHarbour,
     iRunway,
-    iLandDevlopment,
+    iLandDevelopment,
     iAquaticDevelopment,
     iAircraftDevelopment,
     iLandFactory,
