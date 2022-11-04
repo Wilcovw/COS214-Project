@@ -198,28 +198,30 @@ vector<Country *> Country::getAllies()
         }
     }
     return allies;
-    void Country::removeCitizen(Citizens * theCitizen)
+}
+
+void Country::removeCitizen(Citizens *theCitizen)
+{
+    bool isThere = false;
+    for (int i = 0; i < numCitzenGroups; i++)
     {
-        bool isThere = false;
-        for (int i = 0; i < numCitzenGroups; i++)
+        if (citizens[i] == theCitizen)
         {
-            if (citizens[i] == theCitizen)
-            {
-                isThere = true;
-                break;
-            }
+            isThere = true;
+            break;
         }
-        if (isThere)
+    }
+    if (isThere)
+    {
+        Citizens **temp = citizens;
+        citizens = new Citizens *[--numCitzenGroups];
+        int x = 0;
+        for (int i = 0; i <= numCitzenGroups; i++)
         {
-            Citizens **temp = citizens;
-            citizens = new Citizens *[--numCitzenGroups];
-            int x = 0;
-            for (int i = 0; i <= numCitzenGroups; i++)
+            if (temp[i] != theCitizen)
             {
-                if (temp[i] != theCitizen)
-                {
-                    citizens[x++] = temp[i];
-                }
+                citizens[x++] = temp[i];
             }
         }
     }
+}

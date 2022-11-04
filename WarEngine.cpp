@@ -897,16 +897,3 @@ void WarEngine::reinstateMemento(Memento *memento)
     this->allCountries = oldphase->getCountryGroup();
     this->map = oldphase->getMap();
 };
-
-void WarEngine::printAllies(string countryName)
-{
-    Country *country = getCountry(countryName);
-
-    vector<Country *> allies = country->getAllies();
-    cout << " Allies of " << countryName << ": ";
-    for (int i = 0; i < allies.size(); i++)
-    {
-        cout << allies.at(i)->getName() << ", ";
-    }
-    cout << endl;
-}

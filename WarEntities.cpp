@@ -87,14 +87,26 @@ std::list<Citizens *> WarEntities::getFightingCitizens()
     return ans;
 }
 
-void WarEntities::removeInfrastructure(Infrastructure * theObject) {
+void WarEntities::removeInfrastructure(Infrastructure *theObject)
+{
     infrastructure.remove(theObject);
 }
 
-void WarEntities::removeTroops(Troops* theTroop) {
+void WarEntities::removeTroops(Troops *theTroop)
+{
     troops.remove(theTroop);
 }
 
-void WarEntities::removeVehicles(Vehicles* theVehicle) {
+void WarEntities::removeVehicles(Vehicles *theVehicle)
+{
     vehicles.remove(theVehicle);
+}
+
+std::list<Citizens *> WarEntities::getFightingCitizens()
+{
+    std::list<Citizens *> list;
+    for (int i = 0; i < troops.size(); i++)
+    {
+        list.push_back(troops.front()->getAssociatedCitizen());
+    }
 }

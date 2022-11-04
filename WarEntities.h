@@ -89,8 +89,8 @@ public:
      */
     WarEntities *clone();
     void removeInfrastructure(Infrastructure *);
-    void removeTroops(Troops*);
-    void removeVehicles(Vehicles*);
+    void removeTroops(Troops *);
+    void removeVehicles(Vehicles *);
     std::list<Citizens *> getFightingCitizens();
 };
 #endif

@@ -58,7 +58,6 @@ public:
     void removeAreaAt(int index);
     void reinstateMemento(Memento *memento);
     void setWarMap(WarMap *newMap);
-    void printAllies(string countryName);
 };
 
 #endif

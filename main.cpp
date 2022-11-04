@@ -181,6 +181,12 @@ void testWarEngine()
     game->addInfrastructure(::iAquaticDevelopment, "Montreal");
 
     std::cout << "Canada has been built, sorry" << std::endl;
+
+    game->addRelationship("CountriesAtWar");
+    game->addRelationship("NorthAmerica");
+    game->addRelationshipToRelationship("CountriesAtWar", "NorthAmerica");
+    game->addCountrytoRelationship("Canada", "NorthAmerica");
+    game->addCountrytoRelationship("America", "NorthAmerica");
     delete game;
     cout << "Everything was deleted" << endl;
 }
