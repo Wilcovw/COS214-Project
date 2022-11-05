@@ -29,6 +29,10 @@ public:
     * @brief calls class destructor
     */
     void destroy();
+    /**
+     *
+     * @return Vehicles* - a copy of this vehicle
+     */
     Vehicles* clone();
 };
 

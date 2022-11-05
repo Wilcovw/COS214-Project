@@ -99,7 +99,7 @@ public:
      * @brief Returns a deep copy of the AssociatedCountries object and its children
      *
      * @param comm The comunication object used between all countries
-     * @return AssociatedCountries* The cloned copy of the AssociatedCountries object
+     * @return AssociatedCountries* - The cloned copy of the AssociatedCountries object
      */
     virtual AssociatedCountries *clone(Communication *comm);
 };

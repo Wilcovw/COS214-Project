@@ -12,7 +12,7 @@ public:
 	 */
 	MapIterator(/* args */);
 	/**
-	 * @brief Destroy the Map Iterator object
+	 * @brief Destructor of Map Iterator object
 	 * 
 	 */
 	~MapIterator();

@@ -5,6 +5,9 @@
 class Soldiers : public TroopType
 {
 public:
+    /**
+     * @brief
+     */
     Soldiers();
     virtual ~Soldiers();
     TroopType *changeType(theTroopTypes);

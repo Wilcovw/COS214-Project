@@ -8,6 +8,9 @@
 class ResearchAndDevelopmentCentre : public Infrastructure
 {
 protected:
+    /**
+     * a vector of vehicles that need to be upgraded.
+     */
     vector<Vehicles *> vehicleToBeUpgraded;
 
 public:
@@ -34,12 +37,12 @@ public:
     void printList();
     /**
      * @brief adds v to vehicleToBeUpgraded vector
-     * @param v
+     * @param v - a Vehicle to be added to the list
      */
     void addToList(Vehicles *v);
     /**
      * @brief returns a clone of the current class
-     * @return a clone of the current class is returned
+     * @return Infrastructure* - a clone of the current class is returned
      */
     Infrastructure* clone();
 };
