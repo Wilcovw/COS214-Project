@@ -24,6 +24,7 @@
 #include "GroundTroopTraining.h"
 #include "AquaticVehicleDevelopment.h"
 #include "Area.h"
+#include "Memento.h"
 #include <iostream>
 
 using namespace std;
@@ -58,22 +59,25 @@ WarPhase *WarPhase::clone()
     return wph;
 }
 
-Memento* WarPhase::newWarPhase(){
+Memento *WarPhase::newWarPhase()
+{
     WarPhase *clonedWarPhase = this->clone();
     WarMap *newMap = new WarMap();
-    for (Country *c: clonedWarPhase->allCountries)
+    for (Country *c : clonedWarPhase->allCountries)
     {
-       list<Area *> allAreas = c->getAreas();
-       for (Area *a: allAreas){
+        list<Area *> allAreas = c->getAreas();
+        for (Area *a : allAreas)
+        {
             newMap->addArea(a);
-       }
+        }
     }
     clonedWarPhase->map = newMap;
 
     return new Memento(clonedWarPhase);
 }
 
-void WarPhase::reverseWarPhase(Memento* memento){
+void WarPhase::reverseWarPhase(Memento *memento)
+{
     WarPhase *oldPhase = memento->warphase;
     allCountries = oldPhase->allCountries;
     allRelationships = oldPhase->allRelationships;
@@ -1443,17 +1447,22 @@ void WarPhase::distributeTroopsAndVehicles(string countryName)
             {
                 list<Troops *> navyTroops;
                 list<Troops *> airforceTroops;
+                list<Troops *> groundTroops;
+                int iter = 0;
                 for (auto t : troops)
                 {
+                    iter++;
                     if (t->getKind() == ::tNavy)
                     {
                         navyTroops.push_back(t);
-                        troops.remove(t);
                     }
                     else if (t->getKind() == ::tAirforce)
                     {
                         airforceTroops.push_back(t);
-                        troops.remove(t);
+                    }
+                    else if (t->getKind() == ::tGroundTroops)
+                    {
+                        groundTroops.push_back(t);
                     }
                 }
 
@@ -1489,15 +1498,18 @@ void WarPhase::distributeTroopsAndVehicles(string countryName)
                     }
                 }
 
-                while (!troops.empty())
+                if (!groundTroops.empty())
                 {
-                    for (auto a : areas)
+                    while (!groundTroops.empty())
                     {
-                        if (!troops.empty())
+                        for (auto a : areas)
                         {
-                            Troops *t = troops.front();
-                            troops.pop_front();
-                            t->setLocation(a);
+                            if (!groundTroops.empty())
+                            {
+                                Troops *t = groundTroops.front();
+                                groundTroops.pop_front();
+                                t->setLocation(a);
+                            }
                         }
                     }
                 }
@@ -1507,17 +1519,20 @@ void WarPhase::distributeTroopsAndVehicles(string countryName)
             {
                 list<Vehicles *> aquaticVehicles;
                 list<Vehicles *> aircraftVehicle;
+                list<Vehicles *> landVehicle;
                 for (auto v : vehicles)
                 {
                     if (v->getType() == ::aquaticVehicle)
                     {
                         aquaticVehicles.push_back(v);
-                        vehicles.push_back(v);
                     }
                     else if (v->getType() == ::aircraftVehicle)
                     {
                         aircraftVehicle.push_back(v);
-                        vehicles.push_back(v);
+                    }
+                    else if (v->getType() == ::landVehicle)
+                    {
+                        landVehicle.push_back(v);
                     }
                 }
 
@@ -1553,15 +1568,18 @@ void WarPhase::distributeTroopsAndVehicles(string countryName)
                     }
                 }
 
-                while (!vehicles.empty())
+                if (!landVehicle.empty())
                 {
-                    for (auto a : areas)
+                    while (!landVehicle.empty())
                     {
-                        if (!vehicles.empty())
+                        for (auto a : areas)
                         {
-                            Troops *t = troops.front();
-                            troops.pop_front();
-                            t->setLocation(a);
+                            if (!landVehicle.empty())
+                            {
+                                Vehicles *t = landVehicle.front();
+                                landVehicle.pop_front();
+                                t->changeLocation(a);
+                            }
                         }
                     }
                 }
@@ -1602,18 +1620,15 @@ void WarPhase::upgradeVehiclesInArea(vehicleType type, string areaName)
         list<Vehicles *> vehicles = getVehiclesInArea(area, country);
         if (!vehicles.empty() && facility != nullptr)
         {
-
             for (auto v : vehicles)
             {
                 if (v->getType() == type)
                 {
-                    cout << "Before Upgrade: Vehicle Hp: " << v->getHP() << "  Damage: " << v->getDamage() << endl;
                     facility->addToList(v);
-                    facility->startDeveloping();
-                    facility->stopDeveloping();
-                    cout << "After Upgrade: Vehicle Hp: " << v->getHP() << "  Damage: " << v->getDamage() << endl;
                 }
             }
+            facility->startDeveloping();
+            facility->stopDeveloping();
         }
         else
         {

@@ -54,6 +54,7 @@ class Infrastructure;
 class Troops;
 class Vehicles;
 class Area;
+class Memento;
 class WarPhase
 {
 private:
@@ -101,12 +102,12 @@ public:
      * @brief Create a new Memento, to store the current Warphase
      *
      */
-    Memento* newWarPhase();
+    Memento *newWarPhase();
     /**
      * @brief Restores the old war phase
      *
      */
-    void reverseWarPhase(Memento* memento);
+    void reverseWarPhase(Memento *memento);
     /**
      * @brief Adds a new Country to the Map
      *
@@ -132,9 +133,9 @@ public:
     void moveVehicles(string areaName, string countryName);
     void printCountryStatus(string countryName);
     void printAreaStatus(string areaName);
-    void distributeTroopsAndVehicles(string countryName);          //
-    bool countryStillExists(string countryName);                   //
-    void upgradeVehiclesInArea(vehicleType type, string areaName); //
+    void distributeTroopsAndVehicles(string countryName);
+    bool countryStillExists(string countryName); //
+    void upgradeVehiclesInArea(vehicleType type, string areaName);
 
     /*Memento *createMemento();
     list<Country *> getCountryGroup();

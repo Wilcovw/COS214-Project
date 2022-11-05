@@ -114,8 +114,8 @@ void populate(WarEngine *game)
     game->getPhase()->addCountrytoRelationship(Netherlands, Blue);
     game->getPhase()->addCountrytoRelationship(Belgium, Blue);
     game->getPhase()->addCountrytoRelationship(Ireland, Blue);
-    game->getPhase()->addRelationshipToRelationship("All countries", Red);
-    game->getPhase()->addRelationshipToRelationship("All countries", Blue);
+    game->getPhase()->addRelationshipToRelationship("AllCountries", Red);
+    game->getPhase()->addRelationshipToRelationship("AllCountries", Blue);
 
     // Populate areas of UK
     string Scotland = "Scotland";
@@ -658,14 +658,23 @@ void populate(WarEngine *game)
 
     game->getPhase()->distributeTroopsAndVehicles(France);
     game->getPhase()->distributeTroopsAndVehicles(Ireland);
+    game->getPhase()->printAreaStatus(NorthernIreland);
+    cout << endl;
     game->getPhase()->distributeTroopsAndVehicles(UK);
+    game->getPhase()->printAreaStatus(NorthernIreland);
+    cout << endl;
+    game->getPhase()->printAreaStatus(Scotland);
+    cout << endl;
     game->getPhase()->distributeTroopsAndVehicles(Belgium);
+    cout << endl;
+    cout << endl;
+    cout << endl;
+    // game->getPhase()->printAreaStatus(Amsterdam);
+    cout << endl;
     game->getPhase()->distributeTroopsAndVehicles(Netherlands);
+    // game->getPhase()->printAreaStatus(Amsterdam);
     game->getPhase()->distributeTroopsAndVehicles(Germany);
     game->getPhase()->distributeTroopsAndVehicles(Denmark);
-
-    // cout << "here" << endl;
-    // game->getPhase()->clone();
 
     // game->getPhase()->printAreaStatus(Lyon);
     // game->getPhase()->moveTroops(Lyon, France);
