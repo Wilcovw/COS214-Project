@@ -39,7 +39,7 @@ private:
      * @brief All the areas that this country controls
      *
      */
-    std::vector<Area *> areas;
+    std::list<Area *> areas;
 
 public:
     /**
@@ -66,7 +66,7 @@ public:
      *
      * @return vector<Area*> The vector of areas controlled by this Country
      */
-    std::vector<Area *> getAreas();
+    std::list<Area *> getAreas();
     /**
      * @brief add a new Area to the vector containing all the areas that are controlled by this Country
      *
@@ -168,7 +168,8 @@ public:
      *
      * @return vector<AssociatedCountries*> A vector containing all the allies of the current country
      */
-    vector<Country *> getAllies();
+    list<Country *> getAllies();
+    list<Country *> getEnemies();
     void removeCitizen(Citizens *);
 };
 #endif

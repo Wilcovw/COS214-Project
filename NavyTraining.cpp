@@ -1,6 +1,9 @@
 #ifndef NAVYTRAINING_CPP
 #define NAVYTRAINING_CPP
 #include "NavyTraining.h"
+#include "Generals.h"
+#include "SpecialForces.h"
+#include "Soldiers.h"
 
 NavyTraining::NavyTraining(double HP, Area* location) : TrainingCamp(HP, location) {
     type = ::iNavyCamp;
@@ -10,10 +13,21 @@ NavyTraining::~NavyTraining() {
     
 }
 
-Troops* NavyTraining::startDrafting(Citizens* c) {
+Troops* NavyTraining::startDrafting(Citizens* c, theTroopTypes type) {
     Troops* newTroops = nullptr;
     if (c->getStatus() == "Enlisted") {
-        newTroops = new Navy(this->location, new Soldiers(), c);
+        if (type == ::theGenerals)
+        {
+             newTroops = new Navy(this->location, new Generals(), c);
+        }
+        else if (type == ::theSpecialForces)
+        {
+             newTroops = new Navy(this->location, new SpecialForces(), c);
+        }
+        else
+        {
+            newTroops = new Navy(this->location, new Soldiers(), c);
+        }
         c->changeStatus();
         return newTroops;
     }

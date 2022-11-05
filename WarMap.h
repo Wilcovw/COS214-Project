@@ -5,9 +5,11 @@
 #include "Area.h"
 #include "AreaIterator.h"
 #include "EdgeIterator.h"
+#include "Country.h"
 #include <iterator>
 #include <math.h>
 #include <climits>
+#include <algorithm>
 using namespace std;
 
 class EdgeIterator;

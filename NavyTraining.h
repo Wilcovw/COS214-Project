@@ -15,9 +15,11 @@ public:
     virtual ~NavyTraining();
     /**
      * @brief Changes state of a citizen to a soldier by enlisting them
+     * @param citizen
+     * @param type
      * @return Troops* - the newly enlisted troop, which was a citizen
      */
-    virtual Troops *startDrafting(Citizens *);
+    virtual Troops *startDrafting(Citizens *, theTroopTypes type);
     /**
      * @brief calls the destructor for the class.
      */

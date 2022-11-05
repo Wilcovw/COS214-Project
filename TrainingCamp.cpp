@@ -37,7 +37,7 @@ Infrastructure *TrainingCamp::clone(Area *newArea)
     return nullptr;
 }
 
-Troops *TrainingCamp::startDrafting(Citizens *)
+Troops *TrainingCamp::startDrafting(Citizens *, theTroopTypes)
 {
     return nullptr;
 }

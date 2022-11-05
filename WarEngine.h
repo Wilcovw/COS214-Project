@@ -16,27 +16,30 @@ class WarEngine {
 private:
     WarMap *map;
     Communication *communication;
-    vector<Country *> allCountries;
-    vector<Relationship *> allRelationships;
+    list<Country *> allCountries;
+    list<Relationship *> allRelationships;
+
     Country *getCountry(string countryName);
     Relationship *getRelationship(string relationshipName);
     Country *getCountryFromArea(string areaName);
     Area *getArea(string areaName);
-    list<Infrastructure *> getInfrastructureInArea(string areaName, typeOfInfrastructure type);
-    list<Infrastructure *> getAllInfrastructureInArea(string areaName);
-    list<Infrastructure *> getAllFacilitiesInArea(string areaName);
-    list<Troops *> getTroopsInArea(string areaName, string countryName);
-    list<Vehicles *> getVehiclesInArea(string areaName, string countryName);
-    double getTravelDistance(Vehicles *vehicle, string areaName);
-    double getTravelDistance(Troops *troops, string areaName);
-    list<Area *> getTravelPath(Vehicles *vehicle, string areaName);
-    list<Area *> getTravelPath(Troops *troops, string areaName);
-    void moveTroops(string areaName, string country, int maxDistance);
-    void moveVehicles(string areaName, string countryName, int maxDistance);
+    list<Infrastructure *> getInfrastructureInArea(Area* area, typeOfInfrastructure type);
+    list<Infrastructure *> getAllInfrastructureInArea(Area* area);
+    list<Infrastructure *> getAllFacilitiesInArea(Area* area);
+    list<Troops *> getTroopsInArea(Area* area, Country* country);
+    list<Vehicles *> getVehiclesInArea(Area* area, Country* country);
+    double getTravelDistance(Vehicles *vehicle, Area* destination);
+    double getTravelDistance(Troops *troops, Area* destination);
+    list<Area *> getTravelPath(Vehicles *vehicle, Area* destination);
+    list<Area *> getTravelPath(Troops *troops, Area* destination);
+    void moveTroops(Area* area, Country* country, int maxDistance);
+    void moveVehicles(Area* area, Country* country, int maxDistance);
 
 public:
     WarEngine();
     ~WarEngine();
+    void newWarPhase();
+    void reverseWarPhase();
     void addCountry(string name, int numCitizens);
     void addRelationship(string relationshipName);
     void addCountrytoRelationship(string countryNamestring, string relationshipName);
@@ -49,13 +52,17 @@ public:
     void attackArea(string areaName, string countryName);
     void moveTroops(string areaName, string countryName);
     void moveVehicles(string areaName, string countryName);
+    void printCountryStatus(string countryName);
+    void printAreaStatus(string areaName);
+    void distributeTroopsAndVehicles(string countryName);
+    bool countryStillExists(string countryName);
+    int getUnlistedCitizens(string countryName);
+    void upgradeVehiclesInArea(vehicleType type, string areaName);
 
     void run(string Mode);
     Memento *createMemento();
-    Country pickCountry();
-    vector<Country *> getCountryGroup();
-    void setCountryGroup(vector<Country *> newCountryGroup);
-    void removeCountryAt(int index);
+    list<Country *> getCountryGroup();
+    void setCountryGroup(list<Country *> newCountryGroup);
     void removeAreaAt(int index);
     void reinstateMemento(Memento *memento);
     void setWarMap(WarMap *newMap);

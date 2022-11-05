@@ -90,7 +90,7 @@ double Troops::getDamage()
 }
 
 kindOfTroops Troops::getKind() { 
-    return kind;
+    return this->kind;
 }
 
 void Troops::setLocation(Area* theLocation) {

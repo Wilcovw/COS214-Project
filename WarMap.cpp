@@ -150,6 +150,7 @@ list<Area *> WarMap::shortestPath(Area *source, Area *destination)
 			for (auto e : curr->getEdges())
 			{
 				Area *v = e->getDestination();
+
 				double NewDist = curr->getDist() + e->getDistance();
 
 				if (NewDist < v->getDist())
@@ -178,7 +179,8 @@ list<Area *> WarMap::shortestPath(Area *source, Area *destination)
 	return ans;
 }
 
-list<Area *> WarMap::shortestPath(Area *source, Area *destination, string type) {
+list<Area *> WarMap::shortestPath(Area *source, Area *destination, string type)
+{
 	list<Area *> ans;
 
 	if (source == nullptr || destination == nullptr)
@@ -207,20 +209,85 @@ list<Area *> WarMap::shortestPath(Area *source, Area *destination, string type) 
 
 		if (curr->getEdges().empty() == false)
 		{
-
 			for (auto e : curr->getEdges())
 			{
-				if(e->getType() == type) {
-					Area *v = e->getDestination();
-					double NewDist = curr->getDist() + e->getDistance();
-
-					if (NewDist < v->getDist())
+				double ans = e->getDistance();
+				Area *v = e->getDestination();
+				Country *control = v->getControllingCountry();
+				list<Country *> allies = control->getAllies();
+				if (destination == v)
+				{
+					if (type == "Harbour")
 					{
-						v->setDist(NewDist);
-						v->setPrev(curr);
-						if (find(toBeChecked.begin(), toBeChecked.end(), v) == toBeChecked.end())
+						if (e->getType() == type)
 						{
-							toBeChecked.push_back(v);
+
+							double NewDist = curr->getDist() + ans;
+
+							if (NewDist < v->getDist())
+							{
+								v->setDist(NewDist);
+								v->setPrev(curr);
+								if (find(toBeChecked.begin(), toBeChecked.end(), v) == toBeChecked.end())
+								{
+									toBeChecked.push_back(v);
+								}
+							}
+						}
+					}
+					else
+					{
+						if (e->getType() != type)
+						{
+							ans *= 2;
+						}
+						double NewDist = curr->getDist() + ans;
+
+						if (NewDist < v->getDist())
+						{
+							v->setDist(NewDist);
+							v->setPrev(curr);
+							if (find(toBeChecked.begin(), toBeChecked.end(), v) == toBeChecked.end())
+							{
+								toBeChecked.push_back(v);
+							}
+						}
+					}
+				}else if (find(allies.begin(), allies.end(), source->getControllingCountry()) != allies.end()){
+					if (type == "Harbour")
+					{
+						if (e->getType() == type)
+						{
+
+							double NewDist = curr->getDist() + ans;
+
+							if (NewDist < v->getDist())
+							{
+								v->setDist(NewDist);
+								v->setPrev(curr);
+								if (find(toBeChecked.begin(), toBeChecked.end(), v) == toBeChecked.end())
+								{
+									toBeChecked.push_back(v);
+								}
+							}
+						}
+					}
+					else
+					{
+						if (e->getType() != type)
+						{
+							ans *= 2;
+						}
+						double NewDist = curr->getDist() + ans;
+
+						if (NewDist < v->getDist())
+						{
+							v->setDist(NewDist);
+							v->setPrev(curr);
+							if (find(toBeChecked.begin(), toBeChecked.end(), v) == toBeChecked.end())
+							{
+								toBeChecked.push_back(v);
+							}
 						}
 					}
 				}

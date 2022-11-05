@@ -4,7 +4,7 @@
 
 //Values to be changed
 Airforce::Airforce(Area* theLocation, TroopType* theType, Citizens* theCitizens) : Troops(0, theLocation, theType, theCitizens) {
-    kind = ::tNavy;
+    kind = ::tAirforce;
 }
 
 Airforce::~Airforce() {

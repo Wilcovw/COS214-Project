@@ -1,13 +1,16 @@
 #include "LandVehicleDevelopment.h"
 
-LandVehicleDevelopment::LandVehicleDevelopment(double hp, Area *area) : ResearchAndDevelopmentCentre(hp, area) {
-    type = ::iLandDevlopment;
+LandVehicleDevelopment::LandVehicleDevelopment(double hp, Area *area) : ResearchAndDevelopmentCentre(hp, area)
+{
+    type = ::iLandDevelopment;
 }
 
-void LandVehicleDevelopment::destroy(){
+void LandVehicleDevelopment::destroy()
+{
     delete this;
 }
 
-Infrastructure *LandVehicleDevelopment::clone() {
+Infrastructure *LandVehicleDevelopment::clone()
+{
     return new LandVehicleDevelopment(HP, location);
 }
