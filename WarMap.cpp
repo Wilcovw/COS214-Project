@@ -188,9 +188,9 @@ list<Area *> WarMap::shortestPath(Area *source, Area *destination, string type)
 		return ans;
 	}
 
-	if (isAccessible(source, destination, type) == false)
+	if (isAccessible(source, destination, type) == false) 
 	{
-		return ans;
+		return ans; 
 	}
 
 	for (auto a : areasWT)

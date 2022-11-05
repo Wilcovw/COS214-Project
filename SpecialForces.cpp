@@ -5,7 +5,7 @@
 #include "Generals.h"
 
 //VALUES TO BE CHANGED
-SpecialForces::SpecialForces() : TroopType(15,15, 15) {
+SpecialForces::SpecialForces() : TroopType(20,30, 15) {
     type = ::theSpecialForces;
 }
 

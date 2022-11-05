@@ -1,5 +1,6 @@
 #include "Vehicles.h"
 #include "Troops.h"
+#include "Area.h"
 #include <string>
 #include <iostream>
 using namespace std;

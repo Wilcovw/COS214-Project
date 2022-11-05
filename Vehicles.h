@@ -5,15 +5,13 @@
 #ifndef FACTORY_AND_OBSERVER_VEHICLES_H
 #define FACTORY_AND_OBSERVER_VEHICLES_H
 #include <string>
-#include "Area.h"
+#include "Infrastructure.h"
+#include "WarEngine.h"
 
 using namespace std;
-enum vehicleType {
-    landVehicle,
-    aquaticVehicle,
-    aircraftVehicle
-};
-class Infrastructure;
+
+
+class Area;
 class Troops;
 class Vehicles
 {
@@ -22,8 +20,8 @@ private:
     double damage;
     double speed;
     int level;
-    Area* location;
-    
+    Area *location;
+
 protected:
     vehicleType type;
 
@@ -35,16 +33,16 @@ public:
      * @param damage
      * @param speed
      */
-    Vehicles(Area* location, double HP, double damage, double speed);
+    Vehicles(Area *location, double HP, double damage, double speed);
     /**
-    *
-    * @return the location of the vehicle
-    */
-     Area* getLocation();
+     *
+     * @return the location of the vehicle
+     */
+    Area *getLocation();
     /**
-    *
-    * @return the HP of the vehicle
-    */
+     *
+     * @return the HP of the vehicle
+     */
     double getHP();
     /**
      *
@@ -76,7 +74,7 @@ public:
      * @brief method that changes the location of the vehicle to a passed in area
      * @param area
      */
-    void changeLocation(Area* area);
+    void changeLocation(Area *area);
     /**
      * @brief method that calls the vehicle's increments level method
      */

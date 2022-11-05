@@ -1,30 +1,36 @@
 #ifndef MEMENTO_H
 #define MEMENTO_H
-#include "WarHistory.h"
-#include "WarEngine.h"
+#include <vector>
 
 using namespace std;
 class WarMap;
 class WarPhase;
-class Memento{
+class Country;
+class Communication;
+class Memento
+{
 private:
-    friend class WarEngine;
-    /**
-     * @brief Constructor that sets the warphase with given parameters
-     * @param allCountries
-     * @param c
-     * @param map
-     */
-    Memento(vector<Country*> allCountries, Communication* c, WarMap* map);
-    /**
-     * @brief Stores the previous war phase
-     */
-    WarPhase* warphase;
+	friend class WarEngine;
+	/**
+	 * @brief Construct a new Memento object
+	 * 
+	 * @param allCountries All countries to sotre
+	 * @param c The communication network to store
+	 * @param map The map to store
+	 */
+	Memento(vector<Country *> allCountries, Communication *c, WarMap *map);
+	/**
+	 * @brief Phase of the warphase to store
+	 * 
+	 */
+	WarPhase *warphase;
+
 public:
-    /**
-     * @brief virtual destructor of Memento
-     */
-    virtual ~Memento();
+	/**
+	 * @brief Destroy the Memento object
+	 * 
+	 */
+	virtual ~Memento();
 };
 
 #endif

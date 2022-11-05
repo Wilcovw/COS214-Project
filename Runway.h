@@ -2,11 +2,11 @@
 #define RUNWAY_H
 
 #include <iostream>
-#include <vector>
+#include <list>
 #include "Infrastructure.h"
-
 using namespace std;
 
+class Edge;
 class Runway : public Infrastructure
 {
 private:

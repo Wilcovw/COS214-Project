@@ -30,6 +30,11 @@ public:
      * @brief calls class destructor
      */
     void destroy();
+	/**
+	 * @brief Clones the current Vechile Object
+	 * 
+	 * @return Vehicles* 
+	 */
     Vehicles* clone();
 };
 

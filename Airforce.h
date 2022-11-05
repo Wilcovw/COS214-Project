@@ -4,7 +4,15 @@
 
 class Airforce : public Troops {
     public:
+		/**
+		 * @brief Construct a new Airforce object
+		 * 
+		 */
         Airforce(Area*, TroopType*, Citizens*);
+		/**
+		 * @brief Destroy the Airforce object
+		 * 
+		 */
         virtual ~Airforce();
 };
 

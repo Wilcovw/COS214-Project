@@ -6,6 +6,7 @@
 #include "Navy.h"
 #include "Airforce.h"
 #include "Soldiers.h"
+#include "Infrastructure.h"
 
 class TrainingCamp : public Infrastructure
 {

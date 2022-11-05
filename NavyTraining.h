@@ -5,30 +5,33 @@
 class NavyTraining : public TrainingCamp
 {
 public:
-    /**
-     * @brief Constructor for class. Sets type to NavyCamp
-     */
+	/**
+	 * @brief Construct a new Navy Training object
+	 * 
+	 */
     NavyTraining(double, Area *);
-    /**
-     * @brief Virtual destructor for class
-     */
+	/**
+	 * @brief Destroy the Navy Training object
+	 * 
+	 */
     virtual ~NavyTraining();
-    /**
-     * @brief Changes state of a citizen to a soldier by enlisting them
-     * @param citizen
-     * @param type
-     * @return Troops* - the newly enlisted troop, which was a citizen
-     */
+	/**
+	 * @brief Starts creating new Navy Troops
+	 * 
+	 * @param type 
+	 * @return Troops* 
+	 */
     virtual Troops *startDrafting(Citizens *, theTroopTypes type);
-    /**
-     * @brief calls the destructor for the class.
-     */
+	/**
+	 * @brief Destroy the current Training Camp
+	 * 
+	 */
     virtual void destroy();
-    /**
-     * @brief Makes a copy of the TrainingCamp, with the same stats, but adds it in a passed in location
-     * @param newArea
-     * @return Infrastructure* - A clone of this object, but with a passed in newArea where it is located
-     */
+	/**
+	 * @brief Makes a copy of the current Training camp
+	 * 
+	 * @return Infrastructure* 
+	 */
     virtual Infrastructure *clone(Area *);
 };
 

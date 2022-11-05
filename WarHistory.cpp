@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include "WarHistory.h"
+#include "Memento.h"
 
 WarHistory::WarHistory(){
 

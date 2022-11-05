@@ -1,10 +1,10 @@
 #ifndef TROOPTYPE_CPP
 #define TROOPTYPE_CPP
 #include "TroopType.h"
-#include "Troops.h"
 #include "Generals.h"
 #include "SpecialForces.h"
 #include "Soldiers.h"
+#include "Vehicles.h"
 
 TroopType::TroopType(double theDamage, double theMaxHP, double theSpeed) {
     damage = theDamage;

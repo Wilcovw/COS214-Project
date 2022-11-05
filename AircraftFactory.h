@@ -27,6 +27,11 @@ public:
      * @brief Calls class destructor
      */
     virtual void destroy();
+	/**
+	 * @brief Makes a copy of the current Aircraft Factory
+	 * 
+	 * @return Infrastructure* 
+	 */
     virtual Infrastructure* clone();
 };
 

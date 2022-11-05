@@ -1,4 +1,5 @@
 #include "Infrastructure.h"
+#include "Area.h"
 
 Infrastructure::Infrastructure(double hp, Area *area)
 {

@@ -155,6 +155,11 @@ public:
 	 * @return Area*
 	 */
 	Area *clone(Country *c);
+	/**
+	 * @brief Get the Cloned Area object
+	 * 
+	 * @return Area* 
+	 */
 	Area *getClonedArea();
 };
 

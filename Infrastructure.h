@@ -1,22 +1,7 @@
 #ifndef INFASTRUCTURE_H
 #define INFASTRUCTURE_H
-#include "Area.h"
-
-enum typeOfInfrastructure {
-    iRoad,
-    iHarbour,
-    iRunway,
-    iLandDevelopment,
-    iAquaticDevelopment,
-    iAircraftDevelopment,
-    iLandFactory,
-    iAquaticFactory,
-    iAircraftFactory,
-    iGroundCamp,
-    iNavyCamp,
-    iAirforceCamp
-};
-
+#include "WarEngine.h"
+class Area;
 class Infrastructure
 {
 protected:
@@ -65,7 +50,11 @@ public:
      * @return Area*
      */
     Area *getArea();
-
+	/**
+	 * @brief Get the Type OF Infrastructure
+	 * 
+	 * @return typeOfInfrastructure 
+	 */
     typeOfInfrastructure getType();
 };
 
