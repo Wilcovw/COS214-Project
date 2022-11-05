@@ -61,57 +61,64 @@ private:
     Communication *communication;
     list<Country *> allCountries;
     list<Relationship *> allRelationships;
-    list<Country*> cloneCountries(Relationship head);
-    list<Relationship*> cloneRelationship(Relationship head);
+    list<Country *> cloneCountries(Relationship *head);
+    list<Relationship *> cloneRelationship(Relationship *head);
+    // list<Country *> addTwoLists(list<Country *> c1, list<Country *> c2);
     Country *getCountry(string countryName);
     Relationship *getRelationship(string relationshipName);
     Country *getCountryFromArea(string areaName);
     Area *getArea(string areaName);
-    list<Infrastructure *> getInfrastructureInArea(Area* area, typeOfInfrastructure type);
-    list<Infrastructure *> getAllInfrastructureInArea(Area* area);
-    list<Infrastructure *> getAllFacilitiesInArea(Area* area);
-    list<Troops *> getTroopsInArea(Area* area, Country* country);
-    list<Vehicles *> getVehiclesInArea(Area* area, Country* country);
-    double getTravelDistance(Vehicles *vehicle, Area* destination);
-    double getTravelDistance(Troops *troops, Area* destination);
-    list<Area *> getTravelPath(Vehicles *vehicle, Area* destination);
-    list<Area *> getTravelPath(Troops *troops, Area* destination);
-    void moveTroops(Area* area, Country* country, int maxDistance);
-    void moveVehicles(Area* area, Country* country, int maxDistance);
+    list<Infrastructure *> getInfrastructureInArea(Area *area, typeOfInfrastructure type);
+    list<Infrastructure *> getAllInfrastructureInArea(Area *area);
+    list<Infrastructure *> getAllFacilitiesInArea(Area *area);
+    list<Troops *> getTroopsInArea(Area *area, Country *country);
+    list<Vehicles *> getVehiclesInArea(Area *area, Country *country);
+    double getTravelDistance(Vehicles *vehicle, Area *destination);
+    double getTravelDistance(Troops *troops, Area *destination);
+    list<Area *> getTravelPath(Vehicles *vehicle, Area *destination);
+    list<Area *> getTravelPath(Troops *troops, Area *destination);
+    void moveTroops(Area *area, Country *country, int maxDistance);
+    void moveVehicles(Area *area, Country *country, int maxDistance);
 
 public:
-	/**
-	 * @brief Construct a new War Phase object
-	 * 
-	 */
+    /**
+     * @brief Construct a new War Phase object
+     *
+     */
     WarPhase();
-	/**
-	 * @brief Destroy the War Phase object
-	 * 
-	 */
+    /**
+     * @brief Destroy the War Phase object
+     *
+     */
     ~WarPhase();
-	/**
-	 * @brief Create a new Memento, to store the current Warphase
-	 * 
-	 */
+    /**
+     * @brief return a clone of the current state of the WWarPhase object
+     *
+     * @return WarPhase*
+     */
+    WarPhase *clone();
+    /**
+     * @brief Create a new Memento, to store the current Warphase
+     *
+     */
     void newWarPhase();
-	/**
-	 * @brief Restores the old war phase
-	 * 
-	 */
+    /**
+     * @brief Restores the old war phase
+     *
+     */
     void reverseWarPhase();
-	/**
-	 * @brief Adds a new Country to the Map
-	 * 
-	 * @param name Name of the Country
-	 * @param numCitizens Number of citizen of the Country
-	 */
+    /**
+     * @brief Adds a new Country to the Map
+     *
+     * @param name Name of the Country
+     * @param numCitizens Number of citizen of the Country
+     */
     void addCountry(string name, int numCitizens);
-	/**
-	 * @brief Creates a relationship 
-	 * 
-	 * @param relationshipName 
-	 */
+    /**
+     * @brief Creates a relationship
+     *
+     * @param relationshipName
+     */
     void addRelationship(string relationshipName);
     void addCountrytoRelationship(string countryNamestring, string relationshipName);
     void addRelationshipToRelationship(string relationshipNameParent, string relationshipNameChild);
@@ -125,10 +132,9 @@ public:
     void moveVehicles(string areaName, string countryName);
     void printCountryStatus(string countryName);
     void printAreaStatus(string areaName);
-    void distributeTroopsAndVehicles(string countryName); //
-    bool countryStillExists(string countryName); //
+    void distributeTroopsAndVehicles(string countryName);          //
+    bool countryStillExists(string countryName);                   //
     void upgradeVehiclesInArea(vehicleType type, string areaName); //
-
 
     /*Memento *createMemento();
     list<Country *> getCountryGroup();

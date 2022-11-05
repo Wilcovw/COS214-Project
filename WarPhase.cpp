@@ -46,12 +46,54 @@ WarPhase::~WarPhase()
 
 WarPhase *WarPhase::clone()
 {
+    Communication *com = new CommunicationBroadcast();
+    Relationship *rel = (Relationship *)getRelationship("AllCountries")->clone(com, NULL);
+    list<Country *> c = cloneCountries(rel);
+    list<Relationship *> r = cloneRelationship(rel);
+    WarPhase *wph = new WarPhase();
+    wph->communication = com;
+    wph->allCountries = c;
+    wph->allRelationships = r;
+    cout << wph->allCountries.size() << " " << wph->allCountries.front()->getName() << endl;
+    cout << wph->allRelationships.size() << " " << wph->allRelationships.front()->getRelationshipType() << endl;
+
+    return wph;
 }
 
-list<Country *> WarPhase::cloneCountries(Relationship* head)
+list<Country *> WarPhase::cloneCountries(Relationship *head)
 {
-
+    list<Country *> c;
+    for (int i = 0; i < head->getRelationships().size(); i++)
+    {
+        if (Relationship *relationship = dynamic_cast<Relationship *>(head->getRelationships().at(i)))
+        {
+            c.merge(cloneCountries(relationship));
+        }
+        else if (Country *country = dynamic_cast<Country *>(head->getRelationships().at(i)))
+        {
+            c.push_back(country);
+        }
+    }
+    return c;
 }
+
+list<Relationship *> WarPhase::cloneRelationship(Relationship *head)
+{
+    list<Relationship *> c;
+    c.push_back(head);
+    for (int i = 0; i < head->getRelationships().size(); i++)
+    {
+        if (Relationship *relationship = dynamic_cast<Relationship *>(head->getRelationships().at(i)))
+        {
+            c.push_back(relationship);
+        }
+    }
+    return c;
+}
+
+// list<Country *> WarPhase::addTwoLists(list<Country *> c1, list<Country *> c2)
+// {
+// }
 
 void WarPhase::addCountry(string name, int numCitizens)
 {
@@ -59,7 +101,7 @@ void WarPhase::addCountry(string name, int numCitizens)
     {
         allCountries.push_back(new Country(name, communication, numCitizens));
     }
-};
+}
 
 void WarPhase::addRelationship(string relationshipName)
 {
