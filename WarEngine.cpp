@@ -8,6 +8,7 @@
 #include "Infrastructure.h"
 #include "Troops.h"
 #include "Vehicles.h"
+#include "WarHistory.h"
 
 WarEngine::WarEngine()
 {
@@ -21,10 +22,12 @@ WarEngine::~WarEngine()
 
 void WarEngine::newWarPhase()
 {
+    history->storeMemento(phase->newWarPhase());
 }
 
 void WarEngine::reverseWarPhase()
 {
+    phase->reverseWarPhase(history->getLastMemento());
 }
 
 WarPhase* WarEngine::getPhase(){

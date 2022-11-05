@@ -101,12 +101,12 @@ public:
      * @brief Create a new Memento, to store the current Warphase
      *
      */
-    void newWarPhase();
+    Memento* newWarPhase();
     /**
      * @brief Restores the old war phase
      *
      */
-    void reverseWarPhase();
+    void reverseWarPhase(Memento* memento);
     /**
      * @brief Adds a new Country to the Map
      *

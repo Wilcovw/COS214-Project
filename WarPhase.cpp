@@ -54,10 +54,30 @@ WarPhase *WarPhase::clone()
     wph->communication = com;
     wph->allCountries = c;
     wph->allRelationships = r;
-    cout << wph->allCountries.size() << " " << wph->allCountries.front()->getName() << endl;
-    cout << wph->allRelationships.size() << " " << wph->allRelationships.front()->getRelationshipType() << endl;
 
     return wph;
+}
+
+Memento* WarPhase::newWarPhase(){
+    WarPhase *clonedWarPhase = this->clone();
+    WarMap *newMap = new WarMap();
+    for (Country *c: clonedWarPhase->allCountries)
+    {
+       list<Area *> allAreas = c->getAreas();
+       for (Area *a: allAreas){
+            newMap->addArea(a);
+       }
+    }
+    clonedWarPhase->map = newMap;
+
+    return new Memento(clonedWarPhase);
+}
+
+void WarPhase::reverseWarPhase(Memento* memento){
+    WarPhase *oldPhase = memento->warphase;
+    allCountries = oldPhase->allCountries;
+    allRelationships = oldPhase->allRelationships;
+    map = oldPhase->map;
 }
 
 list<Country *> WarPhase::cloneCountries(Relationship *head)
