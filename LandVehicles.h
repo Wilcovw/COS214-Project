@@ -15,7 +15,8 @@ public:
      * @param damage
      * @param speed
      */
-    LandVehicles(Area* location, double hp, double damage, double speed);
+    LandVehicles(Area *location, double hp, double damage, double speed);
+    ~LandVehicles();
     /**
      * @brief method that calls the vehicle's increments level method
      */
@@ -26,15 +27,11 @@ public:
      */
     void readyToUpgrade(ResearchAndDevelopmentCentre *r);
     /**
-    * @brief calls class destructor
-    */
-    void destroy();
-	/**
-	 * @brief Makes a copy of the current Vechile
-	 * 
-	 * @return Vehicles* 
-	 */
-    Vehicles* clone();
+     * @brief Makes a copy of the current Vechile
+     *
+     * @return Vehicles*
+     */
+    Vehicles *clone();
 };
 
 #endif // FACTORY_AND_OBSERVER_LANDVEHICLES_H

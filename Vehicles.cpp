@@ -121,9 +121,8 @@ void Vehicles::attack(Infrastructure *theEnemy)
     }
 }
 
-void Vehicles::destroy()
-{
-    delete this;
+Vehicles::~Vehicles() {
+    
 }
 
 vehicleType Vehicles::getType()

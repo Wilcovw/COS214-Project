@@ -4,16 +4,16 @@ Aircraft::Aircraft(Area* location, double hp, double damage, double speed) : Veh
     type = ::aircraftVehicle;
 }
 
+Aircraft::~Aircraft() {
+    
+}
+
 void Aircraft::update() {
     this->incLevel();
 }
 
 void Aircraft::readyToUpgrade(ResearchAndDevelopmentCentre *r) {
     r->addToList(this);
-}
-
-void Aircraft::destroy() {
-    delete this;
 }
 
 Vehicles *Aircraft::clone() {

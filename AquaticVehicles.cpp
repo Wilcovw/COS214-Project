@@ -1,21 +1,26 @@
 #include "AquaticVehicles.h"
 
-AquaticVehicles::AquaticVehicles(Area* location, double hp, double damage, double speed) : Vehicles(location, hp, damage,speed) {
+AquaticVehicles::AquaticVehicles(Area *location, double hp, double damage, double speed) : Vehicles(location, hp, damage, speed)
+{
     type = ::aquaticVehicle;
 }
 
-void AquaticVehicles::update() {
+void AquaticVehicles::update()
+{
     this->incLevel();
 }
 
-void AquaticVehicles::readyToUpgrade(ResearchAndDevelopmentCentre *r) {
+void AquaticVehicles::readyToUpgrade(ResearchAndDevelopmentCentre *r)
+{
     r->addToList(this);
 }
 
-void AquaticVehicles::destroy() {
-    delete this;
+AquaticVehicles::~AquaticVehicles() 
+{
+
 }
 
-Vehicles *AquaticVehicles::clone() {
+Vehicles *AquaticVehicles::clone()
+{
     return new AquaticVehicles(getLocation(), getHP(), getDamage(), getSpeed());
 }

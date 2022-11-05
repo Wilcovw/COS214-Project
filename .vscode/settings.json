@@ -78,6 +78,7 @@
 		"unordered_map": "cpp",
 		"variant": "cpp",
 		"algorithm": "cpp",
-		"filesystem": "cpp"
+		"filesystem": "cpp",
+		"memory_resource": "cpp"
 	}
 }

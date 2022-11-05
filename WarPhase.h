@@ -64,7 +64,6 @@ private:
     list<Relationship *> allRelationships;
     list<Country *> cloneCountries(Relationship *head);
     list<Relationship *> cloneRelationship(Relationship *head);
-    // list<Country *> addTwoLists(list<Country *> c1, list<Country *> c2);
     Country *getCountry(string countryName);
     Relationship *getRelationship(string relationshipName);
     Country *getCountryFromArea(string areaName);
@@ -136,6 +135,7 @@ public:
     void distributeTroopsAndVehicles(string countryName);
     bool countryStillExists(string countryName); //
     void upgradeVehiclesInArea(vehicleType type, string areaName);
+    list<string> getAreasInRelationship(string relationship);
 
     /*Memento *createMemento();
     list<Country *> getCountryGroup();

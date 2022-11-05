@@ -1,7 +1,7 @@
 #ifndef COMMUNICATIONBROADCAST_H
 #define COMMUNICATIONBROADCAST_H
 #include "Communication.h"
-#include <vector>
+#include <list>
 
 /**
  * @brief CommunicationBroadcast takes the role of the ConcreteMediator in the Mediator pattern
@@ -14,7 +14,7 @@ private:
      * @brief A vector containing all the AssociatedCountries objects that called the storeMe() function
      *
      */
-    std::vector<AssociatedCountries *> countryList;
+    std::list<AssociatedCountries *> countryList;
 
 public:
     /**
@@ -34,6 +34,12 @@ public:
      * @param countries  Country in the affected relation change of the current country
      */
     virtual void notify(AssociatedCountries *countries, std::string message);
+    /**
+     * @brief deregister a country from this communication object
+     *
+     * @param aC the country to be deregistered
+     */
+    virtual void removeAssociatedCountries(AssociatedCountries *aC);
     /**
      * @brief Destroy the dynamic objects created in the communication objects
      *

@@ -16,7 +16,8 @@ public:
      * @param damage
      * @param speed
      */
-    Aircraft(Area* location, double hp, double damage, double speed);
+    Aircraft(Area *location, double hp, double damage, double speed);
+    virtual ~Aircraft();
     /**
      * @brief method that calls the vehicle's increments level method
      */
@@ -27,15 +28,11 @@ public:
      */
     void readyToUpgrade(ResearchAndDevelopmentCentre *r);
     /**
-     * @brief calls class destructor
+     * @brief Clones the current Vechile Object
+     *
+     * @return Vehicles*
      */
-    void destroy();
-	/**
-	 * @brief Clones the current Vechile Object
-	 * 
-	 * @return Vehicles* 
-	 */
-    Vehicles* clone();
+    Vehicles *clone();
 };
 
 #endif // FACTORY_AND_OBSERVER_AIRCRAFT_H
