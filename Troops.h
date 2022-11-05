@@ -1,17 +1,11 @@
 #ifndef TROOPS_H
 #define TROOPS_H
-#include "Area.h"
-#include "Infrastructure.h"
+#include "WarEngine.h"
 #include "TroopType.h"
-#include "Citizens.h"
 
-enum kindOfTroops {
-    tGroundTroops,
-    tNavy,
-    tAirforce
-};
-
+class Area;
 class Vehicles;
+class Citizens;
 class Troops {
     protected:
         double HP;

@@ -1,12 +1,9 @@
 #ifndef WARHISTORY_H
 #define WARHISTORY_H
 #include <vector>
-#include "Memento.h"
-
 using namespace std;
 
 class Memento;
-
 class WarHistory
 {
 private:

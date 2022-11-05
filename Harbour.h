@@ -1,12 +1,12 @@
 #ifndef HARBOUR_H
 #define HARBOUR_H
-
-#include <vector>
+#include <list>
 #include <iostream>
 #include "Infrastructure.h"
 
 using namespace std;
 
+class Edge;
 class Harbour : public Infrastructure
 {
 private:

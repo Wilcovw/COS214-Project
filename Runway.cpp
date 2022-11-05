@@ -1,5 +1,6 @@
 #include "Runway.h"
-#include <vector>
+#include "Edge.h"
+#include <list>
 
 Runway::Runway(Area *source, double hp) : Infrastructure(hp, source) {
     type = ::iRunway;

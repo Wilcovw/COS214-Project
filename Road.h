@@ -3,9 +3,9 @@
 
 #include <iostream>
 #include "Infrastructure.h"
-
 using namespace std;
 
+class Edge;
 class Road : public Infrastructure
 {
 private:

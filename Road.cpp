@@ -1,4 +1,5 @@
 #include "Road.h"
+#include "Edge.h"
 #include "Country.h"
 #include "WarEntities.h"
 

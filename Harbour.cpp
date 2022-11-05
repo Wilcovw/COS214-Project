@@ -1,6 +1,7 @@
 #include "Harbour.h"
+#include "Edge.h"
 
-#include <vector>
+#include <list>
 
 Harbour::Harbour(Area *source, double hp) : Infrastructure(hp, source) {
     type = ::iHarbour;

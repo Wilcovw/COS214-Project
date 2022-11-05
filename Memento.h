@@ -1,12 +1,12 @@
 #ifndef MEMENTO_H
 #define MEMENTO_H
-#include "WarHistory.h"
-#include "WarEngine.h"
+#include <vector>
 
 using namespace std;
 class WarMap;
 class WarPhase;
-
+class Country;
+class Communication;
 class Memento{
 private:
     friend class WarEngine;

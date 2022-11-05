@@ -1,15 +1,9 @@
 #ifndef TROOPTYPE_H
 #define TROOPTYPE_H
-
+#include "WarEngine.h"
 #include<iostream>
 using namespace std;
 
-
-enum theTroopTypes {
-    theGenerals,
-    theSoldiers,
-    theSpecialForces
-};
 
 class Vehicles;
 class TroopType {

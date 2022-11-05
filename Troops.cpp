@@ -8,6 +8,9 @@
 #include "SpecialForces.h"
 #include "Soldiers.h"
 #include "Vehicles.h"
+#include "Area.h"
+#include "TroopType.h"
+#include "Citizens.h"
 
 Troops::Troops(double theHP, Area *theArea, TroopType *theType, Citizens *theCitizen)
 {

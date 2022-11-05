@@ -9,6 +9,6 @@ string Fighting::getStatus() {
 }
 
 void Fighting::die(Citizens* c) {
-    cout << "A group of Fighting Citizens died!" << endl;
+    // cout << "A group of Fighting Citizens died!" << endl;
     c->setStatus(new Dead());
 }
