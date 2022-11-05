@@ -19,7 +19,7 @@ void Infrastructure::takeDamage(double theDamage)
 
 double Infrastructure::getHP()
 {
-    return 0;
+    return HP;
 }
 
 void Infrastructure::destroy()

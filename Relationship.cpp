@@ -11,11 +11,17 @@ Relationship::Relationship(std::string r, Communication *t)
     tele->storeMe(this);
 }
 
-Relationship::Relationship(Relationship &relationship, Communication *comm)
+Relationship::Relationship(Relationship &rel, Communication *comm, AssociatedCountries *parent)
 {
     this->tele = comm;
     this->tele->storeMe(this);
-    this->relationshipType = relationship.relationshipType;
+    this->relationshipType = rel.relationshipType;
+    this->parent = parent;
+
+    for (int i = 0; i < rel.getRelationships().size(); i++)
+    {
+        this->alliances.push_back(rel.getRelationships().at(i)->clone(comm, this));
+    }
 }
 
 std::string Relationship::getRelationshipType()
@@ -111,7 +117,7 @@ std::string Relationship::print()
     return out;
 }
 
-AssociatedCountries *Relationship::clone(Communication *comm)
+AssociatedCountries *Relationship::clone(Communication *comm, AssociatedCountries *parent)
 {
-    return new Relationship(*this, comm);
+    return new Relationship(*this, comm, parent);
 }

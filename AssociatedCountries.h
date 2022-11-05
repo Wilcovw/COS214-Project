@@ -75,6 +75,6 @@ public:
      * @param comm The comunication object used between all countries
      * @return AssociatedCountries* The cloned copy of the AssociatedCountries object
      */
-    virtual AssociatedCountries *clone(Communication *comm) = 0;
+    virtual AssociatedCountries *clone(Communication *comm, AssociatedCountries *parent) = 0;
 };
 #endif

@@ -664,9 +664,10 @@ void populate(WarEngine *game)
     game->getPhase()->distributeTroopsAndVehicles(Germany);
     game->getPhase()->distributeTroopsAndVehicles(Denmark);
 
-    game->getPhase()->printCountryStatus(France);
-    //game->getPhase()->attackArea(Stuttgart, France);
-    //game->getPhase()->printCountryStatus(France);
+    // game->getPhase()->printAreaStatus(Lyon);
+    // game->getPhase()->moveTroops(Lyon, France);
+    // game->getPhase()->moveVehicles(Lyon, France);
+    // game->getPhase()->printAreaStatus(Lyon);
 }
 
 void finalMain()
