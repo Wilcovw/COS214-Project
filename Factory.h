@@ -36,6 +36,11 @@ public:
      * @brief destructor
      */
     virtual void destroy();
+	/**
+	 * @brief Makes a copy of the current Factory
+	 * 
+	 * @return Infrastructure* 
+	 */
     virtual Infrastructure* clone();
 };
 

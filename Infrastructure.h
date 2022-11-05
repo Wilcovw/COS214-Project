@@ -50,7 +50,11 @@ public:
      * @return Area*
      */
     Area *getArea();
-
+	/**
+	 * @brief Get the Type OF Infrastructure
+	 * 
+	 * @return typeOfInfrastructure 
+	 */
     typeOfInfrastructure getType();
 };
 

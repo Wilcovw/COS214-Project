@@ -11,10 +11,28 @@ class RevolutionCommand : public Command
 private:
     bool active;
 public:
+	/**
+	 * @brief Construct a new Revolution Command object
+	 * 
+	 * @param s 
+	 */
     RevolutionCommand(bool s);
+	/**
+	 * @brief Destroy the Revolution Command object
+	 * 
+	 */
     ~RevolutionCommand();
-
+	/**
+	 * @brief Execeute the Revolution
+	 * 
+	 */
     void execute();
+	/**
+	 * @brief Determines whether the Command
+	 * 
+	 * @return true 
+	 * @return false 
+	 */
     bool isActive();
 };
 #endif

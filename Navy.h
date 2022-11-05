@@ -4,7 +4,15 @@
 
 class Navy : public Troops {
     public:
+		/**
+		 * @brief Construct a new Navy object
+		 * 
+		 */
         Navy(Area*, TroopType*, Citizens*);
+		/**
+		 * @brief Destroy the Navy object
+		 * 
+		 */
         virtual ~Navy();
 
 };

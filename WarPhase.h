@@ -61,11 +61,38 @@ private:
     list<Country *> allCountries;
     list<Relationship *> allRelationships;
 public:
+	/**
+	 * @brief Construct a new War Phase object
+	 * 
+	 */
     WarPhase();
+	/**
+	 * @brief Destroy the War Phase object
+	 * 
+	 */
     ~WarPhase();
+	/**
+	 * @brief Create a new Memento, to store the current Warphase
+	 * 
+	 */
     void newWarPhase();
+	/**
+	 * @brief Restores the old war phase
+	 * 
+	 */
     void reverseWarPhase();
+	/**
+	 * @brief Adds a new Country to the Map
+	 * 
+	 * @param name Name of the Country
+	 * @param numCitizens Number of citizen of the Country
+	 */
     void addCountry(string name, int numCitizens);
+	/**
+	 * @brief Creates a relationship 
+	 * 
+	 * @param relationshipName 
+	 */
     void addRelationship(string relationshipName);
     void addCountrytoRelationship(string countryNamestring, string relationshipName);
     void addRelationshipToRelationship(string relationshipNameParent, string relationshipNameChild);
