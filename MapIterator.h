@@ -1,6 +1,9 @@
 #ifndef MapIterator_H
 #define MapIterator_H
 #include "Area.h"
+/**
+ * @brief Iterates over the areas of different countries through edges(Roads, Runways, Harbours)
+ */
 class MapIterator
 {
 private:

@@ -7,6 +7,9 @@
 using namespace std;
 
 class Edge;
+/**
+ * @brief This is an edge that connects Areas. It creates bi-directional edges
+ */
 class Runway : public Infrastructure
 {
 private:

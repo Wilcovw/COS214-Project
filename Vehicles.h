@@ -13,6 +13,9 @@ using namespace std;
 
 class Area;
 class Troops;
+/**
+ * @brief This is the class for vehicles to be constructed by factories. It has 3 subclasses (Aircraft, AquaticVehicles, LandVehicles)
+ */
 class Vehicles
 {
 private:
@@ -111,6 +114,10 @@ public:
      * @brief Calls class destructor
      */
     void destroy();
+    /**
+     * @brief returns the Vehicle's type
+     * @return vehicleType - type
+     */
     vehicleType getType();
 };
 

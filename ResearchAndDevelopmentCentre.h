@@ -5,6 +5,9 @@
 #include "Infrastructure.h"
 #include "Vehicles.h"
 
+/**
+ * @brief ResearchAndDevelopmentCentre takes the role of the Observer Class in the Observer design pattern. It inherits from Inrastructure
+ */
 class ResearchAndDevelopmentCentre : public Infrastructure
 {
 protected:

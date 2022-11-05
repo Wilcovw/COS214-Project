@@ -67,12 +67,9 @@ double Vehicles::takeDamage(double dmg) {
 }
 
 void Vehicles::incLevel() {
-    double levelMultiplier = (1/level);
-    HP += levelMultiplier*HP;
-    damage += levelMultiplier*damage;
-    speed += levelMultiplier*speed;
-    level++;
-
+    HP += 5;
+    damage += 5;
+    speed += 5;
 }
 
 void Vehicles::print() {
