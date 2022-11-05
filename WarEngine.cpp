@@ -403,47 +403,47 @@ void WarEngine::addInfrastructure(typeOfInfrastructure type, string areaName)
         }
         else if (type == ::iHarbour)
         {
-            country->getWarEntities()->addInfrastructure(new Harbour(getArea(areaName), 3));
+            country->getWarEntities()->addInfrastructure(new Harbour(getArea(areaName), 100));
         }
         else if (type == ::iRunway)
         {
-            country->getWarEntities()->addInfrastructure(new Runway(getArea(areaName), 3));
+            country->getWarEntities()->addInfrastructure(new Runway(getArea(areaName), 100));
         }
         else if (type == ::iLandDevelopment)
         {
-            country->getWarEntities()->addInfrastructure(new LandVehicleDevelopment(15, getArea(areaName)));
+            country->getWarEntities()->addInfrastructure(new LandVehicleDevelopment(800, getArea(areaName)));
         }
         else if (type == ::iAquaticDevelopment)
         {
-            country->getWarEntities()->addInfrastructure(new AquaticVehicleDevelopment(15, getArea(areaName)));
+            country->getWarEntities()->addInfrastructure(new AquaticVehicleDevelopment(800, getArea(areaName)));
         }
         else if (type == ::iAircraftDevelopment)
         {
-            country->getWarEntities()->addInfrastructure(new AircraftDevelopment(15, getArea(areaName)));
+            country->getWarEntities()->addInfrastructure(new AircraftDevelopment(800, getArea(areaName)));
         }
         else if (type == ::iLandFactory)
         {
-            country->getWarEntities()->addInfrastructure(new LandVehicleFactory(15, getArea(areaName)));
+            country->getWarEntities()->addInfrastructure(new LandVehicleFactory(1200, getArea(areaName)));
         }
         else if (type == ::iAquaticFactory)
         {
-            country->getWarEntities()->addInfrastructure(new AquaticVehicleFactory(15, getArea(areaName)));
+            country->getWarEntities()->addInfrastructure(new AquaticVehicleFactory(1200, getArea(areaName)));
         }
         else if (type == ::iAircraftFactory)
         {
-            country->getWarEntities()->addInfrastructure(new AircraftFactory(15, getArea(areaName)));
+            country->getWarEntities()->addInfrastructure(new AircraftFactory(1200, getArea(areaName)));
         }
         else if (type == ::iGroundCamp)
         {
-            country->getWarEntities()->addInfrastructure(new GroundTroopTraining(15, getArea(areaName)));
+            country->getWarEntities()->addInfrastructure(new GroundTroopTraining(1000, getArea(areaName)));
         }
         else if (type == ::iNavyCamp)
         {
-            country->getWarEntities()->addInfrastructure(new NavyTraining(15, getArea(areaName)));
+            country->getWarEntities()->addInfrastructure(new NavyTraining(1000, getArea(areaName)));
         }
         else if (type == ::iAirforceCamp)
         {
-            country->getWarEntities()->addInfrastructure(new AirforceTraining(15, getArea(areaName)));
+            country->getWarEntities()->addInfrastructure(new AirforceTraining(1000, getArea(areaName)));
         }
     }
     else
@@ -639,7 +639,7 @@ void WarEngine::addVehicles(string areaName, vehicleType vehicleType)
         if (!factory.empty())
         {
             LandVehicleFactory *fac = (LandVehicleFactory *)factory.front();
-            country->getWarEntities()->addVehicles(fac->createVehicle(2, 2, 2));
+            country->getWarEntities()->addVehicles(fac->createVehicle(40, 40, 60));
         }
         else
         {
@@ -652,7 +652,7 @@ void WarEngine::addVehicles(string areaName, vehicleType vehicleType)
         if (!factory.empty())
         {
             AquaticVehicleFactory *fac = (AquaticVehicleFactory *)factory.front();
-            country->getWarEntities()->addVehicles(fac->createVehicle(2, 2, 2));
+            country->getWarEntities()->addVehicles(fac->createVehicle(50, 20, 50));
         }
         else
         {
@@ -665,7 +665,7 @@ void WarEngine::addVehicles(string areaName, vehicleType vehicleType)
         if (!factory.empty())
         {
             AircraftFactory *fac = (AircraftFactory *)factory.front();
-            country->getWarEntities()->addVehicles(fac->createVehicle(2, 2, 2));
+            country->getWarEntities()->addVehicles(fac->createVehicle(30, 50, 900));
         }
         else
         {

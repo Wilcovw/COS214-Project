@@ -5,7 +5,7 @@
 #include "Soldiers.h"
 
 //VALUES TO BE CHANGED
-Generals::Generals() : TroopType(15, 15, 15) {
+Generals::Generals() : TroopType(10, 50, 5) {
     type = ::theGenerals;
 }
 
