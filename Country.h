@@ -54,7 +54,7 @@ public:
      * @brief default constructor
      *
      */
-    Country(Country &country, Communication *comm);
+    Country(Country &country, Communication *comm, AssociatedCountries *parent);
     /**
      * @brief Return the name of the Country
      *
@@ -162,7 +162,7 @@ public:
      * @param comm The comunication object used between all countries
      * @return AssociatedCountries* The cloned copy of the AssociatedCountries object
      */
-    virtual AssociatedCountries *clone(Communication *comm);
+    virtual AssociatedCountries *clone(Communication *comm, AssociatedCountries *parent);
     /**
      * @brief Return all the allies of the current country, If this country has no allies or doesnt exist returns an empty vector
      *

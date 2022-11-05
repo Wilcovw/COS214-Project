@@ -1,6 +1,8 @@
 #ifndef WARENGINE_H
 #define WARENGINE_H
 #include "WarPhase.h"
+#include"Memento.h"
+#include "WarHistory.h"
 #include <iostream>
 using namespace std;
 
@@ -16,6 +18,7 @@ class WarEngine
 {
 private:
     WarPhase *phase;
+    WarHistory* history;
 public:
     WarEngine();
     ~WarEngine();

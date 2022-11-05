@@ -20,12 +20,18 @@ Country::Country(std::string name, Communication *t, int numCitzenGroups)
     }
 }
 
-Country::Country(Country &country, Communication *comm)
+Country::Country(Country &country, Communication *comm, AssociatedCountries *parent)
 {
     this->tele = comm;
     this->tele->storeMe(this);
     this->name = country.name;
     this->numCitzenGroups = country.numCitzenGroups;
+    this->parent = parent;
+
+    for (auto a : this->areas)
+    {
+        this->areas.push_back(a->clone(this));
+    }
 
     this->citizens = new Citizens *[country.numCitzenGroups];
     int counter = 0;
@@ -39,12 +45,9 @@ Country::Country(Country &country, Communication *comm)
     }
     this->entities = country.entities->clone();
     int x = 0;
-    for(auto t : entities->getTroops()) {
+    for (auto t : entities->getTroops())
+    {
         this->citizens[x++] = t->getAssociatedCitizen();
-    }
-
-    for(auto a : this->areas) {
-        this->areas.push_back(a->getClonedArea());
     }
 }
 
@@ -170,9 +173,9 @@ void Country::revolt(bool active)
     }
 }
 
-AssociatedCountries *Country::clone(Communication *comm)
+AssociatedCountries *Country::clone(Communication *comm, AssociatedCountries *parent)
 {
-    return new Country(*this, comm);
+    return new Country(*this, comm, parent);
 }
 
 list<Country *> Country::getAllies()
@@ -218,7 +221,7 @@ list<Country *> Country::getEnemies()
     {
         if (Relationship *relationship = dynamic_cast<Relationship *>(relParent->getRelationships().at(i)))
         {
-            Relationship* r = (Relationship*)relationship->getRelationships().at(i);
+            Relationship *r = (Relationship *)relationship->getRelationships().at(i);
             if (r->getRelationshipType() != alliesName)
             {
                 relEnemies = (Relationship *)relParent->getRelationships().at(i);

@@ -44,13 +44,76 @@ WarPhase::~WarPhase()
     delete communication;
 }
 
-void WarPhase::newWarPhase()
+WarPhase *WarPhase::clone()
 {
+    Communication *com = new CommunicationBroadcast();
+    Relationship *rel = (Relationship *)getRelationship("AllCountries")->clone(com, NULL);
+    list<Country *> c = cloneCountries(rel);
+    list<Relationship *> r = cloneRelationship(rel);
+    WarPhase *wph = new WarPhase();
+    wph->communication = com;
+    wph->allCountries = c;
+    wph->allRelationships = r;
+
+    return wph;
 }
 
-void WarPhase::reverseWarPhase()
-{
+Memento* WarPhase::newWarPhase(){
+    WarPhase *clonedWarPhase = this->clone();
+    WarMap *newMap = new WarMap();
+    for (Country *c: clonedWarPhase->allCountries)
+    {
+       list<Area *> allAreas = c->getAreas();
+       for (Area *a: allAreas){
+            newMap->addArea(a);
+       }
+    }
+    clonedWarPhase->map = newMap;
+
+    return new Memento(clonedWarPhase);
 }
+
+void WarPhase::reverseWarPhase(Memento* memento){
+    WarPhase *oldPhase = memento->warphase;
+    allCountries = oldPhase->allCountries;
+    allRelationships = oldPhase->allRelationships;
+    map = oldPhase->map;
+}
+
+list<Country *> WarPhase::cloneCountries(Relationship *head)
+{
+    list<Country *> c;
+    for (int i = 0; i < head->getRelationships().size(); i++)
+    {
+        if (Relationship *relationship = dynamic_cast<Relationship *>(head->getRelationships().at(i)))
+        {
+            c.merge(cloneCountries(relationship));
+        }
+        else if (Country *country = dynamic_cast<Country *>(head->getRelationships().at(i)))
+        {
+            c.push_back(country);
+        }
+    }
+    return c;
+}
+
+list<Relationship *> WarPhase::cloneRelationship(Relationship *head)
+{
+    list<Relationship *> c;
+    c.push_back(head);
+    for (int i = 0; i < head->getRelationships().size(); i++)
+    {
+        if (Relationship *relationship = dynamic_cast<Relationship *>(head->getRelationships().at(i)))
+        {
+            c.push_back(relationship);
+        }
+    }
+    return c;
+}
+
+// list<Country *> WarPhase::addTwoLists(list<Country *> c1, list<Country *> c2)
+// {
+// }
 
 void WarPhase::addCountry(string name, int numCitizens)
 {
@@ -58,7 +121,7 @@ void WarPhase::addCountry(string name, int numCitizens)
     {
         allCountries.push_back(new Country(name, communication, numCitizens));
     }
-};
+}
 
 void WarPhase::addRelationship(string relationshipName)
 {
@@ -262,10 +325,9 @@ double WarPhase::getTravelDistance(Troops *troops, Area *destination)
             if (!path.empty())
             {
                 distance = 0;
-                for (auto e : path)
-                {
-                    distance += e->getDist();
-                }
+                path.reverse();
+                Area *last = path.front();
+                distance = last->getDist();
             }
         }
     }
@@ -283,9 +345,22 @@ void WarPhase::moveVehicles(Area *destination, Country *country, int maxDistance
             {
                 for (auto e : vehicles)
                 {
-                    if (getTravelDistance(e, destination) <= maxDistance)
+                    if (e->getType() == ::aquaticVehicle)
                     {
-                        e->changeLocation(destination);
+                        if (!getInfrastructureInArea(destination, ::iHarbour).empty())
+                        {
+                            if (getTravelDistance(e, destination) <= maxDistance)
+                            {
+                                e->changeLocation(destination);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (getTravelDistance(e, destination) <= maxDistance)
+                        {
+                            e->changeLocation(destination);
+                        }
                     }
                 }
             }
@@ -293,7 +368,6 @@ void WarPhase::moveVehicles(Area *destination, Country *country, int maxDistance
     }
 }
 
-// TODO: change distance value
 void WarPhase::moveVehicles(string areaName, string countryName)
 {
     moveVehicles(getArea(areaName), getCountry(countryName), 1500);
@@ -310,7 +384,14 @@ void WarPhase::moveTroops(Area *destination, Country *country, int maxDistance)
             {
                 for (auto t : troops)
                 {
-                    if (getTravelDistance(t, destination) <= maxDistance)
+                    if (t->getKind() == ::tNavy)
+                    {
+                        if (!getInfrastructureInArea(destination, ::iHarbour).empty() && getTravelDistance(t, destination) <= maxDistance)
+                        {
+                            t->setLocation(destination);
+                        }
+                    }
+                    else if (getTravelDistance(t, destination) <= maxDistance)
                     {
                         t->setLocation(destination);
                     }
@@ -320,13 +401,11 @@ void WarPhase::moveTroops(Area *destination, Country *country, int maxDistance)
     }
 }
 
-// TODO: change distance value
 void WarPhase::moveTroops(string areaName, string countryName)
 {
     moveTroops(getArea(areaName), getCountry(countryName), 1000);
 }
 
-// TODO: change HP values
 void WarPhase::addConnection(typeOfInfrastructure type, string sourceName, string destinationName, double distance)
 {
     Country *country = getCountryFromArea(sourceName);
@@ -392,7 +471,6 @@ void WarPhase::addConnection(typeOfInfrastructure type, string sourceName, strin
     }
 }
 
-// TODO: change HP values
 void WarPhase::addInfrastructure(typeOfInfrastructure type, string areaName)
 {
     Country *country = getCountryFromArea(areaName);
@@ -673,20 +751,6 @@ void WarPhase::addVehicles(string areaName, vehicleType vehicleType)
             cout << "There is no factory in " << areaName << " to create a aircraft vehicle" << endl;
         }
     }
-}
-
-int WarPhase::getUnlistedCitizens(string countryName)
-{
-    int n = 0;
-    Country *country = getCountry(countryName);
-    if (country != nullptr)
-    {
-        Citizens **citizens = country->getCitizens();
-        if (citizens != nullptr)
-        {
-        }
-    }
-    return n;
 }
 
 void WarPhase::printCountryStatus(string countryName)
@@ -1358,46 +1422,147 @@ void WarPhase::distributeTroopsAndVehicles(string countryName)
         list<Troops *> troops = country->getWarEntities()->getTroops();
         list<Vehicles *> vehicles = country->getWarEntities()->getVehicles();
         list<Area *> areas = country->getAreas();
-        while (!troops.empty() || !vehicles.empty())
+
+        if (!areas.empty() && (!vehicles.empty() || !troops.empty()))
         {
+            list<Area *> areasWithHarbours;
+            list<Area *> areasWithRunways;
             for (auto a : areas)
             {
-                if (!troops.empty())
+                if (!getInfrastructureInArea(a, ::iHarbour).empty())
                 {
-                    Troops *troop = troops.front();
-                    if (troop->getKind() == ::tNavy && !getInfrastructureInArea(a, ::iHarbour).empty())
+                    areasWithHarbours.push_back(a);
+                }
+                else if (!getInfrastructureInArea(a, ::iRunway).empty())
+                {
+                    areasWithRunways.push_back(a);
+                }
+            }
+
+            if (!troops.empty())
+            {
+                list<Troops *> navyTroops;
+                list<Troops *> airforceTroops;
+                for (auto t : troops)
+                {
+                    if (t->getKind() == ::tNavy)
                     {
-                        troops.remove(troops.front());
-                        troop->setLocation(a);
+                        navyTroops.push_back(t);
+                        troops.remove(t);
                     }
-                    else if (troop->getKind() == ::tAirforce && !getInfrastructureInArea(a, ::iRunway).empty())
+                    else if (t->getKind() == ::tAirforce)
                     {
-                        troops.remove(troops.front());
-                        troop->setLocation(a);
-                    }
-                    else if (troop->getKind() == ::tGroundTroops)
-                    {
-                        troops.remove(troops.front());
-                        troop->setLocation(a);
+                        airforceTroops.push_back(t);
+                        troops.remove(t);
                     }
                 }
-                if (!vehicles.empty())
+
+                if (!areasWithHarbours.empty())
                 {
-                    Vehicles *vehicle = vehicles.front();
-                    if (vehicle->getType() == ::aquaticVehicle && !getInfrastructureInArea(a, ::iHarbour).empty())
+                    while (!navyTroops.empty())
                     {
-                        vehicles.remove(vehicle);
-                        vehicle->changeLocation(a);
+                        for (auto a : areasWithHarbours)
+                        {
+                            if (!navyTroops.empty())
+                            {
+                                Troops *t = navyTroops.front();
+                                navyTroops.pop_front();
+                                t->setLocation(a);
+                            }
+                        }
                     }
-                    else if (vehicle->getType() == ::aircraftVehicle && !getInfrastructureInArea(a, ::iRunway).empty())
+                }
+
+                if (!areasWithRunways.empty())
+                {
+                    while (!airforceTroops.empty())
                     {
-                        vehicles.remove(vehicle);
-                        vehicle->changeLocation(a);
+                        for (auto a : areasWithRunways)
+                        {
+                            if (!airforceTroops.empty())
+                            {
+                                Troops *t = airforceTroops.front();
+                                airforceTroops.pop_front();
+                                t->setLocation(a);
+                            }
+                        }
                     }
-                    else if (vehicle->getType() == ::landVehicle)
+                }
+
+                while (!troops.empty())
+                {
+                    for (auto a : areas)
                     {
-                        vehicles.remove(vehicle);
-                        vehicle->changeLocation(a);
+                        if (!troops.empty())
+                        {
+                            Troops *t = troops.front();
+                            troops.pop_front();
+                            t->setLocation(a);
+                        }
+                    }
+                }
+            }
+
+            if (!vehicles.empty())
+            {
+                list<Vehicles *> aquaticVehicles;
+                list<Vehicles *> aircraftVehicle;
+                for (auto v : vehicles)
+                {
+                    if (v->getType() == ::aquaticVehicle)
+                    {
+                        aquaticVehicles.push_back(v);
+                        vehicles.push_back(v);
+                    }
+                    else if (v->getType() == ::aircraftVehicle)
+                    {
+                        aircraftVehicle.push_back(v);
+                        vehicles.push_back(v);
+                    }
+                }
+
+                if (!areasWithHarbours.empty())
+                {
+                    while (!aquaticVehicles.empty())
+                    {
+                        for (auto a : areasWithHarbours)
+                        {
+                            if (!aquaticVehicles.empty())
+                            {
+                                Vehicles *t = aquaticVehicles.front();
+                                aquaticVehicles.pop_front();
+                                t->changeLocation(a);
+                            }
+                        }
+                    }
+                }
+
+                if (!areasWithRunways.empty())
+                {
+                    while (!aircraftVehicle.empty())
+                    {
+                        for (auto a : areasWithRunways)
+                        {
+                            if (!aircraftVehicle.empty())
+                            {
+                                Vehicles *t = aircraftVehicle.front();
+                                aircraftVehicle.pop_front();
+                                t->changeLocation(a);
+                            }
+                        }
+                    }
+                }
+
+                while (!vehicles.empty())
+                {
+                    for (auto a : areas)
+                    {
+                        if (!vehicles.empty())
+                        {
+                            Troops *t = troops.front();
+                            troops.pop_front();
+                            t->setLocation(a);
+                        }
                     }
                 }
             }
@@ -1419,87 +1584,47 @@ void WarPhase::upgradeVehiclesInArea(vehicleType type, string areaName)
 {
     Country *country = getCountryFromArea(areaName);
     Area *area = getArea(areaName);
-    if (country == nullptr)
+    if (area != nullptr && country != nullptr)
     {
-        cout << "The location was not found" << endl;
-        return;
-    }
-    list<Infrastructure *> facility;
-    list<Vehicles *> vehicles;
-    if (type == ::landVehicle)
-    {
-        facility = getInfrastructureInArea(getArea(areaName), ::iLandDevelopment);
-        vehicles = getVehiclesInArea(area, country);
-        if (!facility.empty())
+        ResearchAndDevelopmentCentre *facility;
+        if (type == ::landVehicle)
         {
-            if (!vehicles.empty())
-            {
-                LandVehicleDevelopment *fac = (LandVehicleDevelopment *)facility.front();
-                for (auto v : vehicles)
-                {
-                    fac->addToList(v);
-                    fac->startDeveloping();
-                }
-            }
-            else
-            {
-                cout << "There is no vehicles in " << areaName << " to upgrade " << endl;
-            }
+            facility = (ResearchAndDevelopmentCentre *)getInfrastructureInArea(getArea(areaName), ::iLandDevelopment).front();
         }
-        else
+        else if (type == ::aircraftVehicle)
         {
-            cout << "There is no research facility in " << areaName << " to upgrade a land vehicle" << endl;
+            facility = (ResearchAndDevelopmentCentre *)getInfrastructureInArea(getArea(areaName), ::iAircraftDevelopment).front();
         }
-    }
-    else if (type == ::aquaticVehicle)
-    {
-        facility = getInfrastructureInArea(getArea(areaName), ::iAquaticDevelopment);
-        vehicles = getVehiclesInArea(area, country);
-        if (!facility.empty())
+        else if (type == ::aquaticVehicle)
         {
-            if (!vehicles.empty())
-            {
-                AquaticVehicleDevelopment *fac = (AquaticVehicleDevelopment *)facility.front();
-                for (auto v : vehicles)
-                {
-                    fac->addToList(v);
-                    fac->startDeveloping();
-                }
-            }
-            else
-            {
-                cout << "There is no vehicles in " << areaName << " to upgrade " << endl;
-            }
+            facility = (ResearchAndDevelopmentCentre *)getInfrastructureInArea(getArea(areaName), ::iAquaticDevelopment).front();
         }
-        else
+        list<Vehicles *> vehicles = getVehiclesInArea(area, country);
+        if (!vehicles.empty() && facility != nullptr)
         {
-            cout << "There is no research facility in " << areaName << " to upgrade an aquatic vehicle" << endl;
-        }
-    }
 
-    else if (type == ::aircraftVehicle)
-    {
-        facility = getInfrastructureInArea(getArea(areaName), ::iAircraftDevelopment);
-        vehicles = getVehiclesInArea(area, country);
-        if (!facility.empty())
-        {
-            if (!vehicles.empty())
+            for (auto v : vehicles)
             {
-                AircraftDevelopment *fac = (AircraftDevelopment *)facility.front();
-                for (auto v : vehicles)
+                if (v->getType() == type)
                 {
-                    fac->addToList(v);
-                    fac->startDeveloping();
+                    cout << "Before Upgrade: Vehicle Hp: " << v->getHP() << "  Damage: " << v->getDamage() << endl;
+                    facility->addToList(v);
+                    facility->startDeveloping();
+                    facility->stopDeveloping();
+                    cout << "After Upgrade: Vehicle Hp: " << v->getHP() << "  Damage: " << v->getDamage() << endl;
                 }
-            }
-            else
-            {
-                cout << "There is no vehicles in " << areaName << " to upgrade " << endl;
             }
         }
         else
         {
-            cout << "There is no research facility in " << areaName << " to upgrade a aircraft vehicle" << endl;
+            if (vehicles.empty())
+            {
+                cout << "There is no vehicles in " << areaName << " to upgrade " << endl;
+            }
+            else
+            {
+                cout << "There is no research facility in " << areaName << " to upgrade a aircraft vehicle" << endl;
+            }
         }
     }
 }

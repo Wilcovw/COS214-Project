@@ -34,7 +34,7 @@ public:
      *
      * @param relationship The relationship to copy
      */
-    Relationship(Relationship &relationship, Communication *comm);
+    Relationship(Relationship &relationship, Communication *comm, AssociatedCountries *parent);
     /**
      * @brief Get the Relationship Type object
      *
@@ -101,6 +101,6 @@ public:
      * @param comm The comunication object used between all countries
      * @return AssociatedCountries* - The cloned copy of the AssociatedCountries object
      */
-    virtual AssociatedCountries *clone(Communication *comm);
+    virtual AssociatedCountries *clone(Communication *comm, AssociatedCountries *parent);
 };
 #endif
