@@ -113,7 +113,7 @@ public:
      * @brief returns a clone of this class
      * @return Troops* - this
      */
-    Troops *clone();
+    Troops *clone(Area* newArea);
     /**
      * @brief returns class' associatedCitizens
      * @return Citizens* - associatedCitizens

@@ -37,12 +37,18 @@ WarPhase::WarPhase()
 
 WarPhase::~WarPhase()
 {
-    for (auto c : allCountries)
-    {
-        delete c;
+    if(!allCountries.empty()) {
+        for (auto c : allCountries)
+        {
+            delete c;
+        }
     }
-    delete map;
-    delete communication;
+    if(map != nullptr) {
+        delete map;
+    }
+    if(communication != nullptr) {
+        delete communication;
+    }
 }
 
 WarPhase *WarPhase::clone()
@@ -102,7 +108,11 @@ void WarPhase::reverseWarPhase(Memento *memento)
 {
     WarPhase *oldPhase = memento->warphase;
     allCountries = oldPhase->allCountries;
+    list<Country*> temp;    
+    oldPhase->allCountries = temp;
     allRelationships = oldPhase->allRelationships;
+    list<Relationship*> temp2; 
+    oldPhase->allRelationships = temp2;
     map = oldPhase->map;
 }
 
@@ -449,7 +459,7 @@ void WarPhase::addConnection(typeOfInfrastructure type, string sourceName, strin
             Harbour *theOtherHarbour;
             if (getInfrastructureInArea(getArea(sourceName), type).empty())
             {
-                theHarbour = new Harbour(getArea(sourceName), 70);
+                theHarbour = new Harbour(getArea(sourceName), 100);
                 country->getWarEntities()->addInfrastructure(theHarbour);
             }
             else
@@ -458,7 +468,7 @@ void WarPhase::addConnection(typeOfInfrastructure type, string sourceName, strin
             }
             if (getInfrastructureInArea(getArea(destinationName), type).empty())
             {
-                theOtherHarbour = new Harbour(getArea(destinationName), 50);
+                theOtherHarbour = new Harbour(getArea(destinationName), 100);
                 destination->getWarEntities()->addInfrastructure(theOtherHarbour);
             }
             else
@@ -473,7 +483,7 @@ void WarPhase::addConnection(typeOfInfrastructure type, string sourceName, strin
             Runway *theOtherRunway;
             if (getInfrastructureInArea(getArea(sourceName), type).empty())
             {
-                theRunway = new Runway(getArea(sourceName), 3);
+                theRunway = new Runway(getArea(sourceName), 100);
                 country->getWarEntities()->addInfrastructure(theRunway);
             }
             else
@@ -482,7 +492,7 @@ void WarPhase::addConnection(typeOfInfrastructure type, string sourceName, strin
             }
             if (getInfrastructureInArea(getArea(destinationName), type).empty())
             {
-                theOtherRunway = new Runway(getArea(destinationName), 3);
+                theOtherRunway = new Runway(getArea(destinationName), 100);
                 destination->getWarEntities()->addInfrastructure(theOtherRunway);
             }
             else
@@ -1174,8 +1184,8 @@ void WarPhase::printAreaStatus(string areaName)
 
         cout << "Number of roads/harbours/runways under " << country->getName() << "'s control: " << endl;
         cout << "Number of roads: \t\t\t\t" << roads << endl;
-        cout << "Number of harbours: \t\t\t\t" << harbours << endl;
-        cout << "Number of runways: \t\t\t\t" << runways << endl;
+        cout << "Number of harbour connections: \t\t\t" << harbours << endl;
+        cout << "Number of runway connections: \t\t\t" << runways << endl;
 
         cout << "Number of research and development centres: " << endl;
         cout << "Number of land research centres: \t\t" << landDevelopments << endl;
@@ -1490,7 +1500,6 @@ void WarPhase::distributeTroopsAndVehicles(string countryName)
                     areasWithRunways.push_back(a);
                 }
             }
-
             if (!troops.empty())
             {
                 list<Troops *> navyTroops;

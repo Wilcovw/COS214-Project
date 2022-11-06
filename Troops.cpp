@@ -103,7 +103,7 @@ void Troops::setLocation(Area *theLocation)
     location = theLocation;
 }
 
-Troops *Troops::clone()
+Troops *Troops::clone(Area* newArea)
 {
     Citizens *citizens = new Citizens();
     if (associatedCitizens->getStatus() == "Enlisted")
@@ -123,45 +123,45 @@ Troops *Troops::clone()
     {
         if (kind == ::tNavy)
         {
-            clonedTroop = new Navy(this->location, new Generals(), citizens);
+            clonedTroop = new Navy(newArea, new Generals(), citizens);
         }
         else if (kind == ::tGroundTroops)
         {
-            clonedTroop = new GroundTroops(this->location, new Generals(), citizens);
+            clonedTroop = new GroundTroops(newArea, new Generals(), citizens);
         }
         else if (kind == ::tAirforce)
         {
-            clonedTroop = new Airforce(this->location, new Generals(), citizens);
+            clonedTroop = new Airforce(newArea, new Generals(), citizens);
         }
     }
     else if (type->getType() == ::theSpecialForces)
     {
         if (kind == ::tNavy)
         {
-            clonedTroop = new Navy(this->location, new SpecialForces(), citizens);
+            clonedTroop = new Navy(newArea, new SpecialForces(), citizens);
         }
         else if (kind == ::tGroundTroops)
         {
-            clonedTroop = new GroundTroops(this->location, new SpecialForces(), citizens);
+            clonedTroop = new GroundTroops(newArea, new SpecialForces(), citizens);
         }
         else if (kind == ::tAirforce)
         {
-            clonedTroop = new Airforce(this->location, new SpecialForces(), citizens);
+            clonedTroop = new Airforce(newArea, new SpecialForces(), citizens);
         }
     }
     else if (type->getType() == ::theSoldiers)
     {
         if (kind == ::tNavy)
         {
-            clonedTroop = new Navy(this->location, new Soldiers(), citizens);
+            clonedTroop = new Navy(newArea, new Soldiers(), citizens);
         }
         else if (kind == ::tGroundTroops)
         {
-            clonedTroop = new GroundTroops(this->location, new Soldiers(), citizens);
+            clonedTroop = new GroundTroops(newArea, new Soldiers(), citizens);
         }
         else if (kind == ::tAirforce)
         {
-            clonedTroop = new Airforce(this->location, new Soldiers(), citizens);
+            clonedTroop = new Airforce(newArea, new Soldiers(), citizens);
         }
     }
     return clonedTroop;

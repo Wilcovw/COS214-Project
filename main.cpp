@@ -666,31 +666,6 @@ void populate(WarEngine *game)
     game->getPhase()->distributeTroopsAndVehicles(Netherlands);
     game->getPhase()->distributeTroopsAndVehicles(Germany);
     game->getPhase()->distributeTroopsAndVehicles(Denmark);
-
-    // game->newWarPhase();
-    // game->getPhase()->getAreasInRelationship(Red);
-    // game->reverseWarPhase();
-    // game->getPhase()->getAreasInRelationship(Red);
-    // cout << endl;
-    // cout << endl;
-    // cout << endl;
-    // game->newWarPhase();
-    // game->getPhase()->printAreaStatus(Paris);
-    // game->getPhase()->distributeTroopsAndVehicles(France);
-    // game->getPhase()->printAreaStatus(Paris);
-    // game->reverseWarPhase();
-    // game->getPhase()->printAreaStatus(Paris);
-    // game->getPhase()->distributeTroopsAndVehicles(France);
-    // game->getPhase()->printAreaStatus(Paris);
-    // cout << endl;
-    // cout << endl;
-    // cout << endl;
-    // game->newWarPhase();
-    // game->getPhase()->printCountryStatus(Germany, true);
-    // game->getPhase()->addArea("TestArea1", Germany);
-    // game->getPhase()->addArea("TestArea2", Germany);
-    // game->reverseWarPhase();
-    // game->getPhase()->printCountryStatus(Germany, true);
 }
 
 // Create a memento an the current phase and then create and store a new phase in WarEngine

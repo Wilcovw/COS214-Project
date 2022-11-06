@@ -28,7 +28,6 @@ void WarEngine::newWarPhase()
 
 void WarEngine::reverseWarPhase()
 {
-    delete phase;
     phase->reverseWarPhase(history->getLastMemento());
 }
 

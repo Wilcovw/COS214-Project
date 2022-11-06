@@ -75,13 +75,13 @@ public:
      *
      * @return a clone of the current vehicle
      */
-    Vehicles *clone();
+    Vehicles *clone(Area* newArea);
     /**
      *
      * @param n
      * @return an array of size n, which is how many clones should be made
      */
-    Vehicles **clone(int n);
+    Vehicles **clone(int n, Area* newArea);
     /**
      * @brief method that changes the location of the vehicle to a passed in area
      * @param area
