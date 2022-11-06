@@ -10,47 +10,47 @@ class Status; // forward declaration
 class Citizens
 {
 private:
-    Status *status;
-    Command *toggleCommand;
+	Status *status;
+	Command *toggleCommand;
 
 public:
 	/**
 	 * @brief Construct a new Citizens object
-	 * 
+	 *
 	 */
-    Citizens();
+	Citizens();
 	/**
 	 * @brief Destroy the Citizens object
-	 * 
+	 *
 	 */
-    ~Citizens();
+	~Citizens();
 	/**
 	 * @brief Changes the Status of the current Citizen
-	 * 
+	 *
 	 */
-    void changeStatus();
+	void changeStatus();
 	/**
 	 * @brief Set the Status object
-	 * 
+	 *
 	 * @param status The new status
 	 */
-    void setStatus(Status *status);
+	void setStatus(Status *status);
 	/**
 	 * @brief Returns the status description
-	 * 
-	 * @return string 
+	 *
+	 * @return string
 	 */
-    string getStatus();
+	string getStatus();
 	/**
 	 * @brief Kills the current Citizen
-	 * 
+	 *
 	 */
-    void die();
+	void die();
 	/**
-	 * @brief 
-	 * 
+	 * @brief calls a revolution in the country
+	 *
 	 */
-    void toggleRevolution();
-    Citizens *clone();
+	void toggleRevolution(Country *country);
+	Citizens *clone();
 };
 #endif

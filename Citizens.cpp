@@ -36,22 +36,22 @@ void Citizens::die()
     status->die(this);
 }
 
-void Citizens::toggleRevolution()
+void Citizens::toggleRevolution(Country *country)
 {
     if (this->getStatus() == "Unlisted")
     {
-        this->toggleCommand->execute();
+        this->toggleCommand->execute(country);
     }
     else
     {
         if (this->toggleCommand->isActive())
         {
-            this->toggleCommand->execute();
+            this->toggleCommand->execute(country);
         }
         else
         {
             this->setStatus(new Unlisted());
-            this->toggleCommand->execute();
+            this->toggleCommand->execute(country);
         }
     }
 }

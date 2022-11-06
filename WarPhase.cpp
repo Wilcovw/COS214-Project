@@ -293,7 +293,7 @@ list<Area *> WarPhase::getTravelPath(Troops *troops, Area *destination)
 
 double WarPhase::getTravelDistance(Vehicles *vehicle, Area *destination)
 {
-    double distance = -1;
+    double distance = 10000;
     if (vehicle != nullptr)
     {
         Area *source = vehicle->getLocation();
@@ -326,7 +326,7 @@ double WarPhase::getTravelDistance(Vehicles *vehicle, Area *destination)
 
 double WarPhase::getTravelDistance(Troops *troops, Area *destination)
 {
-    double distance = -1;
+    double distance = 10000;
     if (troops != nullptr)
     {
         if (destination != nullptr)
@@ -409,10 +409,8 @@ void WarPhase::moveTroops(Area *destination, Country *country, int maxDistance)
             {
                 for (auto t : troops)
                 {
-
                     if (t->getKind() == ::tNavy)
                     {
-
                         if (!getInfrastructureInArea(destination, ::iHarbour).empty() && getTravelDistance(t, destination) <= maxDistance)
                         {
                             t->setLocation(destination);
@@ -782,8 +780,10 @@ void WarPhase::printCountryStatus(string countryName, bool displayInfrastructure
     if (country != nullptr)
     {
         cout << "-----------------------------------------------------------" << endl;
-        cout << countryName << " Status Report: " << endl;
-        cout << country->getParent()->print() << endl;
+        cout << countryName << "\nStatus Report: " << endl;
+        string out = country->getParent()->print();
+        out.erase(std::remove(out.begin(), out.end(), '\n'), out.cend());
+        cout << out << endl;
 
         cout << country->printAreas();
         int unlisted = 0;
@@ -988,7 +988,7 @@ void WarPhase::printCountryStatus(string countryName, bool displayInfrastructure
     }
 }
 
-void WarPhase::printAreaStatus(string areaName)
+void WarPhase::printAreaStatus(string areaName, bool displayInfrastructure)
 {
     Area *area = getArea(areaName);
     Country *country = getCountryFromArea(areaName);
@@ -1095,114 +1095,115 @@ void WarPhase::printAreaStatus(string areaName)
         cout << "Land vehicles: \t\t\t" << landVehicles << endl;
         cout << "Navy vehicles: \t\t\t" << navyVehicles << endl;
         cout << "Air Force vehicles: \t\t" << airForceVehicles << endl;
-        int roads = 0;
-        int harbours = 0;
-        int runways = 0;
-        int landDevelopments = 0;
-        int navyDevelopments = 0;
-        int airForceDevelopments = 0;
-        int landFactory = 0;
-        int navyFactory = 0;
-        int airForceFactory = 0;
-        int landCamps = 0;
-        int navyCamps = 0;
-        int airForceCamps = 0;
-        for (auto i : country->getWarEntities()->getInfrastructure())
+        if (displayInfrastructure)
         {
-            if (i->getArea() == area)
+            int roads = 0;
+            int harbours = 0;
+            int runways = 0;
+            int landDevelopments = 0;
+            int navyDevelopments = 0;
+            int airForceDevelopments = 0;
+            int landFactory = 0;
+            int navyFactory = 0;
+            int airForceFactory = 0;
+            int landCamps = 0;
+            int navyCamps = 0;
+            int airForceCamps = 0;
+            for (auto i : country->getWarEntities()->getInfrastructure())
             {
-                if (i->getType() == ::iLandDevelopment)
+                if (i->getArea() == area)
                 {
-                    landDevelopments++;
-                }
-                else if (i->getType() == ::iAquaticDevelopment)
-                {
-                    navyDevelopments++;
-                }
-                else if (i->getType() == ::iAircraftDevelopment)
-                {
-                    airForceDevelopments++;
-                }
-                else if (i->getType() == ::iLandFactory)
-                {
-                    landFactory++;
-                }
-                else if (i->getType() == ::iAquaticFactory)
-                {
-                    navyFactory++;
-                }
-                else if (i->getType() == ::iAircraftFactory)
-                {
-                    airForceFactory++;
-                }
-                else if (i->getType() == ::iGroundCamp)
-                {
-                    landCamps++;
-                }
-                else if (i->getType() == ::iNavyCamp)
-                {
-                    navyCamps++;
-                }
-                else if (i->getType() == ::iAirforceCamp)
-                {
-                    airForceCamps++;
+                    if (i->getType() == ::iLandDevelopment)
+                    {
+                        landDevelopments++;
+                    }
+                    else if (i->getType() == ::iAquaticDevelopment)
+                    {
+                        navyDevelopments++;
+                    }
+                    else if (i->getType() == ::iAircraftDevelopment)
+                    {
+                        airForceDevelopments++;
+                    }
+                    else if (i->getType() == ::iLandFactory)
+                    {
+                        landFactory++;
+                    }
+                    else if (i->getType() == ::iAquaticFactory)
+                    {
+                        navyFactory++;
+                    }
+                    else if (i->getType() == ::iAircraftFactory)
+                    {
+                        airForceFactory++;
+                    }
+                    else if (i->getType() == ::iGroundCamp)
+                    {
+                        landCamps++;
+                    }
+                    else if (i->getType() == ::iNavyCamp)
+                    {
+                        navyCamps++;
+                    }
+                    else if (i->getType() == ::iAirforceCamp)
+                    {
+                        airForceCamps++;
+                    }
                 }
             }
-        }
 
-        list<Edge *> edges = area->getEdges();
-        if (!edges.empty())
-        {
-            for (auto e : edges)
+            list<Edge *> edges = area->getEdges();
+            if (!edges.empty())
             {
-                if (e->getType() == "Road")
+                for (auto e : edges)
                 {
-                    roads++;
-                }
-                else if (e->getType() == "Harbour")
-                {
-                    harbours++;
-                }
-                else if (e->getType() == "Runway")
-                {
-                    runways++;
+                    if (e->getType() == "Road")
+                    {
+                        roads++;
+                    }
+                    else if (e->getType() == "Harbour")
+                    {
+                        harbours++;
+                    }
+                    else if (e->getType() == "Runway")
+                    {
+                        runways++;
+                    }
                 }
             }
+
+            cout << "\nInfrastructure: " << endl;
+
+            cout << "Number of roads/harbours/runways under " << country->getName() << "'s control: " << endl;
+            cout << "Number of roads: \t\t\t\t" << roads << endl;
+            cout << "Number of harbours: \t\t\t\t" << harbours << endl;
+            cout << "Number of runways: \t\t\t\t" << runways << endl;
+
+            cout << "Number of research and development centres: " << endl;
+            cout << "Number of land research centres: \t\t" << landDevelopments << endl;
+            cout << "Number of navy research centres: \t\t" << navyDevelopments << endl;
+            cout << "Number of air force research centres: \t\t" << airForceDevelopments << endl;
+
+            cout << "Number of vehicle factories: " << endl;
+            cout << "Number of land vehicle factories: \t\t" << landFactory << endl;
+            cout << "Number of navy vehicle factories: \t\t" << navyFactory << endl;
+            cout << "Number of air force vehicle factories: \t\t" << airForceFactory << endl;
+
+            cout << "Number of troop training camps: " << endl;
+            cout << "Number of land troop training camps: \t\t" << landCamps << endl;
+            cout << "Number of navy troop training camps: \t\t" << navyCamps << endl;
+            cout << "Number of air force troop training camps: \t" << airForceCamps << endl;
         }
-
-        cout << "\nInfrastructure: " << endl;
-
-        cout << "Number of roads/harbours/runways under " << country->getName() << "'s control: " << endl;
-        cout << "Number of roads: \t\t\t\t" << roads << endl;
-        cout << "Number of harbours: \t\t\t\t" << harbours << endl;
-        cout << "Number of runways: \t\t\t\t" << runways << endl;
-
-        cout << "Number of research and development centres: " << endl;
-        cout << "Number of land research centres: \t\t" << landDevelopments << endl;
-        cout << "Number of navy research centres: \t\t" << navyDevelopments << endl;
-        cout << "Number of air force research centres: \t\t" << airForceDevelopments << endl;
-
-        cout << "Number of vehicle factories: " << endl;
-        cout << "Number of land vehicle factories: \t\t" << landFactory << endl;
-        cout << "Number of navy vehicle factories: \t\t" << navyFactory << endl;
-        cout << "Number of air force vehicle factories: \t\t" << airForceFactory << endl;
-
-        cout << "Number of troop training camps: " << endl;
-        cout << "Number of land troop training camps: \t\t" << landCamps << endl;
-        cout << "Number of navy troop training camps: \t\t" << navyCamps << endl;
-        cout << "Number of air force troop training camps: \t" << airForceCamps << endl;
-
         cout << "-----------------------------------------------------------" << endl;
     }
 }
 
-// TODO: change distance value
-void WarPhase::attackArea(string areaName, string countryName)
+bool WarPhase::attackArea(string areaName, string countryName)
 {
+    bool successfulAttack = false;
     Country *country = getCountry(countryName);
     if (country != nullptr)
     {
-
         Area *area = getArea(areaName);
         if (area != nullptr)
         {
@@ -1246,12 +1247,12 @@ void WarPhase::attackArea(string areaName, string countryName)
                     list<Troops *> enemyTroops;
                     for (auto c : enemy->getAllies())
                     {
-                        moveVehicles(areaName, c->getName());
+                        moveVehicles(area, c, 500);
                         for (auto v : getVehiclesInArea(area, c))
                         {
                             enemyVehicles.push_back(v);
                         }
-                        moveTroops(areaName, c->getName());
+                        moveTroops(area, c, 250);
                         for (auto t : getTroopsInArea(area, c))
                         {
                             enemyTroops.push_back(t);
@@ -1404,12 +1405,12 @@ void WarPhase::attackArea(string areaName, string countryName)
                         {
                             distributeTroopsAndVehicles(c->getName());
                         }
-
-                        cout << "Area: " << areaName << " was successfully overthrown by " << countryName << endl;
+                        successfulAttack = true;
+                        cout << areaName << " was overthrown by " << countryName << endl;
 
                         if (enemy->getAreas().empty())
                         {
-                            cout << enemy->getName() << " has no more Areas to control and has successfully been defeated" << endl;
+                            cout << enemy->getName() << " has no more Areas to control and has been defeated" << endl;
                             bool isThere = false;
 
                             allCountries.remove(enemy);
@@ -1450,12 +1451,12 @@ void WarPhase::attackArea(string areaName, string countryName)
                                 t->getAssociatedCitizen()->setStatus(new Stationed());
                             }
                         }
-                        cout << "The defending side managed to handle the attack" << endl;
+                        cout << "The defending side, " << enemy->getName() << ", managed to handle the attack on " << areaName << endl;
                     }
                 }
                 else
                 {
-                    cout << "The area is not accessible through safe land, try attacking another area" << endl;
+                    cout << areaName << " is not accessible through safe land, try attacking another area" << endl;
                 }
             }
             else
@@ -1464,6 +1465,7 @@ void WarPhase::attackArea(string areaName, string countryName)
             }
         }
     }
+    return successfulAttack;
 }
 
 void WarPhase::distributeTroopsAndVehicles(string countryName)
@@ -1474,7 +1476,6 @@ void WarPhase::distributeTroopsAndVehicles(string countryName)
         list<Troops *> troops = country->getWarEntities()->getTroops();
         list<Vehicles *> vehicles = country->getWarEntities()->getVehicles();
         list<Area *> areas = country->getAreas();
-
         if (!areas.empty() && (!vehicles.empty() || !troops.empty()))
         {
             list<Area *> areasWithHarbours;
@@ -1692,37 +1693,75 @@ void WarPhase::upgradeVehiclesInArea(vehicleType type, string areaName)
     }
 }
 
-list<string> WarPhase::getAreasInRelationship(string relationshipName)
+list<string> WarPhase::getAttackableAreasInCountry(string defendingCountryName, string attackingCountryName)
 {
     list<string> areas;
-    Relationship *relationship = getRelationship(relationshipName);
+    Country *defending = this->getCountry(defendingCountryName);
+    Country *attacking = this->getCountry(attackingCountryName);
 
-    if (relationship != nullptr)
+    if (defending != nullptr && attacking != nullptr)
     {
-        list<AssociatedCountries *> countries = relationship->getRelationships();
-        if (!countries.empty())
+        for (auto aArea : attacking->getAreas())
         {
-            for (auto c : countries)
+            for (auto dArea : defending->getAreas())
             {
-                Country *newC = (Country *)c;
-                list<Area *> allAlreas = newC->getAreas();
-                if (!allAlreas.empty())
+                if (map->isAccessible(aArea, dArea, "Road"))
                 {
-                    for (auto a : allAlreas)
-                    {
-                        areas.push_back(a->getName());
-                    }
+                    areas.push_back(dArea->getName());
                 }
             }
         }
+        areas.sort();
+        areas.unique();
     }
-
     return areas;
 }
 
 void WarPhase::revolt(string countryName)
 {
-    return;
+    Country *country = getCountry(countryName);
+    if (country != nullptr)
+    {
+        list<Troops *> troops = country->getWarEntities()->getTroops();
+        if (!troops.empty())
+        {
+            Citizens *c = nullptr;
+            int x = 0;
+            for (auto t : troops)
+            {
+                if (x < 10)
+                {
+                    c = t->getAssociatedCitizen();
+                    c->setStatus(new Unlisted());
+                    t->releaseAssociatedCitizen();
+                    delete t;
+                }
+                else
+                {
+                    break;
+                }
+                x++;
+            }
+            if (c != nullptr)
+            {
+                c->toggleRevolution(country);
+                cout << "You lost a few troops as they were trying to keep you citizens in control" << endl;
+                c->toggleRevolution(country);
+            }
+        }
+    }
+}
+list<string> WarPhase::getCountryEnemies(string countryName)
+{
+    list<string> enemyNames;
+    if (getCountry(countryName) != nullptr && !getCountry(countryName)->getEnemies().empty())
+    {
+        for (auto c : getCountry(countryName)->getEnemies())
+        {
+            enemyNames.push_back(c->getName());
+        }
+    }
+    return enemyNames;
 }
 
 #endif

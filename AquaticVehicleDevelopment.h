@@ -24,7 +24,7 @@ public:
 	 *
 	 * @return Infrastructure*
 	 */
-	Infrastructure *clone();
+	virtual Infrastructure *clone(Area *newArea);
 };
 
 #endif // FACTORY_AND_OBSERVER_AQUATICVEHICLEDEVELOPMENT_H
