@@ -1,784 +1,478 @@
+#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "WarEngine.h"
+#include "WarMap.h"
+#include "Factory.h"
+#include "AircraftFactory.h"
+#include "AquaticVehicleFactory.h"
+#include "LandVehicleFactory.h"
+#include "AquaticVehicles.h"
+#include "LandVehicles.h"
+#include "Aircraft.h"
+#include "Country.h"
+#include "Troops.h"
+#include "GroundTroops.h"
+#include "Navy.h"
+#include "Airforce.h"
+#include "Soldiers.h"
+#include "Citizens.h"
+#include "Status.h"
+#include "Stationed.h"
+#include "Dead.h"
+#include "AreaIterator.h"
+#include "ResearchAndDevelopmentCentre.h"
+#include "LandVehicleDevelopment.h"
+#include "doctest.h"
+#include <algorithm>
 #include <iostream>
+#include <list>
 using namespace std;
 
-void next()
-{
-    std::cout << "Press enter to continue...";
-    std::cin.get();
-    std::cout << "\n";
-}
+void isAccessible(Area *a1, Area *a2, WarMap *graph);
+void isAccessible(Area *a1, Area *a2, WarMap *graph, string type);
+WarMap *graph = nullptr;
+WarEngine *game = nullptr;
+// Countries
+string UK = "United Kingdom";
+string Ireland = "Ireland";
+string France = "France";
+string Germany = "Germany";
+string Netherlands = "Netherlands";
+string Denmark = "Denmark";
+string Belgium = "Belgium";
 
-void testMemento(){
-    /* Communication *c;
-     WarMap *map = new WarMap();
-     vector<Country *> countrygroup;
-     Country *america = new Country(America, c, 20);
-     Country *columbia = new Country("Columbia", c, 25);
-     countrygroup.push_back(america);
-     countrygroup.push_back(columbia);
+// Populate areas of UK
+string Scotland = "Scotland";
+string London = "London";
+string NorthernIreland = "Northern Ireland";
+string Wales = "Wales";
 
-     vector<Area *> areas;
-     areas.push_back(new Area("Caeser's Palace", america));
+// Populate areas of Ireland
+string Dublin = "Dublin";
+string Cork = "Cork";
+string Limerick = "Limerick";
+string Galway = "Galway";
 
+// Populate areas of France
+string Paris = "Paris";
+string Nantes = "Nantes";
+string Toulouse = "Toulouse";
+string Marseille = "Marseille";
+string Lille = "Lille";
+string Strasbourg = "Strasbourg";
+string Lyon = "Lyon";
 
-
-     WarHistory *history = new WarHistory();
-
-     WarEngine *engine = new WarEngine(countrygroup, areas, *map);
-     engine->addCountry(new Country("Sri Lanka", c, 30));
-     engine->addArea(new Area("Escobar's Palace", columbia));
-
-     cout << "-----Before Change-----" << endl;
-
-     cout << "--Countries:--" << endl;
-     for (int i = 0; i < engine->getCountryGroup().size(); i++)
-     {
-         cout << engine->getCountryGroup().at(i)->getName() << endl;
-     }
-     cout << "--Areas:--" << endl;
-     for (int i = 0; i < engine->getWarTheatreGraph().size(); i++)
-     {
-         cout << engine->getWarTheatreGraph().at(i)->getName() << endl;
-     }
-
-     // Saving Current Snapshot
-     history->storeMemento(engine->createMemento());
-
-     Country *peru = new Country("peru", c, 15);
-     columbia = peru;
-
-     engine->removeCountryAt(0);
-     engine->removeAreaAt(0);
-     engine->removeAreaAt(0);
-
-     vector<Area *> newAreas;
-     newAreas.push_back(new Area("Paris", america));
-     newAreas.push_back(new Area("Paris", america));
-
-     engine->setWarTheatreGraph(newAreas);
-
-     cout << "-----After Changes-----" << endl;
-     cout << "--Countries:--" << endl;
-     for (int i = 0; i < engine->getCountryGroup().size(); i++)
-     {
-         cout << engine->getCountryGroup().at(i)->getName() << endl;
-     }
-     cout << "--Areas:--" << endl;
-     for (int i = 0; i < engine->getWarTheatreGraph().size(); i++)
-     {
-         cout << engine->getWarTheatreGraph().at(i)->getName() << endl;
-     }
-
-     // Reverting back
-     engine->reinstateMemento(history->getLastMemento());
-
-     cout << "-----Reverting Changes-----" << endl;
-     for (int i = 0; i < engine->getCountryGroup().size(); i++)
-     {
-         cout << engine->getCountryGroup().at(i)->getName() << endl;
-     }
-     cout << "--Areas:--" << endl;
-     for (int i = 0; i < engine->getWarTheatreGraph().size(); i++)
-     {
-         cout << engine->getWarTheatreGraph().at(i)->getName() << endl;
-     }
-
-     delete engine;
-     delete history;*/
-};
-
+// Populate areas of Germany
+string Berlin = "Berlin";
+string Bremen = "Bremen";
+string Hannover = "Hannover";
+string Dusseldorf = "Dusseldorf";
+string Stuttgart = "Stuttgart";
+string Munich = "Munich";
+// Populate areas of Belgium
+string Brussels = "Brussels";
+list<Country *> redTeam;
 void populate(WarEngine *game)
 {
-    // Teams
-    string Blue = "Blue";
-    string Red = "Red";
+	// Teams
+	string Blue = "Blue";
+	string Red = "Red";
 
-    // Countries
-    string UK = "United Kingdom";
-    string Ireland = "Ireland";
-    string France = "France";
-    string Germany = "Germany";
-    string Netherlands = "Netherlands";
-    string Denmark = "Denmark";
-    string Belgium = "Belgium";
+	game->getPhase()->addCountry(UK, 673);
+	game->getPhase()->addCountry(Ireland, 50);
+	game->getPhase()->addCountry(France, 675);
+	game->getPhase()->addCountry(Germany, 831);
+	game->getPhase()->addCountry(Netherlands, 175);
+	game->getPhase()->addCountry(Denmark, 58);
+	game->getPhase()->addCountry(Belgium, 116);
 
-    game->getPhase()->addCountry(UK, 673);
-    game->getPhase()->addCountry(Ireland, 50);
-    game->getPhase()->addCountry(France, 675);
-    game->getPhase()->addCountry(Germany, 831);
-    game->getPhase()->addCountry(Netherlands, 175);
-    game->getPhase()->addCountry(Denmark, 58);
-    game->getPhase()->addCountry(Belgium, 116);
+	game->getPhase()->addRelationship("All countries");
+	game->getPhase()->addRelationship(Red);
+	game->getPhase()->addRelationship(Blue);
+	game->getPhase()->addCountrytoRelationship(UK, Red);
+	game->getPhase()->addCountrytoRelationship(France, Red);
+	game->getPhase()->addCountrytoRelationship(Denmark, Red);
+	game->getPhase()->addCountrytoRelationship(Germany, Blue);
+	game->getPhase()->addCountrytoRelationship(Netherlands, Blue);
+	game->getPhase()->addCountrytoRelationship(Belgium, Blue);
+	game->getPhase()->addCountrytoRelationship(Ireland, Blue);
+	game->getPhase()->addRelationshipToRelationship("All countries", Red);
+	game->getPhase()->addRelationshipToRelationship("All countries", Blue);
 
-    game->getPhase()->addRelationship("AllCountries");
-    game->getPhase()->addRelationship(Red);
-    game->getPhase()->addRelationship(Blue);
-    game->getPhase()->addCountrytoRelationship(UK, Red);
-    game->getPhase()->addCountrytoRelationship(France, Red);
-    game->getPhase()->addCountrytoRelationship(Denmark, Red);
-    game->getPhase()->addCountrytoRelationship(Germany, Blue);
-    game->getPhase()->addCountrytoRelationship(Netherlands, Blue);
-    game->getPhase()->addCountrytoRelationship(Belgium, Blue);
-    game->getPhase()->addCountrytoRelationship(Ireland, Blue);
-    game->getPhase()->addRelationshipToRelationship("AllCountries", Red);
-    game->getPhase()->addRelationshipToRelationship("AllCountries", Blue);
+	game->getPhase()->addArea(Scotland, UK);
+	game->getPhase()->addArea(Wales, UK);
+	game->getPhase()->addArea(London, UK);
+	game->getPhase()->addArea(NorthernIreland, UK);
+	game->getPhase()->addConnection(::iRoad, London, Scotland, 678);
+	game->getPhase()->addConnection(::iRoad, London, Wales, 203);
+	game->getPhase()->addInfrastructure(::iHarbour, London);
+	game->getPhase()->addInfrastructure(::iHarbour, NorthernIreland);
+	game->getPhase()->addInfrastructure(::iHarbour, Wales);
+	game->getPhase()->addInfrastructure(::iRunway, London);
+	game->getPhase()->addInfrastructure(::iRunway, Scotland);
+	game->getPhase()->addInfrastructure(::iAirforceCamp, London);
+	game->getPhase()->addInfrastructure(::iNavyCamp, London);
+	game->getPhase()->addInfrastructure(::iGroundCamp, London);
+	game->getPhase()->addInfrastructure(::iGroundCamp, Wales);
 
-    // Populate areas of UK
-    string Scotland = "Scotland";
-    string London = "London";
-    string NorthernIreland = "Northern Ireland";
-    string Wales = "Wales";
-    game->getPhase()->addArea(Scotland, UK);
-    game->getPhase()->addArea(Wales, UK);
-    game->getPhase()->addArea(London, UK);
-    game->getPhase()->addArea(NorthernIreland, UK);
-    game->getPhase()->addConnection(::iRoad, London, Scotland, 678);
-    game->getPhase()->addConnection(::iRoad, London, Wales, 203);
-    game->getPhase()->addInfrastructure(::iHarbour, London);
-    game->getPhase()->addInfrastructure(::iHarbour, NorthernIreland);
-    game->getPhase()->addInfrastructure(::iHarbour, Wales);
-    game->getPhase()->addInfrastructure(::iRunway, London);
-    game->getPhase()->addInfrastructure(::iRunway, Scotland);
-    game->getPhase()->addInfrastructure(::iAirforceCamp, London);
-    game->getPhase()->addTroops(London, ::tAirforce, ::theGenerals);
-    for (int i = 0; i < 20; i++)
-    {
-        game->getPhase()->addTroops(London, ::tAirforce, ::theSpecialForces);
-    }
-    for (int i = 0; i < 90; i++)
-    {
-        game->getPhase()->addTroops(London, ::tAirforce, ::theSoldiers);
-    }
-    game->getPhase()->addInfrastructure(::iNavyCamp, London);
-    game->getPhase()->addTroops(London, ::tNavy, ::theGenerals);
-    for (int i = 0; i < 20; i++)
-    {
-        game->getPhase()->addTroops(London, ::tNavy, ::theSpecialForces);
-    }
-    for (int i = 0; i < 100; i++)
-    {
-        game->getPhase()->addTroops(London, ::tNavy, ::theSoldiers);
-    }
+	game->getPhase()->addArea(Dublin, Ireland);
+	game->getPhase()->addArea(Cork, Ireland);
+	game->getPhase()->addArea(Limerick, Ireland);
+	game->getPhase()->addArea(Galway, Ireland);
+	game->getPhase()->addConnection(::iRoad, Dublin, NorthernIreland, 140);
+	game->getPhase()->addConnection(::iRoad, Dublin, Cork, 210);
+	game->getPhase()->addConnection(::iRoad, Dublin, Limerick, 170);
+	game->getPhase()->addConnection(::iRoad, Dublin, Galway, 175);
+	game->getPhase()->addConnection(::iRoad, Limerick, Cork, 85);
+	game->getPhase()->addConnection(::iRoad, Limerick, Galway, 73);
+	game->getPhase()->addInfrastructure(::iHarbour, Dublin);
+	game->getPhase()->addInfrastructure(::iRunway, Dublin);
+	game->getPhase()->addInfrastructure(::iAirforceCamp, Dublin);
+	game->getPhase()->addInfrastructure(::iNavyCamp, Dublin);
+	game->getPhase()->addInfrastructure(::iGroundCamp, Dublin);
+	game->getPhase()->addInfrastructure(::iGroundCamp, Limerick);
 
-    game->getPhase()->addInfrastructure(::iGroundCamp, London);
-    game->getPhase()->addInfrastructure(::iGroundCamp, Wales);
-    game->getPhase()->addTroops(London, ::tGroundTroops, ::theGenerals);
-    for (int i = 0; i < 10; i++)
-    {
-        game->getPhase()->addTroops(London, ::tGroundTroops, ::theSpecialForces);
-    }
-    for (int i = 0; i < 60; i++)
-    {
-        game->getPhase()->addTroops(Wales, ::tGroundTroops, ::theSoldiers);
-    }
+	game->getPhase()->addArea(Paris, France);
+	game->getPhase()->addArea(Nantes, France);
+	game->getPhase()->addArea(Toulouse, France);
+	game->getPhase()->addArea(Lille, France);
+	game->getPhase()->addArea(Marseille, France);
+	game->getPhase()->addArea(Strasbourg, France);
+	game->getPhase()->addArea(Lyon, France);
+	game->getPhase()->addConnection(::iRoad, Paris, Nantes, 345);
+	game->getPhase()->addConnection(::iRoad, Paris, Toulouse, 580);
+	game->getPhase()->addConnection(::iRoad, Paris, Lille, 213);
+	game->getPhase()->addConnection(::iRoad, Paris, Strasbourg, 377);
+	game->getPhase()->addConnection(::iRoad, Paris, Lyon, 80);
+	game->getPhase()->addConnection(::iRoad, Lyon, Marseille, 272);
+	game->getPhase()->addConnection(::iRoad, Lyon, Strasbourg, 380);
+	game->getPhase()->addConnection(::iRoad, Lyon, Toulouse, 368);
+	game->getPhase()->addConnection(::iRoad, Strasbourg, Lille, 410);
+	game->getPhase()->addConnection(::iRoad, Toulouse, Nantes, 475);
+	game->getPhase()->addConnection(::iRoad, Toulouse, Marseille, 320);
+	game->getPhase()->addInfrastructure(::iHarbour, Marseille);
+	game->getPhase()->addInfrastructure(::iHarbour, Nantes);
+	game->getPhase()->addInfrastructure(::iRunway, Paris);
+	game->getPhase()->addInfrastructure(::iRunway, Toulouse);
+	game->getPhase()->addInfrastructure(::iAirforceCamp, Paris);
+	game->getPhase()->addInfrastructure(::iNavyCamp, Marseille);
+	game->getPhase()->addInfrastructure(::iGroundCamp, Lille);
+	game->getPhase()->addInfrastructure(::iGroundCamp, Paris);
 
-    game->getPhase()->addInfrastructure(::iLandFactory, NorthernIreland);
-    game->getPhase()->addInfrastructure(::iLandFactory, Scotland);
-    game->getPhase()->addInfrastructure(::iAircraftFactory, London);
-    game->getPhase()->addInfrastructure(::iAquaticFactory, London);
-    game->getPhase()->addInfrastructure(::iAquaticFactory, Wales);
+	game->getPhase()->addArea(Berlin, Germany);
+	game->getPhase()->addArea(Bremen, Germany);
+	game->getPhase()->addArea(Hannover, Germany);
+	game->getPhase()->addArea(Dusseldorf, Germany);
+	game->getPhase()->addArea(Stuttgart, Germany);
+	game->getPhase()->addArea(Munich, Germany);
+	game->getPhase()->addConnection(::iRoad, Strasbourg, Stuttgart, 105);
+	game->getPhase()->addConnection(::iRoad, Dusseldorf, Stuttgart, 320);
+	game->getPhase()->addConnection(::iRoad, Berlin, Stuttgart, 513);
+	game->getPhase()->addConnection(::iRoad, Munich, Stuttgart, 194);
+	game->getPhase()->addConnection(::iRoad, Berlin, Munich, 515);
+	game->getPhase()->addConnection(::iRoad, Berlin, Bremen, 318);
+	game->getPhase()->addConnection(::iRoad, Hannover, Bremen, 95);
+	game->getPhase()->addConnection(::iRoad, Hannover, Berlin, 249);
+	game->getPhase()->addConnection(::iRoad, Hannover, Dusseldorf, 231);
+	game->getPhase()->addInfrastructure(::iHarbour, Munich);
+	game->getPhase()->addInfrastructure(::iRunway, Stuttgart);
+	game->getPhase()->addInfrastructure(::iRunway, Berlin);
+	game->getPhase()->addInfrastructure(::iAirforceCamp, Berlin);
+	game->getPhase()->addInfrastructure(::iNavyCamp, Munich);
+	game->getPhase()->addInfrastructure(::iGroundCamp, Berlin);
+	game->getPhase()->addInfrastructure(::iGroundCamp, Stuttgart);
 
-    for (int i = 0; i < 15; i++)
-    {
-        game->getPhase()->addVehicles(NorthernIreland, ::landVehicle);
-    }
-    for (int i = 0; i < 40; i++)
-    {
-        game->getPhase()->addVehicles(London, ::aircraftVehicle);
-    }
-    for (int i = 0; i < 10; i++)
-    {
-        game->getPhase()->addVehicles(Wales, ::aquaticVehicle);
-        game->getPhase()->addVehicles(London, ::aquaticVehicle);
-    }
+	// Populate areas of Netherlands
+	string Amsterdam = "Amsterdam";
+	game->getPhase()->addArea(Amsterdam, Netherlands);
+	game->getPhase()->addConnection(::iRoad, Amsterdam, Hannover, 320);
+	game->getPhase()->addConnection(::iRoad, Amsterdam, Bremen, 278);
+	game->getPhase()->addConnection(::iRoad, Amsterdam, Dusseldorf, 165);
+	game->getPhase()->addInfrastructure(::iHarbour, Amsterdam);
+	game->getPhase()->addInfrastructure(::iRunway, Amsterdam);
+	game->getPhase()->addInfrastructure(::iAirforceCamp, London);
+	game->getPhase()->addInfrastructure(::iNavyCamp, London);
+	game->getPhase()->addInfrastructure(::iGroundCamp, London);
+	game->getPhase()->addInfrastructure(::iGroundCamp, Wales);
 
-    game->getPhase()->addInfrastructure(::iLandDevelopment, London);
-    game->getPhase()->addInfrastructure(::iLandDevelopment, NorthernIreland);
-    game->getPhase()->addInfrastructure(::iAquaticDevelopment, London);
-    game->getPhase()->addInfrastructure(::iAquaticDevelopment, Wales);
-    game->getPhase()->addInfrastructure(::iAircraftDevelopment, London);
-    game->getPhase()->upgradeVehiclesInArea(::aircraftVehicle, London);
-    game->getPhase()->upgradeVehiclesInArea(::aircraftVehicle, London);
-    game->getPhase()->upgradeVehiclesInArea(::aquaticVehicle, London);
-    game->getPhase()->upgradeVehiclesInArea(::aquaticVehicle, Wales);
+	// Populate areas of Denmark
+	string Copenhagen = "Copenhagen";
+	string Abenta = "Abenta";
+	string Alborg = "Alborg";
+	game->getPhase()->addArea(Copenhagen, Denmark);
+	game->getPhase()->addArea(Abenta, Denmark);
+	game->getPhase()->addArea(Alborg, Denmark);
+	game->getPhase()->addConnection(::iRoad, Bremen, Abenta, 190);
+	game->getPhase()->addConnection(::iRoad, Abenta, Berlin, 367);
+	game->getPhase()->addConnection(::iRoad, Copenhagen, Abenta, 290);
+	game->getPhase()->addConnection(::iRoad, Alborg, Abenta, 250);
+	game->getPhase()->addConnection(::iRoad, Copenhagen, Alborg, 370);
+	game->getPhase()->addInfrastructure(::iHarbour, Copenhagen);
+	game->getPhase()->addInfrastructure(::iHarbour, Alborg);
+	game->getPhase()->addInfrastructure(::iRunway, Abenta);
 
-    // Populate areas of Ireland
-    string Dublin = "Dublin";
-    string Cork = "Cork";
-    string Limerick = "Limerick";
-    string Galway = "Galway";
-    game->getPhase()->addArea(Dublin, Ireland);
-    game->getPhase()->addArea(Cork, Ireland);
-    game->getPhase()->addArea(Limerick, Ireland);
-    game->getPhase()->addArea(Galway, Ireland);
-    game->getPhase()->addConnection(::iRoad, Dublin, NorthernIreland, 140);
-    game->getPhase()->addConnection(::iRoad, Dublin, Cork, 210);
-    game->getPhase()->addConnection(::iRoad, Dublin, Limerick, 170);
-    game->getPhase()->addConnection(::iRoad, Dublin, Galway, 175);
-    game->getPhase()->addConnection(::iRoad, Limerick, Cork, 85);
-    game->getPhase()->addConnection(::iRoad, Limerick, Galway, 73);
-    game->getPhase()->addInfrastructure(::iHarbour, Dublin);
-    game->getPhase()->addInfrastructure(::iRunway, Dublin);
-    game->getPhase()->addInfrastructure(::iAirforceCamp, Dublin);
-    game->getPhase()->addTroops(Dublin, ::tAirforce, ::theGenerals);
-    for (int i = 0; i < 8; i++)
-    {
-        game->getPhase()->addTroops(Dublin, ::tAirforce, ::theSoldiers);
-    }
-    game->getPhase()->addInfrastructure(::iNavyCamp, Dublin);
-    game->getPhase()->addTroops(Dublin, ::tNavy, ::theGenerals);
-    for (int i = 0; i < 4; i++)
-    {
-        game->getPhase()->addTroops(Dublin, ::tNavy, ::theSpecialForces);
-    }
-    for (int i = 0; i < 8; i++)
-    {
-        game->getPhase()->addTroops(Dublin, ::tNavy, ::theSoldiers);
-    }
-    game->getPhase()->addInfrastructure(::iGroundCamp, Dublin);
-    game->getPhase()->addInfrastructure(::iGroundCamp, Limerick);
-    game->getPhase()->addTroops(Dublin, ::tGroundTroops, ::theGenerals);
-    for (int i = 0; i < 1; i++)
-    {
-        game->getPhase()->addTroops(Dublin, ::tGroundTroops, ::theSpecialForces);
-    }
-    for (int i = 0; i < 5; i++)
-    {
-        game->getPhase()->addTroops(Limerick, ::tGroundTroops, ::theSoldiers);
-    }
+	game->getPhase()->addArea(Brussels, Belgium);
+	game->getPhase()->addConnection(::iRoad, Brussels, Amsterdam, 175);
+	game->getPhase()->addConnection(::iRoad, Brussels, Lille, 93);
+	game->getPhase()->addConnection(::iRoad, Brussels, Dusseldorf, 176);
+	game->getPhase()->addInfrastructure(::iRunway, Brussels);
 
-    game->getPhase()->addInfrastructure(::iLandFactory, Cork);
-    game->getPhase()->addInfrastructure(::iAircraftFactory, Dublin);
-    game->getPhase()->addInfrastructure(::iAquaticFactory, Dublin);
-    for (int i = 0; i < 10; i++)
-    {
-        game->getPhase()->addVehicles(Cork, ::landVehicle);
-    }
-    for (int i = 0; i < 10; i++)
-    {
-        game->getPhase()->addVehicles(Dublin, ::aircraftVehicle);
-    }
-    for (int i = 0; i < 15; i++)
-    {
-        game->getPhase()->addVehicles(Dublin, ::aquaticVehicle);
-    }
-
-    game->getPhase()->addInfrastructure(::iLandDevelopment, Cork);
-    game->getPhase()->addInfrastructure(::iAquaticDevelopment, Dublin);
-    game->getPhase()->addInfrastructure(::iAircraftDevelopment, Dublin);
-    game->getPhase()->upgradeVehiclesInArea(::landVehicle, Cork);
-    game->getPhase()->upgradeVehiclesInArea(::aquaticVehicle, Dublin);
-    game->getPhase()->upgradeVehiclesInArea(::aircraftVehicle, Dublin);
-
-    // Populate areas of France
-    string Paris = "Paris";
-    string Nantes = "Nantes";
-    string Toulouse = "Toulouse";
-    string Marseille = "Marseille";
-    string Lille = "Lille";
-    string Strasbourg = "Strasbourg";
-    string Lyon = "Lyon";
-    game->getPhase()->addArea(Paris, France);
-    game->getPhase()->addArea(Nantes, France);
-    game->getPhase()->addArea(Toulouse, France);
-    game->getPhase()->addArea(Lille, France);
-    game->getPhase()->addArea(Marseille, France);
-    game->getPhase()->addArea(Strasbourg, France);
-    game->getPhase()->addArea(Lyon, France);
-    game->getPhase()->addConnection(::iRoad, Paris, Nantes, 345);
-    game->getPhase()->addConnection(::iRoad, Paris, Toulouse, 580);
-    game->getPhase()->addConnection(::iRoad, Paris, Lille, 213);
-    game->getPhase()->addConnection(::iRoad, Paris, Strasbourg, 377);
-    game->getPhase()->addConnection(::iRoad, Paris, Lyon, 80);
-    game->getPhase()->addConnection(::iRoad, Lyon, Marseille, 272);
-    game->getPhase()->addConnection(::iRoad, Lyon, Strasbourg, 380);
-    game->getPhase()->addConnection(::iRoad, Lyon, Toulouse, 368);
-    game->getPhase()->addConnection(::iRoad, Strasbourg, Lille, 410);
-    game->getPhase()->addConnection(::iRoad, Toulouse, Nantes, 475);
-    game->getPhase()->addConnection(::iRoad, Toulouse, Marseille, 320);
-    game->getPhase()->addInfrastructure(::iHarbour, Marseille);
-    game->getPhase()->addInfrastructure(::iHarbour, Nantes);
-    game->getPhase()->addInfrastructure(::iRunway, Paris);
-    game->getPhase()->addInfrastructure(::iRunway, Toulouse);
-    game->getPhase()->addInfrastructure(::iAirforceCamp, Paris);
-    game->getPhase()->addTroops(Paris, ::tAirforce, ::theGenerals);
-    for (int i = 0; i < 20; i++)
-    {
-        game->getPhase()->addTroops(Paris, ::tAirforce, ::theSpecialForces);
-    }
-    for (int i = 0; i < 80; i++)
-    {
-        game->getPhase()->addTroops(Paris, ::tAirforce, ::theSoldiers);
-    }
-    game->getPhase()->addInfrastructure(::iNavyCamp, Marseille);
-    game->getPhase()->addTroops(Marseille, ::tNavy, ::theGenerals);
-    for (int i = 0; i < 5; i++)
-    {
-        game->getPhase()->addTroops(Marseille, ::tNavy, ::theSpecialForces);
-    }
-    for (int i = 0; i < 35; i++)
-    {
-        game->getPhase()->addTroops(Marseille, ::tNavy, ::theSoldiers);
-    }
-    game->getPhase()->addInfrastructure(::iGroundCamp, Lille);
-    game->getPhase()->addInfrastructure(::iGroundCamp, Paris);
-    game->getPhase()->addTroops(Paris, ::tGroundTroops, ::theGenerals);
-    for (int i = 0; i < 40; i++)
-    {
-        game->getPhase()->addTroops(Paris, ::tGroundTroops, ::theSpecialForces);
-    }
-    for (int i = 0; i < 120; i++)
-    {
-        game->getPhase()->addTroops(Paris, ::tGroundTroops, ::theSoldiers);
-        game->getPhase()->addTroops(Lille, ::tGroundTroops, ::theSoldiers);
-    }
-
-    game->getPhase()->addInfrastructure(::iLandFactory, Nantes);
-    game->getPhase()->addInfrastructure(::iLandFactory, Lyon);
-    game->getPhase()->addInfrastructure(::iLandFactory, Strasbourg);
-    game->getPhase()->addInfrastructure(::iLandFactory, Lille);
-    game->getPhase()->addInfrastructure(::iAircraftFactory, Paris);
-    game->getPhase()->addInfrastructure(::iAquaticFactory, Nantes);
-    for (int i = 0; i < 20; i++)
-    {
-        game->getPhase()->addVehicles(Nantes, ::landVehicle);
-        game->getPhase()->addVehicles(Lyon, ::landVehicle);
-        game->getPhase()->addVehicles(Strasbourg, ::landVehicle);
-        game->getPhase()->addVehicles(Lille, ::landVehicle);
-    }
-    for (int i = 0; i < 40; i++)
-    {
-        game->getPhase()->addVehicles(Paris, ::aircraftVehicle);
-    }
-    for (int i = 0; i < 10; i++)
-    {
-        game->getPhase()->addVehicles(Nantes, ::aquaticVehicle);
-    }
-
-    game->getPhase()->addInfrastructure(::iLandDevelopment, Nantes);
-    game->getPhase()->addInfrastructure(::iLandDevelopment, Toulouse);
-    game->getPhase()->addInfrastructure(::iAquaticDevelopment, Nantes);
-    game->getPhase()->addInfrastructure(::iAquaticDevelopment, Marseille);
-    game->getPhase()->addInfrastructure(::iAircraftDevelopment, Paris);
-    game->getPhase()->addInfrastructure(::iAircraftDevelopment, Lyon);
-    game->getPhase()->upgradeVehiclesInArea(::landVehicle, Nantes);
-    game->getPhase()->upgradeVehiclesInArea(::aircraftVehicle, Paris);
-
-    // Populate areas of Germany
-    string Berlin = "Berlin";
-    string Bremen = "Bremen";
-    string Hannover = "Hannover";
-    string Dusseldorf = "Dusseldorf";
-    string Stuttgart = "Stuttgart";
-    string Munich = "Munich";
-    game->getPhase()->addArea(Berlin, Germany);
-    game->getPhase()->addArea(Bremen, Germany);
-    game->getPhase()->addArea(Hannover, Germany);
-    game->getPhase()->addArea(Dusseldorf, Germany);
-    game->getPhase()->addArea(Stuttgart, Germany);
-    game->getPhase()->addArea(Munich, Germany);
-    game->getPhase()->addConnection(::iRoad, Strasbourg, Stuttgart, 105);
-    game->getPhase()->addConnection(::iRoad, Dusseldorf, Stuttgart, 320);
-    game->getPhase()->addConnection(::iRoad, Berlin, Stuttgart, 513);
-    game->getPhase()->addConnection(::iRoad, Munich, Stuttgart, 194);
-    game->getPhase()->addConnection(::iRoad, Berlin, Munich, 515);
-    game->getPhase()->addConnection(::iRoad, Berlin, Bremen, 318);
-    game->getPhase()->addConnection(::iRoad, Hannover, Bremen, 95);
-    game->getPhase()->addConnection(::iRoad, Hannover, Berlin, 249);
-    game->getPhase()->addConnection(::iRoad, Hannover, Dusseldorf, 231);
-    game->getPhase()->addInfrastructure(::iHarbour, Munich);
-    game->getPhase()->addInfrastructure(::iRunway, Stuttgart);
-    game->getPhase()->addInfrastructure(::iRunway, Berlin);
-    game->getPhase()->addInfrastructure(::iAirforceCamp, Berlin);
-    game->getPhase()->addTroops(Berlin, ::tAirforce, ::theGenerals);
-    for (int i = 0; i < 50; i++)
-    {
-        game->getPhase()->addTroops(Berlin, ::tAirforce, ::theSpecialForces);
-    }
-    for (int i = 0; i < 100; i++)
-    {
-        game->getPhase()->addTroops(Berlin, ::tAirforce, ::theSoldiers);
-    }
-    game->getPhase()->addInfrastructure(::iNavyCamp, Munich);
-    game->getPhase()->addTroops(Munich, ::tNavy, ::theGenerals);
-    for (int i = 0; i < 25; i++)
-    {
-        game->getPhase()->addTroops(Munich, ::tNavy, ::theSpecialForces);
-    }
-    for (int i = 0; i < 55; i++)
-    {
-        game->getPhase()->addTroops(Munich, ::tNavy, ::theSoldiers);
-    }
-    game->getPhase()->addInfrastructure(::iGroundCamp, Berlin);
-    game->getPhase()->addInfrastructure(::iGroundCamp, Stuttgart);
-    game->getPhase()->addTroops(Berlin, ::tGroundTroops, ::theGenerals);
-    for (int i = 0; i < 50; i++)
-    {
-        game->getPhase()->addTroops(Berlin, ::tGroundTroops, ::theSpecialForces);
-    }
-    for (int i = 0; i < 160; i++)
-    {
-        game->getPhase()->addTroops(Berlin, ::tGroundTroops, ::theSoldiers);
-        game->getPhase()->addTroops(Stuttgart, ::tGroundTroops, ::theSoldiers);
-    }
-
-    game->getPhase()->addInfrastructure(::iLandFactory, Dusseldorf);
-    game->getPhase()->addInfrastructure(::iLandFactory, Bremen);
-    game->getPhase()->addInfrastructure(::iLandFactory, Munich);
-    game->getPhase()->addInfrastructure(::iAircraftFactory, Berlin);
-    game->getPhase()->addInfrastructure(::iAquaticFactory, Munich);
-    for (int i = 0; i < 40; i++)
-    {
-        game->getPhase()->addVehicles(Dusseldorf, ::landVehicle);
-        game->getPhase()->addVehicles(Bremen, ::landVehicle);
-        game->getPhase()->addVehicles(Munich, ::landVehicle);
-    }
-    for (int i = 0; i < 40; i++)
-    {
-        game->getPhase()->addVehicles(Berlin, ::aircraftVehicle);
-    }
-    for (int i = 0; i < 20; i++)
-    {
-        game->getPhase()->addVehicles(Munich, ::aquaticVehicle);
-    }
-
-    game->getPhase()->addInfrastructure(::iLandDevelopment, Dusseldorf);
-    game->getPhase()->addInfrastructure(::iLandDevelopment, Bremen);
-    game->getPhase()->addInfrastructure(::iLandDevelopment, Munich);
-    game->getPhase()->addInfrastructure(::iAquaticDevelopment, Munich);
-    game->getPhase()->addInfrastructure(::iAircraftDevelopment, Berlin);
-    game->getPhase()->upgradeVehiclesInArea(::landVehicle, Dusseldorf);
-    game->getPhase()->upgradeVehiclesInArea(::aquaticVehicle, Munich);
-    game->getPhase()->upgradeVehiclesInArea(::aircraftVehicle, Berlin);
-
-    // Populate areas of Netherlands
-    string Amsterdam = "Amsterdam";
-    game->getPhase()->addArea(Amsterdam, Netherlands);
-    game->getPhase()->addConnection(::iRoad, Amsterdam, Hannover, 320);
-    game->getPhase()->addConnection(::iRoad, Amsterdam, Bremen, 278);
-    game->getPhase()->addConnection(::iRoad, Amsterdam, Dusseldorf, 165);
-    game->getPhase()->addInfrastructure(::iHarbour, Amsterdam);
-    game->getPhase()->addInfrastructure(::iRunway, Amsterdam);
-    game->getPhase()->addInfrastructure(::iAirforceCamp, Amsterdam);
-    game->getPhase()->addTroops(Amsterdam, ::tAirforce, ::theGenerals);
-    for (int i = 0; i < 10; i++)
-    {
-        game->getPhase()->addTroops(Amsterdam, ::tAirforce, ::theSpecialForces);
-    }
-    for (int i = 0; i < 15; i++)
-    {
-        game->getPhase()->addTroops(Amsterdam, ::tAirforce, ::theSoldiers);
-    }
-    game->getPhase()->addInfrastructure(::iNavyCamp, Amsterdam);
-    game->getPhase()->addTroops(Amsterdam, ::tNavy, ::theGenerals);
-    for (int i = 0; i < 20; i++)
-    {
-        game->getPhase()->addTroops(Amsterdam, ::tNavy, ::theSpecialForces);
-    }
-    for (int i = 0; i < 30; i++)
-    {
-        game->getPhase()->addTroops(Amsterdam, ::tNavy, ::theSoldiers);
-    }
-    game->getPhase()->addInfrastructure(::iGroundCamp, Amsterdam);
-    game->getPhase()->addTroops(Amsterdam, ::tGroundTroops, ::theGenerals);
-    for (int i = 0; i < 15; i++)
-    {
-        game->getPhase()->addTroops(Amsterdam, ::tGroundTroops, ::theSpecialForces);
-    }
-    for (int i = 0; i < 20; i++)
-    {
-        game->getPhase()->addTroops(Amsterdam, ::tGroundTroops, ::theSoldiers);
-    }
-
-    game->getPhase()->addInfrastructure(::iLandFactory, Amsterdam);
-    game->getPhase()->addInfrastructure(::iAircraftFactory, Amsterdam);
-    game->getPhase()->addInfrastructure(::iAquaticFactory, Amsterdam);
-    for (int i = 0; i < 20; i++)
-    {
-        game->getPhase()->addVehicles(Amsterdam, ::landVehicle);
-    }
-    for (int i = 0; i < 15; i++)
-    {
-        game->getPhase()->addVehicles(Amsterdam, ::aircraftVehicle);
-    }
-    for (int i = 0; i < 40; i++)
-    {
-        game->getPhase()->addVehicles(Amsterdam, ::aquaticVehicle);
-    }
-    game->getPhase()->addInfrastructure(::iAircraftDevelopment, Amsterdam);
-    game->getPhase()->addInfrastructure(::iLandDevelopment, Amsterdam);
-    game->getPhase()->addInfrastructure(::iAquaticDevelopment, Amsterdam);
-    game->getPhase()->upgradeVehiclesInArea(::landVehicle, Amsterdam);
-    game->getPhase()->upgradeVehiclesInArea(::aquaticVehicle, Amsterdam);
-
-    // Populate areas of Denmark
-    string Copenhagen = "Copenhagen";
-    string Abenta = "Abenta";
-    string Alborg = "Alborg";
-    game->getPhase()->addArea(Copenhagen, Denmark);
-    game->getPhase()->addArea(Abenta, Denmark);
-    game->getPhase()->addArea(Alborg, Denmark);
-    game->getPhase()->addConnection(::iRoad, Bremen, Abenta, 190);
-    game->getPhase()->addConnection(::iRoad, Abenta, Berlin, 367);
-    game->getPhase()->addConnection(::iRoad, Copenhagen, Abenta, 290);
-    game->getPhase()->addConnection(::iRoad, Alborg, Abenta, 250);
-    game->getPhase()->addConnection(::iRoad, Copenhagen, Alborg, 370);
-    game->getPhase()->addInfrastructure(::iHarbour, Copenhagen);
-    game->getPhase()->addInfrastructure(::iHarbour, Alborg);
-    game->getPhase()->addInfrastructure(::iRunway, Abenta);
-    game->getPhase()->addInfrastructure(::iAirforceCamp, Abenta);
-    game->getPhase()->addTroops(Abenta, ::tAirforce, ::theGenerals);
-    for (int i = 0; i < 3; i++)
-    {
-        game->getPhase()->addTroops(Abenta, ::tAirforce, ::theSpecialForces);
-    }
-    for (int i = 0; i < 4; i++)
-    {
-        game->getPhase()->addTroops(Abenta, ::tAirforce, ::theSoldiers);
-    }
-    game->getPhase()->addInfrastructure(::iNavyCamp, Copenhagen);
-    game->getPhase()->addTroops(Copenhagen, ::tNavy, ::theGenerals);
-    for (int i = 0; i < 3; i++)
-    {
-        game->getPhase()->addTroops(Copenhagen, ::tNavy, ::theSpecialForces);
-    }
-    for (int i = 0; i < 4; i++)
-    {
-        game->getPhase()->addTroops(Copenhagen, ::tNavy, ::theSoldiers);
-    }
-    game->getPhase()->addInfrastructure(::iGroundCamp, Copenhagen);
-    game->getPhase()->addTroops(Copenhagen, ::tGroundTroops, ::theGenerals);
-    for (int i = 0; i < 3; i++)
-    {
-        game->getPhase()->addTroops(Copenhagen, ::tGroundTroops, ::theSpecialForces);
-    }
-    for (int i = 0; i < 4; i++)
-    {
-        game->getPhase()->addTroops(Copenhagen, ::tGroundTroops, ::theSoldiers);
-    }
-
-    game->getPhase()->addInfrastructure(::iLandFactory, Copenhagen);
-    game->getPhase()->addInfrastructure(::iAircraftFactory, Abenta);
-    game->getPhase()->addInfrastructure(::iAquaticFactory, Alborg);
-    for (int i = 0; i < 10; i++)
-    {
-        game->getPhase()->addVehicles(Copenhagen, ::landVehicle);
-    }
-    for (int i = 0; i < 10; i++)
-    {
-        game->getPhase()->addVehicles(Abenta, ::aircraftVehicle);
-    }
-    for (int i = 0; i < 10; i++)
-    {
-        game->getPhase()->addVehicles(Alborg, ::aquaticVehicle);
-    }
-
-    game->getPhase()->addInfrastructure(::iLandDevelopment, Copenhagen);
-    game->getPhase()->addInfrastructure(::iAquaticDevelopment, Alborg);
-    game->getPhase()->addInfrastructure(::iAircraftDevelopment, Abenta);
-    game->getPhase()->upgradeVehiclesInArea(::landVehicle, Copenhagen);
-    game->getPhase()->upgradeVehiclesInArea(::aquaticVehicle, Alborg);
-    game->getPhase()->upgradeVehiclesInArea(::aircraftVehicle, Abenta);
-
-    // Populate areas of Belgium
-    string Brussels = "Brussels";
-    game->getPhase()->addArea(Brussels, Belgium);
-    game->getPhase()->addConnection(::iRoad, Brussels, Amsterdam, 175);
-    game->getPhase()->addConnection(::iRoad, Brussels, Lille, 93);
-    game->getPhase()->addConnection(::iRoad, Brussels, Dusseldorf, 176);
-    game->getPhase()->addInfrastructure(::iRunway, Brussels);
-    game->getPhase()->addInfrastructure(::iAirforceCamp, Brussels);
-    game->getPhase()->addTroops(Brussels, ::tAirforce, ::theGenerals);
-    for (int i = 0; i < 15; i++)
-    {
-        game->getPhase()->addTroops(Brussels, ::tAirforce, ::theSpecialForces);
-    }
-    for (int i = 0; i < 20; i++)
-    {
-        game->getPhase()->addTroops(Brussels, ::tAirforce, ::theSoldiers);
-    }
-    game->getPhase()->addInfrastructure(::iGroundCamp, Brussels);
-    game->getPhase()->addTroops(Brussels, ::tGroundTroops, ::theGenerals);
-    for (int i = 0; i < 5; i++)
-    {
-        game->getPhase()->addTroops(Brussels, ::tGroundTroops, ::theSpecialForces);
-    }
-    for (int i = 0; i < 10; i++)
-    {
-        game->getPhase()->addTroops(Brussels, ::tGroundTroops, ::theSoldiers);
-    }
-    game->getPhase()->addInfrastructure(::iLandFactory, Brussels);
-    game->getPhase()->addInfrastructure(::iAircraftFactory, Brussels);
-
-    for (int i = 0; i < 15; i++)
-    {
-        game->getPhase()->addVehicles(Brussels, ::landVehicle);
-    }
-    for (int i = 0; i < 30; i++)
-    {
-        game->getPhase()->addVehicles(Brussels, ::aircraftVehicle);
-    }
-    game->getPhase()->addInfrastructure(::iLandDevelopment, Brussels);     //                                                   __
-    game->getPhase()->addInfrastructure(::iAircraftDevelopment, Brussels); //                                                 <(o )___
-    game->getPhase()->upgradeVehiclesInArea(::landVehicle, Brussels);      //                                                  ( ._> /
-    game->getPhase()->upgradeVehiclesInArea(::aircraftVehicle, Brussels);  //                                                   `---'
-
-    // Add connections for harbours
-    game->getPhase()->addConnection(::iHarbour, Dublin, Wales, 170);
-    game->getPhase()->addConnection(::iHarbour, Dublin, NorthernIreland, 250);
-    game->getPhase()->addConnection(::iHarbour, Dublin, Nantes, 605);
-    game->getPhase()->addConnection(::iHarbour, Wales, London, 405);
-    game->getPhase()->addConnection(::iHarbour, London, Amsterdam, 212);
-    game->getPhase()->addConnection(::iHarbour, Alborg, London, 630);
-    game->getPhase()->addConnection(::iHarbour, Alborg, Copenhagen, 613);
-    game->getPhase()->addConnection(::iHarbour, Nantes, Amsterdam, 985);
-    game->getPhase()->addConnection(::iHarbour, NorthernIreland, Wales, 175);
-    game->getPhase()->addConnection(::iHarbour, Munich, Marseille, 770);
-    game->getPhase()->addConnection(::iHarbour, Dublin, Amsterdam, 850);
-    game->getPhase()->addConnection(::iHarbour, Amsterdam, Alborg, 602);
-    game->getPhase()->addConnection(::iHarbour, Nantes, Wales, 786);
-
-    // Add connection to runways
-    game->getPhase()->addConnection(::iRunway, London, Scotland, 670);
-    game->getPhase()->addConnection(::iRunway, Dublin, London, 450);
-    game->getPhase()->addConnection(::iRunway, Dublin, Scotland, 430);
-    game->getPhase()->addConnection(::iRunway, London, Paris, 350);
-    game->getPhase()->addConnection(::iRunway, London, Amsterdam, 360);
-    game->getPhase()->addConnection(::iRunway, London, Brussels, 325);
-    game->getPhase()->addConnection(::iRunway, London, Abenta, 735);
-    game->getPhase()->addConnection(::iRunway, Paris, Toulouse, 590);
-    game->getPhase()->addConnection(::iRunway, Berlin, Stuttgart, 510);
-    game->getPhase()->addConnection(::iRunway, Brussels, Amsterdam, 171);
-    game->getPhase()->addConnection(::iRunway, Brussels, Stuttgart, 412);
-    game->getPhase()->addConnection(::iRunway, Amsterdam, Abenta, 423);
-    game->getPhase()->addConnection(::iRunway, Berlin, Amsterdam, 570);
-    game->getPhase()->addConnection(::iRunway, Berlin, Abenta, 385);
-    game->getPhase()->addConnection(::iRunway, Dublin, Brussels, 843);
-    game->getPhase()->addConnection(::iRunway, Paris, Brussels, 258);
-    game->getPhase()->addConnection(::iRunway, Paris, Stuttgart, 508);
-    game->getPhase()->addConnection(::iRunway, Toulouse, Stuttgart, 836);
-
-    game->getPhase()->distributeTroopsAndVehicles(France);
-    game->getPhase()->distributeTroopsAndVehicles(Ireland);
-    game->getPhase()->distributeTroopsAndVehicles(UK);
-    game->getPhase()->distributeTroopsAndVehicles(Belgium);
-    game->getPhase()->distributeTroopsAndVehicles(Netherlands);
-    game->getPhase()->distributeTroopsAndVehicles(Germany);
-    game->getPhase()->distributeTroopsAndVehicles(Denmark);
+	// Add connections for harbours
+	game->getPhase()->addConnection(::iHarbour, Dublin, Wales, 170);
+	game->getPhase()->addConnection(::iHarbour, Dublin, NorthernIreland, 250);
+	game->getPhase()->addConnection(::iHarbour, Dublin, Nantes, 605);
+	game->getPhase()->addConnection(::iHarbour, Wales, London, 405);
+	game->getPhase()->addConnection(::iHarbour, London, Amsterdam, 212);
+	game->getPhase()->addConnection(::iHarbour, Alborg, London, 630);
+	game->getPhase()->addConnection(::iHarbour, Alborg, Copenhagen, 613);
+	game->getPhase()->addConnection(::iHarbour, Nantes, Amsterdam, 985);
+	game->getPhase()->addConnection(::iHarbour, NorthernIreland, Wales, 175);
+	game->getPhase()->addConnection(::iHarbour, Munich, Marseille, 770);
+	game->getPhase()->addConnection(::iHarbour, Dublin, Amsterdam, 850);
+	game->getPhase()->addConnection(::iHarbour, Amsterdam, Alborg, 602);
+	game->getPhase()->addConnection(::iHarbour, Nantes, Wales, 786);
+	// Add connection to runways
+	game->getPhase()->addConnection(::iRunway, London, Scotland, 670);
+	game->getPhase()->addConnection(::iRunway, Dublin, London, 450);
+	game->getPhase()->addConnection(::iRunway, Dublin, Scotland, 430);
+	game->getPhase()->addConnection(::iRunway, London, Paris, 350);
+	game->getPhase()->addConnection(::iRunway, London, Amsterdam, 360);
+	game->getPhase()->addConnection(::iRunway, London, Brussels, 325);
+	game->getPhase()->addConnection(::iRunway, London, Abenta, 735);
+	game->getPhase()->addConnection(::iRunway, Paris, Toulouse, 590);
+	game->getPhase()->addConnection(::iRunway, Berlin, Stuttgart, 510);
+	game->getPhase()->addConnection(::iRunway, Brussels, Amsterdam, 171);
+	game->getPhase()->addConnection(::iRunway, Brussels, Stuttgart, 412);
+	game->getPhase()->addConnection(::iRunway, Amsterdam, Abenta, 423);
+	game->getPhase()->addConnection(::iRunway, Berlin, Amsterdam, 570);
+	game->getPhase()->addConnection(::iRunway, Berlin, Abenta, 385);
+	game->getPhase()->addConnection(::iRunway, Dublin, Brussels, 843);
+	game->getPhase()->addConnection(::iRunway, Paris, Brussels, 258);
+	game->getPhase()->addConnection(::iRunway, Paris, Stuttgart, 508);
+	game->getPhase()->addConnection(::iRunway, Toulouse, Stuttgart, 836);
+	game->getPhase()->addConnection(::iRunway, Amsterdam, Stuttgart, 501);
 }
+LandVehicleFactory *vechileFactory = nullptr;
+AquaticVehicleFactory *aquaticFactory = nullptr;
+Vehicles *car = nullptr, *car2 = nullptr, *sumarine = nullptr;
 
-// Create a memento an the current phase and then create and store a new phase in WarEngine
-void newPhase()
+void CreateFactories()
 {
+	vechileFactory = new LandVehicleFactory(100, graph->getArea(France));
+	car = vechileFactory->createVehicle(10, 20, 30);
+	aquaticFactory = new AquaticVehicleFactory(200, graph->getArea(UK));
+	sumarine = aquaticFactory->createVehicle(50, 60, 70);
+	sumarine->changeLocation(graph->getArea(Germany));
 }
-
-void Phase2(WarEngine *game, string country)
+Troops *groundTroop = nullptr;
+void TroopsTesting()
 {
-    int threeCycles = 0;
-    string choice = "";
-    while (threeCycles < 3)
-    {
-        cout << "Choose how to prepare for war:\n"
-             << "1: Train more troops\n"
-             << "2: Create more vehicles\n"
-             << "3: Upgrade vehicles stationed at research facilities" << endl;
-        getline(std::cin, choice);
-        if (choice.compare("1") == 0)
-        {
-            if (country.compare("France") == 0)
-            {
-                game->getPhase()->addTroops("Paris", ::tGroundTroops, ::theSoldiers);
-            }
-            else
-            {
-                game->getPhase()->addTroops("Berlin", ::tGroundTroops, ::theSoldiers);
-            }
-            threeCycles++;
-        }
-        else if (choice.compare("2") == 0)
-        {
-            if (country.compare("France") == 0)
-            {
-                game->getPhase()->addVehicles("Nantes", ::landVehicle);
-            }
-            else
-            {
-                game->getPhase()->addVehicles("Dusseldorf", ::landVehicle);
-            }
-
-            threeCycles++;
-        }
-        else if (choice.compare("3") == 0)
-        {
-            if (country.compare("France") == 0)
-            {
-                game->getPhase()->upgradeVehiclesInArea(::landVehicle, "Nantes");
-            }
-            else
-            {
-                game->getPhase()->upgradeVehiclesInArea(::landVehicle, "Dusseldorf");
-            }
-            threeCycles++;
-        }
-        else
-        {
-            cout << "Please choose option 1, 2 or 3" << endl;
-        }
-    }
-    game->getPhase()->distributeTroopsAndVehicles("Germany");
-    game->getPhase()->distributeTroopsAndVehicles("France");
+	groundTroop = new GroundTroops(graph->getArea(Stuttgart), new Soldiers(), graph->getArea(Stuttgart)->getControllingCountry()->getCitizens()[0]);
+	groundTroop->takeDamage(10);
 }
-
+Citizens *citizensGroup = nullptr;
+void TroopTestingWithStatus()
+{
+	citizensGroup = new Citizens();
+}
 void finalMain()
 {
-    WarEngine *game = new WarEngine();
-    populate(game);
-
-    string country = "";
-    string choice = "";
-    cout << "░▀▀█▀▀░█░░░░█▀▀░░░▒█▀▀█░█▀▀▄░█▀▀░█▀▀▄░▀█▀░░░▒█▀▀▀░█░▒█░█▀▀▄░▄▀▀▄░▄▀▀▄░█▀▀░░░▒█░░▒█░█▀▀▄░█▀▀▄" << endl;
-    cout << "░░▒█░░░█▀▀█░█▀▀░░░▒█░▄▄░█▄▄▀░█▀▀░█▄▄█░░█░░░░▒█▀▀▀░█░▒█░█▄▄▀░█░░█░█▄▄█░█▀▀░░░▒█▒█▒█░█▄▄█░█▄▄▀" << endl;
-    cout << "░░▒█░░░▀░░▀░▀▀▀░░░▒█▄▄▀░▀░▀▀░▀▀▀░▀░░▀░░▀░░░░▒█▄▄▄░░▀▀▀░▀░▀▀░░▀▀░░█░░░░▀▀▀░░░▒▀▄▀▄▀░▀░░▀░▀░▀▀" << endl;
-    cout << "welcome to the Phase 1: " << endl;
-    cout << "Please choose a side in the war: \n"
-         << "1:\n France \n";
-    game->getPhase()->printCountryStatus("France", false);
-    cout << "2:\n Germany" << endl;
-    game->getPhase()->printCountryStatus("Germany", false);
-    while (country.compare("") == 0)
-    {
-        getline(std::cin, choice);
-        if (choice.compare("1") == 0)
-        {
-            cout << "You have chosen France and are part of the red alliance\n"
-                 << "Germany has declared war as it prepares to create an empire" << endl;
-            country = "France";
-        }
-        else if (choice.compare("2") == 0)
-        {
-            cout << "You have chosen Germany and are part of the blue alliance"
-                 << "France has opposed you in your quest to enlarge you empire and must pay for their insolence" << endl;
-            country = "Germany";
-        }
-        else
-        {
-            cout << "Please choose side 1 or 2" << endl;
-        }
-        choice = "";
-    }
-    newPhase();
-    Phase2(game, country);
+	game = new WarEngine();
+	populate(game);
 }
 
-int main()
+int main(int argc, char **argv)
 {
-    cout << "=============================Start testing=============================" << endl;
-    // cout << "Troops Success!" << endl;
-    // testMap();
-    // testMemento();
-    // showcasing();
-    finalMain();
-    cout << "=============================End testing===============================" << endl;
-    return 0;
+	cout << "=============================Start testing=============================" << endl;
+	// cout << "Troops Success!" << endl;
+	// testMap();
+	// testMemento();
+	// showcasing();
+	finalMain();
+	graph = game->getPhase()->map;
+
+	CreateFactories();
+	TroopsTesting();
+	TroopTestingWithStatus();
+	cout << "=============================End testing===============================" << endl;
+	return doctest::Context(argc, argv).run();
+}
+
+void isAccessible(Area *a1, Area *a2, WarMap *graph)
+{
+	cout << "You " << (graph->isAccessible(a1, a2) == true ? "CAN " : "CANNOT ") << "get from " << a1->getName() << " to " << a2->getName() << endl;
+}
+
+void isAccessible(Area *a1, Area *a2, WarMap *graph, string type)
+{
+	cout << "You " << (graph->isAccessible(a1, a2, type) == true ? "CAN " : "CANNOT ") << "get from " << a1->getName() << " to " << a2->getName() << " via " << type << endl;
+}
+
+TEST_CASE("Testing if one Area is accessible from another")
+{
+	CHECK(graph->isAccessible(graph->getArea("Paris"), graph->getArea("Nantes")) == true);
+	CHECK(graph->isAccessible(graph->getArea("Marseille"), graph->getArea("Nantes"), "Harbour") == false);
+	CHECK(graph->isAccessible(graph->getArea("Dublin"), graph->getArea("Scotland"), "Runway") == true);
+}
+
+TEST_CASE("Testing the shortest Path algorithm")
+{
+	SUBCASE("Via Road")
+	{
+		list<Area *> path3 = graph->shortestPath(graph->getArea(Marseille), graph->getArea(Brussels), "Road");
+		list<Area *>::iterator it = path3.begin();
+		CHECK(path3.size() == 5);
+		CHECK(*it == graph->getArea(Marseille));
+		it++;
+		CHECK(*it == graph->getArea(Lyon));
+		it++;
+		CHECK(*it == graph->getArea(Paris));
+		it++;
+		CHECK(*it == graph->getArea(Lille));
+		it++;
+		CHECK(*it == graph->getArea(Brussels));
+	}
+	SUBCASE("Via Runway")
+	{
+		list<Area *> path4 = graph->shortestPath(graph->getArea(Munich), graph->getArea(London), "Runway");
+		list<Area *>::iterator it = path4.begin();
+		CHECK(path4.size() == 4);
+		CHECK(*it == graph->getArea(Munich));
+		it++;
+		CHECK(*it == graph->getArea(Stuttgart));
+		it++;
+		CHECK(*it == graph->getArea(Brussels));
+		it++;
+		CHECK(*it == graph->getArea(London));
+		it++;
+	}
+}
+
+TEST_CASE("Testing if a Country still exsists")
+{
+	CHECK(game->getPhase()->countryStillExists("United Kingdom") == true);
+	CHECK(game->getPhase()->countryStillExists("Ireland") == true);
+	CHECK(game->getPhase()->countryStillExists("France") == true);
+	CHECK(game->getPhase()->countryStillExists("England") == false);
+}
+
+TEST_CASE("Factory Pattern Getters")
+{
+	CHECK(car->getHP() == 10);
+	CHECK(car->getDamage() == 20);
+	CHECK(car->getSpeed() == 30);
+	CHECK(sumarine->getLocation() == graph->getArea(Germany));
+	CHECK(sumarine->getHP() == 50);
+}
+
+TEST_CASE("Factory Pattern Location")
+{
+	CHECK(sumarine->getLocation() == graph->getArea(Germany));
+}
+
+TEST_CASE("Testing the composite pattern")
+{
+	redTeam = graph->getArea("Paris")->getControllingCountry()->getAllies();
+	CHECK(find(redTeam.begin(), redTeam.end(), graph->getArea("Copenhagen")->getControllingCountry()) != redTeam.end());
+	CHECK(find(redTeam.begin(), redTeam.end(), graph->getArea("Amsterdam")->getControllingCountry()) == redTeam.end());
+	CHECK(graph->getArea("Amsterdam")->getControllingCountry()->getParent() != graph->getArea("Limerick")->getControllingCountry());
+	CHECK(graph->getArea("Limerick")->getControllingCountry()->getParent() != graph->getArea("Brussels")->getControllingCountry());
+}
+
+TEST_CASE("Testing the template design pattern")
+{
+	CHECK(groundTroop->getDamage() == 4);
+	CHECK(groundTroop->getHP() == 10);
+	SUBCASE("Testing Loction of Troops")
+	{
+		CHECK(groundTroop->getLocation() == graph->getArea(Stuttgart));
+	}
+
+	CHECK(groundTroop->getDamage() == 4);
+	CHECK(vechileFactory->getHP() == 100);
+	groundTroop->attack(vechileFactory);
+	CHECK(vechileFactory->getHP() == 0);
+}
+string unlisted = "Unlisted";
+string enlisted = "Enlisted";
+string stationed = "Stationed";
+string dead = "Dead";
+TEST_CASE("Testing the State the design pattern")
+{
+	CHECK(citizensGroup->getStatus() == unlisted);
+	citizensGroup->changeStatus();
+	CHECK(citizensGroup->getStatus() == enlisted);
+	citizensGroup->setStatus(new Stationed());
+	CHECK(citizensGroup->getStatus() == stationed);
+	citizensGroup->setStatus(new Dead());
+	CHECK(citizensGroup->getStatus() == dead);
+}
+
+TEST_CASE("Testing the Iterator design pattern")
+{
+	AreaIterator *areaIter = graph->createAreaIterator();
+	areaIter->first();
+	list<Area *> allAreas;
+	while (areaIter->isDone() == false)
+	{
+		Area *currentArea = areaIter->currentItem();
+		allAreas.push_back(currentArea);
+
+		areaIter->next();
+	}
+	CHECK(find(allAreas.begin(), allAreas.end(), graph->getArea(Scotland)) != allAreas.end());
+	CHECK(find(allAreas.begin(), allAreas.end(), graph->getArea(London)) != allAreas.end());
+	CHECK(find(allAreas.begin(), allAreas.end(), graph->getArea(NorthernIreland)) != allAreas.end());
+	CHECK(find(allAreas.begin(), allAreas.end(), graph->getArea(Wales)) != allAreas.end());
+	CHECK(find(allAreas.begin(), allAreas.end(), graph->getArea(Dublin)) != allAreas.end());
+	CHECK(find(allAreas.begin(), allAreas.end(), graph->getArea(Cork)) != allAreas.end());
+	CHECK(find(allAreas.begin(), allAreas.end(), graph->getArea(Limerick)) != allAreas.end());
+	CHECK(find(allAreas.begin(), allAreas.end(), graph->getArea(Galway)) != allAreas.end());
+	CHECK(find(allAreas.begin(), allAreas.end(), graph->getArea(Paris)) != allAreas.end());
+	CHECK(find(allAreas.begin(), allAreas.end(), graph->getArea(Nantes)) != allAreas.end());
+	CHECK(find(allAreas.begin(), allAreas.end(), graph->getArea(Toulouse)) != allAreas.end());
+	CHECK(find(allAreas.begin(), allAreas.end(), graph->getArea(Marseille)) != allAreas.end());
+	CHECK(find(allAreas.begin(), allAreas.end(), graph->getArea(Lille)) != allAreas.end());
+	CHECK(find(allAreas.begin(), allAreas.end(), graph->getArea(Strasbourg)) != allAreas.end());
+	CHECK(find(allAreas.begin(), allAreas.end(), graph->getArea(Lyon)) != allAreas.end());
+	CHECK(find(allAreas.begin(), allAreas.end(), graph->getArea(Berlin)) != allAreas.end());
+	CHECK(find(allAreas.begin(), allAreas.end(), graph->getArea(Bremen)) != allAreas.end());
+	CHECK(find(allAreas.begin(), allAreas.end(), graph->getArea(Hannover)) != allAreas.end());
+	CHECK(find(allAreas.begin(), allAreas.end(), graph->getArea(Dusseldorf)) != allAreas.end());
+	CHECK(find(allAreas.begin(), allAreas.end(), graph->getArea(Stuttgart)) != allAreas.end());
+	CHECK(find(allAreas.begin(), allAreas.end(), graph->getArea(Munich)) != allAreas.end());
+	CHECK(find(allAreas.begin(), allAreas.end(), graph->getArea(Brussels)) != allAreas.end());
+}
+
+TEST_CASE("Testing Mediator design pattern for sending Messages across Countries")
+{
+	cout << "=================Sending a message from UK to France================" << endl;
+	string message = "Move all remaining troops to England";
+	game->getPhase()->getCountry(UK)->sendBroadcast(game->getPhase()->getCountry(France), message);
+	CHECK(game->getPhase()->getCountry(France)->recivedMessage == message);
+}
+
+TEST_CASE("Testing Mediator design pattern for sending Messages across Associated Countries")
+{
+	cout << "=================Sending a message to ALL Blue Countries================" << endl;
+	string message = "This is a message to all the Countries";
+	game->getPhase()->getCountry(Germany)->sendBroadcast(game->getPhase()->getCountry(Germany)->getParent(), message);
+	CHECK(game->getPhase()->getCountry(Germany)->recivedMessage == message);
+	CHECK(game->getPhase()->getCountry(Netherlands)->recivedMessage == message);
+	CHECK(game->getPhase()->getCountry(Belgium)->recivedMessage == message);
+	CHECK(game->getPhase()->getCountry(Ireland)->recivedMessage == message);
+}
+
+TEST_CASE("Testing all the Observer Pattern")
+{
+	cout << "==========Testing All the ResearchAndDevelopmentCentre============="<< endl;
+	LandVehicles *v = new LandVehicles(graph->getArea(Munich), 25,25,25);
+	CHECK(v->getDamage() == 25);
+	CHECK(v->getHP() == 25);
+	CHECK(v->getSpeed() == 25);
+	ResearchAndDevelopmentCentre *vechleCentre = new LandVehicleDevelopment(1000,graph->getArea(Munich));
+	v->readyToUpgrade(vechleCentre);
+	vechleCentre->notifyDevelop();
+	CHECK(v->getDamage() == 27);
+	CHECK(v->getHP() == 30);
+	CHECK(v->getSpeed() == 30);
 }

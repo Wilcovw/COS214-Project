@@ -37,8 +37,9 @@ void Road::destroy(){
 }
 
 Infrastructure* Road::clone(Area* newArea) {    
+	Infrastructure* newRoad;
     if(edges[0]->getDestination() != nullptr && edges[0]->getDestination()->getClonedArea() != nullptr) {
-        Infrastructure* newRoad = new Road(newArea, edges[0]->getDestination()->getClonedArea(), HP, edges[0]->getDistance());
+        newRoad = new Road(newArea, edges[0]->getDestination()->getClonedArea(), HP, edges[0]->getDistance());
     }
     return newRoad;
 }

@@ -59,13 +59,13 @@ class Memento;
 class WarPhase
 {
 private:
-    WarMap *map;
+    
     Communication *communication;
     list<Country *> allCountries;
     list<Relationship *> allRelationships;
     list<Country *> cloneCountries(Relationship *head);
     list<Relationship *> cloneRelationship(Relationship *head);
-    Country *getCountry(string countryName);
+    
     Relationship *getRelationship(string relationshipName);
     Country *getCountryFromArea(string areaName);
     Area *getArea(string areaName);
@@ -82,11 +82,13 @@ private:
     void moveVehicles(Area *area, Country *country, int maxDistance);
 
 public:
+	WarMap *map;
     /**
      * @brief Construct a new War Phase object
      *
      */
     WarPhase();
+	Country *getCountry(string countryName);
     /**
      * @brief Destroy the War Phase object
      *
