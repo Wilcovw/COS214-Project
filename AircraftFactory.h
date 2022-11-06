@@ -14,7 +14,7 @@ public:
     /**
      * @brief virtual destructor
      */
-    virtual ~AircraftFactory() {};
+    virtual ~AircraftFactory(){};
     /**
      * @brief creates a vehicle with passed in parameters as values and returns that vehicle
      * @param HP
@@ -27,12 +27,12 @@ public:
      * @brief Calls class destructor
      */
     virtual void destroy();
-	/**
-	 * @brief Makes a copy of the current Aircraft Factory
-	 * 
-	 * @return Infrastructure* 
-	 */
-    virtual Infrastructure* clone();
+    /**
+     * @brief Makes a copy of the current Aircraft Factory
+     *
+     * @return Infrastructure*
+     */
+    virtual Infrastructure *clone(Area *newArea);
 };
 
 #endif // FACTORY_AND_OBSERVER_AIRCRAFTFACTORY_H

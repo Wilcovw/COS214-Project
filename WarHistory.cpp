@@ -7,21 +7,19 @@ WarHistory::WarHistory(){
 
 };
 
-Memento* WarHistory::getMementoAt(int index){
-    return this->warhistory.at(index);
+Memento *WarHistory::getLastMemento()
+{
+    Memento *temp = history.front();
+    this->history.pop_front();
+    return temp;
 };
 
-Memento* WarHistory::getLastMemento(){
-    return this->warhistory.back();
+void WarHistory::storeMemento(Memento *memento)
+{
+    this->history.push_back(memento);
 };
 
-void WarHistory::storeMemento(Memento* memento){
-    this->warhistory.push_back(memento);
+list<Memento *> WarHistory::getEntireHistory()
+{
+    return this->history;
 };
-
-vector<Memento*> WarHistory::getEntireHistory(){
-    return this->warhistory;
-};
-
-
-

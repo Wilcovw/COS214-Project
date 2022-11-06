@@ -41,7 +41,7 @@ void ResearchAndDevelopmentCentre::addToList(Vehicles *v)
     vehicleToBeUpgraded.push_back(v);
 }
 
-Infrastructure *ResearchAndDevelopmentCentre::clone()
+Infrastructure *ResearchAndDevelopmentCentre::clone(Area *newArea)
 {
-    return new ResearchAndDevelopmentCentre(HP, location);
+    return new ResearchAndDevelopmentCentre(HP, newArea);
 }

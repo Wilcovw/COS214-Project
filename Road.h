@@ -16,6 +16,10 @@ private:
      * @brief the connection between 2 Areas are connected by edges. In this class edges are roads, which go both directions
      */
     Edge **edges = new Edge *[2];
+    /**
+     * @brief checks whether the Road has been cloned
+     */
+    bool hasBeenCloned;
 
 public:
     /**

@@ -7,10 +7,10 @@ Infrastructure::Infrastructure(double hp, Area *area)
     HP = hp;
 }
 
-//Infrastructure::~Infrastructure()
+// Infrastructure::~Infrastructure()
 //{
-//    delete location;
-//}
+//     delete location;
+// }
 
 void Infrastructure::takeDamage(double theDamage)
 {
@@ -32,11 +32,12 @@ Infrastructure *Infrastructure::clone(Area *newArea)
     return nullptr;
 }
 
-Area* Infrastructure::getArea()
+Area *Infrastructure::getArea()
 {
     return location;
 }
 
-typeOfInfrastructure Infrastructure::getType() {
+typeOfInfrastructure Infrastructure::getType()
+{
     return type;
 }

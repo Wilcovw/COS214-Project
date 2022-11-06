@@ -52,6 +52,27 @@ WarPhase *WarPhase::clone()
     list<Country *> c = cloneCountries(rel);
     list<Relationship *> r = cloneRelationship(rel);
     WarPhase *wph = new WarPhase();
+    for (auto a : map->getAreaList())
+    {
+        for (auto clonedCountry : c)
+        {
+            if (clonedCountry->getName() == a->getControllingCountry()->getName())
+            {
+                wph->map->addArea(a->clone(clonedCountry));
+                break;
+            }
+        }
+    }
+    for (auto oldCountry : allCountries)
+    {
+        for (auto clonedCountry : c)
+        {
+            if (oldCountry->getName() == clonedCountry->getName())
+            {
+                oldCountry->cloneWarEntities(clonedCountry);
+            }
+        }
+    }
     wph->communication = com;
     wph->allCountries = c;
     wph->allRelationships = r;
@@ -62,20 +83,19 @@ WarPhase *WarPhase::clone()
 Memento *WarPhase::newWarPhase()
 {
     WarPhase *clonedWarPhase = this->clone();
-    Communication *newCommmunication = new CommunicationBroadcast();
-    clonedWarPhase->communication = newCommmunication;
     WarMap *newMap = new WarMap();
-    for (Country *c : clonedWarPhase->allCountries)
+    for (auto c : clonedWarPhase->allCountries)
     {
         list<Area *> allAreas = c->getAreas();
-        for (Area *a : allAreas)
+        for (auto a : allAreas)
         {
             newMap->addArea(a);
         }
     }
     clonedWarPhase->map = newMap;
+    Memento *meme = new Memento(clonedWarPhase);
 
-    return new Memento(clonedWarPhase);
+    return meme;
 }
 
 void WarPhase::reverseWarPhase(Memento *memento)
@@ -421,7 +441,7 @@ void WarPhase::addConnection(typeOfInfrastructure type, string sourceName, strin
     {
         if (type == ::iRoad)
         {
-            Road *newRoad = new Road(getArea(sourceName), getArea(destinationName), 3, distance);
+            Road *newRoad = new Road(getArea(sourceName), getArea(destinationName), 30, distance);
         }
         else if (type == ::iHarbour)
         {
@@ -429,7 +449,7 @@ void WarPhase::addConnection(typeOfInfrastructure type, string sourceName, strin
             Harbour *theOtherHarbour;
             if (getInfrastructureInArea(getArea(sourceName), type).empty())
             {
-                theHarbour = new Harbour(getArea(sourceName), 3);
+                theHarbour = new Harbour(getArea(sourceName), 70);
                 country->getWarEntities()->addInfrastructure(theHarbour);
             }
             else
@@ -438,7 +458,7 @@ void WarPhase::addConnection(typeOfInfrastructure type, string sourceName, strin
             }
             if (getInfrastructureInArea(getArea(destinationName), type).empty())
             {
-                theOtherHarbour = new Harbour(getArea(destinationName), 3);
+                theOtherHarbour = new Harbour(getArea(destinationName), 50);
                 destination->getWarEntities()->addInfrastructure(theOtherHarbour);
             }
             else
@@ -1698,6 +1718,11 @@ list<string> WarPhase::getAreasInRelationship(string relationshipName)
     }
 
     return areas;
+}
+
+void WarPhase::revolt(string countryName)
+{
+    return;
 }
 
 #endif

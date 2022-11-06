@@ -10,7 +10,7 @@ void LandVehicleDevelopment::destroy()
     delete this;
 }
 
-Infrastructure *LandVehicleDevelopment::clone()
+Infrastructure *LandVehicleDevelopment::clone(Area *newArea)
 {
-    return new LandVehicleDevelopment(HP, location);
+    return new LandVehicleDevelopment(HP, newArea);
 }

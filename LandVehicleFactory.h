@@ -27,12 +27,12 @@ public:
      * @brief Calls class destructor
      */
     virtual void destroy();
-	/**
-	 * @brief Makes a copy of the current Factory
-	 * 
-	 * @return Infrastructure* 
-	 */
-    virtual Infrastructure* clone();
+    /**
+     * @brief Makes a copy of the current Factory
+     *
+     * @return Infrastructure*
+     */
+    virtual Infrastructure *clone(Area *newArea);
 };
 
 #endif // FACTORY_AND_OBSERVER_LANDVEHICLEFACTORY_H

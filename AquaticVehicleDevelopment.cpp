@@ -1,13 +1,16 @@
 #include "AquaticVehicleDevelopment.h"
 
-AquaticVehicleDevelopment::AquaticVehicleDevelopment(double hp, Area *area) : ResearchAndDevelopmentCentre(hp, area) {
+AquaticVehicleDevelopment::AquaticVehicleDevelopment(double hp, Area *area) : ResearchAndDevelopmentCentre(hp, area)
+{
     type = ::iAquaticDevelopment;
 }
 
-void AquaticVehicleDevelopment::destroy() {
+void AquaticVehicleDevelopment::destroy()
+{
     delete this;
 }
 
-Infrastructure *AquaticVehicleDevelopment::clone() {
-    return new AquaticVehicleDevelopment(HP, location);
+Infrastructure *AquaticVehicleDevelopment::clone(Area *newArea)
+{
+    return new AquaticVehicleDevelopment(HP, newArea);
 }

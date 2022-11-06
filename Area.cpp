@@ -121,7 +121,8 @@ list<Edge *> Area::getEdges()
 
 bool Area::isAccessible(Area *d, string type)
 {
-	if (type != "Harbour"){
+	if (type != "Harbour")
+	{
 		return isAccessible(d);
 	}
 	if (this == d || d == nullptr)
@@ -212,7 +213,7 @@ void Area::removeEdge(Edge *e)
 
 Area *Area::clone(Country *c)
 {
-	Area *clonedArea = new Area(name, c);
+	clonedArea = new Area(name, c);
 	return clonedArea;
 }
 

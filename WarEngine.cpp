@@ -13,6 +13,7 @@
 WarEngine::WarEngine()
 {
     phase = new WarPhase();
+    history = new WarHistory();
 };
 
 WarEngine::~WarEngine()
@@ -27,10 +28,12 @@ void WarEngine::newWarPhase()
 
 void WarEngine::reverseWarPhase()
 {
+    delete phase;
     phase->reverseWarPhase(history->getLastMemento());
 }
 
-WarPhase* WarEngine::getPhase(){
+WarPhase *WarEngine::getPhase()
+{
     return phase;
 }
 

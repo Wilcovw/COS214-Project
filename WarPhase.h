@@ -4,11 +4,6 @@
 #include <string>
 using namespace std;
 
-// enum typeOfInfrastructure : int;
-// enum vehicleType : int;
-// enum theTroopTypes : int;
-// enum kindOfTroops : int;
-
 enum typeOfInfrastructure : int
 {
     iRoad,
@@ -128,15 +123,16 @@ public:
     void addInfrastructure(typeOfInfrastructure type, string areaName);
     void addTroops(string areaName, kindOfTroops kind, theTroopTypes type);
     void addVehicles(string areaName, vehicleType vehicleType);
-    void attackArea(string areaName, string countryName); //
+    void attackArea(string areaName, string countryName);
     void moveTroops(string areaName, string countryName);
     void moveVehicles(string areaName, string countryName);
     void printCountryStatus(string countryName, bool displayInfrastructure);
     void printAreaStatus(string areaName);
     void distributeTroopsAndVehicles(string countryName);
-    bool countryStillExists(string countryName); //
+    bool countryStillExists(string countryName);
     void upgradeVehiclesInArea(vehicleType type, string areaName);
     list<string> getAreasInRelationship(string relationship);
+    void revolt(string countryName);
 
     /*Memento *createMemento();
     list<Country *> getCountryGroup();

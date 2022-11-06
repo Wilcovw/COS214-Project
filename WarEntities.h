@@ -5,7 +5,7 @@
 #include "Troops.h"
 #include "Infrastructure.h"
 #include "Citizens.h"
-#include <vector>
+#include <list>
 /**
  * @brief THe WarEntities class holds all the vehicles, troops and infrastructure of a country
  *
@@ -14,17 +14,17 @@ class WarEntities
 {
 private:
     /**
-     * @brief A vector containing all the vehicles belonging to a country
+     * @brief A list containing all the vehicles belonging to a country
      *
      */
     std::list<Vehicles *> vehicles;
     /**
-     * @brief A vector containing all the troops belonging to a country
+     * @brief A list containing all the troops belonging to a country
      *
      */
     std::list<Troops *> troops;
     /**
-     * @brief A vector containing all the infrastructure belonging to a country
+     * @brief A list containing all the infrastructure belonging to a country
      *
      */
     std::list<Infrastructure *> infrastructure;
@@ -47,39 +47,39 @@ public:
      */
     ~WarEntities();
     /**
-     * @brief Add a new vehicle to the vehicle vector
+     * @brief Add a new vehicle to the vehicle list
      *
      * @param theVehicle the vehicle to be added
      */
     void addVehicles(Vehicles *theVehicle);
     /**
-     * @brief Add a new group of troops to the troops vector
+     * @brief Add a new group of troops to the troops list
      *
      * @param theTroops The group of troops to be added
      */
     void addTroops(Troops *theTroops);
     /**
-     * @brief Add a new Infrastructure to the Infrastructure vector
+     * @brief Add a new Infrastructure to the Infrastructure list
      *
      * @param theInfrastructure The infrastructure to be added
      */
     void addInfrastructure(Infrastructure *theInfrastructure);
     /**
-     * @brief Return the Vehicles vector
+     * @brief Return the Vehicles list
      *
-     * @return std::vector<Vehicles*> The vehicles vector
+     * @return std::list<Vehicles*> The vehicles list
      */
     std::list<Vehicles *> getVehicles();
     /**
-     * @brief Return the Troops vector
+     * @brief Return the Troops list
      *
-     * @return std::vector<Troops*> The troops vector
+     * @return std::list<Troops*> The troops list
      */
     std::list<Troops *> getTroops();
     /**
-     * @brief Return the Infrastructure vector
+     * @brief Return the Infrastructure list
      *
-     * @return std::vector<Infrastructure*> The infrastructure vector
+     * @return std::list<Infrastructure*> The infrastructure list
      */
     std::list<Infrastructure *> getInfrastructure();
     /**
@@ -94,14 +94,14 @@ public:
      */
     void removeInfrastructure(Infrastructure *);
     /**
-    * @brief removes theTroop from troops
-    * @param theTroop
-    */
+     * @brief removes theTroop from troops
+     * @param theTroop
+     */
     void removeTroops(Troops *);
     /**
-    * @brief removes theVehicle from vehicles
-    * @param theVehicle
-    */
+     * @brief removes theVehicle from vehicles
+     * @param theVehicle
+     */
     void removeVehicles(Vehicles *);
     /**
      * @brief returns a list of Citizens who are currently fighting in war

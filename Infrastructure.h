@@ -8,8 +8,8 @@ protected:
     double HP;
     Area *location;
     typeOfInfrastructure type;
-public:
 
+public:
     /**
      * @brief Construct a new Infrastructure object
      *
@@ -47,11 +47,11 @@ public:
      * @return Area*
      */
     Area *getArea();
-	/**
-	 * @brief Get the Type OF Infrastructure
-	 * 
-	 * @return typeOfInfrastructure 
-	 */
+    /**
+     * @brief Get the Type OF Infrastructure
+     *
+     * @return typeOfInfrastructure
+     */
     typeOfInfrastructure getType();
 };
 

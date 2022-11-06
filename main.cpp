@@ -666,15 +666,78 @@ void populate(WarEngine *game)
     game->getPhase()->distributeTroopsAndVehicles(Netherlands);
     game->getPhase()->distributeTroopsAndVehicles(Germany);
     game->getPhase()->distributeTroopsAndVehicles(Denmark);
+
+    // game->newWarPhase();
+    // game->getPhase()->getAreasInRelationship(Red);
+    // game->reverseWarPhase();
+    // game->getPhase()->getAreasInRelationship(Red);
+    // cout << endl;
+    // cout << endl;
+    // cout << endl;
+    // game->newWarPhase();
+    // game->getPhase()->printAreaStatus(Paris);
+    // game->getPhase()->distributeTroopsAndVehicles(France);
+    // game->getPhase()->printAreaStatus(Paris);
+    // game->reverseWarPhase();
+    // game->getPhase()->printAreaStatus(Paris);
+    // game->getPhase()->distributeTroopsAndVehicles(France);
+    // game->getPhase()->printAreaStatus(Paris);
+    // cout << endl;
+    // cout << endl;
+    // cout << endl;
+    // game->newWarPhase();
+    // game->getPhase()->printCountryStatus(Germany, true);
+    // game->getPhase()->addArea("TestArea1", Germany);
+    // game->getPhase()->addArea("TestArea2", Germany);
+    // game->reverseWarPhase();
+    // game->getPhase()->printCountryStatus(Germany, true);
 }
 
 // Create a memento an the current phase and then create and store a new phase in WarEngine
-void newPhase()
+void newPhase(WarEngine *game)
 {
+    game->newWarPhase();
+}
+
+void Phase3(WarEngine *game, string country)
+{
+    cout << "Welcome to Phase 3:" << endl;
+    if (country.compare("France") == 0)
+    {
+        game->getPhase()->revolt(country);
+    }
+    next();
+    // cout << "Please choose a Country to attack first: \n"
+    //      << "1:\n Be \n";
+    // game->getPhase()->printCountryStatus("France", false);
+    // cout << "2:\n Germany" << endl;
+    // game->getPhase()->printCountryStatus("Germany", false);
+    // while (country.compare("") == 0)
+    // {
+    //     getline(std::cin, choice);
+    //     if (choice.compare("1") == 0)
+    //     {
+    //         cout << "You have chosen France and are part of the red alliance\n"
+    //              << "Germany has declared war as it prepares to create an empire" << endl;
+    //         country = "France";
+    //     }
+    //     else if (choice.compare("2") == 0)
+    //     {
+    //         cout << "You have chosen Germany and are part of the blue alliance"
+    //              << "France has opposed you in your quest to enlarge you empire and must pay for their insolence" << endl;
+    //         country = "Germany";
+    //     }
+    //     else
+    //     {
+    //         cout << "Please choose side 1 or 2" << endl;
+    //     }
+    //     choice = "";
+    // }
 }
 
 void Phase2(WarEngine *game, string country)
 {
+    cout << "Welcome to Phase 2:" << endl;
     int threeCycles = 0;
     string choice = "";
     while (threeCycles < 3)
@@ -688,11 +751,13 @@ void Phase2(WarEngine *game, string country)
         {
             if (country.compare("France") == 0)
             {
-                game->getPhase()->addTroops("Paris", ::tGroundTroops, ::theSoldiers);
+                for (int i = 0; i < 10; i++)
+                    game->getPhase()->addTroops("Paris", ::tGroundTroops, ::theSoldiers);
             }
             else
             {
-                game->getPhase()->addTroops("Berlin", ::tGroundTroops, ::theSoldiers);
+                for (int i = 0; i < 10; i++)
+                    game->getPhase()->addTroops("Berlin", ::tGroundTroops, ::theSoldiers);
             }
             threeCycles++;
         }
@@ -700,11 +765,13 @@ void Phase2(WarEngine *game, string country)
         {
             if (country.compare("France") == 0)
             {
-                game->getPhase()->addVehicles("Nantes", ::landVehicle);
+                for (int i = 0; i < 5; i++)
+                    game->getPhase()->addVehicles("Nantes", ::landVehicle);
             }
             else
             {
-                game->getPhase()->addVehicles("Dusseldorf", ::landVehicle);
+                for (int i = 0; i < 10; i++)
+                    game->getPhase()->addVehicles("Dusseldorf", ::landVehicle);
             }
 
             threeCycles++;
@@ -767,8 +834,10 @@ void finalMain()
         }
         choice = "";
     }
-    newPhase();
+
+    newPhase(game);
     Phase2(game, country);
+    newPhase(game);
 }
 
 int main()
@@ -778,7 +847,9 @@ int main()
     // testMap();
     // testMemento();
     // showcasing();
-    finalMain();
+    // finalMain();
+    WarEngine *game = new WarEngine();
+    populate(game);
     cout << "=============================End testing===============================" << endl;
     return 0;
 }

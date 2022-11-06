@@ -17,7 +17,6 @@ Relationship::Relationship(Relationship &rel, Communication *comm, AssociatedCou
     this->tele->storeMe(this);
     this->relationshipType = rel.relationshipType;
     this->parent = parent;
-
     for (auto r : rel.getRelationships())
     {
         this->alliances.push_back(r->clone(comm, this));
