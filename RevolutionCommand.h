@@ -11,6 +11,10 @@ using namespace std;
 class RevolutionCommand : public Command
 {
 private:
+	/**
+	 * @brief Stores if the Revolution is happening
+	 * 
+	 */
     bool active;
 public:
 	/**

@@ -19,6 +19,10 @@ public:
      * @param speed
      */
     LandVehicles(Area *location, double hp, double damage, double speed);
+	/**
+	 * @brief Destroy the Land Vehicles object
+	 * 
+	 */
     ~LandVehicles();
     /**
      * @brief method that calls the vehicle's increments level method

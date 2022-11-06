@@ -14,12 +14,32 @@ class Troops;
 class Vehicles
 {
 private:
+	/**
+	 * @brief The health of the Vechile
+	 * 
+	 */
     double HP;
+	/**
+	 * @brief The damgae the Vechile will inflict
+	 * 
+	 */
     double damage;
+	/**
+	 * @brief How fast the vechile is
+	 * 
+	 */
     double speed;
+	/**
+	 * @brief The location which the Vechile is located
+	 * 
+	 */
     Area *location;
 
 protected:
+	/**
+	 * @brief The type of vechile it is
+	 * 
+	 */
     vehicleType type;
 
 public:

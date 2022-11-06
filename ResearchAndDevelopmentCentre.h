@@ -17,6 +17,12 @@ protected:
     vector<Vehicles *> vehicleToBeUpgraded;
 
 public:
+	/**
+	 * @brief Construct a new Research And Development Centre object
+	 * 
+	 * @param hp The health of the Center
+	 * @param area The Area the Centre is located
+	 */
     ResearchAndDevelopmentCentre(double hp, Area *area) : Infrastructure(hp, area){};
     /**
      * @brief starts the developing of upgrades for vehicles
