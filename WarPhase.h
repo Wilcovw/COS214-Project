@@ -49,6 +49,7 @@ enum kindOfTroops : int
 class WarMap;
 class Country;
 class Communication;
+class CommunicationBroadcast;
 class Relationship;
 class Infrastructure;
 class Troops;

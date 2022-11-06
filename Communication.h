@@ -20,6 +20,11 @@ public:
      * @param countries Country in the affected relation change
      */
     virtual void notify(AssociatedCountries *countries, std::string message) = 0;
+    /**
+     * @brief Remove a country from the list of countries
+     *
+     * @param aC the country to be removed
+     */
     virtual void removeAssociatedCountries(AssociatedCountries *aC) = 0;
     /**
      * @brief Destroy the dynamic objects created in the communication objects
