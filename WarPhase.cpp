@@ -719,7 +719,7 @@ void WarPhase::addVehicles(string areaName, vehicleType vehicleType)
         if (!factory.empty())
         {
             LandVehicleFactory *fac = (LandVehicleFactory *)factory.front();
-            country->getWarEntities()->addVehicles(fac->createVehicle(40, 40, 60));
+            country->getWarEntities()->addVehicles(fac->createVehicle(40, 10, 60));
         }
         else
         {
@@ -732,7 +732,7 @@ void WarPhase::addVehicles(string areaName, vehicleType vehicleType)
         if (!factory.empty())
         {
             AquaticVehicleFactory *fac = (AquaticVehicleFactory *)factory.front();
-            country->getWarEntities()->addVehicles(fac->createVehicle(50, 20, 50));
+            country->getWarEntities()->addVehicles(fac->createVehicle(50, 5, 50));
         }
         else
         {
@@ -745,7 +745,7 @@ void WarPhase::addVehicles(string areaName, vehicleType vehicleType)
         if (!factory.empty())
         {
             AircraftFactory *fac = (AircraftFactory *)factory.front();
-            country->getWarEntities()->addVehicles(fac->createVehicle(30, 50, 900));
+            country->getWarEntities()->addVehicles(fac->createVehicle(30, 15, 900));
         }
         else
         {

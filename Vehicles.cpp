@@ -80,7 +80,7 @@ void Vehicles::incLevel()
 {
     double levelMultiplier = (1 / level);
     HP += 5;
-    damage += 5;
+    damage += 2;
     speed += 5;
 }
 
@@ -99,9 +99,10 @@ void Vehicles::update()
 
 void Vehicles::attack(Vehicles *theEnemy)
 {
+    int dmg = damage;
     while (HP > 0 && theEnemy->HP > 0)
     {
-        takeDamage(theEnemy->takeDamage(this->getDamage()));
+        takeDamage(theEnemy->takeDamage(dmg));
     }
 }
 
@@ -121,8 +122,8 @@ void Vehicles::attack(Infrastructure *theEnemy)
     }
 }
 
-Vehicles::~Vehicles() {
-    
+Vehicles::~Vehicles()
+{
 }
 
 vehicleType Vehicles::getType()
