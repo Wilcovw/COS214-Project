@@ -130,7 +130,7 @@ public:
     void attackArea(string areaName, string countryName); //
     void moveTroops(string areaName, string countryName);
     void moveVehicles(string areaName, string countryName);
-    void printCountryStatus(string countryName);
+    void printCountryStatus(string countryName, bool displayInfrastructure);
     void printAreaStatus(string areaName);
     void distributeTroopsAndVehicles(string countryName);
     bool countryStillExists(string countryName); //

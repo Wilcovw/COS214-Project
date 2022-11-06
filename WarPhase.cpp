@@ -756,7 +756,7 @@ void WarPhase::addVehicles(string areaName, vehicleType vehicleType)
     }
 }
 
-void WarPhase::printCountryStatus(string countryName)
+void WarPhase::printCountryStatus(string countryName, bool displayInfrastructure)
 {
     Country *country = getCountry(countryName);
     if (country != nullptr)
@@ -876,91 +876,94 @@ void WarPhase::printCountryStatus(string countryName)
         cout << "Land vehicles: \t\t\t" << landVehicles << endl;
         cout << "Navy vehicles: \t\t\t" << navyVehicles << endl;
         cout << "Air Force vehicles: \t\t" << airForceVehicles << endl;
-        int roads = 0;
-        int harbours = 0;
-        int runways = 0;
-        int landDevelopments = 0;
-        int navyDevelopments = 0;
-        int airForceDevelopments = 0;
-        int landFactory = 0;
-        int navyFactory = 0;
-        int airForceFactory = 0;
-        int landCamps = 0;
-        int navyCamps = 0;
-        int airForceCamps = 0;
-        for (auto i : country->getWarEntities()->getInfrastructure())
+
+        if (displayInfrastructure)
         {
-            if (i->getType() == ::iRoad)
+            int roads = 0;
+            int harbours = 0;
+            int runways = 0;
+            int landDevelopments = 0;
+            int navyDevelopments = 0;
+            int airForceDevelopments = 0;
+            int landFactory = 0;
+            int navyFactory = 0;
+            int airForceFactory = 0;
+            int landCamps = 0;
+            int navyCamps = 0;
+            int airForceCamps = 0;
+            for (auto i : country->getWarEntities()->getInfrastructure())
             {
-                roads++;
+                if (i->getType() == ::iRoad)
+                {
+                    roads++;
+                }
+                else if (i->getType() == ::iHarbour)
+                {
+                    harbours++;
+                }
+                else if (i->getType() == ::iRunway)
+                {
+                    runways++;
+                }
+                else if (i->getType() == ::iLandDevelopment)
+                {
+                    landDevelopments++;
+                }
+                else if (i->getType() == ::iAquaticDevelopment)
+                {
+                    navyDevelopments++;
+                }
+                else if (i->getType() == ::iAircraftDevelopment)
+                {
+                    airForceDevelopments++;
+                }
+                else if (i->getType() == ::iLandFactory)
+                {
+                    landFactory++;
+                }
+                else if (i->getType() == ::iAquaticFactory)
+                {
+                    navyFactory++;
+                }
+                else if (i->getType() == ::iAircraftFactory)
+                {
+                    airForceFactory++;
+                }
+                else if (i->getType() == ::iGroundCamp)
+                {
+                    landCamps++;
+                }
+                else if (i->getType() == ::iNavyCamp)
+                {
+                    navyCamps++;
+                }
+                else if (i->getType() == ::iAirforceCamp)
+                {
+                    airForceCamps++;
+                }
             }
-            else if (i->getType() == ::iHarbour)
-            {
-                harbours++;
-            }
-            else if (i->getType() == ::iRunway)
-            {
-                runways++;
-            }
-            else if (i->getType() == ::iLandDevelopment)
-            {
-                landDevelopments++;
-            }
-            else if (i->getType() == ::iAquaticDevelopment)
-            {
-                navyDevelopments++;
-            }
-            else if (i->getType() == ::iAircraftDevelopment)
-            {
-                airForceDevelopments++;
-            }
-            else if (i->getType() == ::iLandFactory)
-            {
-                landFactory++;
-            }
-            else if (i->getType() == ::iAquaticFactory)
-            {
-                navyFactory++;
-            }
-            else if (i->getType() == ::iAircraftFactory)
-            {
-                airForceFactory++;
-            }
-            else if (i->getType() == ::iGroundCamp)
-            {
-                landCamps++;
-            }
-            else if (i->getType() == ::iNavyCamp)
-            {
-                navyCamps++;
-            }
-            else if (i->getType() == ::iAirforceCamp)
-            {
-                airForceCamps++;
-            }
+            cout << "\nInfrastructure: " << endl;
+
+            cout << "Number of roads/harbours/runways under " << country->getName() << "'s control: " << endl;
+            cout << "Number of roads: \t\t\t\t" << roads << endl;
+            cout << "Number of harbours: \t\t\t\t" << harbours << endl;
+            cout << "Number of runways: \t\t\t\t" << runways << endl;
+
+            cout << "Number of research and development centres: " << endl;
+            cout << "Number of land research centres: \t\t" << landDevelopments << endl;
+            cout << "Number of navy research centres: \t\t" << navyDevelopments << endl;
+            cout << "Number of air force research centres: \t\t" << airForceDevelopments << endl;
+
+            cout << "Number of vehicle factories: " << endl;
+            cout << "Number of land vehicle factories: \t\t" << landFactory << endl;
+            cout << "Number of navy vehicle factories: \t\t" << navyFactory << endl;
+            cout << "Number of air force vehicle factories: \t\t" << airForceFactory << endl;
+
+            cout << "Number of troop training camps: " << endl;
+            cout << "Number of land troop training camps: \t\t" << landCamps << endl;
+            cout << "Number of navy troop training camps: \t\t" << navyCamps << endl;
+            cout << "Number of air force troop training camps: \t" << airForceCamps << endl;
         }
-        cout << "\nInfrastructure: " << endl;
-
-        cout << "Number of roads/harbours/runways under " << country->getName() << "'s control: " << endl;
-        cout << "Number of roads: \t\t\t\t" << roads << endl;
-        cout << "Number of harbours: \t\t\t\t" << harbours << endl;
-        cout << "Number of runways: \t\t\t\t" << runways << endl;
-
-        cout << "Number of research and development centres: " << endl;
-        cout << "Number of land research centres: \t\t" << landDevelopments << endl;
-        cout << "Number of navy research centres: \t\t" << navyDevelopments << endl;
-        cout << "Number of air force research centres: \t\t" << airForceDevelopments << endl;
-
-        cout << "Number of vehicle factories: " << endl;
-        cout << "Number of land vehicle factories: \t\t" << landFactory << endl;
-        cout << "Number of navy vehicle factories: \t\t" << navyFactory << endl;
-        cout << "Number of air force vehicle factories: \t\t" << airForceFactory << endl;
-
-        cout << "Number of troop training camps: " << endl;
-        cout << "Number of land troop training camps: \t\t" << landCamps << endl;
-        cout << "Number of navy troop training camps: \t\t" << navyCamps << endl;
-        cout << "Number of air force troop training camps: \t" << airForceCamps << endl;
-
         cout << "-----------------------------------------------------------" << endl;
     }
 }

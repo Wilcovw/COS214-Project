@@ -2,6 +2,13 @@
 #include <iostream>
 using namespace std;
 
+void next()
+{
+    std::cout << "Press enter to continue...";
+    std::cin.get();
+    std::cout << "\n";
+}
+
 void testMemento(){
     /* Communication *c;
      WarMap *map = new WarMap();
@@ -659,18 +666,109 @@ void populate(WarEngine *game)
     game->getPhase()->distributeTroopsAndVehicles(Netherlands);
     game->getPhase()->distributeTroopsAndVehicles(Germany);
     game->getPhase()->distributeTroopsAndVehicles(Denmark);
+}
 
-    game->getPhase()->attackArea(Brussels, UK);
-    game->getPhase()->attackArea(Stuttgart, France);
-    game->getPhase()->attackArea(Amsterdam, UK);
-    game->getPhase()->attackArea(Berlin, France);
-    game->getPhase()->attackArea(Berlin, UK);
+// Create a memento an the current phase and then create and store a new phase in WarEngine
+void newPhase()
+{
+}
+
+void Phase2(WarEngine *game, string country)
+{
+    int threeCycles = 0;
+    string choice = "";
+    while (threeCycles < 3)
+    {
+        cout << "Choose how to prepare for war:\n"
+             << "1: Train more troops\n"
+             << "2: Create more vehicles\n"
+             << "3: Upgrade vehicles stationed at research facilities" << endl;
+        getline(std::cin, choice);
+        if (choice.compare("1") == 0)
+        {
+            if (country.compare("France") == 0)
+            {
+                game->getPhase()->addTroops("Paris", ::tGroundTroops, ::theSoldiers);
+            }
+            else
+            {
+                game->getPhase()->addTroops("Berlin", ::tGroundTroops, ::theSoldiers);
+            }
+            threeCycles++;
+        }
+        else if (choice.compare("2") == 0)
+        {
+            if (country.compare("France") == 0)
+            {
+                game->getPhase()->addVehicles("Nantes", ::landVehicle);
+            }
+            else
+            {
+                game->getPhase()->addVehicles("Dusseldorf", ::landVehicle);
+            }
+
+            threeCycles++;
+        }
+        else if (choice.compare("3") == 0)
+        {
+            if (country.compare("France") == 0)
+            {
+                game->getPhase()->upgradeVehiclesInArea(::landVehicle, "Nantes");
+            }
+            else
+            {
+                game->getPhase()->upgradeVehiclesInArea(::landVehicle, "Dusseldorf");
+            }
+            threeCycles++;
+        }
+        else
+        {
+            cout << "Please choose option 1, 2 or 3" << endl;
+        }
+    }
+    game->getPhase()->distributeTroopsAndVehicles("Germany");
+    game->getPhase()->distributeTroopsAndVehicles("France");
 }
 
 void finalMain()
 {
     WarEngine *game = new WarEngine();
     populate(game);
+
+    string country = "";
+    string choice = "";
+    cout << "░▀▀█▀▀░█░░░░█▀▀░░░▒█▀▀█░█▀▀▄░█▀▀░█▀▀▄░▀█▀░░░▒█▀▀▀░█░▒█░█▀▀▄░▄▀▀▄░▄▀▀▄░█▀▀░░░▒█░░▒█░█▀▀▄░█▀▀▄" << endl;
+    cout << "░░▒█░░░█▀▀█░█▀▀░░░▒█░▄▄░█▄▄▀░█▀▀░█▄▄█░░█░░░░▒█▀▀▀░█░▒█░█▄▄▀░█░░█░█▄▄█░█▀▀░░░▒█▒█▒█░█▄▄█░█▄▄▀" << endl;
+    cout << "░░▒█░░░▀░░▀░▀▀▀░░░▒█▄▄▀░▀░▀▀░▀▀▀░▀░░▀░░▀░░░░▒█▄▄▄░░▀▀▀░▀░▀▀░░▀▀░░█░░░░▀▀▀░░░▒▀▄▀▄▀░▀░░▀░▀░▀▀" << endl;
+    cout << "welcome to the Phase 1: " << endl;
+    cout << "Please choose a side in the war: \n"
+         << "1:\n France \n";
+    game->getPhase()->printCountryStatus("France", false);
+    cout << "2:\n Germany" << endl;
+    game->getPhase()->printCountryStatus("Germany", false);
+    while (country.compare("") == 0)
+    {
+        getline(std::cin, choice);
+        if (choice.compare("1") == 0)
+        {
+            cout << "You have chosen France and are part of the red alliance\n"
+                 << "Germany has declared war as it prepares to create an empire" << endl;
+            country = "France";
+        }
+        else if (choice.compare("2") == 0)
+        {
+            cout << "You have chosen Germany and are part of the blue alliance"
+                 << "France has opposed you in your quest to enlarge you empire and must pay for their insolence" << endl;
+            country = "Germany";
+        }
+        else
+        {
+            cout << "Please choose side 1 or 2" << endl;
+        }
+        choice = "";
+    }
+    newPhase();
+    Phase2(game, country);
 }
 
 int main()

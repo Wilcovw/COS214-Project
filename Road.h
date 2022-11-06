@@ -10,11 +10,12 @@ class Road : public Infrastructure
 {
 private:
     Edge **edges = new Edge *[2];
+
 public:
-    Road(Area*, Area *, double, double);
+    Road(Area *, Area *, double, double);
     ~Road();
     virtual void destroy();
-    virtual Infrastructure* clone(Area* newArea);
+    virtual Infrastructure *clone(Area *newArea);
 };
 
 #endif
