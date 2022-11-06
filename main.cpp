@@ -465,14 +465,30 @@ TEST_CASE("Testing Mediator design pattern for sending Messages across Associate
 TEST_CASE("Testing all the Observer Pattern")
 {
 	cout << "==========Testing All the ResearchAndDevelopmentCentre============="<< endl;
-	LandVehicles *v = new LandVehicles(graph->getArea(Munich), 25,25,25);
-	CHECK(v->getDamage() == 25);
-	CHECK(v->getHP() == 25);
-	CHECK(v->getSpeed() == 25);
+	LandVehicles *car = new LandVehicles(graph->getArea(Munich), 25,25,25);
+	CHECK(car->getDamage() == 25);
+	CHECK(car->getHP() == 25);
+	CHECK(car->getSpeed() == 25);
 	ResearchAndDevelopmentCentre *vechleCentre = new LandVehicleDevelopment(1000,graph->getArea(Munich));
-	v->readyToUpgrade(vechleCentre);
+	car->readyToUpgrade(vechleCentre);
 	vechleCentre->notifyDevelop();
-	CHECK(v->getDamage() == 27);
-	CHECK(v->getHP() == 30);
-	CHECK(v->getSpeed() == 30);
+	CHECK(car->getDamage() == 27);
+	CHECK(car->getHP() == 30);
+	CHECK(car->getSpeed() == 30);
+
+}
+
+TEST_CASE("Testing memento"){
+	game->newWarPhase();
+	game->getPhase()->addArea("Test",France);
+	game->reverseWarPhase();
+	CHECK(graph->getArea("Test") == nullptr);
+	game->newWarPhase();
+	game->getPhase()->addArea("Test1",France);
+	game->newWarPhase(); 
+	game->getPhase()->addArea("Test2",France);
+	game->reverseWarPhase();
+	game->reverseWarPhase();
+	CHECK(graph->getArea("Test1") == nullptr);
+	CHECK(graph->getArea("Test2") == nullptr);
 }
