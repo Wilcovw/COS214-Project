@@ -1,6 +1,6 @@
 #ifndef RELATIONSHIP_H
 #define RELATIONSHIP_H
-#include <vector>
+#include <list>
 #include <string>
 #include "AssociatedCountries.h"
 
@@ -15,7 +15,7 @@ private:
      * @brief alliances store all of the associated countries and their alliances
      *
      */
-    std::vector<AssociatedCountries *> alliances;
+    std::list<AssociatedCountries *> alliances;
     /**
      * @brief The type of relationship between the countries, eg: neutral, allies, enemies, etc
      *
@@ -58,7 +58,7 @@ public:
      *
      * @return A vector storing all the associated countries
      */
-    std::vector<AssociatedCountries *> getRelationships();
+    std::list<AssociatedCountries *> getRelationships();
     /**
      * @brief Destroy the Relationship object
      *
@@ -95,6 +95,7 @@ public:
      * @return std::string - The string containing the contents of this AssociatedCountries object
      */
     virtual std::string print();
+    virtual Communication* getCommunication();
     /**
      * @brief Returns a deep copy of the AssociatedCountries object and its children
      *

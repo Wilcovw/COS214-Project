@@ -4,16 +4,16 @@ LandVehicles::LandVehicles(Area* location, double hp, double damage, double spee
     type = ::landVehicle;
 }
 
+LandVehicles::~LandVehicles() {
+    
+}
+
 void LandVehicles::update() {
     this->incLevel();
 }
 
 void LandVehicles::readyToUpgrade(ResearchAndDevelopmentCentre *r) {
     r->addToList(this);
-}
-
-void LandVehicles::destroy() {
-    delete this;
 }
 
 Vehicles *LandVehicles::clone() {

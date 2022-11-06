@@ -1,7 +1,3 @@
-//
-// Created by wilco on 2022/10/16.
-//
-
 #ifndef FACTORY_AND_OBSERVER_VEHICLES_H
 #define FACTORY_AND_OBSERVER_VEHICLES_H
 #include <string>
@@ -9,7 +5,6 @@
 #include "WarEngine.h"
 
 using namespace std;
-
 
 class Area;
 class Troops;
@@ -113,7 +108,7 @@ public:
     /**
      * @brief Calls class destructor
      */
-    void destroy();
+    virtual ~Vehicles();
     /**
      * @brief returns the Vehicle's type
      * @return vehicleType - type

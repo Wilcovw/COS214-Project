@@ -28,7 +28,7 @@ public:
     /**
     * @brief calls class destructor
     */
-    void destroy();
+    virtual ~AquaticVehicles();
 	/**
 	 * @brief Makes a copy of the Current Vehicle
 	 * 

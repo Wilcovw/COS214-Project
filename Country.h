@@ -175,6 +175,7 @@ public:
 	 * @return list<Country *> 
 	 */
     list<Country *> getEnemies();
+    virtual Communication* getCommunication();
 	/**
 	 * @brief Removes the passed in Citizen object from the Country
 	 * 

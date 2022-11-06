@@ -81,14 +81,7 @@ std::string Country::printAreas()
 
 void Country::removeArea(Area *area)
 {
-    std::list<Area *>::iterator it;
-    for (it = areas.begin(); it != areas.end(); ++it)
-    {
-        if (area == *it)
-        {
-            areas.erase(it);
-        }
-    }
+    areas.remove(area);
 }
 
 Citizens **Country::getCitizens()
@@ -186,17 +179,16 @@ list<Country *> Country::getAllies()
     {
         return allies;
     }
-
-    for (int i = 0; i < rel->getRelationships().size(); i++)
+    for (auto r : rel->getRelationships())
     {
-        if (Relationship *relationship = dynamic_cast<Relationship *>(rel->getRelationships().at(i)))
+        if (Relationship *relationship = dynamic_cast<Relationship *>(r))
         {
             list<Country *> empty;
             return empty;
         }
         else
         {
-            allies.push_back((Country *)rel->getRelationships().at(i));
+            allies.push_back((Country *)r);
         }
     }
     return allies;
@@ -217,24 +209,25 @@ list<Country *> Country::getEnemies()
     {
         return enemies;
     }
-    for (int i = 0; i < relParent->getRelationships().size(); i++)
+    for (auto r : relParent->getRelationships())
     {
-        if (Relationship *relationship = dynamic_cast<Relationship *>(relParent->getRelationships().at(i)))
+        if (Relationship *relationship = dynamic_cast<Relationship *>(r))
         {
-            Relationship *r = (Relationship *)relationship->getRelationships().at(i);
-            if (r->getRelationshipType() != alliesName)
+            Relationship *rel = (Relationship *)r;
+            if (rel->getRelationshipType() != alliesName)
             {
-                relEnemies = (Relationship *)relParent->getRelationships().at(i);
-                for (int i = 0; i < relEnemies->getRelationships().size(); i++)
+                relEnemies = (Relationship *)r;
+                // for (int i = 0; i < relEnemies->getRelationships().size(); i++)
+                for (auto rTemp : relEnemies->getRelationships())
                 {
-                    if (Relationship *relationship = dynamic_cast<Relationship *>(relEnemies->getRelationships().at(i)))
+                    if (Relationship *relationship = dynamic_cast<Relationship *>(rTemp))
                     {
                         list<Country *> empty;
                         return empty;
                     }
                     else
                     {
-                        enemies.push_back((Country *)relEnemies->getRelationships().at(i));
+                        enemies.push_back((Country *)rTemp);
                     }
                 }
             }
@@ -242,6 +235,11 @@ list<Country *> Country::getEnemies()
     }
 
     return enemies;
+}
+
+Communication *Country::getCommunication()
+{
+    return tele;
 }
 
 void Country::removeCitizen(Citizens *theCitizen)
