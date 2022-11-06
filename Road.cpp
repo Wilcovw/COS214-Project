@@ -40,5 +40,5 @@ Infrastructure* Road::clone(Area* newArea) {
     if(edges[0]->getDestination() != nullptr && edges[0]->getDestination()->getClonedArea() != nullptr) {
         Infrastructure* newRoad = new Road(newArea, edges[0]->getDestination()->getClonedArea(), HP, edges[0]->getDistance());
     }
-    return nullptr;
+    return newRoad;
 }

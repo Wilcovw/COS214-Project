@@ -8,9 +8,8 @@ Vehicles::Vehicles(Area *location, double HP, double damage, double speed)
 {
     this->location = location;
     this->HP = HP;
-    this->damage = damage;
-    this->speed = speed;
-    this->level = 1;
+    this->damage=damage;
+    this->speed=speed;
 }
 
 Area *Vehicles::getLocation()
@@ -31,11 +30,6 @@ double Vehicles::getDamage()
 double Vehicles::getSpeed()
 {
     return speed;
-}
-
-int Vehicles::getLevel()
-{
-    return level;
 }
 
 // use as: vehicle = vehicle.clone()
@@ -78,7 +72,6 @@ double Vehicles::takeDamage(double dmg)
 
 void Vehicles::incLevel()
 {
-    double levelMultiplier = (1 / level);
     HP += 5;
     damage += 2;
     speed += 5;
@@ -88,8 +81,7 @@ void Vehicles::print()
 {
     cout << "Type: " << type << "\nHP: "
          << HP << "\ndamage: " << damage << "\nspeed: " << speed
-         << "\nlevel: " << level << endl
-         << endl;
+          << endl << endl;
 }
 
 void Vehicles::update()

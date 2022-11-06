@@ -6,32 +6,107 @@
 class Area;
 class Vehicles;
 class Citizens;
+/**
+ * @brief Troops has three subclasses: GroundTroops, Navy, Airforce. It is the class for the infantry used in the war
+ */
 class Troops {
-    protected:
-        double HP;
-        Area* location;
-        TroopType* type;
-        Citizens* associatedCitizens;
-        Troops* clonedTroop;
-        kindOfTroops kind;
-    public:
-        Troops(double, Area*, TroopType*, Citizens*);
-        virtual ~Troops();
-        void attack(Troops*);
-        void attack(Infrastructure*);
-        void attack(Vehicles*);
-        double takeDamage(double);
-        double getHP();
-        Area* getLocation();
-        void setLocation(Area*);
-        TroopType* getType();
-        double getDamage();
-        double getMaxHP();
-        double getSpeed();
-        kindOfTroops getKind();
-        Troops * clone();
-        Troops** clone(int);
-        Citizens* getAssociatedCitizen();
-        Troops* getClone();
+protected:
+    /**
+     * @brief The troop's stats
+     */
+    double HP;
+    Area* location;
+    TroopType* type;
+    Citizens* associatedCitizens;
+    Troops* clonedTroop;
+    kindOfTroops kind;
+public:
+    /**
+     * @brief Constructor - sets private variables to passed in parameters
+     */
+    Troops(double, Area*, TroopType*, Citizens*);
+    /**
+     * @brief virtual destructor
+     */
+    virtual ~Troops();
+    /**
+     * @brief attacks the passed in parameter - Troops*
+     */
+    void attack(Troops*);
+    /**
+     * @brief attacks the passed in parameter - Infrastructure*
+     */
+    void attack(Infrastructure*);
+    /**
+     * @brief attacks the passed in parameter - Vehicles*
+     */
+    void attack(Vehicles*);
+    /**
+     * @brief HP lessens by theDamage
+     * @param theDamage
+     * @return double - the new HP
+     */
+    double takeDamage(double);
+    /**
+     * @brief returns class' HP
+     * @return double - HP
+     */
+    double getHP();
+    /**
+     * @brief returns class' location
+     * @return Area* - location
+     */
+    Area* getLocation();
+    /**
+     * @brief sets the class' location to theLocation
+     * @param theLocation
+     */
+    void setLocation(Area*);
+    /**
+     * @brief returns class' type
+     * @return TroopType* - type
+     */
+    TroopType* getType();
+    /**
+     * @brief returns class' damage
+     * @return double - damage
+     */
+    double getDamage();
+    /**
+     * @brief returns class' maxHP
+     * @return double - maxHP
+     */
+    double getMaxHP();
+    /**
+     * @brief returns class' speed
+     * @return double - speed
+     */
+    double getSpeed();
+    /**
+     * @brief returns kind of troop
+     * @return kondOfTroops - kind
+     */
+    kindOfTroops getKind();
+    /**
+     * @brief returns a clone of this class
+     * @return Troops* - this
+     */
+    Troops * clone();
+    /**
+     * @brief returns n number of clones into a 2d array
+     * @param n
+     * @return Troops** - n number of this
+     */
+    Troops** clone(int);
+    /**
+     * @brief returns class' associatedCitizens
+     * @return Citizens* - associatedCitizens
+     */
+    Citizens* getAssociatedCitizen();
+    /**
+     * @brief returns class' clone
+     * @return Troops* - clonedTroop
+     */
+    Troops* getClone();
 };
 #endif

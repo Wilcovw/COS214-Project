@@ -6,6 +6,9 @@
 #include "ResearchAndDevelopmentCentre.h"
 
 using namespace std;
+/**
+ * @brief LandVehicles are all vehicles that can only travel on land. It is the child class of Vehicles
+ */
 class LandVehicles : public Vehicles
 {
 public:

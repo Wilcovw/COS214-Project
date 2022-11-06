@@ -8,13 +8,15 @@ using namespace std;
 
 class Area;
 class Troops;
+/**
+ * @brief This is the class for vehicles to be constructed by factories. It has 3 subclasses (Aircraft, AquaticVehicles, LandVehicles)
+ */
 class Vehicles
 {
 private:
     double HP;
     double damage;
     double speed;
-    int level;
     Area *location;
 
 protected:
@@ -51,11 +53,6 @@ public:
     double getSpeed();
     /**
      *
-     * @return the level of the vehicle
-     */
-    int getLevel();
-    /**
-     *
      * @return a clone of the current vehicle
      */
     Vehicles *clone();
@@ -80,7 +77,7 @@ public:
      */
     double takeDamage(double dmg);
     /**
-     * increments the vehicle's level
+     * increments the vehicle's stats
      */
     void incLevel();
     /**
@@ -106,6 +103,10 @@ public:
      * @brief Calls class destructor
      */
     virtual ~Vehicles();
+    /**
+     * @brief returns the Vehicle's type
+     * @return vehicleType - type
+     */
     vehicleType getType();
 };
 

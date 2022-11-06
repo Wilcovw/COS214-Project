@@ -2,6 +2,9 @@
 #define NAVYTRAINING_H
 #include "TrainingCamp.h"
 
+/**
+ * @brief Class which is Infrastructure for training Navy Troops. Parent class is TrainingCamp
+ */
 class NavyTraining : public TrainingCamp
 {
 public:

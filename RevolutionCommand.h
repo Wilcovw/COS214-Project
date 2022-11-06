@@ -5,7 +5,9 @@
 #include "Country.h"
 
 using namespace std;
-
+/**
+ * @brief RevolutionCommand takes the role of the ConcreteCommand in the Command design pattern. It calls the execute method for a revolution to start
+ */
 class RevolutionCommand : public Command
 {
 private:

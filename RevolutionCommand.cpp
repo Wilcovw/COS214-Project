@@ -6,6 +6,7 @@ RevolutionCommand::RevolutionCommand(bool s) {
 
 void RevolutionCommand::execute() {
     this->active = this->active ? false : true;
+
     // TODO: Insert Reciever action()
 
     // Country::revolt(active);

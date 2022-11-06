@@ -88,9 +88,25 @@ public:
      * @return WarEntities The cloned object
      */
     WarEntities *clone();
+    /**
+     * @brief removes theObject from infrastructure
+     * @param theObject
+     */
     void removeInfrastructure(Infrastructure *);
+    /**
+    * @brief removes theTroop from troops
+    * @param theTroop
+    */
     void removeTroops(Troops *);
+    /**
+    * @brief removes theVehicle from vehicles
+    * @param theVehicle
+    */
     void removeVehicles(Vehicles *);
+    /**
+     * @brief returns a list of Citizens who are currently fighting in war
+     * @return list<Citizens *> - a list of fighting citizens
+     */
     std::list<Citizens *> getFightingCitizens();
 };
 #endif

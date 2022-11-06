@@ -6,12 +6,20 @@ using namespace std;
 class WarPhase;
 class Memento
 {
+
+/**
+ * @brief Stores a phase of war in warphase. This is in order to go back to a previous state
+ */
+class Memento
+{
 private:
 	friend class WarPhase;
 	/**
 	 * @brief Construct a new Memento object
 	 *
 	 * @param allCountries All countries to sotre
+	 *
+	 * @param allCountries All countries to store
 	 * @param c The communication network to store
 	 * @param map The map to store
 	 */
