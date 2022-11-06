@@ -17,6 +17,7 @@ private:
     double HP;
     double damage;
     double speed;
+    int level;
     Area *location;
 
 protected:
@@ -53,6 +54,11 @@ public:
     double getSpeed();
     /**
      *
+     * @return the level of the vehicle
+     */
+    int getLevel();
+    /**
+     *
      * @return a clone of the current vehicle
      */
     Vehicles *clone();
@@ -77,7 +83,7 @@ public:
      */
     double takeDamage(double dmg);
     /**
-     * increments the vehicle's stats
+     * increments the vehicle's level
      */
     void incLevel();
     /**

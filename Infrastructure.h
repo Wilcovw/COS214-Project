@@ -9,7 +9,10 @@ protected:
     Area *location;
     typeOfInfrastructure type;
 public:
-
+    /**
+     * @brief default constructor
+     */
+    // Infrastructure(){};
     /**
      * @brief Construct a new Infrastructure object
      *
