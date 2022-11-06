@@ -28,11 +28,11 @@ WarEntities *WarEntities::clone()
     WarEntities *newEntities = new WarEntities();
     for (auto v : vehicles)
     {
-        newEntities->addVehicles(v->clone());
+        newEntities->addVehicles(v->clone(v->getLocation()->getClonedArea()));
     }
     for (auto t : troops)
     {
-        newEntities->addTroops(t->clone());
+        newEntities->addTroops(t->clone(t->getLocation()->getClonedArea()));
     }
     int num = 0;
     for (auto i : infrastructure)

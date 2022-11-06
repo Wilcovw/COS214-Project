@@ -82,11 +82,12 @@ void Runway::destroy()
 Infrastructure *Runway::clone(Area *newArea)
 {
     Runway *newRunway = new Runway(newArea, this->HP);
+    newArea->addRunway(newRunway);
     for (auto f : edges)
     {
         if (f != nullptr && f->getDestination() != nullptr && f->getDestination()->getClonedArea() != nullptr && f->getDestination()->getClonedArea() != newArea)
         {
-            newRunway->addConnection(f->getDestination()->getClonedArea(), f->getDistance(), f->getDestination()->getRunwayInArea());
+            newRunway->addConnection(f->getDestination()->getClonedArea(), f->getDistance(), f->getDestination()->getClonedArea()->getRunwayInArea());
         }
     }
     return newRunway;

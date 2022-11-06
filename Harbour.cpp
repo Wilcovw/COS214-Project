@@ -77,11 +77,12 @@ void Harbour::destroy()
 Infrastructure *Harbour::clone(Area *newArea)
 {
     Harbour *newHarbour = new Harbour(newArea, this->HP);
+    newArea->addHarbour(newHarbour);
     for (auto c : edges)
     {
         if (c != nullptr && c->getDestination() != nullptr && c->getDestination()->getClonedArea() != nullptr && c->getDestination()->getClonedArea() != newArea)
         {
-            newHarbour->addConnection(c->getDestination()->getClonedArea(), c->getDistance(), c->getDestination()->getHarbourInArea());
+            newHarbour->addConnection(c->getDestination()->getClonedArea(), c->getDistance(), c->getDestination()->getClonedArea()->getHarbourInArea());
         }
     }
     return newHarbour;

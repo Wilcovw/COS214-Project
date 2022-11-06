@@ -16,7 +16,7 @@ Memento *WarHistory::getLastMemento()
 
 void WarHistory::storeMemento(Memento *memento)
 {
-    this->history.push_back(memento);
+    this->history.push_front(memento);
 };
 
 list<Memento *> WarHistory::getEntireHistory()
