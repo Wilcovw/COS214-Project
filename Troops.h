@@ -9,22 +9,44 @@ class Citizens;
 /**
  * @brief Troops has three subclasses: GroundTroops, Navy, Airforce. It is the class for the infantry used in the war
  */
-class Troops {
+class Troops
+{
 protected:
     /**
-     * @brief The troop's stats
+     * @brief The health of the Troop
      */
     double HP;
-    Area* location;
-    TroopType* type;
-    Citizens* associatedCitizens;
-    Troops* clonedTroop;
+    /**
+     * @brief The location the Troop is in
+     *
+     */
+    Area *location;
+    /**
+     * @brief The type of troop
+     *
+     */
+    TroopType *type;
+    /**
+     * @brief Stores a Citizen object
+     *
+     */
+    Citizens *associatedCitizens;
+    /**
+     * @brief The cloned troop
+     *
+     */
+    Troops *clonedTroop;
+    /**
+     * @brief The kind of troop
+     *
+     */
     kindOfTroops kind;
+
 public:
     /**
      * @brief Constructor - sets private variables to passed in parameters
      */
-    Troops(double, Area*, TroopType*, Citizens*);
+    Troops(double, Area *, TroopType *, Citizens *);
     /**
      * @brief virtual destructor
      */
@@ -32,15 +54,15 @@ public:
     /**
      * @brief attacks the passed in parameter - Troops*
      */
-    void attack(Troops*);
+    void attack(Troops *);
     /**
      * @brief attacks the passed in parameter - Infrastructure*
      */
-    void attack(Infrastructure*);
+    void attack(Infrastructure *);
     /**
      * @brief attacks the passed in parameter - Vehicles*
      */
-    void attack(Vehicles*);
+    void attack(Vehicles *);
     /**
      * @brief HP lessens by theDamage
      * @param theDamage
@@ -56,17 +78,17 @@ public:
      * @brief returns class' location
      * @return Area* - location
      */
-    Area* getLocation();
+    Area *getLocation();
     /**
      * @brief sets the class' location to theLocation
      * @param theLocation
      */
-    void setLocation(Area*);
+    void setLocation(Area *);
     /**
      * @brief returns class' type
      * @return TroopType* - type
      */
-    TroopType* getType();
+    TroopType *getType();
     /**
      * @brief returns class' damage
      * @return double - damage
@@ -91,22 +113,20 @@ public:
      * @brief returns a clone of this class
      * @return Troops* - this
      */
-    Troops * clone();
-    /**
-     * @brief returns n number of clones into a 2d array
-     * @param n
-     * @return Troops** - n number of this
-     */
-    Troops** clone(int);
+    Troops *clone(Area* newArea);
     /**
      * @brief returns class' associatedCitizens
      * @return Citizens* - associatedCitizens
      */
-    Citizens* getAssociatedCitizen();
+    Citizens *getAssociatedCitizen();
+    /**
+     * @brief releases the associatedCitizens
+     */
+    void releaseAssociatedCitizen();
     /**
      * @brief returns class' clone
      * @return Troops* - clonedTroop
      */
-    Troops* getClone();
+    Troops *getClone();
 };
 #endif

@@ -54,7 +54,7 @@ public:
      * @brief default constructor
      *
      */
-    Country(Country &country, Communication *comm, AssociatedCountries *parent);
+    Country();
     /**
      * @brief Return the name of the Country
      *
@@ -157,29 +157,39 @@ public:
      */
     void revolt(bool revolt);
     /**
-     * @brief Returns a deep copy of the AssociatedCountries object and its children
+     * @brief Returns a clone of the AssociatedCountries object and its children, This function must be called with cloneWarEntities
      *
      * @param comm The comunication object used between all countries
      * @return AssociatedCountries* The cloned copy of the AssociatedCountries object
      */
     virtual AssociatedCountries *clone(Communication *comm, AssociatedCountries *parent);
     /**
+     * @brief clone the warEntities and the citizens of a country
+     *
+     */
+    void cloneWarEntities(Country *country);
+    /**
      * @brief Return all the allies of the current country, If this country has no allies or doesnt exist returns an empty vector
      *
      * @return vector<AssociatedCountries*> A vector containing all the allies of the current country
      */
     list<Country *> getAllies();
-	/**
-	 * @brief Get the Enemies the Current Country
-	 * 
-	 * @return list<Country *> 
-	 */
+    /**
+     * @brief Get the Enemies the Current Country
+     *
+     * @return list<Country *>
+     */
     list<Country *> getEnemies();
-    virtual Communication* getCommunication();
-	/**
-	 * @brief Removes the passed in Citizen object from the Country
-	 * 
-	 */
+    /**
+     * @brief Get the Communication object
+     *
+     * @return Communication*
+     */
+    virtual Communication *getCommunication();
+    /**
+     * @brief Removes the passed in Citizen object from the Country
+     *
+     */
     void removeCitizen(Citizens *);
 };
 #endif

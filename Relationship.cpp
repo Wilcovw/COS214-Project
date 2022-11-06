@@ -17,7 +17,6 @@ Relationship::Relationship(Relationship &rel, Communication *comm, AssociatedCou
     this->tele->storeMe(this);
     this->relationshipType = rel.relationshipType;
     this->parent = parent;
-
     for (auto r : rel.getRelationships())
     {
         this->alliances.push_back(r->clone(comm, this));
@@ -84,7 +83,7 @@ void Relationship::setParent(AssociatedCountries *parent)
 
 std::string Relationship::print()
 {
-    std::string out = "Countries in alliance " + relationshipType + ": \n";
+    std::string out = "Countries in " + relationshipType + " alliance: \n";
     std::list<AssociatedCountries *>::iterator it;
     for (it = alliances.begin(); it != alliances.end(); ++it)
     {

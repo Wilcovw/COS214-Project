@@ -20,35 +20,8 @@ Country::Country(std::string name, Communication *t, int numCitzenGroups)
     }
 }
 
-Country::Country(Country &country, Communication *comm, AssociatedCountries *parent)
+Country::Country()
 {
-    this->tele = comm;
-    this->tele->storeMe(this);
-    this->name = country.name;
-    this->numCitzenGroups = country.numCitzenGroups;
-    this->parent = parent;
-
-    for (auto a : this->areas)
-    {
-        this->areas.push_back(a->clone(this));
-    }
-
-    this->citizens = new Citizens *[country.numCitzenGroups];
-    int counter = 0;
-    for (int i = 0; i < numCitzenGroups; i++)
-    {
-        if (country.citizens[i]->getStatus().compare("Unlisted") || country.citizens[i]->getStatus().compare("Dead"))
-        {
-            this->citizens[counter] = country.citizens[i]->clone();
-            counter++;
-        }
-    }
-    this->entities = country.entities->clone();
-    int x = 0;
-    for (auto t : entities->getTroops())
-    {
-        this->citizens[x++] = t->getAssociatedCitizen();
-    }
 }
 
 std::string Country::getName()
@@ -168,7 +141,35 @@ void Country::revolt(bool active)
 
 AssociatedCountries *Country::clone(Communication *comm, AssociatedCountries *parent)
 {
-    return new Country(*this, comm, parent);
+    Country *newCountry = new Country();
+    newCountry->tele = comm;
+    newCountry->tele->storeMe(newCountry);
+    newCountry->name = this->name;
+    newCountry->parent = parent;
+    newCountry->entities = new WarEntities();
+    return newCountry;
+}
+
+void Country::cloneWarEntities(Country *country)
+{
+    country->numCitzenGroups = this->numCitzenGroups;
+
+    country->citizens = new Citizens *[numCitzenGroups];
+    int counter = 0;
+    for (int i = 0; i < numCitzenGroups; i++)
+    {
+        if (this->citizens[i]->getStatus().compare("Unlisted") || this->citizens[i]->getStatus().compare("Dead"))
+        {
+            country->citizens[counter] = this->citizens[i]->clone();
+            counter++;
+        }
+    }
+    country->entities = this->entities->clone();
+    int x = 0;
+    for (auto t : this->entities->getTroops())
+    {
+        country->citizens[x++] = t->getAssociatedCitizen();
+    }
 }
 
 list<Country *> Country::getAllies()

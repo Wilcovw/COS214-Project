@@ -39,15 +39,15 @@ int Vehicles::getLevel()
 }
 
 // use as: vehicle = vehicle.clone()
-Vehicles *Vehicles::clone()
+Vehicles *Vehicles::clone(Area* newArea)
 {
-    Vehicles *ret = new Vehicles(location, HP, damage, speed);
+    Vehicles *ret = new Vehicles(newArea, HP, damage, speed);
     ret->type = this->type;
     return ret;
 }
 
 /*clones n number of times. Returns array of vehicles*/
-Vehicles **Vehicles::clone(int n)
+Vehicles **Vehicles::clone(int n, Area* newArea)
 {
     // minimum 1 clone can be made
     if (n < 1)
@@ -56,7 +56,7 @@ Vehicles **Vehicles::clone(int n)
     Vehicles **ret = new Vehicles *[n];
     for (int i = 0; i < n; ++i)
     {
-        ret[i] = clone();
+        ret[i] = clone(newArea);
     }
     return ret;
 }

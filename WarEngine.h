@@ -1,12 +1,8 @@
 #ifndef WARENGINE_H
 #define WARENGINE_H
 #include "WarPhase.h"
-#include"Memento.h"
-#include "WarHistory.h"
 #include <iostream>
 using namespace std;
-
-
 
 class Country;
 class Relationship;
@@ -14,17 +10,19 @@ class Area;
 class Infrastructure;
 class Troops;
 class Vehicles;
+class WarHistory;
 class WarEngine
 {
 private:
     WarPhase *phase;
-    WarHistory* history;
+    WarHistory *history;
+
 public:
     WarEngine();
     ~WarEngine();
     void newWarPhase();
     void reverseWarPhase();
-    WarPhase* getPhase();
+    WarPhase *getPhase();
 
     // Memento *createMemento();
     // list<Country *> getCountryGroup();

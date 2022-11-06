@@ -17,6 +17,12 @@ protected:
     vector<Vehicles *> vehicleToBeUpgraded;
 
 public:
+	/**
+	 * @brief Construct a new Research And Development Centre object
+	 * 
+	 * @param hp The health of the Center
+	 * @param area The Area the Centre is located
+	 */
     ResearchAndDevelopmentCentre(double hp, Area *area) : Infrastructure(hp, area){};
     /**
      * @brief starts the developing of upgrades for vehicles
@@ -47,7 +53,7 @@ public:
      * @brief returns a clone of the current class
      * @return Infrastructure* - a clone of the current class is returned
      */
-    Infrastructure* clone();
+    virtual Infrastructure *clone(Area *newArea);
 };
 
 #endif // FACTORY_AND_OBSERVER_RESEARCHANDDEVELOPMENTCENTRE_H
