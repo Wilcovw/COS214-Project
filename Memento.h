@@ -4,9 +4,6 @@
 
 using namespace std;
 class WarPhase;
-class Memento
-{
-
 /**
  * @brief Stores a phase of war in warphase. This is in order to go back to a previous state
  */
