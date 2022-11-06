@@ -1,19 +1,89 @@
 #include "Harbour.h"
+#include "Edge.h"
 
-#include <vector>
+#include <list>
 
-Harbour::Harbour(Area *destination, string name){
-    addConnection(destination,name);
+Harbour::Harbour(Area *source, double hp) : Infrastructure(hp, source)
+{
+    type = ::iHarbour;
 };
 
-void Harbour::addConnection(Area *destination, string name){
-    srand(time(0));
-    double distance = (rand() % 100) + 10;
+Harbour::~Harbour()
+{
+    for (auto e : edges)
+    {
+        if (e->getSource() == location)
+        {
+            removeConnection(e->getSource(), e->getDestination()->getHarbourInArea(), e);
+        }
+        else
+        {
+            removeConnection(e->getSource(), e->getSource()->getHarbourInArea(), e);
+        }
+    }
+}
 
-    Edge *connectedHarbour = new Edge(distance, name, "Harbour", this->location, destination);
-    connectedHarbours.push_back(*connectedHarbour);
-    this->location->addEdge(connectedHarbour);
+void Harbour::addConnection(Area *destination, double distance, Harbour *otherHarbour)
+{
+    if (otherHarbour != nullptr)
+    {
+        bool alreadyThere = false;
+        for (auto e : otherHarbour->edges)
+        {
+            if (e->getSource() == location && e->getDestination() == destination)
+            {
+                alreadyThere = true;
+                break;
+            }
+        }
+        if (!alreadyThere)
+        {
+            Edge *path = new Edge(distance, "Harbour", location, destination);
+            Edge *reversePath = new Edge(distance, "Harbour", destination, location);
 
-    Edge *flippedConnectedHarbour = new Edge(distance, name, "Harbour", destination, this->location);
-    destination->addEdge(flippedConnectedHarbour);
+            edges.push_back(path);
+            edges.push_back(reversePath);
+            if (otherHarbour != this)
+            {
+                otherHarbour->edges.push_back(path);
+                otherHarbour->edges.push_back(reversePath);
+            }
+            location->addEdge(path);
+            destination->addEdge(reversePath);
+            location->addHarbour(this);
+            destination->addHarbour(otherHarbour);
+        }
+    }
 };
+
+void Harbour::removeConnection(Area *destination, Harbour *otherHarbour, Edge *path)
+{
+    if (otherHarbour != nullptr && otherHarbour != this)
+    {
+        otherHarbour->edges.remove(path);
+    }
+    if (destination != nullptr)
+    {
+        destination->removeEdge(path);
+    }
+    location->addHarbour(nullptr);
+}
+
+void Harbour::destroy()
+{
+    delete this;
+}
+
+Infrastructure *Harbour::clone(Area *newArea)
+{
+    Harbour *newHarbour = new Harbour(newArea, this->HP);
+    newArea->addHarbour(newHarbour);
+    for (auto c : edges)
+    {
+        if (c != nullptr && c->getDestination() != nullptr && c->getDestination()->getClonedArea() != nullptr && c->getDestination()->getClonedArea() != newArea)
+        {
+            newHarbour->addConnection(c->getDestination()->getClonedArea(), c->getDistance(), c->getDestination()->getClonedArea()->getHarbourInArea());
+        }
+    }
+    return newHarbour;
+}

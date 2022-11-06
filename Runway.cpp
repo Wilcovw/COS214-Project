@@ -1,19 +1,94 @@
 #include "Runway.h"
-#include <vector>
+#include "Edge.h"
+#include <list>
 
-Runway::Runway(Area *destination, string name){
-    addConnection(destination,name);
+Runway::Runway(Area *source, double hp) : Infrastructure(hp, source)
+{
+    type = ::iRunway;
 };
 
+Runway::~Runway()
+{
+    if (!edges.empty())
+    {
+        for (auto e : edges)
+        {
+            if (e != nullptr)
+            {
+                if (e->getSource() == location)
+                {
+                    removeConnection(e->getSource(), e->getDestination()->getRunwayInArea(), e);
+                }
+                else
+                {
+                    removeConnection(e->getSource(), e->getSource()->getRunwayInArea(), e);
+                }
+            }
+        }
+    }
+}
 
-void Runway::addConnection(Area *destination, string name){
-    srand(time(0));
-    double distance = (rand() % 100) + 10;
+void Runway::addConnection(Area *destination, double distance, Runway *otherRunway)
+{
+    if (otherRunway != nullptr)
+    {
+        bool alreadyThere = false;
+        for (auto e : otherRunway->edges)
+        {
+            if (e->getSource() == location && e->getDestination() == destination)
+            {
+                alreadyThere = true;
+                break;
+            }
+        }
+        if (!alreadyThere)
+        {
+            Edge *flight = new Edge(distance, "Runway", location, destination);
+            Edge *returnFlight = new Edge(distance, "Runway", destination, location);
 
-    Edge *flight = new Edge(distance, name, "Runway", this->location, destination);
-    flights.push_back(*flight);
-    this->location->addEdge(flight);
+            edges.push_back(flight);
+            edges.push_back(returnFlight);
+            if (otherRunway != this)
+            {
+                otherRunway->edges.push_back(flight);
+                otherRunway->edges.push_back(returnFlight);
+            }
+            location->addEdge(flight);
+            destination->addEdge(returnFlight);
+            location->addRunway(this);
+            destination->addRunway(otherRunway);
+        }
+    }
+}
 
-    Edge *flippedFlight = new Edge(distance, name, "Runway", destination, this->location);
-    destination->addEdge(flippedFlight);
-};
+void Runway::removeConnection(Area *destination, Runway *otherRunway, Edge *path)
+{
+    if (otherRunway != nullptr && otherRunway != this)
+    {
+        otherRunway->edges.remove(path);
+    }
+    if (destination != nullptr)
+    {
+        destination->removeEdge(path);
+    }
+    location->addRunway(nullptr);
+}
+
+void Runway::destroy()
+{
+    delete this;
+}
+
+Infrastructure *Runway::clone(Area *newArea)
+{
+    Runway *newRunway = new Runway(newArea, this->HP);
+    newArea->addRunway(newRunway);
+    for (auto f : edges)
+    {
+        if (f != nullptr && f->getDestination() != nullptr && f->getDestination()->getClonedArea() != nullptr && f->getDestination()->getClonedArea() != newArea)
+        {
+            newRunway->addConnection(f->getDestination()->getClonedArea(), f->getDistance(), f->getDestination()->getClonedArea()->getRunwayInArea());
+        }
+    }
+    return newRunway;
+}

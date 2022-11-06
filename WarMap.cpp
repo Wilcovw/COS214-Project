@@ -46,7 +46,7 @@ bool WarMap::isAccessible(Area *source, Area *destination, string type)
 	return source->isAccessible(destination, type);
 }
 
-bool WarMap::addEdge(Area *source, Area *destination, double distance, string name, string type)
+bool WarMap::addEdge(Area *source, Area *destination, double distance, string type)
 {
 	if (source == nullptr || destination == nullptr)
 	{
@@ -59,7 +59,7 @@ bool WarMap::addEdge(Area *source, Area *destination, double distance, string na
 	{
 		return false;
 	}
-	Edge *e = new Edge(distance, name, type, source, destination);
+	Edge *e = new Edge(distance, type, source, destination);
 	return s->addEdge(e);
 }
 
@@ -87,7 +87,7 @@ void WarMap::reset()
 	}
 	for (auto a : areasWT)
 	{
-		a->visited == false;
+		a->visited = false;
 	}
 }
 
@@ -150,17 +150,145 @@ list<Area *> WarMap::shortestPath(Area *source, Area *destination)
 			for (auto e : curr->getEdges())
 			{
 				Area *v = e->getDestination();
+
 				double NewDist = curr->getDist() + e->getDistance();
 
 				if (NewDist < v->getDist())
 				{
-					// cout << "Hello" << endl;
 					v->setDist(NewDist);
 					v->setPrev(curr);
 					if (find(toBeChecked.begin(), toBeChecked.end(), v) == toBeChecked.end())
 					{
-
 						toBeChecked.push_back(v);
+					}
+				}
+			}
+		}
+	}
+	if (destination->getPrev() == nullptr)
+	{
+		return ans;
+	}
+	Area *node = destination;
+	while (node != nullptr)
+	{
+		ans.push_back(node);
+		node = node->getPrev();
+	}
+	ans.reverse();
+	return ans;
+}
+
+list<Area *> WarMap::shortestPath(Area *source, Area *destination, string type)
+{
+	list<Area *> ans;
+
+	if (source == nullptr || destination == nullptr)
+	{
+		return ans;
+	}
+
+	if (isAccessible(source, destination, type) == false) 
+	{
+		return ans; 
+	}
+
+	for (auto a : areasWT)
+	{
+		a->setDist(INT_MAX);
+		a->setPrev(nullptr);
+	}
+
+	list<Area *> toBeChecked;
+	toBeChecked.push_back(source);
+	source->setDist(0);
+	while (toBeChecked.empty() == false)
+	{
+		Area *curr = toBeChecked.front();
+		toBeChecked.pop_front();
+
+		if (curr->getEdges().empty() == false)
+		{
+			for (auto e : curr->getEdges())
+			{
+				double ans = e->getDistance();
+				Area *v = e->getDestination();
+				Country *control = v->getControllingCountry();
+				list<Country *> allies = control->getAllies();
+				if (destination == v)
+				{
+					if (type == "Harbour")
+					{
+						if (e->getType() == type)
+						{
+
+							double NewDist = curr->getDist() + ans;
+
+							if (NewDist < v->getDist())
+							{
+								v->setDist(NewDist);
+								v->setPrev(curr);
+								if (find(toBeChecked.begin(), toBeChecked.end(), v) == toBeChecked.end())
+								{
+									toBeChecked.push_back(v);
+								}
+							}
+						}
+					}
+					else
+					{
+						if (e->getType() != type)
+						{
+							ans *= 2;
+						}
+						double NewDist = curr->getDist() + ans;
+
+						if (NewDist < v->getDist())
+						{
+							v->setDist(NewDist);
+							v->setPrev(curr);
+							if (find(toBeChecked.begin(), toBeChecked.end(), v) == toBeChecked.end())
+							{
+								toBeChecked.push_back(v);
+							}
+						}
+					}
+				}else if (find(allies.begin(), allies.end(), source->getControllingCountry()) != allies.end()){
+					if (type == "Harbour")
+					{
+						if (e->getType() == type)
+						{
+
+							double NewDist = curr->getDist() + ans;
+
+							if (NewDist < v->getDist())
+							{
+								v->setDist(NewDist);
+								v->setPrev(curr);
+								if (find(toBeChecked.begin(), toBeChecked.end(), v) == toBeChecked.end())
+								{
+									toBeChecked.push_back(v);
+								}
+							}
+						}
+					}
+					else
+					{
+						if (e->getType() != type)
+						{
+							ans *= 2;
+						}
+						double NewDist = curr->getDist() + ans;
+
+						if (NewDist < v->getDist())
+						{
+							v->setDist(NewDist);
+							v->setPrev(curr);
+							if (find(toBeChecked.begin(), toBeChecked.end(), v) == toBeChecked.end())
+							{
+								toBeChecked.push_back(v);
+							}
+						}
 					}
 				}
 			}

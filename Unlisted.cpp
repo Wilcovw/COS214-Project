@@ -9,5 +9,6 @@ string Unlisted::getStatus() {
 }
 
 void Unlisted::die(Citizens* c) {
+    // cout << "A group of Unlisted Citizens died!" << endl;
     c->setStatus(new Dead());
 }

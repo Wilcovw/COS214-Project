@@ -6,14 +6,10 @@ RevolutionCommand::RevolutionCommand(bool s) {
 
 void RevolutionCommand::execute() {
     this->active = this->active ? false : true;
+
     // TODO: Insert Reciever action()
-    if (active)
-    {
-        cout << "Citizens started a revolution!" << endl;
-    }
-    else {
-        cout << "The revolution has ended" << endl;
-    }
+
+    // Country::revolt(active);
     
 }
 
