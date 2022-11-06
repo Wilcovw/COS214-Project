@@ -13,13 +13,33 @@ class Troops
 {
 protected:
     /**
-     * @brief The troop's stats
+     * @brief The health of the Troop
      */
     double HP;
+    /**
+     * @brief The location the Troop is in
+     *
+     */
     Area *location;
+    /**
+     * @brief The type of troop
+     *
+     */
     TroopType *type;
+    /**
+     * @brief Stores a Citizen object
+     *
+     */
     Citizens *associatedCitizens;
+    /**
+     * @brief The cloned troop
+     *
+     */
     Troops *clonedTroop;
+    /**
+     * @brief The kind of troop
+     *
+     */
     kindOfTroops kind;
 
 public:

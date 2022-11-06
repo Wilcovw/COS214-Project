@@ -39,10 +39,25 @@ private:
 	 *
 	 */
 	double dist = 0;
-
+	/**
+	 * @brief The Country that controls the current Area
+	 * 
+	 */
 	Country *controllingCountry = nullptr;
+	/**
+	 * @brief Stores a copy of the current object
+	 * 
+	 */
 	Area *clonedArea = nullptr;
+	/**
+	 * @brief Stores the Harbour connected to this Area
+	 * 
+	 */
 	Harbour* harbour = nullptr;
+	/**
+	 * @brief Stores the runway connected to this Area
+	 * 
+	 */
 	Runway* runway = nullptr;
 public:
 	/**
@@ -52,9 +67,29 @@ public:
 	 */
 	Area(string name, Country *controllingCountry);
 	~Area();
+	/**
+	 * @brief Add's a harbour to the current Areas edges
+	 * 
+	 * @param theHarbour The mew Harbour
+	 */
 	void addHarbour(Harbour* theHarbour);
+	/**
+	 * @brief Add's a Runway to the current Areas edges
+	 * 
+	 * @param theRunway The new runway 
+	 */
 	void addRunway(Runway* theRunway);
+	/**
+	 * @brief Returns all the Harbours in this Area
+	 * 
+	 * @return Harbour* 
+	 */
 	Harbour* getHarbourInArea();
+	/**
+	 * @brief Returns all the Runways connected to this Area
+	 * 
+	 * @return Runway* 
+	 */
 	Runway * getRunwayInArea();
 	/**
 	 * @brief Set the Controlling Country object

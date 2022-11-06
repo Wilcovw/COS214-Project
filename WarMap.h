@@ -122,11 +122,19 @@ public:
 	/**
 	 * @brief Determines the sortest path between the source and destination
 	 *
-	 * @param source , The start point
-	 * @param destination , The end point
-	 * @return list<Area*> , List of Area's contained in sortest path
+	 * @param source The start point
+	 * @param destination The end point
+	 * @return list<Area*> List of Area's contained in sortest path
 	 */
 	list<Area *> shortestPath(Area *source, Area *destination);
+	/**
+	 * @brief Determines the sortest path between the source and destination via a certain Type
+	 * 
+	 * @param source  The start point
+	 * @param destination The end point
+	 * @param type The type of Edge to filter through
+	 * @return list<Area *> List of Area's contained in sortest path
+	 */
 	list<Area *> shortestPath(Area *source, Area *destination, string type);
 };
 
