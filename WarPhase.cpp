@@ -62,6 +62,8 @@ WarPhase *WarPhase::clone()
 Memento *WarPhase::newWarPhase()
 {
     WarPhase *clonedWarPhase = this->clone();
+    Communication *newCommmunication = new CommunicationBroadcast();
+    clonedWarPhase->communication = newCommmunication;
     WarMap *newMap = new WarMap();
     for (Country *c : clonedWarPhase->allCountries)
     {
