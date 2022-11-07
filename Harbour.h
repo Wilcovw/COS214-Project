@@ -10,7 +10,15 @@ class Edge;
 class Harbour : public Infrastructure
 {
 private:
+	/**
+	 * @brief Name of the specific harbour
+	 * 
+	 */
     string name;
+	/**
+	 * @brief all of the edges connected to a specific harbour
+	 * 
+	 */
     list<Edge*> edges;
 
 public:

@@ -10,7 +10,15 @@ class Status; // forward declaration
 class Citizens
 {
 private:
+	/**
+	 * @brief Stores the status of the citizen
+	 *
+	 */
 	Status *status;
+	/**
+	 * @brief Safes the command pattern which can enable a revolution
+	 *
+	 */
 	Command *toggleCommand;
 
 public:
@@ -51,6 +59,10 @@ public:
 	 *
 	 */
 	void toggleRevolution(Country *country);
+	/**
+	 * @brief calls clone on Citizens for the Memento pattern
+	 *
+	 */
 	Citizens *clone();
 };
 #endif

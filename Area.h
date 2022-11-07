@@ -66,6 +66,9 @@ public:
 	 * @param name: Is the name of the the Edge
 	 */
 	Area(string name, Country *controllingCountry);
+	/**
+    * @brief calls class destructor
+    */
 	~Area();
 	/**
 	 * @brief Add's a harbour to the current Areas edges
