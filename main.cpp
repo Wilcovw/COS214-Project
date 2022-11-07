@@ -718,7 +718,7 @@ void Phase6(WarEngine *game, string country)
     cout << "Welcome to Phase 6: " << endl;
     setWhite();
 
-    newPhase(game);
+    // newPhase(game);
     string enemy;
     if (country == "France")
     {
@@ -769,7 +769,7 @@ void Phase5(WarEngine *game, string country)
     setBlue();
     cout << "Welcome to  Phase 5: " << endl;
     setWhite();
-    newPhase(game);
+    // newPhase(game);
     string enemy = "";
     if (country == "France")
     {
@@ -856,7 +856,7 @@ void Phase4(WarEngine *game, string country)
     setBlue();
     cout << "Welcome to  Phase 4: " << endl;
     setWhite();
-    newPhase(game);
+    // newPhase(game);
     if (game->getPhase()->countryStillExists(country))
     {
         cout << "Here is an update on your country after the latest battles: " << endl;
@@ -1051,7 +1051,7 @@ void Phase3(WarEngine *game, string country)
             if (game->getPhase()->countryStillExists(country))
             {
                 int in = 0;
-                while (in != 1 || in != 2)
+                while (in == 0)
                 {
                     setOrange();
                     cout << "Unfortunately your attack was unsuccessful, what would you like to do now?\n"
@@ -1074,9 +1074,9 @@ void Phase3(WarEngine *game, string country)
                     }
                     if (in == 1)
                     {
+                        enemyAttack = false;
                         game->reverseWarPhase();
                         Phase3(game, country);
-                        enemyAttack = false;
                     }
                     userWantsToattack = 2;
                 }
@@ -1110,7 +1110,7 @@ void Phase2(WarEngine *game, string country)
     setBlue();
     cout << "Welcome to Phase 2:" << endl;
     setWhite();
-    newPhase(game);
+    // newPhase(game);
     int threeCycles = 0;
     string choice = "";
     while (threeCycles < 3)
@@ -1194,8 +1194,6 @@ void realMode()
 {
     WarEngine *game = new WarEngine();
     populate(game, false);
-
-    newPhase(game);
     string country = "";
     string choice = "";
     setGreen();
