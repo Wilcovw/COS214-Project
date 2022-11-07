@@ -32,6 +32,7 @@ double Vehicles::getSpeed()
     return speed;
 }
 
+
 // use as: vehicle = vehicle.clone()
 Vehicles *Vehicles::clone(Area* newArea)
 {

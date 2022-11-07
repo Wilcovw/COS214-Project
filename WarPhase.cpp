@@ -103,7 +103,6 @@ Memento *WarPhase::newWarPhase()
     }
     clonedWarPhase->map = newMap;
     Memento *meme = new Memento(clonedWarPhase);
-
     return meme;
 }
 
