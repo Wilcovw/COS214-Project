@@ -71,17 +71,9 @@ WarPhase *WarPhase::clone()
     }
     for (auto oldCountry : allCountries)
     {
-<<<<<<< Updated upstream
         for (auto clonedCountry : c)
         {
             if (oldCountry->getName() == clonedCountry->getName())
-=======
-        
-        for (auto clonedCountry : c)
-        {
-
-            if (oldCountry->getName().compare(clonedCountry->getName()) == 0)
->>>>>>> Stashed changes
             {
                 oldCountry->cloneWarEntities(clonedCountry);
             }
@@ -114,7 +106,6 @@ Memento *WarPhase::newWarPhase()
 
 void WarPhase::reverseWarPhase(Memento *memento)
 {
-<<<<<<< Updated upstream
     WarPhase *oldPhase = memento->warphase;
     allCountries = oldPhase->allCountries;
     list<Country*> temp;    
@@ -123,19 +114,6 @@ void WarPhase::reverseWarPhase(Memento *memento)
     list<Relationship*> temp2; 
     oldPhase->allRelationships = temp2;
     map = oldPhase->map;
-=======
-    if(memento != nullptr) {
-        WarPhase *oldPhase = memento->warphase;
-        allCountries = oldPhase->allCountries;
-        list<Country *> temp;
-        oldPhase->allCountries = temp;
-        allRelationships = oldPhase->allRelationships;
-        list<Relationship *> temp2;
-        oldPhase->allRelationships = temp2;
-        map = oldPhase->map;
-    }
-    
->>>>>>> Stashed changes
 }
 
 list<Country *> WarPhase::cloneCountries(Relationship *head)
@@ -810,17 +788,10 @@ void WarPhase::printCountryStatus(string countryName, bool detailedPrint)
     Country *country = getCountry(countryName);
     if (country != nullptr)
     {
-<<<<<<< Updated upstream
         cout << "-----------------------------------------------------------" << endl;
         cout << countryName << " Status Report: " << endl;
         cout << country->getParent()->print() << endl;
 
-=======
-        cout << countryName << "\nStatus Report: " << endl;
-        string out = country->getParent()->print();
-        out.erase(std::remove(out.begin(), out.end(), '\n'), out.cend());
-        cout << out << endl;
->>>>>>> Stashed changes
         cout << country->printAreas();
         int unlisted = 0;
         int dead = 0;
