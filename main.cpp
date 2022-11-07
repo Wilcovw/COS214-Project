@@ -475,7 +475,17 @@ TEST_CASE("Testing Mediator design pattern for sending Messages across Associate
 
 TEST_CASE("Testing the Prototype design pattern")
 {
-	
+	Aircraft *pAircraft = new Aircraft(graph->getArea(Munich), 10,10,10); 
+	Vehicles *pAircraft2 = pAircraft->clone();
+	CHECK(pAircraft->getHP() == pAircraft2->getHP());
+	CHECK(pAircraft->getDamage() == pAircraft2->getDamage());
+	CHECK(pAircraft->getSpeed() == pAircraft2->getSpeed());
+	ResearchAndDevelopmentCentre *vechleCentre = new LandVehicleDevelopment(1000,graph->getArea(Brussels));
+	ResearchAndDevelopmentCentre *vechleCentre2 = new LandVehicleDevelopment(1000,graph->getArea(Brussels));
+	pAircraft->attack(vechleCentre);
+	pAircraft2->attack(vechleCentre2);
+
+	CHECK(vechleCentre->getHP() == vechleCentre2->getHP());
 }
 
 TEST_CASE("Testing all the Observer Pattern")
@@ -483,9 +493,6 @@ TEST_CASE("Testing all the Observer Pattern")
 	cout << "==========Testing the ResearchAndDevelopmentCentre============="<< endl;
 	LandVehicles *landCar = new LandVehicles(graph->getArea(Munich), 25,25,25);
 	LandVehicles *landCar2 = new LandVehicles(graph->getArea(Munich), 30,30,30);
-	CHECK(landCar->getDamage() == 25);
-	CHECK(landCar->getHP() == 25);
-	CHECK(landCar->getSpeed() == 25);
 	ResearchAndDevelopmentCentre *vechleCentre = new LandVehicleDevelopment(1000,graph->getArea(Munich));
 	landCar->readyToUpgrade(vechleCentre);
 	landCar2->readyToUpgrade(vechleCentre);
@@ -498,24 +505,7 @@ TEST_CASE("Testing all the Observer Pattern")
 	CHECK(landCar2->getSpeed() == 35);
 }
 
-// TEST_CASE("Testing memento"){
-// 	cout << "Hello" << endl;
-// 	game->newWarPhase();
-// 	game->getPhase()->addArea("Test",France);
-// 	cout << "Hello" << endl;
-// 	game->reverseWarPhase();
-// 	CHECK(graph->getArea("Test") == nullptr);
-// 	cout << "Hello" << endl;
-// 	game->newWarPhase();
-// 	game->getPhase()->addArea("Test1",France);
-// 	cout << "Hello" << endl;
-// 	game->newWarPhase();
-// 	game->getPhase()->addArea("Test2",France);
-// 	game->reverseWarPhase();
-// 	game->reverseWarPhase();
-// 	CHECK(graph->getArea("Test1") == nullptr);
-// 	CHECK(graph->getArea("Test2") == nullptr);
-// }
+
 
 TEST_CASE("Testing the Command Design pattern"){
 	Citizens *testPerson = new Citizens();
