@@ -1,17 +1,18 @@
 #include "RevolutionCommand.h"
 
-RevolutionCommand::RevolutionCommand(bool s)
-{
+RevolutionCommand::RevolutionCommand(bool s) {
     this->active = s;
 }
 
-void RevolutionCommand::execute(Country *country)
-{
+void RevolutionCommand::execute() {
     this->active = this->active ? false : true;
-    country->revolt(active);
+
+    // TODO: Insert Reciever action()
+
+    // Country::revolt(active);
+    
 }
 
-bool RevolutionCommand::isActive()
-{
+bool RevolutionCommand::isActive() {
     return this->active;
 }

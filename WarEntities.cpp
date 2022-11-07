@@ -4,21 +4,22 @@ WarEntities::WarEntities()
 }
 WarEntities::~WarEntities()
 {
-    for (auto v : vehicles)
+    std::list<Vehicles *>::iterator it;
+    for (it = vehicles.begin(); it != vehicles.end(); ++it)
     {
-        delete v;
+        delete *it;
     }
 
-    for (auto t : troops)
+    std::list<Troops *>::iterator itt;
+    for (itt = troops.begin(); itt != troops.end(); ++itt)
     {
-        delete t;
+        delete *itt;
     }
 
-    infrastructure.sort();
-    infrastructure.unique();
-    for (auto i : infrastructure)
+    std::list<Infrastructure *>::iterator iti;
+    for (iti = infrastructure.begin(); iti != infrastructure.end(); ++iti)
     {
-        delete i;
+        delete *iti;
     }
 }
 
@@ -36,9 +37,9 @@ WarEntities *WarEntities::clone()
     int num = 0;
     for (auto i : infrastructure)
     {
-        if (i != nullptr && i->getArea() != nullptr && i->getArea()->getClonedArea() != nullptr)
+        if (i->getArea()->getClonedArea() != NULL)
         {
-            Infrastructure *in = i->clone(i->getArea()->getClonedArea());
+            auto in = i->clone(i->getArea()->getClonedArea());
             if (in != nullptr)
             {
                 newEntities->addInfrastructure(in);

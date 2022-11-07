@@ -21,15 +21,10 @@ private:
      */
     std::string name;
     /**
-     * @brief Array of all the citzens of the country and thier state
+     * @brief List of all the citzens of the country and thier state
      *
      */
-    Citizens **citizens;
-    /**
-     * @brief Stores the number groups of citizens in the citizens array
-     *
-     */
-    int numCitzenGroups;
+    list<Citizens*> citizens;
     /**
      * @brief All the WarEntities the country owns
      *
@@ -89,13 +84,7 @@ public:
      *
      * @return Citzens**
      */
-    Citizens **getCitizens();
-    /**
-     * @brief Get the Num Citzen Groups object
-     *
-     * @return int - The numCitzenGroups object
-     */
-    int getNumCitzenGroups();
+    list<Citizens*> getCitizens();
     /**
      * @brief Returns all the WarEntities of the country
      *

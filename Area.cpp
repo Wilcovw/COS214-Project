@@ -3,6 +3,7 @@
 
 Area::Area(string name, Country *controllingCountry)
 {
+	clonedArea = nullptr;
 	this->name = name;
 	this->controllingCountry = controllingCountry;
 	this->controllingCountry->addArea(this);

@@ -83,7 +83,7 @@ void Relationship::setParent(AssociatedCountries *parent)
 
 std::string Relationship::print()
 {
-    std::string out = "Countries in " + relationshipType + " alliance: \n";
+    std::string out = "Countries in alliance " + relationshipType + ": \n";
     std::list<AssociatedCountries *>::iterator it;
     for (it = alliances.begin(); it != alliances.end(); ++it)
     {

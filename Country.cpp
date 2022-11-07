@@ -11,12 +11,9 @@ Country::Country(std::string name, Communication *t, int numCitzenGroups)
     this->name = name;
     tele->storeMe(this);
     entities = new WarEntities();
-
-    this->numCitzenGroups = numCitzenGroups;
-    citizens = new Citizens *[numCitzenGroups];
     for (int i = 0; i < numCitzenGroups; i++)
     {
-        citizens[i] = new Citizens();
+        citizens.push_back(new Citizens());
     }
 }
 
@@ -57,14 +54,9 @@ void Country::removeArea(Area *area)
     areas.remove(area);
 }
 
-Citizens **Country::getCitizens()
+list<Citizens *> Country::getCitizens()
 {
     return citizens;
-}
-
-int Country::getNumCitzenGroups()
-{
-    return numCitzenGroups;
 }
 
 WarEntities *Country::getWarEntities()
@@ -76,11 +68,6 @@ Country::~Country()
 {
     removeAssociatedCountries(this);
     delete entities;
-    for (int i = 0; i < numCitzenGroups; i++)
-    {
-        delete citizens[i];
-    }
-    delete citizens;
 }
 
 void Country::receiveMessage(std::string message)
@@ -152,30 +139,19 @@ AssociatedCountries *Country::clone(Communication *comm, AssociatedCountries *pa
 
 void Country::cloneWarEntities(Country *country)
 {
-    country->numCitzenGroups = this->numCitzenGroups;
-    country->citizens = new Citizens *[numCitzenGroups];
     int counter = 0;
-    cout << "unlisted" << endl;
-
-    for (int i = 0; i < numCitzenGroups; i++)
-    {
-        if (this->citizens[i]->getStatus().compare("Unlisted") || this->citizens[i]->getStatus().compare("Dead"))
-        {
-            country->citizens[counter] = this->citizens[i]->clone();
-            counter++;
-        }
-    }
-    cout << "before Infrastructure in country" << endl;
-
-    int x = 0;
     country->entities = this->entities->clone();
-    cout << "after entities in country" << endl;
-
     for (auto t : this->entities->getTroops())
     {
-        country->citizens[x++] = t->getAssociatedCitizen();
+        country->citizens.push_back(t->getAssociatedCitizen());
     }
-    cout << "after listed citizens in country" << endl;
+
+    for(auto c : citizens) {
+        if(c->getStatus() == "Unlisted" || c->getStatus() == "Dead") {
+            Citizens *newC = c->clone();
+            country->citizens.push_back(newC);
+        }
+    }
 }
 
 list<Country *> Country::getAllies()
@@ -251,26 +227,5 @@ Communication *Country::getCommunication()
 
 void Country::removeCitizen(Citizens *theCitizen)
 {
-    bool isThere = false;
-    for (int i = 0; i < numCitzenGroups; i++)
-    {
-        if (citizens[i] == theCitizen)
-        {
-            isThere = true;
-            break;
-        }
-    }
-    if (isThere)
-    {
-        Citizens **temp = citizens;
-        citizens = new Citizens *[--numCitzenGroups];
-        int x = 0;
-        for (int i = 0; i <= numCitzenGroups; i++)
-        {
-            if (temp[i] != theCitizen)
-            {
-                citizens[x++] = temp[i];
-            }
-        }
-    }
+    citizens.remove(theCitizen);
 }

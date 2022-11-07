@@ -380,6 +380,7 @@ public:
      * @param message
      */
     void sendBroadcast(string messageReceiver, string messageSender, string message);
+    void testPrint();
 };
 
 #endif

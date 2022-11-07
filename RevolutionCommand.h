@@ -13,33 +13,32 @@ class RevolutionCommand : public Command
 private:
 	/**
 	 * @brief Stores if the Revolution is happening
-	 *
+	 * 
 	 */
-	bool active;
-
+    bool active;
 public:
 	/**
 	 * @brief Construct a new Revolution Command object
-	 *
-	 * @param s
+	 * 
+	 * @param s 
 	 */
-	RevolutionCommand(bool s);
+    RevolutionCommand(bool s);
 	/**
 	 * @brief Destroy the Revolution Command object
-	 *
+	 * 
 	 */
-	~RevolutionCommand();
+    ~RevolutionCommand();
 	/**
 	 * @brief Execeute the Revolution
-	 *
+	 * 
 	 */
-	void execute(Country *country);
+    void execute();
 	/**
 	 * @brief Determines whether the Command
-	 *
-	 * @return true
-	 * @return false
+	 * 
+	 * @return true 
+	 * @return false 
 	 */
-	bool isActive();
+    bool isActive();
 };
 #endif

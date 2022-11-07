@@ -172,11 +172,6 @@ Citizens *Troops::getAssociatedCitizen()
     return associatedCitizens;
 }
 
-void Troops::releaseAssociatedCitizen()
-{
-    associatedCitizens = nullptr;
-}
-
 Troops *Troops::getClone()
 {
     return clonedTroop;

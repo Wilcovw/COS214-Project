@@ -1,45 +1,94 @@
 #include "WarEngine.h"
 #include <iostream>
-#include <vector>
 using namespace std;
-void Phase2(WarEngine *game, string country);
-void Phase3(WarEngine *game, string country);
-void Phase4(WarEngine *game, string country);
-void Phase5(WarEngine *game, string country);
-void Phase6(WarEngine *game, string country);
-void setOrange();
-void setWhite();
+
 void next()
 {
-    setOrange();
     std::cout << "Press enter to continue...";
     std::cin.get();
     std::cout << "\n";
-    setWhite();
 }
 
-int checkInput(string input, int defaultValue)
-{
-    string in = "";
-    if (input == "")
-    {
-        return defaultValue;
-    }
-    else
-    {
-        try
-        {
-            stoi(input);
-        }
-        catch (const std::exception &e)
-        {
-            return defaultValue;
-        }
-    }
-    return defaultValue + 1;
-}
+void testMemento(){
+    /* Communication *c;
+     WarMap *map = new WarMap();
+     vector<Country *> countrygroup;
+     Country *america = new Country(America, c, 20);
+     Country *columbia = new Country("Columbia", c, 25);
+     countrygroup.push_back(america);
+     countrygroup.push_back(columbia);
 
-void populate(WarEngine *game, bool designMode)
+     vector<Area *> areas;
+     areas.push_back(new Area("Caeser's Palace", america));
+
+
+
+     WarHistory *history = new WarHistory();
+
+     WarEngine *engine = new WarEngine(countrygroup, areas, *map);
+     engine->addCountry(new Country("Sri Lanka", c, 30));
+     engine->addArea(new Area("Escobar's Palace", columbia));
+
+     cout << "-----Before Change-----" << endl;
+
+     cout << "--Countries:--" << endl;
+     for (int i = 0; i < engine->getCountryGroup().size(); i++)
+     {
+         cout << engine->getCountryGroup().at(i)->getName() << endl;
+     }
+     cout << "--Areas:--" << endl;
+     for (int i = 0; i < engine->getWarTheatreGraph().size(); i++)
+     {
+         cout << engine->getWarTheatreGraph().at(i)->getName() << endl;
+     }
+
+     // Saving Current Snapshot
+     history->storeMemento(engine->createMemento());
+
+     Country *peru = new Country("peru", c, 15);
+     columbia = peru;
+
+     engine->removeCountryAt(0);
+     engine->removeAreaAt(0);
+     engine->removeAreaAt(0);
+
+     vector<Area *> newAreas;
+     newAreas.push_back(new Area("Paris", america));
+     newAreas.push_back(new Area("Paris", america));
+
+     engine->setWarTheatreGraph(newAreas);
+
+     cout << "-----After Changes-----" << endl;
+     cout << "--Countries:--" << endl;
+     for (int i = 0; i < engine->getCountryGroup().size(); i++)
+     {
+         cout << engine->getCountryGroup().at(i)->getName() << endl;
+     }
+     cout << "--Areas:--" << endl;
+     for (int i = 0; i < engine->getWarTheatreGraph().size(); i++)
+     {
+         cout << engine->getWarTheatreGraph().at(i)->getName() << endl;
+     }
+
+     // Reverting back
+     engine->reinstateMemento(history->getLastMemento());
+
+     cout << "-----Reverting Changes-----" << endl;
+     for (int i = 0; i < engine->getCountryGroup().size(); i++)
+     {
+         cout << engine->getCountryGroup().at(i)->getName() << endl;
+     }
+     cout << "--Areas:--" << endl;
+     for (int i = 0; i < engine->getWarTheatreGraph().size(); i++)
+     {
+         cout << engine->getWarTheatreGraph().at(i)->getName() << endl;
+     }
+
+     delete engine;
+     delete history;*/
+};
+
+void populate(WarEngine *game)
 {
     // Teams
     string Blue = "Blue";
@@ -62,13 +111,6 @@ void populate(WarEngine *game, bool designMode)
     game->getPhase()->addCountry(Denmark, 58);
     game->getPhase()->addCountry(Belgium, 116);
 
-    if (designMode)
-    {
-        cout << "Phase 1:" << endl;
-        cout << "Tension between France and Germany are rising" << endl;
-        cout << "Countries have started to create alliances between each other" << endl;
-    }
-
     game->getPhase()->addRelationship("AllCountries");
     game->getPhase()->addRelationship(Red);
     game->getPhase()->addRelationship(Blue);
@@ -79,7 +121,6 @@ void populate(WarEngine *game, bool designMode)
     game->getPhase()->addCountrytoRelationship(Netherlands, Blue);
     game->getPhase()->addCountrytoRelationship(Belgium, Blue);
     game->getPhase()->addCountrytoRelationship(Ireland, Blue);
-
     game->getPhase()->addRelationshipToRelationship("AllCountries", Red);
     game->getPhase()->addRelationshipToRelationship("AllCountries", Blue);
 
@@ -101,16 +142,6 @@ void populate(WarEngine *game, bool designMode)
     game->getPhase()->addInfrastructure(::iRunway, Scotland);
     game->getPhase()->addInfrastructure(::iAirforceCamp, London);
     game->getPhase()->addTroops(London, ::tAirforce, ::theGenerals);
-
-    if (designMode)
-    {
-        next();
-        cout << endl;
-        cout << "Phase 2:" << endl;
-        cout << "Countries have started preparing for war..." << endl;
-        cout << "They have began to add troops and vehilces to their respective militaries" << endl;
-    }
-
     for (int i = 0; i < 20; i++)
     {
         game->getPhase()->addTroops(London, ::tAirforce, ::theSpecialForces);
@@ -297,7 +328,7 @@ void populate(WarEngine *game, bool designMode)
     {
         game->getPhase()->addTroops(Paris, ::tGroundTroops, ::theSpecialForces);
     }
-    for (int i = 0; i < 60; i++)
+    for (int i = 0; i < 120; i++)
     {
         game->getPhase()->addTroops(Paris, ::tGroundTroops, ::theSoldiers);
         game->getPhase()->addTroops(Lille, ::tGroundTroops, ::theSoldiers);
@@ -593,13 +624,6 @@ void populate(WarEngine *game, bool designMode)
     game->getPhase()->upgradeVehiclesInArea(::landVehicle, Brussels);      //                                                  ( ._> /
     game->getPhase()->upgradeVehiclesInArea(::aircraftVehicle, Brussels);  //                                                   `---'
 
-    if (designMode)
-    {
-        next();
-        cout << "Countries have started making routes between them." << endl;
-        cout << "Some for supplies and support between countries, and other for WAR" << endl;
-        cout << "They are now reay to start attacking..." << endl;
-    }
     // Add connections for harbours
     game->getPhase()->addConnection(::iHarbour, Dublin, Wales, 170);
     game->getPhase()->addConnection(::iHarbour, Dublin, NorthernIreland, 250);
@@ -642,456 +666,73 @@ void populate(WarEngine *game, bool designMode)
     game->getPhase()->distributeTroopsAndVehicles(Netherlands);
     game->getPhase()->distributeTroopsAndVehicles(Germany);
     game->getPhase()->distributeTroopsAndVehicles(Denmark);
+
+
+    // game->newWarPhase();
+    // game->getPhase()->testPrint();
+    // cout << "----------------------------------------------------------------" << endl;
+    // for(int i = 0; i < 50; i++) {
+    //     game->reverseWarPhase();
+    //     game->newWarPhase();
+    // }
+    // cout << "----------------------------------------------------------------" << endl;
+    // game->getPhase()->testPrint();
 }
 
+// Create a memento an the current phase and then create and store a new phase in WarEngine
 void newPhase(WarEngine *game)
 {
     game->newWarPhase();
 }
 
-void setFontColor(int r, int g, int b)
-{
-    cout << "\033[38;2;" << r << ";" << g << ";" << b << "m";
-}
-
-void setBlue()
-{
-    setFontColor(0, 0, 255);
-}
-
-void setWhite()
-{
-    setFontColor(255, 255, 255);
-}
-
-void setOrange()
-{
-    setFontColor(255, 160, 0);
-}
-
-void setGreen()
-{
-    setFontColor(0, 255, 0);
-}
-
-void setRed()
-{
-    setFontColor(255, 0, 0);
-}
-
-void setPurple()
-{
-    setFontColor(255, 0, 255);
-}
-
-void setCyan()
-{
-    setFontColor(0, 150, 150);
-}
-
-void printLine()
-{
-    setWhite();
-    cout << "-----------------------------------------------------------" << endl;
-}
-
-void Phase6(WarEngine *game, string country)
-{
-    printLine();
-    setBlue();
-    cout << "Welcome to Phase 6: " << endl;
-    setWhite();
-
-    // newPhase(game);
-    string enemy;
-    if (country == "France")
-    {
-        enemy = "Germany";
-    }
-    else
-    {
-        enemy = "France";
-    }
-
-    if (!game->getPhase()->countryStillExists(country))
-    {
-        setRed();
-        cout << "With your defeat, your arch enemy makes peace with everyone still at war" << endl;
-        cout << "You lost the war" << endl;
-        setWhite();
-    }
-    else if (!game->getPhase()->countryStillExists(enemy))
-    {
-        // if (country == "France")
-        // {
-        //     setCyan();
-        //     game->getPhase()->sendBroadcast("Red", country, "We have defeated the enemy and dont need to attack any further");
-        // }
-        // else
-        // {
-        //     setCyan();
-        //     game->getPhase()->sendBroadcast("Blue", country, "We have defeated the enemy and dont need to attack any further ");
-        // }
-        setGreen();
-        cout << "With the defeat of your arch enemy you make peace with everyone still at war" << endl;
-        cout << "You won the war" << endl;
-        setWhite();
-    }
-    else
-    {
-        setGreen();
-        game->getPhase()->sendBroadcast(enemy, country, "Let us put aside our differences so that our people may prosper");
-        cout << "You and your enemy come to an arrangement and agreed to sign a peace treaty" << endl;
-        setWhite();
-    }
-    printLine();
-}
-
-void Phase5(WarEngine *game, string country)
-{
-    printLine();
-    setBlue();
-    cout << "Welcome to  Phase 5: " << endl;
-    setWhite();
-    // newPhase(game);
-    string enemy = "";
-    if (country == "France")
-    {
-        enemy = "Germany";
-    }
-    else
-    {
-        enemy = "France";
-    }
-
-    int userWantsToAttack = 1;
-    string input = "";
-    while (userWantsToAttack == 1 || userWantsToAttack == 2)
-    {
-        if (!game->getPhase()->countryStillExists(country) || !game->getPhase()->countryStillExists(enemy))
-        {
-            userWantsToAttack = -1;
-        }
-        else
-        {
-            setOrange();
-            cout << "You look at the state of your country and your enemies country and decide what to de next: \n"
-                 << "1: Press the attack, but first prepare for the coming battles\n"
-                 << "2: Press the attack, the enemy must be defeated\n"
-                 << "3: The cost of war is too high, rather sign a peace treaty" << endl;
-            setWhite();
-            getline(std::cin, input);
-            if (checkInput(input, 0) != 0)
-            {
-                userWantsToAttack = stoi(input);
-            }
-            else
-            {
-                userWantsToAttack = 0;
-            }
-        }
-        if (userWantsToAttack == 1)
-        {
-            if (!game->getPhase()->countryStillExists(country) || !game->getPhase()->countryStillExists(enemy))
-            {
-                userWantsToAttack = -1;
-            }
-            else
-            {
-                printLine();
-                Phase2(game, country);
-                Phase3(game, country);
-                Phase4(game, country);
-            }
-        }
-        else if (userWantsToAttack == 2)
-        {
-            if (!game->getPhase()->countryStillExists(country) || !game->getPhase()->countryStillExists(enemy))
-            {
-                userWantsToAttack = -1;
-            }
-            else
-            {
-                printLine();
-                Phase3(game, country);
-                Phase4(game, country);
-            }
-        }
-        else if (userWantsToAttack == 3)
-        {
-        }
-        else if (userWantsToAttack == -1)
-        {
-        }
-        else
-        {
-            userWantsToAttack = 1;
-            setRed();
-            cout << "Choose 1, 2 or 3" << endl;
-            setWhite();
-        }
-    }
-    printLine();
-}
-
-void Phase4(WarEngine *game, string country)
-{
-    printLine();
-    setBlue();
-    cout << "Welcome to  Phase 4: " << endl;
-    setWhite();
-    // newPhase(game);
-    if (game->getPhase()->countryStillExists(country))
-    {
-        cout << "Here is an update on your country after the latest battles: " << endl;
-        printLine();
-        setPurple();
-        game->getPhase()->printCountryStatus(country, false);
-        printLine();
-        next();
-    }
-    if (country == "France")
-    {
-        if (game->getPhase()->countryStillExists("Germany"))
-        {
-            cout << "Here is an update on your enemies country after the latest battles: " << endl;
-            printLine();
-            setPurple();
-            game->getPhase()->printCountryStatus("Germany", false);
-            printLine();
-            next();
-        }
-    }
-    else
-    {
-        if (game->getPhase()->countryStillExists("France"))
-        {
-            cout << "Here is an update on your enemies country after the latest battles: " << endl;
-            printLine();
-            setPurple();
-            game->getPhase()->printCountryStatus("France", false);
-            printLine();
-            next();
-        }
-    }
-    printLine();
-}
-
 void Phase3(WarEngine *game, string country)
 {
-    printLine();
-    setBlue();
     cout << "Welcome to Phase 3:" << endl;
-    setWhite();
-    cout << "new meme" << endl;
-    // newPhase(game);
-    cout << "After new meme" << endl;
-
-    vector<string> enemyNames;
-    vector<string> enemyAreaNames;
-    string choiceCountry = "";
-    string choiceArea = "";
-    string chosenEnemy = "";
-    string chosenArea = "";
-    int userWantsToattack = 1;
-    int threeAttacksCounter = 0;
-    int chC = 0;
-    int numEnemies = -1;
-    bool successfulAttack = false;
-    bool enemyAttack = true;
-    setOrange();
-    cout << "Please choose a Country to attack: " << endl;
-    setWhite();
-    int i = 0;
-    for (auto e : game->getPhase()->getCountryEnemies(country))
+    if (country.compare("France") == 0)
     {
-        cout << ++i << ": " << e << endl;
-        printLine();
-        setPurple();
-        game->getPhase()->printCountryStatus(e, false);
-        printLine();
-        enemyNames.push_back(e);
-        numEnemies = enemyNames.size();
+        game->getPhase()->revolt(country);
     }
-    while (chC == 0)
-    {
-        getline(std::cin, choiceCountry);
-        if (checkInput(choiceCountry, 0) != 0)
-        {
-            chC = stoi(choiceCountry);
-        }
-        else
-        {
-            chC = 0;
-        }
-        if (chC <= numEnemies && chC > 0)
-        {
-            chosenEnemy = enemyNames.at(chC - 1);
-        }
-        else
-        {
-            chC = 0;
-            setRed();
-            cout << "Please choose an integer between 1 and " << numEnemies << endl;
-            setWhite();
-        }
-    }
-    printLine();
-    while (threeAttacksCounter < 3 && userWantsToattack == 1)
-    {
-        enemyAreaNames.clear();
-        setOrange();
-        cout << "Please choose an area in " << chosenEnemy << " to attack: " << endl;
-        setWhite();
-        int j = 0;
-        for (auto a : game->getPhase()->getAttackableAreasInCountry(chosenEnemy, country))
-        {
-            cout << ++j << ": " << a << endl;
-            enemyAreaNames.push_back(a);
-        }
-        int numEnemyAreas = enemyAreaNames.size();
-        bool chooseArea = false;
-        while (!chooseArea)
-        {
-            int chA = 0;
-            getline(std::cin, choiceCountry);
-            if (checkInput(choiceCountry, 0) != 0)
-            {
-                chA = stoi(choiceCountry);
-            }
-            else
-            {
-                chA = 0;
-            }
-            chA = stoi(choiceCountry);
-            if (chA <= numEnemyAreas && chA > 0)
-            {
-                chooseArea = true;
-                chosenArea = enemyAreaNames.at(chA - 1);
-            }
-            else
-            {
-                setRed();
-                cout << "Please choose an integer between 1 and " << numEnemyAreas << endl;
-                setWhite();
-            }
-        }
-        successfulAttack = game->getPhase()->attackArea(chosenArea, country);
-        threeAttacksCounter++;
-        string input = "";
-        if (successfulAttack)
-        {
-            if (game->getPhase()->countryStillExists(chosenEnemy))
-            {
-                if (threeAttacksCounter == 3)
-                {
-                    next();
-                }
-                else
-                {
-                    setOrange();
-                    cout << "You have successfully attacked an area, would like to attack another one?\n"
-                         << "1: Yes\n"
-                         << "2: No" << endl;
-                    setWhite();
-                    getline(std::cin, input);
-                    if (checkInput(input, 2) != 2)
-                    {
-                        userWantsToattack = stoi(input);
-                    }
-                    else
-                    {
-                        userWantsToattack = 2;
-                    }
-                    printLine();
-                }
-            }
-            else
-            {
-                setGreen();
-                cout << "With the victory in the last area, you have conquered all the areas in the enemy country" << endl;
-                next();
-                userWantsToattack = -1;
-                enemyAttack = false;
-            }
-        }
-        else
-        {
-
-            if (game->getPhase()->countryStillExists(country))
-            {
-                setOrange();
-                cout << "Unfortunately your attack was unsuccessful, what would you like to do now?\n"
-                     << "(It looks like the area you are trying to attack is stronger than you, consider\n"
-                     << " a different area or gathering your strength and slowly wearing dowwn its defenses)\n";
-                // cout << "1: Return to the beginning of this phase and attack a different area\n"
-                //      << "2: Accept this defeat and prepare for the coming battles" << endl;
-                setWhite();
-                next();
-                // int in = 0;
-                // getline(std::cin, input);
-                // if (checkInput(input, 0) != 0)
-                // {
-                //     in = stoi(input);
-                // }
-                // else
-                // {
-                //     in = 0;
-                // }
-                // if (in == 1)
-                // {
-                //     game->reverseWarPhase();
-                //     Phase3(game, country);
-                //     enemyAttack = false;
-                // }
-                userWantsToattack = 2;
-                printLine();
-            }
-            else
-            {
-                setRed();
-                cout << "With the Defeat of the last battle, you have been eliminated by your enemy" << endl;
-                setWhite();
-                userWantsToattack = -1;
-                enemyAttack = false;
-            }
-        }
-    }
-    if (enemyAttack)
-    {
-        setRed();
-        string area = game->getPhase()->getAttackableAreasInCountry(country, chosenEnemy).front();
-        cout << "After you finished attacking, the enemy launched a counter attack on " << area << endl;
-        game->getPhase()->attackArea(area, chosenEnemy);
-        setWhite();
-        next();
-        printLine();
-    }
+    next();
+    // cout << "Please choose a Country to attack first: \n"
+    //      << "1:\n Be \n";
+    // game->getPhase()->printCountryStatus("France", false);
+    // cout << "2:\n Germany" << endl;
+    // game->getPhase()->printCountryStatus("Germany", false);
+    // while (country.compare("") == 0)
+    // {
+    //     getline(std::cin, choice);
+    //     if (choice.compare("1") == 0)
+    //     {
+    //         cout << "You have chosen France and are part of the red alliance\n"
+    //              << "Germany has declared war as it prepares to create an empire" << endl;
+    //         country = "France";
+    //     }
+    //     else if (choice.compare("2") == 0)
+    //     {
+    //         cout << "You have chosen Germany and are part of the blue alliance"
+    //              << "France has opposed you in your quest to enlarge you empire and must pay for their insolence" << endl;
+    //         country = "Germany";
+    //     }
+    //     else
+    //     {
+    //         cout << "Please choose side 1 or 2" << endl;
+    //     }
+    //     choice = "";
+    // }
 }
 
 void Phase2(WarEngine *game, string country)
 {
-    printLine();
-    setBlue();
     cout << "Welcome to Phase 2:" << endl;
-    setWhite();
-    // newPhase(game);
     int threeCycles = 0;
     string choice = "";
     while (threeCycles < 3)
     {
-        setOrange();
         cout << "Choose how to prepare for war:\n"
              << "1: Train more troops\n"
              << "2: Create more vehicles\n"
              << "3: Upgrade vehicles stationed at research facilities" << endl;
-        setWhite();
         getline(std::cin, choice);
-        if (choice == "")
-        {
-            choice = "0";
-        }
-
         if (choice.compare("1") == 0)
         {
             if (country.compare("France") == 0)
@@ -1105,7 +746,6 @@ void Phase2(WarEngine *game, string country)
                     game->getPhase()->addTroops("Berlin", ::tGroundTroops, ::theSoldiers);
             }
             threeCycles++;
-            printLine();
         }
         else if (choice.compare("2") == 0)
         {
@@ -1121,7 +761,6 @@ void Phase2(WarEngine *game, string country)
             }
 
             threeCycles++;
-            printLine();
         }
         else if (choice.compare("3") == 0)
         {
@@ -1134,226 +773,69 @@ void Phase2(WarEngine *game, string country)
                 game->getPhase()->upgradeVehiclesInArea(::landVehicle, "Dusseldorf");
             }
             threeCycles++;
-            printLine();
         }
         else
         {
-            setRed();
             cout << "Please choose option 1, 2 or 3" << endl;
-            setWhite();
         }
     }
     game->getPhase()->distributeTroopsAndVehicles("Germany");
     game->getPhase()->distributeTroopsAndVehicles("France");
-    printLine();
 }
 
-void realMode()
+void finalMain()
 {
     WarEngine *game = new WarEngine();
-    populate(game, false);
+    populate(game);
 
-    // newPhase(game);
     string country = "";
     string choice = "";
-    setGreen();
     cout << "░▀▀█▀▀░█░░░░█▀▀░░░▒█▀▀█░█▀▀▄░█▀▀░█▀▀▄░▀█▀░░░▒█▀▀▀░█░▒█░█▀▀▄░▄▀▀▄░▄▀▀▄░█▀▀░░░▒█░░▒█░█▀▀▄░█▀▀▄" << endl;
     cout << "░░▒█░░░█▀▀█░█▀▀░░░▒█░▄▄░█▄▄▀░█▀▀░█▄▄█░░█░░░░▒█▀▀▀░█░▒█░█▄▄▀░█░░█░█▄▄█░█▀▀░░░▒█▒█▒█░█▄▄█░█▄▄▀" << endl;
     cout << "░░▒█░░░▀░░▀░▀▀▀░░░▒█▄▄▀░▀░▀▀░▀▀▀░▀░░▀░░▀░░░░▒█▄▄▄░░▀▀▀░▀░▀▀░░▀▀░░█░░░░▀▀▀░░░▒▀▄▀▄▀░▀░░▀░▀░▀▀" << endl;
-    next();
-    printLine();
-    setBlue();
-    cout << "Welcome to the Phase 1: " << endl;
-    setOrange();
+    cout << "welcome to the Phase 1: " << endl;
     cout << "Please choose a side in the war: \n"
-         << "1: France \n";
-    printLine();
-    setPurple();
+         << "1:\n France \n";
     game->getPhase()->printCountryStatus("France", false);
-    printLine();
-    setOrange();
-    cout << "2: Germany" << endl;
-    printLine();
-    setPurple();
+    cout << "2:\n Germany" << endl;
     game->getPhase()->printCountryStatus("Germany", false);
-    setWhite();
     while (country.compare("") == 0)
     {
         getline(std::cin, choice);
-        if (checkInput(choice, 0) != 0)
-        {
-            choice = choice;
-        }
-        else
-        {
-            choice = "0";
-        }
         if (choice.compare("1") == 0)
         {
-            setGreen();
-            cout << "You have chosen France and are part of the red alliance\n";
-            setRed();
-            cout << "Germany has declared war as it prepares to create an empire" << endl;
+            cout << "You have chosen France and are part of the red alliance\n"
+                 << "Germany has declared war as it prepares to create an empire" << endl;
             country = "France";
-            printLine();
-            setCyan();
-            game->getPhase()->sendBroadcast("Blue", "France", "We are coming for you");
         }
         else if (choice.compare("2") == 0)
         {
-            cout << "You have chosen Germany and are part of the blue alliance\n"
+            cout << "You have chosen Germany and are part of the blue alliance"
                  << "France has opposed you in your quest to enlarge you empire and must pay for their insolence" << endl;
             country = "Germany";
-            printLine();
-            setCyan();
-            game->getPhase()->sendBroadcast("Red", "Germany", "We are coming for you");
         }
         else
         {
-            setRed();
             cout << "Please choose side 1 or 2" << endl;
-            setWhite();
         }
         choice = "";
     }
-    printLine();
 
-    int num = 0;
-
+    newPhase(game);
     Phase2(game, country);
-    if (country.compare("France") == 0)
-    {
-        setRed();
-        game->getPhase()->revolt(country);
-        setWhite();
-    }
-    next();
-    Phase3(game, country);
-    Phase4(game, country);
-    Phase5(game, country);
-    Phase6(game, country);
+    newPhase(game);
 }
 
-void designMode()
-{
-    cout << "░▀▀█▀▀░█░░░░█▀▀░░░▒█▀▀█░█▀▀▄░█▀▀░█▀▀▄░▀█▀░░░▒█▀▀▀░█░▒█░█▀▀▄░▄▀▀▄░▄▀▀▄░█▀▀░░░▒█░░▒█░█▀▀▄░█▀▀▄" << endl;
-    cout << "░░▒█░░░█▀▀█░█▀▀░░░▒█░▄▄░█▄▄▀░█▀▀░█▄▄█░░█░░░░▒█▀▀▀░█░▒█░█▄▄▀░█░░█░█▄▄█░█▀▀░░░▒█▒█▒█░█▄▄█░█▄▄▀" << endl;
-    cout << "░░▒█░░░▀░░▀░▀▀▀░░░▒█▄▄▀░▀░▀▀░▀▀▀░▀░░▀░░▀░░░░▒█▄▄▄░░▀▀▀░▀░▀▀░░▀▀░░█░░░░▀▀▀░░░▒▀▄▀▄▀░▀░░▀░▀░▀▀" << endl;
-    next();
-    WarEngine *game = new WarEngine();
-    populate(game, true);
-    vector<string> enemyAreaNames;
-    string country = "France";
-    string chosenEnemy = "Munich";
-    next();
-    cout << "Phase 3:" << endl;
-    cout << "France has started the war by attacking Ireland, one of the Blue allies" << endl;
-    game->getPhase()->attackArea("Dublin", "France");
-    cout << "The UK has helped it's allies by attacking Ireland as well" << endl;
-    game->getPhase()->attackArea("Cork", "United Kingdom");
-    game->getPhase()->attackArea("Limerick", "United Kingdom");
-    game->getPhase()->attackArea("Galway", "United Kingdom");
-
-    // game->getPhase()->countryStillExists("Ireland");
-
-    next();
-
-    cout << "Germany has retaliated by attacking France aswell as Denmark" << endl;
-    game->getPhase()->attackArea("Strasbourg", "Germany");
-    game->getPhase()->attackArea("Lyon", "Germany");
-    game->getPhase()->attackArea("Abenta", "Germany");
-
-    next();
-
-    cout << "France can not allow this and decides to take back control of their areas" << endl;
-    game->getPhase()->attackArea("Strasbourg", "France");
-    game->getPhase()->attackArea("Lyon", "France");
-
-    next();
-    cout << "London gets intel from an unknown source that Belgium might attack them and decide to add vehicles to their army" << endl;
-    for (int i = 0; i < 200; i++)
-    {
-        game->getPhase()->addVehicles("London", ::aircraftVehicle);
-        game->getPhase()->addVehicles("London", ::aquaticVehicle);
-    }
-
-    next();
-    cout << "Belgium starts to attack London, and fails:" << endl;
-
-    game->getPhase()->attackArea("London", "Belgium");
-
-    next();
-    cout << "The red allies decide to attack two of the blue allies' countries" << endl;
-    game->getPhase()->attackArea("Brussels", "France");
-    game->getPhase()->attackArea("Amsterdam", "United Kingdom");
-
-    next();
-    cout << "Germany tries to retake Amsterdam after a heavy loss" << endl;
-    game->getPhase()->attackArea("Amsterdam", "Germany");
-
-    next();
-    cout << "Denmark stops being dormant and tries to take back its area" << endl;
-    game->getPhase()->attackArea("Abenta", "Denmark");
-
-    next();
-
-    cout << "The Red allies continue their assault" << endl
-         << endl;
-    enemyAreaNames.clear();
-
-    while (game->getPhase()->countryStillExists("Germany") && !game->getPhase()->getAttackableAreasInCountry("Germany", "France").empty())
-    {
-
-        for (auto a : game->getPhase()->getAttackableAreasInCountry("Germany", "France"))
-        {
-            game->getPhase()->attackArea(a, "France");
-            //  a.pop_back();
-        }
-    }
-
-    // while (game->getPhase()->countryStillExists("Denmark") && !game->getPhase()->getAttackableAreasInCountry("Denmark", "France").empty()) {
-    //     for (auto a : game->getPhase()->getAttackableAreasInCountry("Denmark", "United Kingdom"))
-    //     {
-    //         game->getPhase()->attackArea(a, "United Kingdom");
-    //     }
-    // }
-    // successfulAttack = game->getPhase()->attackArea(enemyAreaNames.front(), country);
-
-    // game->getPhase()->attackArea();
-
-    /*if (game->getPhase()->countryStillExists("Germany"))
-    {
-        cout << "France has successfully attacked berlin \n";
-        next();
-    }
-    else
-    {
-        cout << "With the victory in berlin France has conquered all the areas in Germany" << endl;
-        next();
-    }
-    game->getPhase()->printCountryStatus(country, true);
-    game->getPhase()->printCountryStatus("Germany", true);*/
-    // game->getPhase()->attackArea("Bremen", "Denmark");
-}
-
-void run()
-{
-    string choice;
-    cout << "Which mode do you want to run in?\n1. Real Mode\n2. Design Mode" << endl;
-    getline(cin, choice);
-    if (choice[0] == '1')
-        realMode();
-    else if (choice[0] == '2')
-        designMode();
-    else
-        run();
-}
 int main()
 {
-    run();
-    // realMode();
-    // designMode();
-    //   WarEngine *game = new WarEngine();
-    //   populate(game, false);
+    cout << "=============================Start testing=============================" << endl;
+    // cout << "Troops Success!" << endl;
+    // testMap();
+    // testMemento();
+    // showcasing();
+    // finalMain();
+    WarEngine *game = new WarEngine();
+    populate(game);
+    cout << "=============================End testing===============================" << endl;
     return 0;
 }
