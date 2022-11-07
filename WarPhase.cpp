@@ -72,16 +72,20 @@ WarPhase *WarPhase::clone()
             }
         }
     }
+    cout << "5" << endl;
     for (auto oldCountry : allCountries)
     {
+        cout << oldCountry->getName() << endl;
         for (auto clonedCountry : c)
         {
             if (oldCountry->getName() == clonedCountry->getName())
             {
+                cout << "--" << clonedCountry << clonedCountry->getName() << endl;
                 oldCountry->cloneWarEntities(clonedCountry);
             }
         }
     }
+    cout << "6" << endl;
     wph->communication = com;
     wph->allCountries = c;
     wph->allRelationships = r;
@@ -448,59 +452,61 @@ void WarPhase::addConnection(typeOfInfrastructure type, string sourceName, strin
 {
     Country *country = getCountryFromArea(sourceName);
     Country *destination = getCountryFromArea(destinationName);
-    if (country != nullptr && destination != nullptr)
+    Area* area = getArea(sourceName);
+    Area* destinationArea = getArea(destinationName);
+    if (country != nullptr && destination != nullptr && area != nullptr && destinationArea != nullptr)
     {
         if (type == ::iRoad)
         {
-            Road *newRoad = new Road(getArea(sourceName), getArea(destinationName), 30, distance);
+            Road *newRoad = new Road(area, destinationArea, 30, distance);
         }
         else if (type == ::iHarbour)
         {
             Harbour *theHarbour;
             Harbour *theOtherHarbour;
-            if (getInfrastructureInArea(getArea(sourceName), type).empty())
+            if (getInfrastructureInArea(area, type).empty())
             {
-                theHarbour = new Harbour(getArea(sourceName), 100);
+                theHarbour = new Harbour(area, 100);
                 country->getWarEntities()->addInfrastructure(theHarbour);
             }
             else
             {
-                theHarbour = (Harbour *)getInfrastructureInArea(getArea(sourceName), type).front();
+                theHarbour = (Harbour *)getInfrastructureInArea(area, type).front();
             }
-            if (getInfrastructureInArea(getArea(destinationName), type).empty())
+            if (getInfrastructureInArea(destinationArea, type).empty())
             {
-                theOtherHarbour = new Harbour(getArea(destinationName), 100);
+                theOtherHarbour = new Harbour(destinationArea, 100);
                 destination->getWarEntities()->addInfrastructure(theOtherHarbour);
             }
             else
             {
-                theOtherHarbour = (Harbour *)getInfrastructureInArea(getArea(destinationName), type).front();
+                theOtherHarbour = (Harbour *)getInfrastructureInArea(destinationArea, type).front();
             }
-            theHarbour->addConnection(getArea(destinationName), distance, theOtherHarbour);
+            theHarbour->addConnection(destinationArea, distance, theOtherHarbour);
         }
         else if (type == ::iRunway)
         {
             Runway *theRunway;
             Runway *theOtherRunway;
-            if (getInfrastructureInArea(getArea(sourceName), type).empty())
+            if (getInfrastructureInArea(area, type).empty())
             {
-                theRunway = new Runway(getArea(sourceName), 100);
+                theRunway = new Runway(area, 100);
                 country->getWarEntities()->addInfrastructure(theRunway);
             }
             else
             {
-                theRunway = (Runway *)getInfrastructureInArea(getArea(sourceName), type).front();
+                theRunway = (Runway *)getInfrastructureInArea(area, type).front();
             }
-            if (getInfrastructureInArea(getArea(destinationName), type).empty())
+            if (getInfrastructureInArea(destinationArea, type).empty())
             {
-                theOtherRunway = new Runway(getArea(destinationName), 100);
+                theOtherRunway = new Runway(destinationArea, 100);
                 destination->getWarEntities()->addInfrastructure(theOtherRunway);
             }
             else
             {
-                theOtherRunway = (Runway *)getInfrastructureInArea(getArea(destinationName), type).front();
+                theOtherRunway = (Runway *)getInfrastructureInArea(destinationArea, type).front();
             }
-            theRunway->addConnection(getArea(destinationName), distance, theOtherRunway);
+            theRunway->addConnection(destinationArea, distance, theOtherRunway);
         }
     }
 }
@@ -1376,23 +1382,25 @@ bool WarPhase::attackArea(string areaName, string countryName)
                         if (!vehicles.empty())
                         {
                             Vehicles *vehicle = vehicles.front();
-                            while (!getAllFacilitiesInArea(getArea(areaName)).empty())
-                            {
-                                Infrastructure *i = getAllFacilitiesInArea(getArea(areaName)).front();
-                                vehicle->attack(i);
-                                enemy->getWarEntities()->removeInfrastructure(i);
-                                i->destroy();
+                            list<Infrastructure *> temp = getAllFacilitiesInArea(getArea(areaName));
+                            if(!temp.empty()) {
+                                for(auto i : temp) {
+                                    vehicle->attack(i);
+                                    enemy->getWarEntities()->removeInfrastructure(i);
+                                    i->destroy();
+                                }
                             }
                         }
                         else
                         {
                             Troops *troop = troops.front();
-                            while (!getAllFacilitiesInArea(getArea(areaName)).empty())
-                            {
-                                Infrastructure *i = getAllFacilitiesInArea(getArea(areaName)).front();
-                                troop->attack(i);
-                                enemy->getWarEntities()->removeInfrastructure(i);
-                                i->destroy();
+                            list<Infrastructure *> temp = getAllFacilitiesInArea(getArea(areaName));
+                            if(!temp.empty()) {
+                                for(auto i : temp) {
+                                    troop->attack(i);
+                                    enemy->getWarEntities()->removeInfrastructure(i);
+                                    i->destroy();
+                                }
                             }
                         }
                         list<Infrastructure *> connections = enemy->getWarEntities()->getInfrastructure();
@@ -1403,6 +1411,8 @@ bool WarPhase::attackArea(string areaName, string countryName)
                                 enemy->getWarEntities()->removeInfrastructure(c);
                                 country->getWarEntities()->addInfrastructure(c);
                             }
+                            country->getWarEntities()->getInfrastructure().sort();
+                            country->getWarEntities()->getInfrastructure().unique();
                         }
                         if (!troops.empty())
                         {
@@ -1437,6 +1447,7 @@ bool WarPhase::attackArea(string areaName, string countryName)
                             delete enemy;
                             if (relationship->getRelationships().empty())
                             {
+                                cout << "Truueeeeeee" << endl;
                                 delete relationship;
                             }
                             else

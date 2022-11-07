@@ -15,7 +15,6 @@ WarEntities::~WarEntities()
     {
         delete *itt;
     }
-
     std::list<Infrastructure *>::iterator iti;
     for (iti = infrastructure.begin(); iti != infrastructure.end(); ++iti)
     {
@@ -37,9 +36,8 @@ WarEntities *WarEntities::clone()
     int num = 0;
     for (auto i : infrastructure)
     {
-        if (i->getArea()->getClonedArea() != NULL)
-        {
-            auto in = i->clone(i->getArea()->getClonedArea());
+        if (i != nullptr && i->getArea() != nullptr && i->getArea()->getClonedArea() != nullptr) {
+            Infrastructure* in = i->clone(i->getArea()->getClonedArea());
             if (in != nullptr)
             {
                 newEntities->addInfrastructure(in);

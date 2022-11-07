@@ -1185,7 +1185,7 @@ void designMode()
 
     // game->getPhase()->attackArea();
 
-    if (game->getPhase()->countryStillExists(chosenEnemy))
+    if (game->getPhase()->countryStillExists("Germany"))
     {
         cout << "France has successfully attacked berlin \n";
         next();
@@ -1195,12 +1195,24 @@ void designMode()
         cout << "With the victory in berlin France has conquered all the areas in Germany" << endl;
         next();
     }
-    game->getPhase()->attackArea("Bremen", "Denmark");
+    game->getPhase()->printCountryStatus(country,true);
+    game->getPhase()->printCountryStatus("Germany", true);
+    //game->getPhase()->attackArea("Bremen", "Denmark");
 }
-
+void run(){
+    string choice;
+    cout << "Which mode do you want to run in?\n1. Real Mode\n2. Design Mode" << endl;
+    cin >> choice;
+    if(choice[0] == '1')
+        realMode();
+    else if(choice[0] == '2') 
+        designMode();
+    else run();
+}
 int main()
 {
-    realMode();
+    run();
+    // realMode();
     // designMode();
     //  WarEngine *game = new WarEngine();
     //  populate(game);
