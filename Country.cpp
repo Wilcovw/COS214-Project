@@ -139,25 +139,8 @@ AssociatedCountries *Country::clone(Communication *comm, AssociatedCountries *pa
 
 void Country::cloneWarEntities(Country *country)
 {
-<<<<<<< Updated upstream
-    country->numCitzenGroups = this->numCitzenGroups;
-
-    country->citizens = new Citizens *[numCitzenGroups];
-    int counter = 0;
-    for (int i = 0; i < numCitzenGroups; i++)
-    {
-        if (this->citizens[i]->getStatus().compare("Unlisted") || this->citizens[i]->getStatus().compare("Dead"))
-        {
-            country->citizens[counter] = this->citizens[i]->clone();
-            counter++;
-        }
-    }
-    country->entities = this->entities->clone();
-    int x = 0;
-=======
     int counter = 0;
     country->entities = this->entities->clone();
->>>>>>> Stashed changes
     for (auto t : this->entities->getTroops())
     {
         country->citizens.push_back(t->getAssociatedCitizen());

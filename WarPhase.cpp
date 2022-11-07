@@ -1020,7 +1020,7 @@ void WarPhase::printCountryStatus(string countryName, bool detailedPrint)
     }
 }
 
-void WarPhase::printAreaStatus(string areaName)
+void WarPhase::printAreaStatus(string areaName, bool printAdvanced)
 {
     Area *area = getArea(areaName);
     Country *country = getCountryFromArea(areaName);
@@ -1229,7 +1229,7 @@ void WarPhase::printAreaStatus(string areaName)
 }
 
 // TODO: change distance value
-void WarPhase::attackArea(string areaName, string countryName)
+bool WarPhase::attackArea(string areaName, string countryName)
 {
     Country *country = getCountry(countryName);
     if (country != nullptr)
@@ -1723,7 +1723,7 @@ void WarPhase::upgradeVehiclesInArea(vehicleType type, string areaName)
     }
 }
 
-list<string> WarPhase::getAreasInRelationship(string relationshipName)
+/*list<string> WarPhase::getAreasInRelationship(string relationshipName)
 {
     list<string> areas;
     Relationship *relationship = getRelationship(relationshipName);
@@ -1749,15 +1749,13 @@ list<string> WarPhase::getAreasInRelationship(string relationshipName)
     }
 
     return areas;
-}
+}*/
 
 void WarPhase::revolt(string countryName)
 {
     return;
 }
 
-<<<<<<< Updated upstream
-=======
 list<string> WarPhase::getCountryEnemies(string countryName)
 {
     list<string> enemyNames;
@@ -1802,5 +1800,4 @@ void WarPhase::testPrint() {
         cout << a << endl;
     }
 }
->>>>>>> Stashed changes
 #endif
