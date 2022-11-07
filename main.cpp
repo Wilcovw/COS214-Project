@@ -719,7 +719,7 @@ void Phase6(WarEngine *game, string country)
     cout << "Welcome to Phase 6: " << endl;
     setWhite();
 
-    // newPhase(game);
+    newPhase(game);
     string enemy;
     if (country == "France")
     {
@@ -770,7 +770,7 @@ void Phase5(WarEngine *game, string country)
     setBlue();
     cout << "Welcome to  Phase 5: " << endl;
     setWhite();
-    // newPhase(game);
+    newPhase(game);
     string enemy = "";
     if (country == "France")
     {
@@ -857,7 +857,7 @@ void Phase4(WarEngine *game, string country)
     setBlue();
     cout << "Welcome to  Phase 4: " << endl;
     setWhite();
-    // newPhase(game);
+    newPhase(game);
     if (game->getPhase()->countryStillExists(country))
     {
         cout << "Here is an update on your country after the latest battles: " << endl;
@@ -901,7 +901,7 @@ void Phase3(WarEngine *game, string country)
     cout << "Welcome to Phase 3:" << endl;
     setWhite();
     cout << "new meme" << endl;
-    // newPhase(game);
+    newPhase(game);
     cout << "After new meme" << endl;
 
     vector<string> enemyNames;
@@ -1041,26 +1041,26 @@ void Phase3(WarEngine *game, string country)
                 cout << "Unfortunately your attack was unsuccessful, what would you like to do now?\n"
                      << "(It looks like the area you are trying to attack is stronger than you, consider\n"
                      << " a different area or gathering your strength and slowly wearing dowwn its defenses)\n";
-                // cout << "1: Return to the beginning of this phase and attack a different area\n"
-                //      << "2: Accept this defeat and prepare for the coming battles" << endl;
+                cout << "1: Return to the beginning of this phase and attack a different area\n"
+                     << "2: Accept this defeat and prepare for the coming battles" << endl;
                 setWhite();
-                next();
-                // int in = 0;
-                // getline(std::cin, input);
-                // if (checkInput(input, 0) != 0)
-                // {
-                //     in = stoi(input);
-                // }
-                // else
-                // {
-                //     in = 0;
-                // }
-                // if (in == 1)
-                // {
-                //     game->reverseWarPhase();
-                //     Phase3(game, country);
-                //     enemyAttack = false;
-                // }
+                //next();
+                int in = 0;
+                getline(std::cin, input);
+                if (checkInput(input, 0) != 0)
+                {
+                    in = stoi(input);
+                }
+                else
+                {
+                    in = 0;
+                }
+                if (in == 1)
+                {
+                    game->reverseWarPhase();
+                    Phase3(game, country);
+                    enemyAttack = false;
+                }
                 userWantsToattack = 2;
                 printLine();
             }
@@ -1092,7 +1092,7 @@ void Phase2(WarEngine *game, string country)
     setBlue();
     cout << "Welcome to Phase 2:" << endl;
     setWhite();
-    // newPhase(game);
+    newPhase(game);
     int threeCycles = 0;
     string choice = "";
     while (threeCycles < 3)
@@ -1176,7 +1176,7 @@ void realMode()
     WarEngine *game = new WarEngine();
     populate(game, false);
 
-    // newPhase(game);
+    newPhase(game);
     string country = "";
     string choice = "";
     setGreen();

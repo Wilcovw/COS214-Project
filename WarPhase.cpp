@@ -673,15 +673,12 @@ void WarPhase::addTroops(string areaName, kindOfTroops kind, theTroopTypes type)
     Country *country = getCountryFromArea(areaName);
     if (country != nullptr)
     {
-        if (country->getNumCitzenGroups() > 0)
+        if (!country->getCitizens().empty())
         {
-            Citizens **citizens = country->getCitizens();
             Citizens *citizen = nullptr;
-            for (int i = 0; i < country->getNumCitzenGroups(); i++)
-            {
-                if (citizens[i] != nullptr && citizens[i]->getStatus() == "Unlisted")
-                {
-                    citizen = citizens[i];
+            for(auto c : country->getCitizens()) {
+                if(c != nullptr && c->getStatus() == "Unlisted") {
+                    citizen = c;
                     break;
                 }
             }
@@ -821,18 +818,17 @@ void WarPhase::printCountryStatus(string countryName, bool displayInfrastructure
         int landSpecialForces = 0;
         int navySpecialForces = 0;
         int airForceSpecialForces = 0;
-        for (int i = 0; i < country->getNumCitzenGroups(); i++)
-        {
-            string status = country->getCitizens()[i]->getStatus();
-            if (status.compare("Unlisted") == 0)
+        for(auto c : country->getCitizens()) {
+            if (c->getStatus().compare("Unlisted") == 0)
             {
                 unlisted++;
             }
-            else if (status.compare("Dead") == 0)
+            else if (c->getStatus().compare("Dead") == 0)
             {
                 dead++;
             }
         }
+
         for (auto t : country->getWarEntities()->getTroops())
         {
             if (t->getKind() == ::tGroundTroops)
