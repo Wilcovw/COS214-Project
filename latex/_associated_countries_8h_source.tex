@@ -1,0 +1,28 @@
+\hypertarget{_associated_countries_8h_source}{}\doxysection{Associated\+Countries.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef ASSOCIATEDCOUNTRIES\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define ASSOCIATEDCOUNTRIES\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{class_communication}{Communication}};}
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_associated_countries}{AssociatedCountries}}}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{17     \mbox{\hyperlink{class_associated_countries}{AssociatedCountries}} *\mbox{\hyperlink{class_associated_countries_aa5e5ccc21c966f5cdf440b4f2603abc8}{parent}};}
+\DoxyCodeLine{22     \mbox{\hyperlink{class_communication}{Communication}} *\mbox{\hyperlink{class_associated_countries_a7353d87778214f8eee21283200a73767}{tele}};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{keyword}{public}:}
+\DoxyCodeLine{29     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_associated_countries_afe6e8c8a85abcf152eb7add1095cdc0e}{setParent}}(\mbox{\hyperlink{class_associated_countries}{AssociatedCountries}} *\mbox{\hyperlink{class_associated_countries_aa5e5ccc21c966f5cdf440b4f2603abc8}{parent}}) = 0;}
+\DoxyCodeLine{35     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_associated_countries_a469fef433bee084505df55c170345aa3}{addAssociatedCountries}}(\mbox{\hyperlink{class_associated_countries}{AssociatedCountries}} *al)\{\};}
+\DoxyCodeLine{41     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_associated_countries_a8fdc30b97ece65114da927a64a087b22}{removeAssociatedCountries}}(\mbox{\hyperlink{class_associated_countries}{AssociatedCountries}} *al) = 0;}
+\DoxyCodeLine{47     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_associated_countries}{AssociatedCountries}} *\mbox{\hyperlink{class_associated_countries_ad38f52e238fcd94b64b89de1b78767bd}{getParent}}() = 0;}
+\DoxyCodeLine{52     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_associated_countries_adb110f6ca52fd1fc3353796de1121035}{\string~AssociatedCountries}}()\{\};}
+\DoxyCodeLine{58     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_associated_countries_a9e957f7c0c23a068ca5a40caa5a75805}{receiveMessage}}(std::string message) = 0;}
+\DoxyCodeLine{65     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_associated_countries_a0f1a6b3e522e2d3c0388cfbeabdb0cc5}{sendBroadcast}}(\mbox{\hyperlink{class_associated_countries}{AssociatedCountries}} *messageReceiver, std::string message) = 0;}
+\DoxyCodeLine{71     \textcolor{keyword}{virtual} std::string \mbox{\hyperlink{class_associated_countries_a7a48c0539662702fcb6e7f07d386c5ec}{print}}() = 0;}
+\DoxyCodeLine{72     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_communication}{Communication}}* getCommunication() = 0;}
+\DoxyCodeLine{79     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_associated_countries}{AssociatedCountries}} *\mbox{\hyperlink{class_associated_countries_aa4d9cb815b9b3f133da55a73dbe98b4e}{clone}}(\mbox{\hyperlink{class_communication}{Communication}} *comm, \mbox{\hyperlink{class_associated_countries}{AssociatedCountries}} *\mbox{\hyperlink{class_associated_countries_aa5e5ccc21c966f5cdf440b4f2603abc8}{parent}}) = 0;}
+\DoxyCodeLine{80 \};}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

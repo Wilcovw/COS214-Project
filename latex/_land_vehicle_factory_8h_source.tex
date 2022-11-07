@@ -1,0 +1,21 @@
+\hypertarget{_land_vehicle_factory_8h_source}{}\doxysection{Land\+Vehicle\+Factory.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef FACTORY\_AND\_OBSERVER\_LANDVEHICLEFACTORY\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define FACTORY\_AND\_OBSERVER\_LANDVEHICLEFACTORY\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Factory.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}LandVehicles.h"{}}}
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_land_vehicle_factory}{LandVehicleFactory}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_factory}{Factory}}}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12 \textcolor{keyword}{public}:}
+\DoxyCodeLine{16     \mbox{\hyperlink{class_land_vehicle_factory}{LandVehicleFactory}}(\textcolor{keywordtype}{double} hp, \mbox{\hyperlink{class_area}{Area}} *area);}
+\DoxyCodeLine{20     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_land_vehicle_factory_a19fe3cac75620414d33de07ffc3c827c}{\string~LandVehicleFactory}}()\{\};}
+\DoxyCodeLine{28     \mbox{\hyperlink{class_vehicles}{Vehicles}} *\mbox{\hyperlink{class_land_vehicle_factory_a3133e5532fa30f47b944a75ed27fe9b9}{createVehicle}}(\textcolor{keywordtype}{double} \mbox{\hyperlink{class_infrastructure_a20c07563cd5918b63ed2dd5e7451827b}{HP}}, \textcolor{keywordtype}{double} damage, \textcolor{keywordtype}{double} speed);}
+\DoxyCodeLine{32     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_land_vehicle_factory_af86127430b3f64cd32104d1ed68abe25}{destroy}}();}
+\DoxyCodeLine{38     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_infrastructure}{Infrastructure}} *\mbox{\hyperlink{class_land_vehicle_factory_ab6b602a5e291c4f1ca44c307a3dc4038}{clone}}(\mbox{\hyperlink{class_area}{Area}} *newArea);}
+\DoxyCodeLine{39 \};}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// FACTORY\_AND\_OBSERVER\_LANDVEHICLEFACTORY\_H}}
+
+\end{DoxyCode}

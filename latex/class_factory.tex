@@ -1,0 +1,170 @@
+\hypertarget{class_factory}{}\doxysection{Factory Class Reference}
+\label{class_factory}\index{Factory@{Factory}}
+
+
+\mbox{\hyperlink{class_factory}{Factory}} inherits from infrastructure and is used to create vehicles.  
+
+
+
+
+{\ttfamily \#include $<$Factory.\+h$>$}
+
+Inheritance diagram for Factory\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_factory}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_factory_a84b40a666858ad0b24115901c66bc385}{Factory}} (double hp, \mbox{\hyperlink{class_area}{Area}} $\ast$area)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_factory}{Factory}} object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_factory_abb3d73c23bef3ca95487856ef0d7c476}{$\sim$\+Factory}} ()
+\begin{DoxyCompactList}\small\item\em virtual Destroy the \mbox{\hyperlink{class_factory}{Factory}} object \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_vehicles}{Vehicles}} $\ast$ \mbox{\hyperlink{class_factory_aea6ebe58dc6734d7620d3cd76e609fd1}{create\+Vehicle}} (\mbox{\hyperlink{class_area}{Area}} $\ast$\mbox{\hyperlink{class_infrastructure_ae21612f9cbcdc428f00c740b81062435}{location}}, double \mbox{\hyperlink{class_infrastructure_a20c07563cd5918b63ed2dd5e7451827b}{HP}}, double damage, double speed)
+\begin{DoxyCompactList}\small\item\em Creates Vehicle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_factory_a4908da4e870fd8774dd27a653d7bc8fc}{set\+Vehicle}} (\mbox{\hyperlink{class_vehicles}{Vehicles}} $\ast$v)
+\begin{DoxyCompactList}\small\item\em sets the private variable of this class to passed in parameter \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vehicles}{Vehicles}} $\ast$ \mbox{\hyperlink{class_factory_a5cf29733525cdecf9327d4d33e15c217}{get\+Vehicle}} ()
+\begin{DoxyCompactList}\small\item\em returns the private variable of this class. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_factory_a1711bb7dac12c0badaacd18d5fba332d}{destroy}} ()
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_infrastructure}{Infrastructure}} $\ast$ \mbox{\hyperlink{class_factory_a170837d8d27c28567feab334d1c5cb3a}{clone}} (\mbox{\hyperlink{class_area}{Area}} $\ast$new\+Area)
+\begin{DoxyCompactList}\small\item\em Makes a copy of the current \mbox{\hyperlink{class_factory}{Factory}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_factory}{Factory}} inherits from infrastructure and is used to create vehicles. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_factory_a84b40a666858ad0b24115901c66bc385}\label{class_factory_a84b40a666858ad0b24115901c66bc385}} 
+\index{Factory@{Factory}!Factory@{Factory}}
+\index{Factory@{Factory}!Factory@{Factory}}
+\doxysubsubsection{\texorpdfstring{Factory()}{Factory()}}
+{\footnotesize\ttfamily Factory\+::\+Factory (\begin{DoxyParamCaption}\item[{double}]{hp,  }\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{area }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{class_factory}{Factory}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hp} & \\
+\hline
+{\em area} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_factory_abb3d73c23bef3ca95487856ef0d7c476}\label{class_factory_abb3d73c23bef3ca95487856ef0d7c476}} 
+\index{Factory@{Factory}!````~Factory@{$\sim$Factory}}
+\index{````~Factory@{$\sim$Factory}!Factory@{Factory}}
+\doxysubsubsection{\texorpdfstring{$\sim$Factory()}{~Factory()}}
+{\footnotesize\ttfamily virtual Factory\+::$\sim$\+Factory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+virtual Destroy the \mbox{\hyperlink{class_factory}{Factory}} object 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_factory_a170837d8d27c28567feab334d1c5cb3a}\label{class_factory_a170837d8d27c28567feab334d1c5cb3a}} 
+\index{Factory@{Factory}!clone@{clone}}
+\index{clone@{clone}!Factory@{Factory}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_infrastructure}{Infrastructure}} $\ast$ Factory\+::clone (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{new\+Area }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Makes a copy of the current \mbox{\hyperlink{class_factory}{Factory}}. 
+
+\begin{DoxyReturn}{Returns}
+Infrastructure$\ast$ 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_infrastructure_aed522d5bc816f5edfb80613ec3948c8c}{Infrastructure}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{class_aircraft_factory_a1cfed1ed75899d6853398016ffb3c2fe}{Aircraft\+Factory}}, \mbox{\hyperlink{class_aquatic_vehicle_factory_a58942dc581ae11f19fcff0642881f1c0}{Aquatic\+Vehicle\+Factory}}, and \mbox{\hyperlink{class_land_vehicle_factory_ab6b602a5e291c4f1ca44c307a3dc4038}{Land\+Vehicle\+Factory}}.
+
+\mbox{\Hypertarget{class_factory_aea6ebe58dc6734d7620d3cd76e609fd1}\label{class_factory_aea6ebe58dc6734d7620d3cd76e609fd1}} 
+\index{Factory@{Factory}!createVehicle@{createVehicle}}
+\index{createVehicle@{createVehicle}!Factory@{Factory}}
+\doxysubsubsection{\texorpdfstring{createVehicle()}{createVehicle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vehicles}{Vehicles}} $\ast$ Factory\+::create\+Vehicle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{location,  }\item[{double}]{HP,  }\item[{double}]{damage,  }\item[{double}]{speed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Creates Vehicle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & \\
+\hline
+{\em HP} & \\
+\hline
+{\em damage} & \\
+\hline
+{\em speed} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a single vehicle is returned, with parameters given as attributes 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_factory_a1711bb7dac12c0badaacd18d5fba332d}\label{class_factory_a1711bb7dac12c0badaacd18d5fba332d}} 
+\index{Factory@{Factory}!destroy@{destroy}}
+\index{destroy@{destroy}!Factory@{Factory}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily void Factory\+::destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+destructor 
+
+
+
+Reimplemented from \mbox{\hyperlink{class_infrastructure_afeb7bb200bf923d63e33436ad63578b7}{Infrastructure}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{class_aircraft_factory_a655ff48c30d00645e53c09402e755698}{Aircraft\+Factory}}, \mbox{\hyperlink{class_aquatic_vehicle_factory_a0bf69b62877f1a66e0d499b2fde4df09}{Aquatic\+Vehicle\+Factory}}, and \mbox{\hyperlink{class_land_vehicle_factory_af86127430b3f64cd32104d1ed68abe25}{Land\+Vehicle\+Factory}}.
+
+\mbox{\Hypertarget{class_factory_a5cf29733525cdecf9327d4d33e15c217}\label{class_factory_a5cf29733525cdecf9327d4d33e15c217}} 
+\index{Factory@{Factory}!getVehicle@{getVehicle}}
+\index{getVehicle@{getVehicle}!Factory@{Factory}}
+\doxysubsubsection{\texorpdfstring{getVehicle()}{getVehicle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vehicles}{Vehicles}} $\ast$ Factory\+::get\+Vehicle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns the private variable of this class. 
+
+\begin{DoxyReturn}{Returns}
+vehicle 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_factory_a4908da4e870fd8774dd27a653d7bc8fc}\label{class_factory_a4908da4e870fd8774dd27a653d7bc8fc}} 
+\index{Factory@{Factory}!setVehicle@{setVehicle}}
+\index{setVehicle@{setVehicle}!Factory@{Factory}}
+\doxysubsubsection{\texorpdfstring{setVehicle()}{setVehicle()}}
+{\footnotesize\ttfamily void Factory\+::set\+Vehicle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vehicles}{Vehicles}} $\ast$}]{v }\end{DoxyParamCaption})}
+
+
+
+sets the private variable of this class to passed in parameter 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Factory.\+h\item 
+Factory.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,285 @@
+\hypertarget{class_war_map}{}\doxysection{War\+Map Class Reference}
+\label{class_war_map}\index{WarMap@{WarMap}}
+
+
+The Graph.  
+
+
+
+
+{\ttfamily \#include $<$War\+Map.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_war_map_af4a7d37f956c13edc5beff31e3e93967}{War\+Map}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new War Map object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_war_map_af28494a61598910d074a7e23325e145c}{$\sim$\+War\+Map}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the War Map object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_area}{Area}} $\ast$ \mbox{\hyperlink{class_war_map_aa28ad6e4cd03fd3567866393351e9b25}{get\+Area}} (string name)
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{class_area}{Area}} object of a certian name. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_war_map_a0fe5f3b704f851ddb53d74b1c51ba1ae}{is\+Accessible}} (\mbox{\hyperlink{class_area}{Area}} $\ast$source, \mbox{\hyperlink{class_area}{Area}} $\ast$destination)
+\begin{DoxyCompactList}\small\item\em Checks if the desitination \mbox{\hyperlink{class_area}{Area}} is accessible from the source \mbox{\hyperlink{class_area}{Area}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_war_map_a023a3e712847e5f4c8695e0472ad16e9}{is\+Accessible}} (\mbox{\hyperlink{class_area}{Area}} $\ast$source, \mbox{\hyperlink{class_area}{Area}} $\ast$destination, string type)
+\item 
+bool \mbox{\hyperlink{class_war_map_a08566dc4ba40bd05a1db46d999dd99b3}{add\+Edge}} (\mbox{\hyperlink{class_area}{Area}} $\ast$source, \mbox{\hyperlink{class_area}{Area}} $\ast$destination, double distance, string type)
+\item 
+bool \mbox{\hyperlink{class_war_map_a8761e0a8bed0231d95b531ab4b2f1635}{add\+Area}} (\mbox{\hyperlink{class_area}{Area}} $\ast$a)
+\item 
+\mbox{\Hypertarget{class_war_map_a903b11f468360ed27e4b147346719b47}\label{class_war_map_a903b11f468360ed27e4b147346719b47}} 
+void {\bfseries reset} ()
+\item 
+list$<$ \mbox{\hyperlink{class_area}{Area}} $\ast$ $>$ \mbox{\hyperlink{class_war_map_a3ebd8630e55547be1232498144e49ad9}{get\+Area\+List}} ()
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{class_area}{Area}} List object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_area_iterator}{Area\+Iterator}} $\ast$ \mbox{\hyperlink{class_war_map_a2b6acfb1294c7809e0154eb6daaeaf93}{create\+Area\+Iterator}} ()
+\begin{DoxyCompactList}\small\item\em Create a \mbox{\hyperlink{class_area}{Area}} Iterator object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge_iterator}{Edge\+Iterator}} $\ast$ \mbox{\hyperlink{class_war_map_a0bc3fea5a1afb947bf4c559c54e1a342}{create\+Edge\+Iterator}} ()
+\begin{DoxyCompactList}\small\item\em Create a \mbox{\hyperlink{class_edge}{Edge}} Iterator object. \end{DoxyCompactList}\item 
+list$<$ \mbox{\hyperlink{class_area}{Area}} $\ast$ $>$\+::iterator \mbox{\hyperlink{class_war_map_a60de0fee536bc455b10480b15825282f}{begin}} ()
+\item 
+list$<$ \mbox{\hyperlink{class_area}{Area}} $\ast$ $>$\+::iterator \mbox{\hyperlink{class_war_map_aaeb0e42fe87502b5e6af602bdf9c031c}{end}} ()
+\begin{DoxyCompactList}\small\item\em Gets the end of Areas list. \end{DoxyCompactList}\item 
+list$<$ \mbox{\hyperlink{class_area}{Area}} $\ast$ $>$ \mbox{\hyperlink{class_war_map_a3e6d85f7a9a2ab26fff6c0f8fd7298bb}{shortest\+Path}} (\mbox{\hyperlink{class_area}{Area}} $\ast$source, \mbox{\hyperlink{class_area}{Area}} $\ast$destination)
+\begin{DoxyCompactList}\small\item\em Determines the sortest path between the source and destination. \end{DoxyCompactList}\item 
+list$<$ \mbox{\hyperlink{class_area}{Area}} $\ast$ $>$ \mbox{\hyperlink{class_war_map_a8120547e8be31d7b48b489ed35e341ac}{shortest\+Path}} (\mbox{\hyperlink{class_area}{Area}} $\ast$source, \mbox{\hyperlink{class_area}{Area}} $\ast$destination, string type)
+\begin{DoxyCompactList}\small\item\em Determines the sortest path between the source and destination via a certain Type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The Graph. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_war_map_af4a7d37f956c13edc5beff31e3e93967}\label{class_war_map_af4a7d37f956c13edc5beff31e3e93967}} 
+\index{WarMap@{WarMap}!WarMap@{WarMap}}
+\index{WarMap@{WarMap}!WarMap@{WarMap}}
+\doxysubsubsection{\texorpdfstring{WarMap()}{WarMap()}}
+{\footnotesize\ttfamily War\+Map\+::\+War\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new War Map object. 
+
+\mbox{\Hypertarget{class_war_map_af28494a61598910d074a7e23325e145c}\label{class_war_map_af28494a61598910d074a7e23325e145c}} 
+\index{WarMap@{WarMap}!````~WarMap@{$\sim$WarMap}}
+\index{````~WarMap@{$\sim$WarMap}!WarMap@{WarMap}}
+\doxysubsubsection{\texorpdfstring{$\sim$WarMap()}{~WarMap()}}
+{\footnotesize\ttfamily War\+Map\+::$\sim$\+War\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the War Map object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_war_map_a8761e0a8bed0231d95b531ab4b2f1635}\label{class_war_map_a8761e0a8bed0231d95b531ab4b2f1635}} 
+\index{WarMap@{WarMap}!addArea@{addArea}}
+\index{addArea@{addArea}!WarMap@{WarMap}}
+\doxysubsubsection{\texorpdfstring{addArea()}{addArea()}}
+{\footnotesize\ttfamily bool War\+Map\+::add\+Area (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{a }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_war_map_a08566dc4ba40bd05a1db46d999dd99b3}\label{class_war_map_a08566dc4ba40bd05a1db46d999dd99b3}} 
+\index{WarMap@{WarMap}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!WarMap@{WarMap}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}}
+{\footnotesize\ttfamily bool War\+Map\+::add\+Edge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{source,  }\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{destination,  }\item[{double}]{distance,  }\item[{string}]{type }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & \\
+\hline
+{\em destination} & \\
+\hline
+{\em distance} & \\
+\hline
+{\em name} & \\
+\hline
+{\em type} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_war_map_a60de0fee536bc455b10480b15825282f}\label{class_war_map_a60de0fee536bc455b10480b15825282f}} 
+\index{WarMap@{WarMap}!begin@{begin}}
+\index{begin@{begin}!WarMap@{WarMap}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily list$<$ \mbox{\hyperlink{class_area}{Area}} $\ast$ $>$\+::iterator War\+Map\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+list$<$\+Area $\ast$$>$\+::iterator 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_war_map_a2b6acfb1294c7809e0154eb6daaeaf93}\label{class_war_map_a2b6acfb1294c7809e0154eb6daaeaf93}} 
+\index{WarMap@{WarMap}!createAreaIterator@{createAreaIterator}}
+\index{createAreaIterator@{createAreaIterator}!WarMap@{WarMap}}
+\doxysubsubsection{\texorpdfstring{createAreaIterator()}{createAreaIterator()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_area_iterator}{Area\+Iterator}} $\ast$ War\+Map\+::create\+Area\+Iterator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Create a \mbox{\hyperlink{class_area}{Area}} Iterator object. 
+
+\begin{DoxyReturn}{Returns}
+Area\+Iterator$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_war_map_a0bc3fea5a1afb947bf4c559c54e1a342}\label{class_war_map_a0bc3fea5a1afb947bf4c559c54e1a342}} 
+\index{WarMap@{WarMap}!createEdgeIterator@{createEdgeIterator}}
+\index{createEdgeIterator@{createEdgeIterator}!WarMap@{WarMap}}
+\doxysubsubsection{\texorpdfstring{createEdgeIterator()}{createEdgeIterator()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge_iterator}{Edge\+Iterator}} $\ast$ War\+Map\+::create\+Edge\+Iterator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Create a \mbox{\hyperlink{class_edge}{Edge}} Iterator object. 
+
+\begin{DoxyReturn}{Returns}
+Edge\+Iterator$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_war_map_aaeb0e42fe87502b5e6af602bdf9c031c}\label{class_war_map_aaeb0e42fe87502b5e6af602bdf9c031c}} 
+\index{WarMap@{WarMap}!end@{end}}
+\index{end@{end}!WarMap@{WarMap}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily list$<$ \mbox{\hyperlink{class_area}{Area}} $\ast$ $>$\+::iterator War\+Map\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the end of Areas list. 
+
+\begin{DoxyReturn}{Returns}
+list$<$\+Area $\ast$$>$\+::iterator 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_war_map_aa28ad6e4cd03fd3567866393351e9b25}\label{class_war_map_aa28ad6e4cd03fd3567866393351e9b25}} 
+\index{WarMap@{WarMap}!getArea@{getArea}}
+\index{getArea@{getArea}!WarMap@{WarMap}}
+\doxysubsubsection{\texorpdfstring{getArea()}{getArea()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_area}{Area}} $\ast$ War\+Map\+::get\+Area (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})}
+
+
+
+Get the \mbox{\hyperlink{class_area}{Area}} object of a certian name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The \mbox{\hyperlink{class_area}{Area}} of this name to search for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Area$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_war_map_a3ebd8630e55547be1232498144e49ad9}\label{class_war_map_a3ebd8630e55547be1232498144e49ad9}} 
+\index{WarMap@{WarMap}!getAreaList@{getAreaList}}
+\index{getAreaList@{getAreaList}!WarMap@{WarMap}}
+\doxysubsubsection{\texorpdfstring{getAreaList()}{getAreaList()}}
+{\footnotesize\ttfamily list$<$ \mbox{\hyperlink{class_area}{Area}} $\ast$ $>$ War\+Map\+::get\+Area\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the \mbox{\hyperlink{class_area}{Area}} List object. 
+
+\begin{DoxyReturn}{Returns}
+list$<$\+Area$\ast$$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_war_map_a0fe5f3b704f851ddb53d74b1c51ba1ae}\label{class_war_map_a0fe5f3b704f851ddb53d74b1c51ba1ae}} 
+\index{WarMap@{WarMap}!isAccessible@{isAccessible}}
+\index{isAccessible@{isAccessible}!WarMap@{WarMap}}
+\doxysubsubsection{\texorpdfstring{isAccessible()}{isAccessible()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool War\+Map\+::is\+Accessible (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{source,  }\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{destination }\end{DoxyParamCaption})}
+
+
+
+Checks if the desitination \mbox{\hyperlink{class_area}{Area}} is accessible from the source \mbox{\hyperlink{class_area}{Area}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & \mbox{\hyperlink{class_area}{Area}} to search from \\
+\hline
+{\em destination} & \mbox{\hyperlink{class_area}{Area}} to search to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If there exsists a path from source to destination 
+
+false If there exsists no path from source to destination 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_war_map_a023a3e712847e5f4c8695e0472ad16e9}\label{class_war_map_a023a3e712847e5f4c8695e0472ad16e9}} 
+\index{WarMap@{WarMap}!isAccessible@{isAccessible}}
+\index{isAccessible@{isAccessible}!WarMap@{WarMap}}
+\doxysubsubsection{\texorpdfstring{isAccessible()}{isAccessible()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool War\+Map\+::is\+Accessible (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{source,  }\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{destination,  }\item[{string}]{type }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & \\
+\hline
+{\em destination} & \\
+\hline
+{\em type} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_war_map_a3e6d85f7a9a2ab26fff6c0f8fd7298bb}\label{class_war_map_a3e6d85f7a9a2ab26fff6c0f8fd7298bb}} 
+\index{WarMap@{WarMap}!shortestPath@{shortestPath}}
+\index{shortestPath@{shortestPath}!WarMap@{WarMap}}
+\doxysubsubsection{\texorpdfstring{shortestPath()}{shortestPath()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily list$<$ \mbox{\hyperlink{class_area}{Area}} $\ast$ $>$ War\+Map\+::shortest\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{source,  }\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{destination }\end{DoxyParamCaption})}
+
+
+
+Determines the sortest path between the source and destination. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & The start point \\
+\hline
+{\em destination} & The end point \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+list$<$\+Area$\ast$$>$ List of \mbox{\hyperlink{class_area}{Area}}\textquotesingle{}s contained in sortest path 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_war_map_a8120547e8be31d7b48b489ed35e341ac}\label{class_war_map_a8120547e8be31d7b48b489ed35e341ac}} 
+\index{WarMap@{WarMap}!shortestPath@{shortestPath}}
+\index{shortestPath@{shortestPath}!WarMap@{WarMap}}
+\doxysubsubsection{\texorpdfstring{shortestPath()}{shortestPath()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily list$<$ \mbox{\hyperlink{class_area}{Area}} $\ast$ $>$ War\+Map\+::shortest\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{source,  }\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{destination,  }\item[{string}]{type }\end{DoxyParamCaption})}
+
+
+
+Determines the sortest path between the source and destination via a certain Type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & The start point \\
+\hline
+{\em destination} & The end point \\
+\hline
+{\em type} & The type of \mbox{\hyperlink{class_edge}{Edge}} to filter through \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+list$<$\+Area $\ast$$>$ List of \mbox{\hyperlink{class_area}{Area}}\textquotesingle{}s contained in sortest path 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+War\+Map.\+h\item 
+War\+Map.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,117 @@
+\hypertarget{class_land_vehicles}{}\doxysection{Land\+Vehicles Class Reference}
+\label{class_land_vehicles}\index{LandVehicles@{LandVehicles}}
+
+
+\mbox{\hyperlink{class_land_vehicles}{Land\+Vehicles}} are all vehicles that can only travel on land. It is the child class of \mbox{\hyperlink{class_vehicles}{Vehicles}}.  
+
+
+
+
+{\ttfamily \#include $<$Land\+Vehicles.\+h$>$}
+
+Inheritance diagram for Land\+Vehicles\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_land_vehicles}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_land_vehicles_a4db413e8da916a1d623117665f6e1f3b}{Land\+Vehicles}} (\mbox{\hyperlink{class_area}{Area}} $\ast$location, double hp, double damage, double speed)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{class_land_vehicles}{Land\+Vehicles}} class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_land_vehicles_a3158ca4e425454556712564aebf90f4e}{$\sim$\+Land\+Vehicles}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the Land \mbox{\hyperlink{class_vehicles}{Vehicles}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_land_vehicles_ad34fdffafac3715a2e2f9ab4038d73dd}{update}} ()
+\begin{DoxyCompactList}\small\item\em method that calls the vehicle\textquotesingle{}s increments level method \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_land_vehicles_a63f9bd6fb4684146b507d9d2a359addd}{ready\+To\+Upgrade}} (\mbox{\hyperlink{class_research_and_development_centre}{Research\+And\+Development\+Centre}} $\ast$r)
+\begin{DoxyCompactList}\small\item\em adds to \mbox{\hyperlink{class_research_and_development_centre}{Research\+And\+Development\+Centre}} list, which stores items to be upgraded \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vehicles}{Vehicles}} $\ast$ \mbox{\hyperlink{class_land_vehicles_a9bde79dcc4ddbc1bc79c856507760753}{clone}} ()
+\begin{DoxyCompactList}\small\item\em Makes a copy of the current Vechile. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_land_vehicles}{Land\+Vehicles}} are all vehicles that can only travel on land. It is the child class of \mbox{\hyperlink{class_vehicles}{Vehicles}}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_land_vehicles_a4db413e8da916a1d623117665f6e1f3b}\label{class_land_vehicles_a4db413e8da916a1d623117665f6e1f3b}} 
+\index{LandVehicles@{LandVehicles}!LandVehicles@{LandVehicles}}
+\index{LandVehicles@{LandVehicles}!LandVehicles@{LandVehicles}}
+\doxysubsubsection{\texorpdfstring{LandVehicles()}{LandVehicles()}}
+{\footnotesize\ttfamily Land\+Vehicles\+::\+Land\+Vehicles (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{location,  }\item[{double}]{hp,  }\item[{double}]{damage,  }\item[{double}]{speed }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{class_land_vehicles}{Land\+Vehicles}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hp} & \\
+\hline
+{\em damage} & \\
+\hline
+{\em speed} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_land_vehicles_a3158ca4e425454556712564aebf90f4e}\label{class_land_vehicles_a3158ca4e425454556712564aebf90f4e}} 
+\index{LandVehicles@{LandVehicles}!````~LandVehicles@{$\sim$LandVehicles}}
+\index{````~LandVehicles@{$\sim$LandVehicles}!LandVehicles@{LandVehicles}}
+\doxysubsubsection{\texorpdfstring{$\sim$LandVehicles()}{~LandVehicles()}}
+{\footnotesize\ttfamily Land\+Vehicles\+::$\sim$\+Land\+Vehicles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the Land \mbox{\hyperlink{class_vehicles}{Vehicles}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_land_vehicles_a9bde79dcc4ddbc1bc79c856507760753}\label{class_land_vehicles_a9bde79dcc4ddbc1bc79c856507760753}} 
+\index{LandVehicles@{LandVehicles}!clone@{clone}}
+\index{clone@{clone}!LandVehicles@{LandVehicles}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vehicles}{Vehicles}} $\ast$ Land\+Vehicles\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Makes a copy of the current Vechile. 
+
+\begin{DoxyReturn}{Returns}
+Vehicles$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_land_vehicles_a63f9bd6fb4684146b507d9d2a359addd}\label{class_land_vehicles_a63f9bd6fb4684146b507d9d2a359addd}} 
+\index{LandVehicles@{LandVehicles}!readyToUpgrade@{readyToUpgrade}}
+\index{readyToUpgrade@{readyToUpgrade}!LandVehicles@{LandVehicles}}
+\doxysubsubsection{\texorpdfstring{readyToUpgrade()}{readyToUpgrade()}}
+{\footnotesize\ttfamily void Land\+Vehicles\+::ready\+To\+Upgrade (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_research_and_development_centre}{Research\+And\+Development\+Centre}} $\ast$}]{r }\end{DoxyParamCaption})}
+
+
+
+adds to \mbox{\hyperlink{class_research_and_development_centre}{Research\+And\+Development\+Centre}} list, which stores items to be upgraded 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_land_vehicles_ad34fdffafac3715a2e2f9ab4038d73dd}\label{class_land_vehicles_ad34fdffafac3715a2e2f9ab4038d73dd}} 
+\index{LandVehicles@{LandVehicles}!update@{update}}
+\index{update@{update}!LandVehicles@{LandVehicles}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Land\+Vehicles\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+method that calls the vehicle\textquotesingle{}s increments level method 
+
+
+
+Reimplemented from \mbox{\hyperlink{class_vehicles_a211459063a1c20f5ca4d1c83bafb4779}{Vehicles}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Land\+Vehicles.\+h\item 
+Land\+Vehicles.\+cpp\end{DoxyCompactItemize}

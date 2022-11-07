@@ -1,0 +1,86 @@
+\hypertarget{class_status}{}\doxysection{Status Class Reference}
+\label{class_status}\index{Status@{Status}}
+
+
+\mbox{\hyperlink{class_status}{Status}} is used by citizens. It has classes that inherit from it that is used to set a Citizen\textquotesingle{}s state.  
+
+
+
+
+{\ttfamily \#include $<$Status.\+h$>$}
+
+Inheritance diagram for Status\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_status}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_status_a1b24d90ef2560afffe9d7183e279c63c}\label{class_status_a1b24d90ef2560afffe9d7183e279c63c}} 
+virtual {\bfseries $\sim$\+Status} ()
+\begin{DoxyCompactList}\small\item\em virtual destructor \end{DoxyCompactList}\item 
+virtual string \mbox{\hyperlink{class_status_aeabcd2bfb3e5f1536d313f5bf6bca1f6}{get\+Status}} ()=0
+\begin{DoxyCompactList}\small\item\em pure virtual function \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_status_aa22576f76839eab59de334ce244f9fdb}{handle\+Change}} (\mbox{\hyperlink{class_citizens}{Citizens}} $\ast$c)=0
+\begin{DoxyCompactList}\small\item\em pure virtual function \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_status_a8c3e6b313f92626205c9b49600e62e97}{die}} (\mbox{\hyperlink{class_citizens}{Citizens}} $\ast$c)=0
+\begin{DoxyCompactList}\small\item\em pure virtual function \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_status}{Status}} is used by citizens. It has classes that inherit from it that is used to set a Citizen\textquotesingle{}s state. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_status_a8c3e6b313f92626205c9b49600e62e97}\label{class_status_a8c3e6b313f92626205c9b49600e62e97}} 
+\index{Status@{Status}!die@{die}}
+\index{die@{die}!Status@{Status}}
+\doxysubsubsection{\texorpdfstring{die()}{die()}}
+{\footnotesize\ttfamily virtual void Status\+::die (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_citizens}{Citizens}} $\ast$}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+pure virtual function 
+
+
+
+Implemented in \mbox{\hyperlink{class_dead_a0731661a6befef874e9c55218d37f8a7}{Dead}}, \mbox{\hyperlink{class_enlisted_afda5e80c3f667cd0aacd70dd0ad72e12}{Enlisted}}, \mbox{\hyperlink{class_fighting_a6f857d8288ad3909edfbec4254bf95ae}{Fighting}}, \mbox{\hyperlink{class_stationed_a6d4c5c522d08fec59cd436e5851b8033}{Stationed}}, and \mbox{\hyperlink{class_unlisted_ac5132f601bdffc20a0ed66e54af26722}{Unlisted}}.
+
+\mbox{\Hypertarget{class_status_aeabcd2bfb3e5f1536d313f5bf6bca1f6}\label{class_status_aeabcd2bfb3e5f1536d313f5bf6bca1f6}} 
+\index{Status@{Status}!getStatus@{getStatus}}
+\index{getStatus@{getStatus}!Status@{Status}}
+\doxysubsubsection{\texorpdfstring{getStatus()}{getStatus()}}
+{\footnotesize\ttfamily virtual string Status\+::get\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+pure virtual function 
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_dead_a9da50d2100bb5f3266c1425b818abd90}{Dead}}, \mbox{\hyperlink{class_enlisted_ab10e3129aebb8beac94f04906d89cc34}{Enlisted}}, \mbox{\hyperlink{class_fighting_a3f2f8ec2a0f5e25985080cd5e8c1c091}{Fighting}}, \mbox{\hyperlink{class_stationed_a8ccdd459882e1628eeb6cedefcf51432}{Stationed}}, and \mbox{\hyperlink{class_unlisted_a30a2aa0ff9dd6fe925ee668598bad0e0}{Unlisted}}.
+
+\mbox{\Hypertarget{class_status_aa22576f76839eab59de334ce244f9fdb}\label{class_status_aa22576f76839eab59de334ce244f9fdb}} 
+\index{Status@{Status}!handleChange@{handleChange}}
+\index{handleChange@{handleChange}!Status@{Status}}
+\doxysubsubsection{\texorpdfstring{handleChange()}{handleChange()}}
+{\footnotesize\ttfamily virtual void Status\+::handle\+Change (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_citizens}{Citizens}} $\ast$}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+pure virtual function 
+
+
+
+Implemented in \mbox{\hyperlink{class_dead_a98030805345c5b80def9f05791e610f1}{Dead}}, \mbox{\hyperlink{class_enlisted_abfd76cafcbab2805b3075e388a4fbed7}{Enlisted}}, \mbox{\hyperlink{class_fighting_a207b94d65fb6f77b7ec57563a89a4958}{Fighting}}, \mbox{\hyperlink{class_stationed_ad6a55a737c37ec31977bcd5f71ad04af}{Stationed}}, and \mbox{\hyperlink{class_unlisted_aaf31290ebf17c1436497432a3510c35c}{Unlisted}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Status.\+h\item 
+Status.\+cpp\end{DoxyCompactItemize}

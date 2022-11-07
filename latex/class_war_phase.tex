@@ -1,0 +1,503 @@
+\hypertarget{class_war_phase}{}\doxysection{War\+Phase Class Reference}
+\label{class_war_phase}\index{WarPhase@{WarPhase}}
+
+
+This class stores all the phases of the war.  
+
+
+
+
+{\ttfamily \#include $<$War\+Phase.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_war_phase_a385edc4fc94e9cea15d663322ac1eed0}{War\+Phase}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new War Phase object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_war_phase_a8dd6242209b7de1533f044a95988c1b8}{$\sim$\+War\+Phase}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the War Phase object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_war_phase}{War\+Phase}} $\ast$ \mbox{\hyperlink{class_war_phase_ad735c111b732c6a5bd54268ce7715a5b}{clone}} ()
+\begin{DoxyCompactList}\small\item\em return a clone of the current state of the WWar\+Phase object \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_memento}{Memento}} $\ast$ \mbox{\hyperlink{class_war_phase_ad0ce73473ded88a43b472ea662809775}{new\+War\+Phase}} ()
+\begin{DoxyCompactList}\small\item\em Create a new \mbox{\hyperlink{class_memento}{Memento}}, to store the current Warphase. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_war_phase_a1536996649737dc97a9f5d458f4e7679}{reverse\+War\+Phase}} (\mbox{\hyperlink{class_memento}{Memento}} $\ast$memento)
+\begin{DoxyCompactList}\small\item\em Restores the old war phase. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_war_phase_abc52418c67f080fae5f426de1e2381c1}{add\+Country}} (string name, int num\+Citizens)
+\begin{DoxyCompactList}\small\item\em Adds a new \mbox{\hyperlink{class_country}{Country}} to the Map. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_war_phase_a05b9d6e5ff065129e8faa75691709dad}{add\+Relationship}} (string relationship\+Name)
+\begin{DoxyCompactList}\small\item\em Creates a relationship. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_war_phase_a31428c32c81ca103a812b9096cec9d4a}{add\+Countryto\+Relationship}} (string country\+Namestring, string relationship\+Name)
+\begin{DoxyCompactList}\small\item\em Adds a country to a relationship. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_war_phase_a0dd4979f6df77a7eb6590bcd410de2d0}{add\+Relationship\+To\+Relationship}} (string relationship\+Name\+Parent, string relationship\+Name\+Child)
+\begin{DoxyCompactList}\small\item\em Adds a relationship to a relationship. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_war_phase_a1acf2f0567d4cd9c9303223d85f18c60}{add\+Area}} (string area\+Name, string country\+Name)
+\begin{DoxyCompactList}\small\item\em Adds an area to a country. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_war_phase_a62ee7297ae4cca17c7c958515761584a}{add\+Connection}} (type\+Of\+Infrastructure type, string source\+Name, string destination\+Name, double distance)
+\begin{DoxyCompactList}\small\item\em Adds a connection between infrasctructures. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_war_phase_a1bf686a5d61920caabc73f4a065d0e09}{add\+Infrastructure}} (type\+Of\+Infrastructure type, string area\+Name)
+\begin{DoxyCompactList}\small\item\em Adds infrastructure to area. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_war_phase_aafe6889c3edf772da5fd585ed59e6b17}{add\+Troops}} (string area\+Name, kind\+Of\+Troops kind, the\+Troop\+Types type)
+\begin{DoxyCompactList}\small\item\em Adds troops to area. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_war_phase_a986daaccf75ea76cbb0f3e332eda6af6}{add\+Vehicles}} (string area\+Name, vehicle\+Type vehicle\+Type)
+\begin{DoxyCompactList}\small\item\em Adds vehicles to area. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_war_phase_a5d7a72a0c773af8e92c38881c56f1d4c}{attack\+Area}} (string area\+Name, string country\+Name)
+\begin{DoxyCompactList}\small\item\em Tells country to attack an area and returns whether it was successful. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_war_phase_affbfed7c0c2e042bf3ba5db297521b0c}{move\+Troops}} (string area\+Name, string country\+Name)
+\begin{DoxyCompactList}\small\item\em Move troops to area. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_war_phase_a34689bda74fd8ee49b2944b253e64211}{move\+Vehicles}} (string area\+Name, string country\+Name)
+\begin{DoxyCompactList}\small\item\em Move troops to area. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_war_phase_a10ede34b3eddbe6bc6c1e9545736a696}{print\+Country\+Status}} (string country\+Name, bool display\+Infrastructure)
+\begin{DoxyCompactList}\small\item\em Print status of the country. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_war_phase_a1b05656f4f0f9564336cf8f18e80b4de}{print\+Area\+Status}} (string area\+Name, bool display\+Infrastructure)
+\begin{DoxyCompactList}\small\item\em Print status of the area. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_war_phase_a975919d8b647a8fae3f076090b1d424e}{distribute\+Troops\+And\+Vehicles}} (string country\+Name)
+\begin{DoxyCompactList}\small\item\em Distribute\textquotesingle{}s troops and vehicles of a country. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_war_phase_a5a79122a7acbb140697eeed40fbe1cb9}{country\+Still\+Exists}} (string country\+Name)
+\begin{DoxyCompactList}\small\item\em Checks if a country still exist. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_war_phase_a076bf1ce3bc2af336944be257296b9bb}{upgrade\+Vehicles\+In\+Area}} (vehicle\+Type type, string area\+Name)
+\begin{DoxyCompactList}\small\item\em Upgrades a type of vehicles in an area. \end{DoxyCompactList}\item 
+list$<$ string $>$ \mbox{\hyperlink{class_war_phase_a8b625a0cf2806e5eb4ae261e569a8656}{get\+Attackable\+Areas\+In\+Country}} (string defending\+Country\+Name, string attacking\+Country\+Name)
+\begin{DoxyCompactList}\small\item\em Returns list of all areas that a country can attack. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_war_phase_a6f244c3d81b468b2c56e9407b1f2f935}{revolt}} (string country\+Name)
+\begin{DoxyCompactList}\small\item\em Makes citizens revolt. \end{DoxyCompactList}\item 
+list$<$ string $>$ \mbox{\hyperlink{class_war_phase_ab815c54abf4db12a805314ac0595cacb}{get\+Country\+Enemies}} (string country\+Name)
+\begin{DoxyCompactList}\small\item\em Returns list of all enemies of a country. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_war_phase_a2b1cbebb322cd389031129dfcdc48d68}{send\+Broadcast}} (string message\+Receiver, string message\+Sender, string message)
+\begin{DoxyCompactList}\small\item\em Call the mediator pattern on a country to send a message to a country or relationship. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class stores all the phases of the war. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_war_phase_a385edc4fc94e9cea15d663322ac1eed0}\label{class_war_phase_a385edc4fc94e9cea15d663322ac1eed0}} 
+\index{WarPhase@{WarPhase}!WarPhase@{WarPhase}}
+\index{WarPhase@{WarPhase}!WarPhase@{WarPhase}}
+\doxysubsubsection{\texorpdfstring{WarPhase()}{WarPhase()}}
+{\footnotesize\ttfamily War\+Phase\+::\+War\+Phase (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new War Phase object. 
+
+\mbox{\Hypertarget{class_war_phase_a8dd6242209b7de1533f044a95988c1b8}\label{class_war_phase_a8dd6242209b7de1533f044a95988c1b8}} 
+\index{WarPhase@{WarPhase}!````~WarPhase@{$\sim$WarPhase}}
+\index{````~WarPhase@{$\sim$WarPhase}!WarPhase@{WarPhase}}
+\doxysubsubsection{\texorpdfstring{$\sim$WarPhase()}{~WarPhase()}}
+{\footnotesize\ttfamily War\+Phase\+::$\sim$\+War\+Phase (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the War Phase object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_war_phase_a1acf2f0567d4cd9c9303223d85f18c60}\label{class_war_phase_a1acf2f0567d4cd9c9303223d85f18c60}} 
+\index{WarPhase@{WarPhase}!addArea@{addArea}}
+\index{addArea@{addArea}!WarPhase@{WarPhase}}
+\doxysubsubsection{\texorpdfstring{addArea()}{addArea()}}
+{\footnotesize\ttfamily void War\+Phase\+::add\+Area (\begin{DoxyParamCaption}\item[{string}]{area\+Name,  }\item[{string}]{country\+Name }\end{DoxyParamCaption})}
+
+
+
+Adds an area to a country. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em area\+Name} & Name of area to add \\
+\hline
+{\em country\+Name} & Name of the country to add to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_war_phase_a62ee7297ae4cca17c7c958515761584a}\label{class_war_phase_a62ee7297ae4cca17c7c958515761584a}} 
+\index{WarPhase@{WarPhase}!addConnection@{addConnection}}
+\index{addConnection@{addConnection}!WarPhase@{WarPhase}}
+\doxysubsubsection{\texorpdfstring{addConnection()}{addConnection()}}
+{\footnotesize\ttfamily void War\+Phase\+::add\+Connection (\begin{DoxyParamCaption}\item[{type\+Of\+Infrastructure}]{type,  }\item[{string}]{source\+Name,  }\item[{string}]{destination\+Name,  }\item[{double}]{distance }\end{DoxyParamCaption})}
+
+
+
+Adds a connection between infrasctructures. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of infratstructures to add the connection \\
+\hline
+{\em source\+Name} & Destination of the connection \\
+\hline
+{\em destination\+Name} & Source of the connection \\
+\hline
+{\em distance} & The length of the connection \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_war_phase_abc52418c67f080fae5f426de1e2381c1}\label{class_war_phase_abc52418c67f080fae5f426de1e2381c1}} 
+\index{WarPhase@{WarPhase}!addCountry@{addCountry}}
+\index{addCountry@{addCountry}!WarPhase@{WarPhase}}
+\doxysubsubsection{\texorpdfstring{addCountry()}{addCountry()}}
+{\footnotesize\ttfamily void War\+Phase\+::add\+Country (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{int}]{num\+Citizens }\end{DoxyParamCaption})}
+
+
+
+Adds a new \mbox{\hyperlink{class_country}{Country}} to the Map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the \mbox{\hyperlink{class_country}{Country}} \\
+\hline
+{\em num\+Citizens} & Number of citizen of the \mbox{\hyperlink{class_country}{Country}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_war_phase_a31428c32c81ca103a812b9096cec9d4a}\label{class_war_phase_a31428c32c81ca103a812b9096cec9d4a}} 
+\index{WarPhase@{WarPhase}!addCountrytoRelationship@{addCountrytoRelationship}}
+\index{addCountrytoRelationship@{addCountrytoRelationship}!WarPhase@{WarPhase}}
+\doxysubsubsection{\texorpdfstring{addCountrytoRelationship()}{addCountrytoRelationship()}}
+{\footnotesize\ttfamily void War\+Phase\+::add\+Countryto\+Relationship (\begin{DoxyParamCaption}\item[{string}]{country\+Namestring,  }\item[{string}]{relationship\+Name }\end{DoxyParamCaption})}
+
+
+
+Adds a country to a relationship. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em country\+Nam\+String} & Nane of country to add to realtionship \\
+\hline
+{\em relationship\+Name} & Name of the relationship to be added to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_war_phase_a1bf686a5d61920caabc73f4a065d0e09}\label{class_war_phase_a1bf686a5d61920caabc73f4a065d0e09}} 
+\index{WarPhase@{WarPhase}!addInfrastructure@{addInfrastructure}}
+\index{addInfrastructure@{addInfrastructure}!WarPhase@{WarPhase}}
+\doxysubsubsection{\texorpdfstring{addInfrastructure()}{addInfrastructure()}}
+{\footnotesize\ttfamily void War\+Phase\+::add\+Infrastructure (\begin{DoxyParamCaption}\item[{type\+Of\+Infrastructure}]{type,  }\item[{string}]{area\+Name }\end{DoxyParamCaption})}
+
+
+
+Adds infrastructure to area. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & Type of infrastructure to add \\
+\hline
+{\em area\+Name} & Name of area to add to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_war_phase_a05b9d6e5ff065129e8faa75691709dad}\label{class_war_phase_a05b9d6e5ff065129e8faa75691709dad}} 
+\index{WarPhase@{WarPhase}!addRelationship@{addRelationship}}
+\index{addRelationship@{addRelationship}!WarPhase@{WarPhase}}
+\doxysubsubsection{\texorpdfstring{addRelationship()}{addRelationship()}}
+{\footnotesize\ttfamily void War\+Phase\+::add\+Relationship (\begin{DoxyParamCaption}\item[{string}]{relationship\+Name }\end{DoxyParamCaption})}
+
+
+
+Creates a relationship. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em relationship\+Name} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_war_phase_a0dd4979f6df77a7eb6590bcd410de2d0}\label{class_war_phase_a0dd4979f6df77a7eb6590bcd410de2d0}} 
+\index{WarPhase@{WarPhase}!addRelationshipToRelationship@{addRelationshipToRelationship}}
+\index{addRelationshipToRelationship@{addRelationshipToRelationship}!WarPhase@{WarPhase}}
+\doxysubsubsection{\texorpdfstring{addRelationshipToRelationship()}{addRelationshipToRelationship()}}
+{\footnotesize\ttfamily void War\+Phase\+::add\+Relationship\+To\+Relationship (\begin{DoxyParamCaption}\item[{string}]{relationship\+Name\+Parent,  }\item[{string}]{relationship\+Name\+Child }\end{DoxyParamCaption})}
+
+
+
+Adds a relationship to a relationship. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em relationship\+Name\+Parent} & Nane of parent relationship to add to \\
+\hline
+{\em relationship\+Name\+Child} & Name of the child relationship to be added \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_war_phase_aafe6889c3edf772da5fd585ed59e6b17}\label{class_war_phase_aafe6889c3edf772da5fd585ed59e6b17}} 
+\index{WarPhase@{WarPhase}!addTroops@{addTroops}}
+\index{addTroops@{addTroops}!WarPhase@{WarPhase}}
+\doxysubsubsection{\texorpdfstring{addTroops()}{addTroops()}}
+{\footnotesize\ttfamily void War\+Phase\+::add\+Troops (\begin{DoxyParamCaption}\item[{string}]{area\+Name,  }\item[{kind\+Of\+Troops}]{kind,  }\item[{the\+Troop\+Types}]{type }\end{DoxyParamCaption})}
+
+
+
+Adds troops to area. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em area\+Name} & Name of area to add to \\
+\hline
+{\em kind} & Kind of troops to add \\
+\hline
+{\em type} & Type of troops to add \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_war_phase_a986daaccf75ea76cbb0f3e332eda6af6}\label{class_war_phase_a986daaccf75ea76cbb0f3e332eda6af6}} 
+\index{WarPhase@{WarPhase}!addVehicles@{addVehicles}}
+\index{addVehicles@{addVehicles}!WarPhase@{WarPhase}}
+\doxysubsubsection{\texorpdfstring{addVehicles()}{addVehicles()}}
+{\footnotesize\ttfamily void War\+Phase\+::add\+Vehicles (\begin{DoxyParamCaption}\item[{string}]{area\+Name,  }\item[{vehicle\+Type}]{vehicle\+Type }\end{DoxyParamCaption})}
+
+
+
+Adds vehicles to area. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em area\+Name} & Name of area to add to \\
+\hline
+{\em vehicle\+Type} & Type of vehicle to add \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_war_phase_a5d7a72a0c773af8e92c38881c56f1d4c}\label{class_war_phase_a5d7a72a0c773af8e92c38881c56f1d4c}} 
+\index{WarPhase@{WarPhase}!attackArea@{attackArea}}
+\index{attackArea@{attackArea}!WarPhase@{WarPhase}}
+\doxysubsubsection{\texorpdfstring{attackArea()}{attackArea()}}
+{\footnotesize\ttfamily bool War\+Phase\+::attack\+Area (\begin{DoxyParamCaption}\item[{string}]{area\+Name,  }\item[{string}]{country\+Name }\end{DoxyParamCaption})}
+
+
+
+Tells country to attack an area and returns whether it was successful. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em area\+Name} & Name of area to attack \\
+\hline
+{\em country\+Name} & \mbox{\hyperlink{class_country}{Country}} that attacks \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_war_phase_ad735c111b732c6a5bd54268ce7715a5b}\label{class_war_phase_ad735c111b732c6a5bd54268ce7715a5b}} 
+\index{WarPhase@{WarPhase}!clone@{clone}}
+\index{clone@{clone}!WarPhase@{WarPhase}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_war_phase}{War\+Phase}} $\ast$ War\+Phase\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+return a clone of the current state of the WWar\+Phase object 
+
+\begin{DoxyReturn}{Returns}
+War\+Phase$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_war_phase_a5a79122a7acbb140697eeed40fbe1cb9}\label{class_war_phase_a5a79122a7acbb140697eeed40fbe1cb9}} 
+\index{WarPhase@{WarPhase}!countryStillExists@{countryStillExists}}
+\index{countryStillExists@{countryStillExists}!WarPhase@{WarPhase}}
+\doxysubsubsection{\texorpdfstring{countryStillExists()}{countryStillExists()}}
+{\footnotesize\ttfamily bool War\+Phase\+::country\+Still\+Exists (\begin{DoxyParamCaption}\item[{string}]{country\+Name }\end{DoxyParamCaption})}
+
+
+
+Checks if a country still exist. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em country\+Name} & The country\textquotesingle{}s existence that should be checked \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_war_phase_a975919d8b647a8fae3f076090b1d424e}\label{class_war_phase_a975919d8b647a8fae3f076090b1d424e}} 
+\index{WarPhase@{WarPhase}!distributeTroopsAndVehicles@{distributeTroopsAndVehicles}}
+\index{distributeTroopsAndVehicles@{distributeTroopsAndVehicles}!WarPhase@{WarPhase}}
+\doxysubsubsection{\texorpdfstring{distributeTroopsAndVehicles()}{distributeTroopsAndVehicles()}}
+{\footnotesize\ttfamily void War\+Phase\+::distribute\+Troops\+And\+Vehicles (\begin{DoxyParamCaption}\item[{string}]{country\+Name }\end{DoxyParamCaption})}
+
+
+
+Distribute\textquotesingle{}s troops and vehicles of a country. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em country\+Name} & \mbox{\hyperlink{class_country}{Country}}\textquotesingle{}s troops and vehicles to distribute \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_war_phase_a8b625a0cf2806e5eb4ae261e569a8656}\label{class_war_phase_a8b625a0cf2806e5eb4ae261e569a8656}} 
+\index{WarPhase@{WarPhase}!getAttackableAreasInCountry@{getAttackableAreasInCountry}}
+\index{getAttackableAreasInCountry@{getAttackableAreasInCountry}!WarPhase@{WarPhase}}
+\doxysubsubsection{\texorpdfstring{getAttackableAreasInCountry()}{getAttackableAreasInCountry()}}
+{\footnotesize\ttfamily list$<$ string $>$ War\+Phase\+::get\+Attackable\+Areas\+In\+Country (\begin{DoxyParamCaption}\item[{string}]{defending\+Country\+Name,  }\item[{string}]{attacking\+Country\+Name }\end{DoxyParamCaption})}
+
+
+
+Returns list of all areas that a country can attack. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em defending\+Country\+Name} & \mbox{\hyperlink{class_country}{Country}} that will defend the attack \\
+\hline
+{\em attacking\+Country\+Name} & \mbox{\hyperlink{class_country}{Country}} that wants to attack \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+list$<$string$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_war_phase_ab815c54abf4db12a805314ac0595cacb}\label{class_war_phase_ab815c54abf4db12a805314ac0595cacb}} 
+\index{WarPhase@{WarPhase}!getCountryEnemies@{getCountryEnemies}}
+\index{getCountryEnemies@{getCountryEnemies}!WarPhase@{WarPhase}}
+\doxysubsubsection{\texorpdfstring{getCountryEnemies()}{getCountryEnemies()}}
+{\footnotesize\ttfamily list$<$ string $>$ War\+Phase\+::get\+Country\+Enemies (\begin{DoxyParamCaption}\item[{string}]{country\+Name }\end{DoxyParamCaption})}
+
+
+
+Returns list of all enemies of a country. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em country\+Name} & \mbox{\hyperlink{class_country}{Country}} that will defend the attack \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+list$<$string$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_war_phase_affbfed7c0c2e042bf3ba5db297521b0c}\label{class_war_phase_affbfed7c0c2e042bf3ba5db297521b0c}} 
+\index{WarPhase@{WarPhase}!moveTroops@{moveTroops}}
+\index{moveTroops@{moveTroops}!WarPhase@{WarPhase}}
+\doxysubsubsection{\texorpdfstring{moveTroops()}{moveTroops()}}
+{\footnotesize\ttfamily void War\+Phase\+::move\+Troops (\begin{DoxyParamCaption}\item[{string}]{area\+Name,  }\item[{string}]{country\+Name }\end{DoxyParamCaption})}
+
+
+
+Move troops to area. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em area\+Name} & Name of area to move to \\
+\hline
+{\em country\+Name} & \mbox{\hyperlink{class_country}{Country}}\textquotesingle{}s troops that should move \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_war_phase_a34689bda74fd8ee49b2944b253e64211}\label{class_war_phase_a34689bda74fd8ee49b2944b253e64211}} 
+\index{WarPhase@{WarPhase}!moveVehicles@{moveVehicles}}
+\index{moveVehicles@{moveVehicles}!WarPhase@{WarPhase}}
+\doxysubsubsection{\texorpdfstring{moveVehicles()}{moveVehicles()}}
+{\footnotesize\ttfamily void War\+Phase\+::move\+Vehicles (\begin{DoxyParamCaption}\item[{string}]{area\+Name,  }\item[{string}]{country\+Name }\end{DoxyParamCaption})}
+
+
+
+Move troops to area. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em area\+Name} & Name of area to move to \\
+\hline
+{\em country\+Name} & \mbox{\hyperlink{class_country}{Country}}\textquotesingle{}s troops that should move \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_war_phase_ad0ce73473ded88a43b472ea662809775}\label{class_war_phase_ad0ce73473ded88a43b472ea662809775}} 
+\index{WarPhase@{WarPhase}!newWarPhase@{newWarPhase}}
+\index{newWarPhase@{newWarPhase}!WarPhase@{WarPhase}}
+\doxysubsubsection{\texorpdfstring{newWarPhase()}{newWarPhase()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_memento}{Memento}} $\ast$ War\+Phase\+::new\+War\+Phase (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Create a new \mbox{\hyperlink{class_memento}{Memento}}, to store the current Warphase. 
+
+\mbox{\Hypertarget{class_war_phase_a1b05656f4f0f9564336cf8f18e80b4de}\label{class_war_phase_a1b05656f4f0f9564336cf8f18e80b4de}} 
+\index{WarPhase@{WarPhase}!printAreaStatus@{printAreaStatus}}
+\index{printAreaStatus@{printAreaStatus}!WarPhase@{WarPhase}}
+\doxysubsubsection{\texorpdfstring{printAreaStatus()}{printAreaStatus()}}
+{\footnotesize\ttfamily void War\+Phase\+::print\+Area\+Status (\begin{DoxyParamCaption}\item[{string}]{area\+Name,  }\item[{bool}]{display\+Infrastructure }\end{DoxyParamCaption})}
+
+
+
+Print status of the area. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em area\+Name} & \mbox{\hyperlink{class_area}{Area}}\textquotesingle{}s status to print \\
+\hline
+{\em display\+Infrastructure} & Says wheter to display the infrastructure\textquotesingle{}s status or not \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_war_phase_a10ede34b3eddbe6bc6c1e9545736a696}\label{class_war_phase_a10ede34b3eddbe6bc6c1e9545736a696}} 
+\index{WarPhase@{WarPhase}!printCountryStatus@{printCountryStatus}}
+\index{printCountryStatus@{printCountryStatus}!WarPhase@{WarPhase}}
+\doxysubsubsection{\texorpdfstring{printCountryStatus()}{printCountryStatus()}}
+{\footnotesize\ttfamily void War\+Phase\+::print\+Country\+Status (\begin{DoxyParamCaption}\item[{string}]{country\+Name,  }\item[{bool}]{display\+Infrastructure }\end{DoxyParamCaption})}
+
+
+
+Print status of the country. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em country\+Name} & \mbox{\hyperlink{class_country}{Country}}\textquotesingle{}s status to print \\
+\hline
+{\em display\+Infrastructure} & Says wheter to display the infrastructure\textquotesingle{}s status or not \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_war_phase_a1536996649737dc97a9f5d458f4e7679}\label{class_war_phase_a1536996649737dc97a9f5d458f4e7679}} 
+\index{WarPhase@{WarPhase}!reverseWarPhase@{reverseWarPhase}}
+\index{reverseWarPhase@{reverseWarPhase}!WarPhase@{WarPhase}}
+\doxysubsubsection{\texorpdfstring{reverseWarPhase()}{reverseWarPhase()}}
+{\footnotesize\ttfamily void War\+Phase\+::reverse\+War\+Phase (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_memento}{Memento}} $\ast$}]{memento }\end{DoxyParamCaption})}
+
+
+
+Restores the old war phase. 
+
+\mbox{\Hypertarget{class_war_phase_a6f244c3d81b468b2c56e9407b1f2f935}\label{class_war_phase_a6f244c3d81b468b2c56e9407b1f2f935}} 
+\index{WarPhase@{WarPhase}!revolt@{revolt}}
+\index{revolt@{revolt}!WarPhase@{WarPhase}}
+\doxysubsubsection{\texorpdfstring{revolt()}{revolt()}}
+{\footnotesize\ttfamily void War\+Phase\+::revolt (\begin{DoxyParamCaption}\item[{string}]{country\+Name }\end{DoxyParamCaption})}
+
+
+
+Makes citizens revolt. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em country\+Name} & \mbox{\hyperlink{class_country}{Country}}\textquotesingle{}s citizens that will revolt \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_war_phase_a2b1cbebb322cd389031129dfcdc48d68}\label{class_war_phase_a2b1cbebb322cd389031129dfcdc48d68}} 
+\index{WarPhase@{WarPhase}!sendBroadcast@{sendBroadcast}}
+\index{sendBroadcast@{sendBroadcast}!WarPhase@{WarPhase}}
+\doxysubsubsection{\texorpdfstring{sendBroadcast()}{sendBroadcast()}}
+{\footnotesize\ttfamily void War\+Phase\+::send\+Broadcast (\begin{DoxyParamCaption}\item[{string}]{message\+Receiver,  }\item[{string}]{message\+Sender,  }\item[{string}]{message }\end{DoxyParamCaption})}
+
+
+
+Call the mediator pattern on a country to send a message to a country or relationship. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message\+Receiver} & \\
+\hline
+{\em message\+Sender} & \\
+\hline
+{\em message} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_war_phase_a076bf1ce3bc2af336944be257296b9bb}\label{class_war_phase_a076bf1ce3bc2af336944be257296b9bb}} 
+\index{WarPhase@{WarPhase}!upgradeVehiclesInArea@{upgradeVehiclesInArea}}
+\index{upgradeVehiclesInArea@{upgradeVehiclesInArea}!WarPhase@{WarPhase}}
+\doxysubsubsection{\texorpdfstring{upgradeVehiclesInArea()}{upgradeVehiclesInArea()}}
+{\footnotesize\ttfamily void War\+Phase\+::upgrade\+Vehicles\+In\+Area (\begin{DoxyParamCaption}\item[{vehicle\+Type}]{type,  }\item[{string}]{area\+Name }\end{DoxyParamCaption})}
+
+
+
+Upgrades a type of vehicles in an area. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & Type of vehicles to upgrade \\
+\hline
+{\em area\+Name} & \mbox{\hyperlink{class_area}{Area}} to upgrade vehicles in \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+War\+Phase.\+h\item 
+War\+Phase.\+cpp\end{DoxyCompactItemize}

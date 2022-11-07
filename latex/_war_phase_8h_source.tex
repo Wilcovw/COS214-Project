@@ -1,0 +1,113 @@
+\hypertarget{_war_phase_8h_source}{}\doxysection{War\+Phase.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef WARPHASE\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define WARPHASE\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <list>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{enum} typeOfInfrastructure : \textcolor{keywordtype}{int}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9     iRoad,}
+\DoxyCodeLine{10     iHarbour,}
+\DoxyCodeLine{11     iRunway,}
+\DoxyCodeLine{12     iLandDevelopment,}
+\DoxyCodeLine{13     iAquaticDevelopment,}
+\DoxyCodeLine{14     iAircraftDevelopment,}
+\DoxyCodeLine{15     iLandFactory,}
+\DoxyCodeLine{16     iAquaticFactory,}
+\DoxyCodeLine{17     iAircraftFactory,}
+\DoxyCodeLine{18     iGroundCamp,}
+\DoxyCodeLine{19     iNavyCamp,}
+\DoxyCodeLine{20     iAirforceCamp}
+\DoxyCodeLine{21 \};}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{enum} vehicleType : \textcolor{keywordtype}{int}}
+\DoxyCodeLine{24 \{}
+\DoxyCodeLine{25     landVehicle,}
+\DoxyCodeLine{26     aquaticVehicle,}
+\DoxyCodeLine{27     aircraftVehicle}
+\DoxyCodeLine{28 \};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keyword}{enum} theTroopTypes : \textcolor{keywordtype}{int}}
+\DoxyCodeLine{31 \{}
+\DoxyCodeLine{32     theGenerals,}
+\DoxyCodeLine{33     theSoldiers,}
+\DoxyCodeLine{34     theSpecialForces}
+\DoxyCodeLine{35 \};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{keyword}{enum} kindOfTroops : \textcolor{keywordtype}{int}}
+\DoxyCodeLine{38 \{}
+\DoxyCodeLine{39     tGroundTroops,}
+\DoxyCodeLine{40     tNavy,}
+\DoxyCodeLine{41     tAirforce}
+\DoxyCodeLine{42 \};}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{keyword}{class }\mbox{\hyperlink{class_war_map}{WarMap}};}
+\DoxyCodeLine{45 \textcolor{keyword}{class }\mbox{\hyperlink{class_country}{Country}};}
+\DoxyCodeLine{46 \textcolor{keyword}{class }\mbox{\hyperlink{class_communication}{Communication}};}
+\DoxyCodeLine{47 \textcolor{keyword}{class }\mbox{\hyperlink{class_communication_broadcast}{CommunicationBroadcast}};}
+\DoxyCodeLine{48 \textcolor{keyword}{class }\mbox{\hyperlink{class_relationship}{Relationship}};}
+\DoxyCodeLine{49 \textcolor{keyword}{class }\mbox{\hyperlink{class_infrastructure}{Infrastructure}};}
+\DoxyCodeLine{50 \textcolor{keyword}{class }\mbox{\hyperlink{class_troops}{Troops}};}
+\DoxyCodeLine{51 \textcolor{keyword}{class }\mbox{\hyperlink{class_vehicles}{Vehicles}};}
+\DoxyCodeLine{52 \textcolor{keyword}{class }\mbox{\hyperlink{class_area}{Area}};}
+\DoxyCodeLine{53 \textcolor{keyword}{class }\mbox{\hyperlink{class_memento}{Memento}};}
+\DoxyCodeLine{58 \textcolor{keyword}{class }\mbox{\hyperlink{class_war_phase}{WarPhase}}}
+\DoxyCodeLine{59 \{}
+\DoxyCodeLine{60 \textcolor{keyword}{private}:}
+\DoxyCodeLine{65     \mbox{\hyperlink{class_war_map}{WarMap}} *map;}
+\DoxyCodeLine{70     \mbox{\hyperlink{class_communication}{Communication}} *communication;}
+\DoxyCodeLine{75     list<Country *> allCountries;}
+\DoxyCodeLine{80     list<Relationship *> allRelationships;}
+\DoxyCodeLine{87     list<Country *> cloneCountries(\mbox{\hyperlink{class_relationship}{Relationship}} *head);}
+\DoxyCodeLine{94     list<Relationship *> cloneRelationship(\mbox{\hyperlink{class_relationship}{Relationship}} *head);}
+\DoxyCodeLine{101     \mbox{\hyperlink{class_country}{Country}} *getCountry(\textcolor{keywordtype}{string} countryName);}
+\DoxyCodeLine{108     \mbox{\hyperlink{class_relationship}{Relationship}} *getRelationship(\textcolor{keywordtype}{string} relationshipName);}
+\DoxyCodeLine{115     \mbox{\hyperlink{class_country}{Country}} *getCountryFromArea(\textcolor{keywordtype}{string} areaName);}
+\DoxyCodeLine{122     \mbox{\hyperlink{class_area}{Area}} *getArea(\textcolor{keywordtype}{string} areaName);}
+\DoxyCodeLine{130     list<Infrastructure *> getInfrastructureInArea(\mbox{\hyperlink{class_area}{Area}} *area, typeOfInfrastructure type);}
+\DoxyCodeLine{137     list<Infrastructure *> getAllInfrastructureInArea(\mbox{\hyperlink{class_area}{Area}} *area);}
+\DoxyCodeLine{144     list<Infrastructure *> getAllFacilitiesInArea(\mbox{\hyperlink{class_area}{Area}} *area);}
+\DoxyCodeLine{152     list<Troops *> getTroopsInArea(\mbox{\hyperlink{class_area}{Area}} *area, \mbox{\hyperlink{class_country}{Country}} *country);}
+\DoxyCodeLine{160     list<Vehicles *> getVehiclesInArea(\mbox{\hyperlink{class_area}{Area}} *area, \mbox{\hyperlink{class_country}{Country}} *country);}
+\DoxyCodeLine{168     \textcolor{keywordtype}{double} getTravelDistance(\mbox{\hyperlink{class_vehicles}{Vehicles}} *vehicle, \mbox{\hyperlink{class_area}{Area}} *destination);}
+\DoxyCodeLine{176     \textcolor{keywordtype}{double} getTravelDistance(\mbox{\hyperlink{class_troops}{Troops}} *troops, \mbox{\hyperlink{class_area}{Area}} *destination);}
+\DoxyCodeLine{184     list<Area *> getTravelPath(\mbox{\hyperlink{class_vehicles}{Vehicles}} *vehicle, \mbox{\hyperlink{class_area}{Area}} *destination);}
+\DoxyCodeLine{192     list<Area *> getTravelPath(\mbox{\hyperlink{class_troops}{Troops}} *troops, \mbox{\hyperlink{class_area}{Area}} *destination);}
+\DoxyCodeLine{200     \textcolor{keywordtype}{void} moveTroops(\mbox{\hyperlink{class_area}{Area}} *area, \mbox{\hyperlink{class_country}{Country}} *country, \textcolor{keywordtype}{int} maxDistance);}
+\DoxyCodeLine{208     \textcolor{keywordtype}{void} moveVehicles(\mbox{\hyperlink{class_area}{Area}} *area, \mbox{\hyperlink{class_country}{Country}} *country, \textcolor{keywordtype}{int} maxDistance);}
+\DoxyCodeLine{209 }
+\DoxyCodeLine{210 \textcolor{keyword}{public}:}
+\DoxyCodeLine{215     \mbox{\hyperlink{class_war_phase_a385edc4fc94e9cea15d663322ac1eed0}{WarPhase}}();}
+\DoxyCodeLine{220     \mbox{\hyperlink{class_war_phase_a8dd6242209b7de1533f044a95988c1b8}{\string~WarPhase}}();}
+\DoxyCodeLine{226     \mbox{\hyperlink{class_war_phase}{WarPhase}} *\mbox{\hyperlink{class_war_phase_ad735c111b732c6a5bd54268ce7715a5b}{clone}}();}
+\DoxyCodeLine{231     \mbox{\hyperlink{class_memento}{Memento}} *\mbox{\hyperlink{class_war_phase_ad0ce73473ded88a43b472ea662809775}{newWarPhase}}();}
+\DoxyCodeLine{236     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_war_phase_a1536996649737dc97a9f5d458f4e7679}{reverseWarPhase}}(\mbox{\hyperlink{class_memento}{Memento}} *memento);}
+\DoxyCodeLine{243     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_war_phase_abc52418c67f080fae5f426de1e2381c1}{addCountry}}(\textcolor{keywordtype}{string} name, \textcolor{keywordtype}{int} numCitizens);}
+\DoxyCodeLine{249     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_war_phase_a05b9d6e5ff065129e8faa75691709dad}{addRelationship}}(\textcolor{keywordtype}{string} relationshipName);}
+\DoxyCodeLine{256     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_war_phase_a31428c32c81ca103a812b9096cec9d4a}{addCountrytoRelationship}}(\textcolor{keywordtype}{string} countryNamestring, \textcolor{keywordtype}{string} relationshipName);}
+\DoxyCodeLine{263     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_war_phase_a0dd4979f6df77a7eb6590bcd410de2d0}{addRelationshipToRelationship}}(\textcolor{keywordtype}{string} relationshipNameParent, \textcolor{keywordtype}{string} relationshipNameChild);}
+\DoxyCodeLine{270     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_war_phase_a1acf2f0567d4cd9c9303223d85f18c60}{addArea}}(\textcolor{keywordtype}{string} areaName, \textcolor{keywordtype}{string} countryName);}
+\DoxyCodeLine{279     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_war_phase_a62ee7297ae4cca17c7c958515761584a}{addConnection}}(typeOfInfrastructure type, \textcolor{keywordtype}{string} sourceName, \textcolor{keywordtype}{string} destinationName, \textcolor{keywordtype}{double} distance);}
+\DoxyCodeLine{286     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_war_phase_a1bf686a5d61920caabc73f4a065d0e09}{addInfrastructure}}(typeOfInfrastructure type, \textcolor{keywordtype}{string} areaName);}
+\DoxyCodeLine{294     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_war_phase_aafe6889c3edf772da5fd585ed59e6b17}{addTroops}}(\textcolor{keywordtype}{string} areaName, kindOfTroops kind, theTroopTypes type);}
+\DoxyCodeLine{301     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_war_phase_a986daaccf75ea76cbb0f3e332eda6af6}{addVehicles}}(\textcolor{keywordtype}{string} areaName, vehicleType vehicleType);}
+\DoxyCodeLine{309     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_war_phase_a5d7a72a0c773af8e92c38881c56f1d4c}{attackArea}}(\textcolor{keywordtype}{string} areaName, \textcolor{keywordtype}{string} countryName);}
+\DoxyCodeLine{316     \textcolor{keywordtype}{void} moveTroops(\textcolor{keywordtype}{string} areaName, \textcolor{keywordtype}{string} countryName);}
+\DoxyCodeLine{323     \textcolor{keywordtype}{void} moveVehicles(\textcolor{keywordtype}{string} areaName, \textcolor{keywordtype}{string} countryName);}
+\DoxyCodeLine{330     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_war_phase_a10ede34b3eddbe6bc6c1e9545736a696}{printCountryStatus}}(\textcolor{keywordtype}{string} countryName, \textcolor{keywordtype}{bool} displayInfrastructure);}
+\DoxyCodeLine{337     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_war_phase_a1b05656f4f0f9564336cf8f18e80b4de}{printAreaStatus}}(\textcolor{keywordtype}{string} areaName, \textcolor{keywordtype}{bool} displayInfrastructure);}
+\DoxyCodeLine{343     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_war_phase_a975919d8b647a8fae3f076090b1d424e}{distributeTroopsAndVehicles}}(\textcolor{keywordtype}{string} countryName);}
+\DoxyCodeLine{350     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_war_phase_a5a79122a7acbb140697eeed40fbe1cb9}{countryStillExists}}(\textcolor{keywordtype}{string} countryName);}
+\DoxyCodeLine{357     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_war_phase_a076bf1ce3bc2af336944be257296b9bb}{upgradeVehiclesInArea}}(vehicleType type, \textcolor{keywordtype}{string} areaName);}
+\DoxyCodeLine{365     list<string> \mbox{\hyperlink{class_war_phase_a8b625a0cf2806e5eb4ae261e569a8656}{getAttackableAreasInCountry}}(\textcolor{keywordtype}{string} defendingCountryName, \textcolor{keywordtype}{string} attackingCountryName);}
+\DoxyCodeLine{371     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_war_phase_a6f244c3d81b468b2c56e9407b1f2f935}{revolt}}(\textcolor{keywordtype}{string} countryName);}
+\DoxyCodeLine{378     list<string> \mbox{\hyperlink{class_war_phase_ab815c54abf4db12a805314ac0595cacb}{getCountryEnemies}}(\textcolor{keywordtype}{string} countryName);}
+\DoxyCodeLine{386     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_war_phase_a2b1cbebb322cd389031129dfcdc48d68}{sendBroadcast}}(\textcolor{keywordtype}{string} messageReceiver, \textcolor{keywordtype}{string} messageSender, \textcolor{keywordtype}{string} message);}
+\DoxyCodeLine{387 \};}
+\DoxyCodeLine{388 }
+\DoxyCodeLine{389 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

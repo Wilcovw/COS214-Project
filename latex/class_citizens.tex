@@ -1,0 +1,135 @@
+\hypertarget{class_citizens}{}\doxysection{Citizens Class Reference}
+\label{class_citizens}\index{Citizens@{Citizens}}
+
+
+\mbox{\hyperlink{class_citizens}{Citizens}} store a group of people as a single object to be used in the state design pattern.  
+
+
+
+
+{\ttfamily \#include $<$Citizens.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_citizens_abaf0e065375a87bc569ea23e5f579f3f}{Citizens}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_citizens}{Citizens}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_citizens_ad8254424373ef9546a42e37522a74295}{$\sim$\+Citizens}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{class_citizens}{Citizens}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_citizens_aebebc14b29588dbb9c65a2c06b5b3a08}{change\+Status}} ()
+\begin{DoxyCompactList}\small\item\em Changes the \mbox{\hyperlink{class_status}{Status}} of the current Citizen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_citizens_a62e745e6a5184c46239b55b9a8868c26}{set\+Status}} (\mbox{\hyperlink{class_status}{Status}} $\ast$status)
+\begin{DoxyCompactList}\small\item\em Set the \mbox{\hyperlink{class_status}{Status}} object. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_citizens_aef3dd8b85401d7fc17a36588d4d3f05c}{get\+Status}} ()
+\begin{DoxyCompactList}\small\item\em Returns the status description. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_citizens_a399555f5d454e13e74f4feb1ae38a256}{die}} ()
+\begin{DoxyCompactList}\small\item\em Kills the current Citizen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_citizens_a94ca8853511adef03b2a8a58d42c538c}{toggle\+Revolution}} (\mbox{\hyperlink{class_country}{Country}} $\ast$country)
+\begin{DoxyCompactList}\small\item\em calls a revolution in the country \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_citizens}{Citizens}} $\ast$ \mbox{\hyperlink{class_citizens_a806fac8dd69b7a5b29abe25fb8ecbbf5}{clone}} ()
+\begin{DoxyCompactList}\small\item\em calls clone on \mbox{\hyperlink{class_citizens}{Citizens}} for the \mbox{\hyperlink{class_memento}{Memento}} pattern \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_citizens}{Citizens}} store a group of people as a single object to be used in the state design pattern. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_citizens_abaf0e065375a87bc569ea23e5f579f3f}\label{class_citizens_abaf0e065375a87bc569ea23e5f579f3f}} 
+\index{Citizens@{Citizens}!Citizens@{Citizens}}
+\index{Citizens@{Citizens}!Citizens@{Citizens}}
+\doxysubsubsection{\texorpdfstring{Citizens()}{Citizens()}}
+{\footnotesize\ttfamily Citizens\+::\+Citizens (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_citizens}{Citizens}} object. 
+
+\mbox{\Hypertarget{class_citizens_ad8254424373ef9546a42e37522a74295}\label{class_citizens_ad8254424373ef9546a42e37522a74295}} 
+\index{Citizens@{Citizens}!````~Citizens@{$\sim$Citizens}}
+\index{````~Citizens@{$\sim$Citizens}!Citizens@{Citizens}}
+\doxysubsubsection{\texorpdfstring{$\sim$Citizens()}{~Citizens()}}
+{\footnotesize\ttfamily Citizens\+::$\sim$\+Citizens (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the \mbox{\hyperlink{class_citizens}{Citizens}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_citizens_aebebc14b29588dbb9c65a2c06b5b3a08}\label{class_citizens_aebebc14b29588dbb9c65a2c06b5b3a08}} 
+\index{Citizens@{Citizens}!changeStatus@{changeStatus}}
+\index{changeStatus@{changeStatus}!Citizens@{Citizens}}
+\doxysubsubsection{\texorpdfstring{changeStatus()}{changeStatus()}}
+{\footnotesize\ttfamily void Citizens\+::change\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Changes the \mbox{\hyperlink{class_status}{Status}} of the current Citizen. 
+
+\mbox{\Hypertarget{class_citizens_a806fac8dd69b7a5b29abe25fb8ecbbf5}\label{class_citizens_a806fac8dd69b7a5b29abe25fb8ecbbf5}} 
+\index{Citizens@{Citizens}!clone@{clone}}
+\index{clone@{clone}!Citizens@{Citizens}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_citizens}{Citizens}} $\ast$ Citizens\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+calls clone on \mbox{\hyperlink{class_citizens}{Citizens}} for the \mbox{\hyperlink{class_memento}{Memento}} pattern 
+
+\mbox{\Hypertarget{class_citizens_a399555f5d454e13e74f4feb1ae38a256}\label{class_citizens_a399555f5d454e13e74f4feb1ae38a256}} 
+\index{Citizens@{Citizens}!die@{die}}
+\index{die@{die}!Citizens@{Citizens}}
+\doxysubsubsection{\texorpdfstring{die()}{die()}}
+{\footnotesize\ttfamily void Citizens\+::die (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Kills the current Citizen. 
+
+\mbox{\Hypertarget{class_citizens_aef3dd8b85401d7fc17a36588d4d3f05c}\label{class_citizens_aef3dd8b85401d7fc17a36588d4d3f05c}} 
+\index{Citizens@{Citizens}!getStatus@{getStatus}}
+\index{getStatus@{getStatus}!Citizens@{Citizens}}
+\doxysubsubsection{\texorpdfstring{getStatus()}{getStatus()}}
+{\footnotesize\ttfamily string Citizens\+::get\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the status description. 
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_citizens_a62e745e6a5184c46239b55b9a8868c26}\label{class_citizens_a62e745e6a5184c46239b55b9a8868c26}} 
+\index{Citizens@{Citizens}!setStatus@{setStatus}}
+\index{setStatus@{setStatus}!Citizens@{Citizens}}
+\doxysubsubsection{\texorpdfstring{setStatus()}{setStatus()}}
+{\footnotesize\ttfamily void Citizens\+::set\+Status (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_status}{Status}} $\ast$}]{status }\end{DoxyParamCaption})}
+
+
+
+Set the \mbox{\hyperlink{class_status}{Status}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em status} & The new status \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_citizens_a94ca8853511adef03b2a8a58d42c538c}\label{class_citizens_a94ca8853511adef03b2a8a58d42c538c}} 
+\index{Citizens@{Citizens}!toggleRevolution@{toggleRevolution}}
+\index{toggleRevolution@{toggleRevolution}!Citizens@{Citizens}}
+\doxysubsubsection{\texorpdfstring{toggleRevolution()}{toggleRevolution()}}
+{\footnotesize\ttfamily void Citizens\+::toggle\+Revolution (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_country}{Country}} $\ast$}]{country }\end{DoxyParamCaption})}
+
+
+
+calls a revolution in the country 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Citizens.\+h\item 
+Citizens.\+cpp\end{DoxyCompactItemize}

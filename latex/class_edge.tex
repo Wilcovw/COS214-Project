@@ -1,0 +1,141 @@
+\hypertarget{class_edge}{}\doxysection{Edge Class Reference}
+\label{class_edge}\index{Edge@{Edge}}
+
+
+An edge connects areas in a map.  
+
+
+
+
+{\ttfamily \#include $<$Edge.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_edge_ad54f807bc7f6abf4cb0e0073a344705e}{Edge}} (double v, string type, \mbox{\hyperlink{class_area}{Area}} $\ast$s, \mbox{\hyperlink{class_area}{Area}} $\ast$d)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_edge}{Edge}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge_a2f37b72f044427961d6730943daf10e0}{$\sim$\+Edge}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{class_edge}{Edge}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_area}{Area}} $\ast$ \mbox{\hyperlink{class_edge_a6f81cbb3b689f90e8e445f24640b0409}{get\+Source}} ()
+\begin{DoxyCompactList}\small\item\em Get the Source object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_area}{Area}} $\ast$ \mbox{\hyperlink{class_edge_a98ec1c7131d42b76fc35b7106bc81ad7}{get\+Destination}} ()
+\begin{DoxyCompactList}\small\item\em Get the Destination object. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_edge_a8fb3cc4641832b7040012b38808b4211}{get\+Type}} ()
+\begin{DoxyCompactList}\small\item\em Get the Type of \mbox{\hyperlink{class_edge}{Edge}}. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_edge_a3d434867b308fa0f3aceadf97705ba61}{get\+Description}} ()
+\begin{DoxyCompactList}\small\item\em Get the Description of the \mbox{\hyperlink{class_edge}{Edge}}. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_edge_a116f3dc22db6e6fa81100d2b397c9c3b}{get\+Distance}} ()
+\begin{DoxyCompactList}\small\item\em Get the Distance the \mbox{\hyperlink{class_edge}{Edge}} represents. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An edge connects areas in a map. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_edge_ad54f807bc7f6abf4cb0e0073a344705e}\label{class_edge_ad54f807bc7f6abf4cb0e0073a344705e}} 
+\index{Edge@{Edge}!Edge@{Edge}}
+\index{Edge@{Edge}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{Edge()}{Edge()}}
+{\footnotesize\ttfamily Edge\+::\+Edge (\begin{DoxyParamCaption}\item[{double}]{v,  }\item[{string}]{type,  }\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{d }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_edge}{Edge}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v,The} & distance to traverse \\
+\hline
+{\em type,The} & type of \mbox{\hyperlink{class_edge}{Edge}} \\
+\hline
+{\em s,The} & start point \\
+\hline
+{\em d,The} & end point \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_edge_a2f37b72f044427961d6730943daf10e0}\label{class_edge_a2f37b72f044427961d6730943daf10e0}} 
+\index{Edge@{Edge}!````~Edge@{$\sim$Edge}}
+\index{````~Edge@{$\sim$Edge}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{$\sim$Edge()}{~Edge()}}
+{\footnotesize\ttfamily Edge\+::$\sim$\+Edge (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the \mbox{\hyperlink{class_edge}{Edge}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_edge_a3d434867b308fa0f3aceadf97705ba61}\label{class_edge_a3d434867b308fa0f3aceadf97705ba61}} 
+\index{Edge@{Edge}!getDescription@{getDescription}}
+\index{getDescription@{getDescription}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{getDescription()}{getDescription()}}
+{\footnotesize\ttfamily string Edge\+::get\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Description of the \mbox{\hyperlink{class_edge}{Edge}}. 
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_edge_a98ec1c7131d42b76fc35b7106bc81ad7}\label{class_edge_a98ec1c7131d42b76fc35b7106bc81ad7}} 
+\index{Edge@{Edge}!getDestination@{getDestination}}
+\index{getDestination@{getDestination}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{getDestination()}{getDestination()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_area}{Area}} $\ast$ Edge\+::get\+Destination (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Destination object. 
+
+\begin{DoxyReturn}{Returns}
+Area$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_edge_a116f3dc22db6e6fa81100d2b397c9c3b}\label{class_edge_a116f3dc22db6e6fa81100d2b397c9c3b}} 
+\index{Edge@{Edge}!getDistance@{getDistance}}
+\index{getDistance@{getDistance}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{getDistance()}{getDistance()}}
+{\footnotesize\ttfamily double Edge\+::get\+Distance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Distance the \mbox{\hyperlink{class_edge}{Edge}} represents. 
+
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_edge_a6f81cbb3b689f90e8e445f24640b0409}\label{class_edge_a6f81cbb3b689f90e8e445f24640b0409}} 
+\index{Edge@{Edge}!getSource@{getSource}}
+\index{getSource@{getSource}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{getSource()}{getSource()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_area}{Area}} $\ast$ Edge\+::get\+Source (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Source object. 
+
+\begin{DoxyReturn}{Returns}
+Area$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_edge_a8fb3cc4641832b7040012b38808b4211}\label{class_edge_a8fb3cc4641832b7040012b38808b4211}} 
+\index{Edge@{Edge}!getType@{getType}}
+\index{getType@{getType}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily string Edge\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Type of \mbox{\hyperlink{class_edge}{Edge}}. 
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Edge.\+h\item 
+Edge.\+cpp\end{DoxyCompactItemize}

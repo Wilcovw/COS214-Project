@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['takedamage_0',['takeDamage',['../class_infrastructure.html#a427549966e3c0b55108b628bf41f20f2',1,'Infrastructure::takeDamage()'],['../class_troops.html#aa5b4ebfbd0ba7d2f7a0180057d360968',1,'Troops::takeDamage()'],['../class_vehicles.html#ab67dd72f59949ecbcd637a25092e81e8',1,'Vehicles::takeDamage()']]],
+  ['tele_1',['tele',['../class_associated_countries.html#a7353d87778214f8eee21283200a73767',1,'AssociatedCountries']]],
+  ['testcase_2',['TestCase',['../structdoctest_1_1detail_1_1_test_case.html',1,'doctest::detail']]],
+  ['testcasedata_3',['TestCaseData',['../structdoctest_1_1_test_case_data.html',1,'doctest']]],
+  ['testcaseexception_4',['TestCaseException',['../structdoctest_1_1_test_case_exception.html',1,'doctest']]],
+  ['testfailureexception_5',['TestFailureException',['../structdoctest_1_1detail_1_1_test_failure_exception.html',1,'doctest::detail']]],
+  ['testrunstats_6',['TestRunStats',['../structdoctest_1_1_test_run_stats.html',1,'doctest']]],
+  ['testsuite_7',['TestSuite',['../structdoctest_1_1detail_1_1_test_suite.html',1,'doctest::detail']]],
+  ['togglerevolution_8',['toggleRevolution',['../class_citizens.html#a94ca8853511adef03b2a8a58d42c538c',1,'Citizens']]],
+  ['trainingcamp_9',['TrainingCamp',['../class_training_camp.html',1,'TrainingCamp'],['../class_training_camp.html#acd58ff36540a90beb30d56391967c43e',1,'TrainingCamp::TrainingCamp()']]],
+  ['troops_10',['Troops',['../class_troops.html',1,'Troops'],['../class_troops.html#aefad54685c7755e1a362d6caa2ecdfbf',1,'Troops::Troops()']]],
+  ['troops_11',['troops',['../class_training_camp.html#a3de6f2ac5c63af0f9055aa308d6da4b1',1,'TrainingCamp']]],
+  ['trooptype_12',['TroopType',['../class_troop_type.html',1,'TroopType'],['../class_troop_type.html#a8444ba11a16c730e860c30df71e70ba6',1,'TroopType::TroopType()']]],
+  ['true_5ftype_13',['true_type',['../structdoctest_1_1detail_1_1types_1_1true__type.html',1,'doctest::detail::types']]],
+  ['tuple_14',['tuple',['../classstd_1_1tuple.html',1,'std']]],
+  ['type_15',['type',['../class_infrastructure.html#a5379724ecb52e0bcef98346b05d67d20',1,'Infrastructure::type()'],['../class_troops.html#ad454447264c8ce867ab17048a4b06620',1,'Troops::type()'],['../class_troop_type.html#a3242bfaa3883e474b62bd4f149eda799',1,'TroopType::type()'],['../class_vehicles.html#aa1d1f3845a9eaec7a20f3e82e0fa3b2e',1,'Vehicles::type()']]]
+];

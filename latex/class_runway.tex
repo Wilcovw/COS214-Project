@@ -1,0 +1,121 @@
+\hypertarget{class_runway}{}\doxysection{Runway Class Reference}
+\label{class_runway}\index{Runway@{Runway}}
+
+
+This is an edge that connects Areas. It creates bi-\/directional edges.  
+
+
+
+
+{\ttfamily \#include $<$Runway.\+h$>$}
+
+Inheritance diagram for Runway\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_runway}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_runway_a62a014db193349f7e00981d15c08e4e7}\label{class_runway_a62a014db193349f7e00981d15c08e4e7}} 
+{\bfseries Runway} (\mbox{\hyperlink{class_area}{Area}} $\ast$, double)
+\begin{DoxyCompactList}\small\item\em Constructor -\/ Creates a new \mbox{\hyperlink{class_infrastructure}{Infrastructure}}, runway, and sets type to \mbox{\hyperlink{class_runway}{Runway}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_runway_a4428141ba75e58fa09ec818ae7ea183e}\label{class_runway_a4428141ba75e58fa09ec818ae7ea183e}} 
+{\bfseries $\sim$\+Runway} ()
+\begin{DoxyCompactList}\small\item\em Destructor -\/ removes current runway from all connected edges and destroys the current airway. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_runway_a17ba5cf8ef9350a182982e255bf1e417}{add\+Connection}} (\mbox{\hyperlink{class_area}{Area}} $\ast$destination, double distance, \mbox{\hyperlink{class_runway}{Runway}} $\ast$other\+Runway)
+\begin{DoxyCompactList}\small\item\em Creates a new connection between this runway and all other runways. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_runway_adf97628652f4fa586ab9cd1de5477f9a}{remove\+Connection}} (\mbox{\hyperlink{class_area}{Area}} $\ast$destination, \mbox{\hyperlink{class_runway}{Runway}} $\ast$other\+Runway, \mbox{\hyperlink{class_edge}{Edge}} $\ast$path)
+\begin{DoxyCompactList}\small\item\em removes connection between current runway and other runways. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_runway_a593bcb8695f7182c940fa30ecfed4e62}{destroy}} ()
+\begin{DoxyCompactList}\small\item\em calls current class\textquotesingle{} destructor \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_infrastructure}{Infrastructure}} $\ast$ \mbox{\hyperlink{class_runway_aa451e3833511868919807f56dc6c7d77}{clone}} (\mbox{\hyperlink{class_area}{Area}} $\ast$new\+Area)
+\begin{DoxyCompactList}\small\item\em Clones the runway between the current destination and a new destination, with the same stats as the current runway. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+This is an edge that connects Areas. It creates bi-\/directional edges. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_runway_a17ba5cf8ef9350a182982e255bf1e417}\label{class_runway_a17ba5cf8ef9350a182982e255bf1e417}} 
+\index{Runway@{Runway}!addConnection@{addConnection}}
+\index{addConnection@{addConnection}!Runway@{Runway}}
+\doxysubsubsection{\texorpdfstring{addConnection()}{addConnection()}}
+{\footnotesize\ttfamily void Runway\+::add\+Connection (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{destination,  }\item[{double}]{distance,  }\item[{\mbox{\hyperlink{class_runway}{Runway}} $\ast$}]{other\+Runway }\end{DoxyParamCaption})}
+
+
+
+Creates a new connection between this runway and all other runways. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em destination} & \\
+\hline
+{\em distance} & \\
+\hline
+{\em other\+Runway} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_runway_aa451e3833511868919807f56dc6c7d77}\label{class_runway_aa451e3833511868919807f56dc6c7d77}} 
+\index{Runway@{Runway}!clone@{clone}}
+\index{clone@{clone}!Runway@{Runway}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_infrastructure}{Infrastructure}} $\ast$ Runway\+::clone (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{new\+Area }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Clones the runway between the current destination and a new destination, with the same stats as the current runway. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Area} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_infrastructure_aed522d5bc816f5edfb80613ec3948c8c}{Infrastructure}}.
+
+\mbox{\Hypertarget{class_runway_a593bcb8695f7182c940fa30ecfed4e62}\label{class_runway_a593bcb8695f7182c940fa30ecfed4e62}} 
+\index{Runway@{Runway}!destroy@{destroy}}
+\index{destroy@{destroy}!Runway@{Runway}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily void Runway\+::destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+calls current class\textquotesingle{} destructor 
+
+
+
+Reimplemented from \mbox{\hyperlink{class_infrastructure_afeb7bb200bf923d63e33436ad63578b7}{Infrastructure}}.
+
+\mbox{\Hypertarget{class_runway_adf97628652f4fa586ab9cd1de5477f9a}\label{class_runway_adf97628652f4fa586ab9cd1de5477f9a}} 
+\index{Runway@{Runway}!removeConnection@{removeConnection}}
+\index{removeConnection@{removeConnection}!Runway@{Runway}}
+\doxysubsubsection{\texorpdfstring{removeConnection()}{removeConnection()}}
+{\footnotesize\ttfamily void Runway\+::remove\+Connection (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{destination,  }\item[{\mbox{\hyperlink{class_runway}{Runway}} $\ast$}]{other\+Runway,  }\item[{\mbox{\hyperlink{class_edge}{Edge}} $\ast$}]{path }\end{DoxyParamCaption})}
+
+
+
+removes connection between current runway and other runways. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em destination} & \\
+\hline
+{\em other\+Runway} & \\
+\hline
+{\em path} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Runway.\+h\item 
+Runway.\+cpp\end{DoxyCompactItemize}

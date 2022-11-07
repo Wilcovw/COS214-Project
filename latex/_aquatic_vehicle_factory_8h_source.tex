@@ -1,0 +1,21 @@
+\hypertarget{_aquatic_vehicle_factory_8h_source}{}\doxysection{Aquatic\+Vehicle\+Factory.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef FACTORY\_AND\_OBSERVER\_AQUATICVEHICLEFACTORY\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define FACTORY\_AND\_OBSERVER\_AQUATICVEHICLEFACTORY\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Factory.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}AquaticVehicles.h"{}}}
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_aquatic_vehicle_factory}{AquaticVehicleFactory}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_factory}{Factory}}}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12 \textcolor{keyword}{public}:}
+\DoxyCodeLine{16     \mbox{\hyperlink{class_aquatic_vehicle_factory}{AquaticVehicleFactory}}(\textcolor{keywordtype}{double} hp, \mbox{\hyperlink{class_area}{Area}} *area);}
+\DoxyCodeLine{20     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_aquatic_vehicle_factory_a7a8189a1055964f5b594ecd0c2148ad9}{\string~AquaticVehicleFactory}}()\{\};}
+\DoxyCodeLine{28     \mbox{\hyperlink{class_vehicles}{Vehicles}} *\mbox{\hyperlink{class_aquatic_vehicle_factory_a13e3dc350c164c198ace76a8e92cb805}{createVehicle}}(\textcolor{keywordtype}{double} \mbox{\hyperlink{class_infrastructure_a20c07563cd5918b63ed2dd5e7451827b}{HP}}, \textcolor{keywordtype}{double} damage, \textcolor{keywordtype}{double} speed);}
+\DoxyCodeLine{32     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_aquatic_vehicle_factory_a0bf69b62877f1a66e0d499b2fde4df09}{destroy}}();}
+\DoxyCodeLine{38     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_infrastructure}{Infrastructure}} *\mbox{\hyperlink{class_aquatic_vehicle_factory_a58942dc581ae11f19fcff0642881f1c0}{clone}}(\mbox{\hyperlink{class_area}{Area}} *newArea);}
+\DoxyCodeLine{39 \};}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// FACTORY\_AND\_OBSERVER\_AQUATICVEHICLEFACTORY\_H}}
+
+\end{DoxyCode}

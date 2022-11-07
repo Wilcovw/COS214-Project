@@ -1,0 +1,102 @@
+\hypertarget{class_road}{}\doxysection{Road Class Reference}
+\label{class_road}\index{Road@{Road}}
+
+
+This is an edge that connects Areas. It creates bi-\/directional edges.  
+
+
+
+
+{\ttfamily \#include $<$Road.\+h$>$}
+
+Inheritance diagram for Road\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_road}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_road_a7520ab5ec1b02ad18272947cbec6a042}{Road}} (\mbox{\hyperlink{class_area}{Area}} $\ast$, \mbox{\hyperlink{class_area}{Area}} $\ast$, double, double)
+\begin{DoxyCompactList}\small\item\em Constructor for roads. Adds road to source and destination. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_road_a3fa0feda8a96c3763d5f5a1f06f2972e}\label{class_road_a3fa0feda8a96c3763d5f5a1f06f2972e}} 
+{\bfseries $\sim$\+Road} ()
+\begin{DoxyCompactList}\small\item\em destructor for class. Destroys road between current class and destination. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_road_adaec60af4fd33b4e2bdaf85bc27ec13e}{destroy}} ()
+\begin{DoxyCompactList}\small\item\em removes road between areas and calls destructor for this class. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_infrastructure}{Infrastructure}} $\ast$ \mbox{\hyperlink{class_road_a41a9090edab0e901e4f6c2cbd214ba30}{clone}} (\mbox{\hyperlink{class_area}{Area}} $\ast$new\+Area)
+\begin{DoxyCompactList}\small\item\em Clones the road between the current destination and a new destination, with the same stats as the current road. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+This is an edge that connects Areas. It creates bi-\/directional edges. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_road_a7520ab5ec1b02ad18272947cbec6a042}\label{class_road_a7520ab5ec1b02ad18272947cbec6a042}} 
+\index{Road@{Road}!Road@{Road}}
+\index{Road@{Road}!Road@{Road}}
+\doxysubsubsection{\texorpdfstring{Road()}{Road()}}
+{\footnotesize\ttfamily Road\+::\+Road (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{source,  }\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{destination,  }\item[{double}]{hp,  }\item[{double}]{distance }\end{DoxyParamCaption})}
+
+
+
+Constructor for roads. Adds road to source and destination. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & \\
+\hline
+{\em destination} & \\
+\hline
+{\em hp} & \\
+\hline
+{\em distance} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_road_a41a9090edab0e901e4f6c2cbd214ba30}\label{class_road_a41a9090edab0e901e4f6c2cbd214ba30}} 
+\index{Road@{Road}!clone@{clone}}
+\index{clone@{clone}!Road@{Road}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_infrastructure}{Infrastructure}} $\ast$ Road\+::clone (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{new\+Area }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Clones the road between the current destination and a new destination, with the same stats as the current road. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Area} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Infrastructure$\ast$ -\/ a new road between the current area and new\+Area 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_infrastructure_aed522d5bc816f5edfb80613ec3948c8c}{Infrastructure}}.
+
+\mbox{\Hypertarget{class_road_adaec60af4fd33b4e2bdaf85bc27ec13e}\label{class_road_adaec60af4fd33b4e2bdaf85bc27ec13e}} 
+\index{Road@{Road}!destroy@{destroy}}
+\index{destroy@{destroy}!Road@{Road}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily void Road\+::destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+removes road between areas and calls destructor for this class. 
+
+
+
+Reimplemented from \mbox{\hyperlink{class_infrastructure_afeb7bb200bf923d63e33436ad63578b7}{Infrastructure}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Road.\+h\item 
+Road.\+cpp\end{DoxyCompactItemize}

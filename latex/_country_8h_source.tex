@@ -1,0 +1,50 @@
+\hypertarget{_country_8h_source}{}\doxysection{Country.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef COUNTRY\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define COUNTRY\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}AssociatedCountries.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Citizens.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}Area.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_war_entities}{WarEntities}};}
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_area}{Area}};}
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{class_country}{Country}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_associated_countries}{AssociatedCountries}}}
+\DoxyCodeLine{16 \{}
+\DoxyCodeLine{17 \textcolor{keyword}{private}:}
+\DoxyCodeLine{22     std::string name;}
+\DoxyCodeLine{27     list<Citizens*> citizens;}
+\DoxyCodeLine{32     \mbox{\hyperlink{class_war_entities}{WarEntities}} *entities;}
+\DoxyCodeLine{37     std::list<Area *> areas;}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{keyword}{public}:}
+\DoxyCodeLine{47     \mbox{\hyperlink{class_country_a4cba457856775a13a17dfcb11a77e224}{Country}}(std::string name, \mbox{\hyperlink{class_communication}{Communication}} *\mbox{\hyperlink{class_associated_countries_a7353d87778214f8eee21283200a73767}{tele}}, \textcolor{keywordtype}{int} numCitzenGroups);}
+\DoxyCodeLine{52     \mbox{\hyperlink{class_country_a4cba457856775a13a17dfcb11a77e224}{Country}}();}
+\DoxyCodeLine{58     std::string \mbox{\hyperlink{class_country_aa584ff75674728736d4952b32693501a}{getName}}();}
+\DoxyCodeLine{64     std::list<Area *> \mbox{\hyperlink{class_country_af68ebbe510fbe05b9f4a05f2623291e7}{getAreas}}();}
+\DoxyCodeLine{70     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_country_aec6ebd3e9f719b569e8df135e9e169e0}{addArea}}(\mbox{\hyperlink{class_area}{Area}} *area);}
+\DoxyCodeLine{76     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_country_a69a692dfbe69699c47c3352a4d00aa70}{removeArea}}(\mbox{\hyperlink{class_area}{Area}} *area);}
+\DoxyCodeLine{81     std::string \mbox{\hyperlink{class_country_aedc87e7b22c4090aea7d8c7788829675}{printAreas}}();}
+\DoxyCodeLine{87     list<Citizens*> \mbox{\hyperlink{class_country_af0d4cb0a3bebb29415de7dbf6ec77e02}{getCitizens}}();}
+\DoxyCodeLine{93     \mbox{\hyperlink{class_war_entities}{WarEntities}} *\mbox{\hyperlink{class_country_ac8c067681f288dcdd0577b8e6389296e}{getWarEntities}}();}
+\DoxyCodeLine{98     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_country_a5013557e0d93fabc976bfa0d7f0564a3}{\string~Country}}();}
+\DoxyCodeLine{104     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_country_afb0d6ffa03829d15df79f94caf962434}{receiveMessage}}(std::string message);}
+\DoxyCodeLine{111     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_country_a26783e78e20ad3219d027b7e0a9b17b3}{sendBroadcast}}(\mbox{\hyperlink{class_associated_countries}{AssociatedCountries}} *messageReceiver, std::string message);}
+\DoxyCodeLine{117     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_associated_countries}{AssociatedCountries}} *\mbox{\hyperlink{class_country_a334113febf26c3ca3c5f8792ccd21d5f}{getParent}}();}
+\DoxyCodeLine{123     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_country_aa34a5967f3b67fede38af0b790149e31}{setParent}}(\mbox{\hyperlink{class_associated_countries}{AssociatedCountries}} *\mbox{\hyperlink{class_associated_countries_aa5e5ccc21c966f5cdf440b4f2603abc8}{parent}});}
+\DoxyCodeLine{129     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_country_a0576828c5945f4e11eb9da57e0bfcd0e}{addAssociatedCountries}}(\mbox{\hyperlink{class_associated_countries}{AssociatedCountries}} *al);}
+\DoxyCodeLine{135     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_country_a561b5adc937680c5a884b0bf8f93fee8}{removeAssociatedCountries}}(\mbox{\hyperlink{class_associated_countries}{AssociatedCountries}} *al);}
+\DoxyCodeLine{141     \textcolor{keyword}{virtual} std::string \mbox{\hyperlink{class_country_a2bdb2ac3551e9baba45793f62aa278e4}{print}}();}
+\DoxyCodeLine{147     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_country_aeeec62d7797e51f072692f63df2c3183}{revolt}}(\textcolor{keywordtype}{bool} \mbox{\hyperlink{class_country_aeeec62d7797e51f072692f63df2c3183}{revolt}});}
+\DoxyCodeLine{154     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_associated_countries}{AssociatedCountries}} *\mbox{\hyperlink{class_country_a8616360ba2bf54018cbeebc1d1cd7439}{clone}}(\mbox{\hyperlink{class_communication}{Communication}} *comm, \mbox{\hyperlink{class_associated_countries}{AssociatedCountries}} *\mbox{\hyperlink{class_associated_countries_aa5e5ccc21c966f5cdf440b4f2603abc8}{parent}});}
+\DoxyCodeLine{159     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_country_a9ce48a0cd4b738f505122ce266fb012d}{cloneWarEntities}}(\mbox{\hyperlink{class_country}{Country}} *country);}
+\DoxyCodeLine{165     list<Country *> \mbox{\hyperlink{class_country_abb11a3083b33b94d6e40ba639b78f103}{getAllies}}();}
+\DoxyCodeLine{171     list<Country *> \mbox{\hyperlink{class_country_ad271947b400713b0581e16d535157e23}{getEnemies}}();}
+\DoxyCodeLine{177     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_communication}{Communication}} *\mbox{\hyperlink{class_country_a71e6a8e227a5a07719cbeb2b16db5835}{getCommunication}}();}
+\DoxyCodeLine{182     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_country_acb44901cb81e95cf487b20caeec3963d}{removeCitizen}}(\mbox{\hyperlink{class_citizens}{Citizens}} *);}
+\DoxyCodeLine{183 \};}
+\DoxyCodeLine{184 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

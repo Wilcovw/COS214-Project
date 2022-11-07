@@ -1,0 +1,144 @@
+\hypertarget{class_harbour}{}\doxysection{Harbour Class Reference}
+\label{class_harbour}\index{Harbour@{Harbour}}
+
+
+\mbox{\hyperlink{class_harbour}{Harbour}} is a type of edge for navy vehicles to travel across.  
+
+
+
+
+{\ttfamily \#include $<$Harbour.\+h$>$}
+
+Inheritance diagram for Harbour\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_harbour}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_harbour_a593432850a414051d7a0ffd5c24a007e}{Harbour}} (\mbox{\hyperlink{class_area}{Area}} $\ast$, double)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_harbour}{Harbour}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_harbour_a19531317d6f077172d96a77c09104c22}{$\sim$\+Harbour}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{class_harbour}{Harbour}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_harbour_a0edfbc1304eeb6731d77675d7d881e9f}{add\+Connection}} (\mbox{\hyperlink{class_area}{Area}} $\ast$destination, double distance, \mbox{\hyperlink{class_harbour}{Harbour}} $\ast$other\+Harbour)
+\begin{DoxyCompactList}\small\item\em Addes an \mbox{\hyperlink{class_edge}{Edge}} between 2 Areas. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_harbour_a5a020ba6726ae659594d5ccb8e81ee34}{remove\+Connection}} (\mbox{\hyperlink{class_area}{Area}} $\ast$destination, \mbox{\hyperlink{class_harbour}{Harbour}} $\ast$other\+Harbour, \mbox{\hyperlink{class_edge}{Edge}} $\ast$path)
+\begin{DoxyCompactList}\small\item\em Removes an \mbox{\hyperlink{class_edge}{Edge}} between 2 Areas. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_harbour_a10b52677e5211c21d5f5a614b9451a8e}{destroy}} ()
+\begin{DoxyCompactList}\small\item\em Destroys the current \mbox{\hyperlink{class_harbour}{Harbour}}. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_infrastructure}{Infrastructure}} $\ast$ \mbox{\hyperlink{class_harbour_ab819b616f29ef6b0d89a7c8c41cff72d}{clone}} (\mbox{\hyperlink{class_area}{Area}} $\ast$new\+Area)
+\begin{DoxyCompactList}\small\item\em Makes a copy of the current Object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_harbour}{Harbour}} is a type of edge for navy vehicles to travel across. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_harbour_a593432850a414051d7a0ffd5c24a007e}\label{class_harbour_a593432850a414051d7a0ffd5c24a007e}} 
+\index{Harbour@{Harbour}!Harbour@{Harbour}}
+\index{Harbour@{Harbour}!Harbour@{Harbour}}
+\doxysubsubsection{\texorpdfstring{Harbour()}{Harbour()}}
+{\footnotesize\ttfamily Harbour\+::\+Harbour (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{source,  }\item[{double}]{hp }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_harbour}{Harbour}} object. 
+
+\mbox{\Hypertarget{class_harbour_a19531317d6f077172d96a77c09104c22}\label{class_harbour_a19531317d6f077172d96a77c09104c22}} 
+\index{Harbour@{Harbour}!````~Harbour@{$\sim$Harbour}}
+\index{````~Harbour@{$\sim$Harbour}!Harbour@{Harbour}}
+\doxysubsubsection{\texorpdfstring{$\sim$Harbour()}{~Harbour()}}
+{\footnotesize\ttfamily Harbour\+::$\sim$\+Harbour (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the \mbox{\hyperlink{class_harbour}{Harbour}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_harbour_a0edfbc1304eeb6731d77675d7d881e9f}\label{class_harbour_a0edfbc1304eeb6731d77675d7d881e9f}} 
+\index{Harbour@{Harbour}!addConnection@{addConnection}}
+\index{addConnection@{addConnection}!Harbour@{Harbour}}
+\doxysubsubsection{\texorpdfstring{addConnection()}{addConnection()}}
+{\footnotesize\ttfamily void Harbour\+::add\+Connection (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{destination,  }\item[{double}]{distance,  }\item[{\mbox{\hyperlink{class_harbour}{Harbour}} $\ast$}]{other\+Harbour }\end{DoxyParamCaption})}
+
+
+
+Addes an \mbox{\hyperlink{class_edge}{Edge}} between 2 Areas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em destination} & The desitination of the \mbox{\hyperlink{class_harbour}{Harbour}} \\
+\hline
+{\em distance} & The travel distance \\
+\hline
+{\em other\+Harbour} & The \mbox{\hyperlink{class_harbour}{Harbour}} by the destination\textquotesingle{}s \mbox{\hyperlink{class_area}{Area}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_harbour_ab819b616f29ef6b0d89a7c8c41cff72d}\label{class_harbour_ab819b616f29ef6b0d89a7c8c41cff72d}} 
+\index{Harbour@{Harbour}!clone@{clone}}
+\index{clone@{clone}!Harbour@{Harbour}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_infrastructure}{Infrastructure}} $\ast$ Harbour\+::clone (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{new\+Area }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Makes a copy of the current Object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Area} & The current \mbox{\hyperlink{class_area}{Area}} it is in. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Infrastructure$\ast$ 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_infrastructure_aed522d5bc816f5edfb80613ec3948c8c}{Infrastructure}}.
+
+\mbox{\Hypertarget{class_harbour_a10b52677e5211c21d5f5a614b9451a8e}\label{class_harbour_a10b52677e5211c21d5f5a614b9451a8e}} 
+\index{Harbour@{Harbour}!destroy@{destroy}}
+\index{destroy@{destroy}!Harbour@{Harbour}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily void Harbour\+::destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destroys the current \mbox{\hyperlink{class_harbour}{Harbour}}. 
+
+
+
+Reimplemented from \mbox{\hyperlink{class_infrastructure_afeb7bb200bf923d63e33436ad63578b7}{Infrastructure}}.
+
+\mbox{\Hypertarget{class_harbour_a5a020ba6726ae659594d5ccb8e81ee34}\label{class_harbour_a5a020ba6726ae659594d5ccb8e81ee34}} 
+\index{Harbour@{Harbour}!removeConnection@{removeConnection}}
+\index{removeConnection@{removeConnection}!Harbour@{Harbour}}
+\doxysubsubsection{\texorpdfstring{removeConnection()}{removeConnection()}}
+{\footnotesize\ttfamily void Harbour\+::remove\+Connection (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{destination,  }\item[{\mbox{\hyperlink{class_harbour}{Harbour}} $\ast$}]{other\+Harbour,  }\item[{\mbox{\hyperlink{class_edge}{Edge}} $\ast$}]{path }\end{DoxyParamCaption})}
+
+
+
+Removes an \mbox{\hyperlink{class_edge}{Edge}} between 2 Areas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em destination} & The desitination of the \mbox{\hyperlink{class_harbour}{Harbour}} \\
+\hline
+{\em other\+Harbour} & The \mbox{\hyperlink{class_harbour}{Harbour}} by the destination\textquotesingle{}s \mbox{\hyperlink{class_area}{Area}} \\
+\hline
+{\em path} & The \mbox{\hyperlink{class_edge}{Edge}} to remove \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Harbour.\+h\item 
+Harbour.\+cpp\end{DoxyCompactItemize}

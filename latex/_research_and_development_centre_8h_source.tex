@@ -1,0 +1,29 @@
+\hypertarget{_research_and_development_centre_8h_source}{}\doxysection{Research\+And\+Development\+Centre.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef FACTORY\_AND\_OBSERVER\_RESEARCHANDDEVELOPMENTCENTRE\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define FACTORY\_AND\_OBSERVER\_RESEARCHANDDEVELOPMENTCENTRE\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}Infrastructure.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}Vehicles.h"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{class_research_and_development_centre}{ResearchAndDevelopmentCentre}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_infrastructure}{Infrastructure}}}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{17     vector<Vehicles *> \mbox{\hyperlink{class_research_and_development_centre_aff388b42ee1cbc5278d5a312446cd0a6}{vehicleToBeUpgraded}};}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{public}:}
+\DoxyCodeLine{26     \mbox{\hyperlink{class_research_and_development_centre_a7f7c1eecc9f0a1941843ab4ea88bd0c2}{ResearchAndDevelopmentCentre}}(\textcolor{keywordtype}{double} hp, \mbox{\hyperlink{class_area}{Area}} *area) : \mbox{\hyperlink{class_infrastructure}{Infrastructure}}(hp, area)\{\};}
+\DoxyCodeLine{30     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_research_and_development_centre_a9dac8513173caa35aa4dea09aa80b348}{startDeveloping}}();}
+\DoxyCodeLine{34     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_research_and_development_centre_a3958db0b7326aa3445ca78d858beddac}{stopDeveloping}}();}
+\DoxyCodeLine{38     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_research_and_development_centre_a586bdddf08acd7d03f37b9eb5a213776}{notifyDevelop}}();}
+\DoxyCodeLine{42     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_research_and_development_centre_aa8ba924d0f7209390e019c178054ab1c}{destroy}}();}
+\DoxyCodeLine{46     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_research_and_development_centre_ab1d6529e168f19ba632da0acae810179}{printList}}();}
+\DoxyCodeLine{51     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_research_and_development_centre_a057bbd7a3e9b01a9333f0c4d3a2b6bcf}{addToList}}(\mbox{\hyperlink{class_vehicles}{Vehicles}} *v);}
+\DoxyCodeLine{56     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_infrastructure}{Infrastructure}} *\mbox{\hyperlink{class_research_and_development_centre_a48c1869ceb7401be935d205920d1205a}{clone}}(\mbox{\hyperlink{class_area}{Area}} *newArea);}
+\DoxyCodeLine{57 \};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// FACTORY\_AND\_OBSERVER\_RESEARCHANDDEVELOPMENTCENTRE\_H}}
+
+\end{DoxyCode}

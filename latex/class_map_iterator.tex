@@ -1,0 +1,112 @@
+\hypertarget{class_map_iterator}{}\doxysection{Map\+Iterator Class Reference}
+\label{class_map_iterator}\index{MapIterator@{MapIterator}}
+
+
+Iterates over the areas of different countries through edges(\+Roads, Runways, Harbours)  
+
+
+
+
+{\ttfamily \#include $<$Map\+Iterator.\+h$>$}
+
+Inheritance diagram for Map\+Iterator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_map_iterator}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_map_iterator_a01466b036df04646f94940dc1a1bc415}{Map\+Iterator}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for map iterator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_map_iterator_a0f710eed0295a892a629c95f135527d7}{$\sim$\+Map\+Iterator}} ()
+\begin{DoxyCompactList}\small\item\em Destructor of Map Iterator object. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_map_iterator_a392b75342abe1e7cc444db2556ea60bb}{first}} ()=0
+\begin{DoxyCompactList}\small\item\em Derived class should reset the iteration. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_map_iterator_a1a5082b58f3166554207d5a69c01a3cf}{next}} ()=0
+\begin{DoxyCompactList}\small\item\em Derived class should get the next element in the iteration. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_map_iterator_a2728e6b8971e451fc3c20dfd6994ea8f}{is\+Done}} ()=0
+\begin{DoxyCompactList}\small\item\em Checks if the iteration is done, and returns the result. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Iterates over the areas of different countries through edges(\+Roads, Runways, Harbours) 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_map_iterator_a01466b036df04646f94940dc1a1bc415}\label{class_map_iterator_a01466b036df04646f94940dc1a1bc415}} 
+\index{MapIterator@{MapIterator}!MapIterator@{MapIterator}}
+\index{MapIterator@{MapIterator}!MapIterator@{MapIterator}}
+\doxysubsubsection{\texorpdfstring{MapIterator()}{MapIterator()}}
+{\footnotesize\ttfamily Map\+Iterator\+::\+Map\+Iterator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor for map iterator. 
+
+\mbox{\Hypertarget{class_map_iterator_a0f710eed0295a892a629c95f135527d7}\label{class_map_iterator_a0f710eed0295a892a629c95f135527d7}} 
+\index{MapIterator@{MapIterator}!````~MapIterator@{$\sim$MapIterator}}
+\index{````~MapIterator@{$\sim$MapIterator}!MapIterator@{MapIterator}}
+\doxysubsubsection{\texorpdfstring{$\sim$MapIterator()}{~MapIterator()}}
+{\footnotesize\ttfamily Map\+Iterator\+::$\sim$\+Map\+Iterator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor of Map Iterator object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_map_iterator_a392b75342abe1e7cc444db2556ea60bb}\label{class_map_iterator_a392b75342abe1e7cc444db2556ea60bb}} 
+\index{MapIterator@{MapIterator}!first@{first}}
+\index{first@{first}!MapIterator@{MapIterator}}
+\doxysubsubsection{\texorpdfstring{first()}{first()}}
+{\footnotesize\ttfamily virtual void Map\+Iterator\+::first (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Derived class should reset the iteration. 
+
+
+
+Implemented in \mbox{\hyperlink{class_area_iterator_ac1e9e0e08e9d2214e903cfb72bbb29a6}{Area\+Iterator}}, and \mbox{\hyperlink{class_edge_iterator_ae6d1e598fccd2290aa576778d4c1f13d}{Edge\+Iterator}}.
+
+\mbox{\Hypertarget{class_map_iterator_a2728e6b8971e451fc3c20dfd6994ea8f}\label{class_map_iterator_a2728e6b8971e451fc3c20dfd6994ea8f}} 
+\index{MapIterator@{MapIterator}!isDone@{isDone}}
+\index{isDone@{isDone}!MapIterator@{MapIterator}}
+\doxysubsubsection{\texorpdfstring{isDone()}{isDone()}}
+{\footnotesize\ttfamily virtual bool Map\+Iterator\+::is\+Done (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Checks if the iteration is done, and returns the result. 
+
+\begin{DoxyReturn}{Returns}
+true , if the iteration is done 
+
+false , if the iteration is not done 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_area_iterator_a747df7e70bac6a2eb3bfafe2b4b6b690}{Area\+Iterator}}, and \mbox{\hyperlink{class_edge_iterator_a7052a0483cdd742c48d891f2c27e9a94}{Edge\+Iterator}}.
+
+\mbox{\Hypertarget{class_map_iterator_a1a5082b58f3166554207d5a69c01a3cf}\label{class_map_iterator_a1a5082b58f3166554207d5a69c01a3cf}} 
+\index{MapIterator@{MapIterator}!next@{next}}
+\index{next@{next}!MapIterator@{MapIterator}}
+\doxysubsubsection{\texorpdfstring{next()}{next()}}
+{\footnotesize\ttfamily virtual void Map\+Iterator\+::next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Derived class should get the next element in the iteration. 
+
+
+
+Implemented in \mbox{\hyperlink{class_area_iterator_ac98169720df31444eb759c176eb9dacd}{Area\+Iterator}}, and \mbox{\hyperlink{class_edge_iterator_aa91e405ca3dbc54df89d0433f745f416}{Edge\+Iterator}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Map\+Iterator.\+h\item 
+Map\+Iterator.\+cpp\end{DoxyCompactItemize}

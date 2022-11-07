@@ -1,0 +1,89 @@
+\hypertarget{class_stationed}{}\doxysection{Stationed Class Reference}
+\label{class_stationed}\index{Stationed@{Stationed}}
+
+
+\mbox{\hyperlink{class_stationed}{Stationed}} is a \mbox{\hyperlink{class_status}{Status}} of \mbox{\hyperlink{class_citizens}{Citizens}}. It inherits from \mbox{\hyperlink{class_status}{Status}}.  
+
+
+
+
+{\ttfamily \#include $<$Stationed.\+h$>$}
+
+Inheritance diagram for Stationed\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_stationed}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_stationed_ad6a55a737c37ec31977bcd5f71ad04af}{handle\+Change}} (\mbox{\hyperlink{class_citizens}{Citizens}} $\ast$c)
+\begin{DoxyCompactList}\small\item\em sets c\textquotesingle{}s status to \mbox{\hyperlink{class_fighting}{Fighting}} status \end{DoxyCompactList}\item 
+virtual string \mbox{\hyperlink{class_stationed_a8ccdd459882e1628eeb6cedefcf51432}{get\+Status}} ()
+\begin{DoxyCompactList}\small\item\em returns current class\textquotesingle{} status \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_stationed_a6d4c5c522d08fec59cd436e5851b8033}{die}} (\mbox{\hyperlink{class_citizens}{Citizens}} $\ast$c)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_stationed}{Stationed}} is a \mbox{\hyperlink{class_status}{Status}} of \mbox{\hyperlink{class_citizens}{Citizens}}. It inherits from \mbox{\hyperlink{class_status}{Status}}. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_stationed_a6d4c5c522d08fec59cd436e5851b8033}\label{class_stationed_a6d4c5c522d08fec59cd436e5851b8033}} 
+\index{Stationed@{Stationed}!die@{die}}
+\index{die@{die}!Stationed@{Stationed}}
+\doxysubsubsection{\texorpdfstring{die()}{die()}}
+{\footnotesize\ttfamily void Stationed\+::die (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_citizens}{Citizens}} $\ast$}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+sets c\textquotesingle{}s status to \mbox{\hyperlink{class_dead}{Dead}} status 
+\begin{DoxyParams}{Parameters}
+{\em c} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_status_a8c3e6b313f92626205c9b49600e62e97}{Status}}.
+
+\mbox{\Hypertarget{class_stationed_a8ccdd459882e1628eeb6cedefcf51432}\label{class_stationed_a8ccdd459882e1628eeb6cedefcf51432}} 
+\index{Stationed@{Stationed}!getStatus@{getStatus}}
+\index{getStatus@{getStatus}!Stationed@{Stationed}}
+\doxysubsubsection{\texorpdfstring{getStatus()}{getStatus()}}
+{\footnotesize\ttfamily string Stationed\+::get\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+returns current class\textquotesingle{} status 
+
+\begin{DoxyReturn}{Returns}
+string -\/ the word \char`\"{}\+Stationed\char`\"{} 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_status_aeabcd2bfb3e5f1536d313f5bf6bca1f6}{Status}}.
+
+\mbox{\Hypertarget{class_stationed_ad6a55a737c37ec31977bcd5f71ad04af}\label{class_stationed_ad6a55a737c37ec31977bcd5f71ad04af}} 
+\index{Stationed@{Stationed}!handleChange@{handleChange}}
+\index{handleChange@{handleChange}!Stationed@{Stationed}}
+\doxysubsubsection{\texorpdfstring{handleChange()}{handleChange()}}
+{\footnotesize\ttfamily void Stationed\+::handle\+Change (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_citizens}{Citizens}} $\ast$}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+sets c\textquotesingle{}s status to \mbox{\hyperlink{class_fighting}{Fighting}} status 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_status_aa22576f76839eab59de334ce244f9fdb}{Status}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Stationed.\+h\item 
+Stationed.\+cpp\end{DoxyCompactItemize}

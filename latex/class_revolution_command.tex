@@ -1,0 +1,101 @@
+\hypertarget{class_revolution_command}{}\doxysection{Revolution\+Command Class Reference}
+\label{class_revolution_command}\index{RevolutionCommand@{RevolutionCommand}}
+
+
+\mbox{\hyperlink{class_revolution_command}{Revolution\+Command}} takes the role of the Concrete\+Command in the \mbox{\hyperlink{class_command}{Command}} design pattern. It calls the execute method for a revolution to start.  
+
+
+
+
+{\ttfamily \#include $<$Revolution\+Command.\+h$>$}
+
+Inheritance diagram for Revolution\+Command\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_revolution_command}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_revolution_command_a25f560e02461cd50d5c376b3da1877c5}{Revolution\+Command}} (bool s)
+\begin{DoxyCompactList}\small\item\em Construct a new Revolution \mbox{\hyperlink{class_command}{Command}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_revolution_command_a9ec39f3ea91e7dd96b9941bc667a083e}{$\sim$\+Revolution\+Command}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the Revolution \mbox{\hyperlink{class_command}{Command}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_revolution_command_adfea70162e4f47603e30714a6e4b6abd}{execute}} (\mbox{\hyperlink{class_country}{Country}} $\ast$country)
+\begin{DoxyCompactList}\small\item\em Execeute the Revolution. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_revolution_command_ac8fa7f785c8272a2ef845c7b00476f44}{is\+Active}} ()
+\begin{DoxyCompactList}\small\item\em Determines whether the \mbox{\hyperlink{class_command}{Command}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_revolution_command}{Revolution\+Command}} takes the role of the Concrete\+Command in the \mbox{\hyperlink{class_command}{Command}} design pattern. It calls the execute method for a revolution to start. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_revolution_command_a25f560e02461cd50d5c376b3da1877c5}\label{class_revolution_command_a25f560e02461cd50d5c376b3da1877c5}} 
+\index{RevolutionCommand@{RevolutionCommand}!RevolutionCommand@{RevolutionCommand}}
+\index{RevolutionCommand@{RevolutionCommand}!RevolutionCommand@{RevolutionCommand}}
+\doxysubsubsection{\texorpdfstring{RevolutionCommand()}{RevolutionCommand()}}
+{\footnotesize\ttfamily Revolution\+Command\+::\+Revolution\+Command (\begin{DoxyParamCaption}\item[{bool}]{s }\end{DoxyParamCaption})}
+
+
+
+Construct a new Revolution \mbox{\hyperlink{class_command}{Command}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_revolution_command_a9ec39f3ea91e7dd96b9941bc667a083e}\label{class_revolution_command_a9ec39f3ea91e7dd96b9941bc667a083e}} 
+\index{RevolutionCommand@{RevolutionCommand}!````~RevolutionCommand@{$\sim$RevolutionCommand}}
+\index{````~RevolutionCommand@{$\sim$RevolutionCommand}!RevolutionCommand@{RevolutionCommand}}
+\doxysubsubsection{\texorpdfstring{$\sim$RevolutionCommand()}{~RevolutionCommand()}}
+{\footnotesize\ttfamily Revolution\+Command\+::$\sim$\+Revolution\+Command (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the Revolution \mbox{\hyperlink{class_command}{Command}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_revolution_command_adfea70162e4f47603e30714a6e4b6abd}\label{class_revolution_command_adfea70162e4f47603e30714a6e4b6abd}} 
+\index{RevolutionCommand@{RevolutionCommand}!execute@{execute}}
+\index{execute@{execute}!RevolutionCommand@{RevolutionCommand}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily void Revolution\+Command\+::execute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_country}{Country}} $\ast$}]{country }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Execeute the Revolution. 
+
+
+
+Implements \mbox{\hyperlink{class_command_a996c5cbb4b51510c1dca759b41673405}{Command}}.
+
+\mbox{\Hypertarget{class_revolution_command_ac8fa7f785c8272a2ef845c7b00476f44}\label{class_revolution_command_ac8fa7f785c8272a2ef845c7b00476f44}} 
+\index{RevolutionCommand@{RevolutionCommand}!isActive@{isActive}}
+\index{isActive@{isActive}!RevolutionCommand@{RevolutionCommand}}
+\doxysubsubsection{\texorpdfstring{isActive()}{isActive()}}
+{\footnotesize\ttfamily bool Revolution\+Command\+::is\+Active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Determines whether the \mbox{\hyperlink{class_command}{Command}}. 
+
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_command_a4c6d3dbd55f86fb5deb0867041bca5a0}{Command}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Revolution\+Command.\+h\item 
+Revolution\+Command.\+cpp\end{DoxyCompactItemize}

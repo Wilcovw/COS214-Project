@@ -1,0 +1,29 @@
+\hypertarget{_runway_8h_source}{}\doxysection{Runway.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef RUNWAY\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define RUNWAY\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <list>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}Infrastructure.h"{}}}
+\DoxyCodeLine{7 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_edge}{Edge}};}
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{class_runway}{Runway}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_infrastructure}{Infrastructure}}}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15 \textcolor{keyword}{private}:}
+\DoxyCodeLine{19     \textcolor{keywordtype}{string} name;}
+\DoxyCodeLine{23     list<Edge*> edges;}
+\DoxyCodeLine{24 \textcolor{keyword}{public}:}
+\DoxyCodeLine{28     \mbox{\hyperlink{class_runway}{Runway}}(\mbox{\hyperlink{class_area}{Area}} *, \textcolor{keywordtype}{double});}
+\DoxyCodeLine{32     \mbox{\hyperlink{class_runway_a4428141ba75e58fa09ec818ae7ea183e}{\string~Runway}}();}
+\DoxyCodeLine{39     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_runway_a17ba5cf8ef9350a182982e255bf1e417}{addConnection}}(\mbox{\hyperlink{class_area}{Area}} *destination, \textcolor{keywordtype}{double} distance, \mbox{\hyperlink{class_runway}{Runway}}* otherRunway);}
+\DoxyCodeLine{46     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_runway_adf97628652f4fa586ab9cd1de5477f9a}{removeConnection}}(\mbox{\hyperlink{class_area}{Area}}* destination, \mbox{\hyperlink{class_runway}{Runway}}* otherRunway, \mbox{\hyperlink{class_edge}{Edge}}* path);}
+\DoxyCodeLine{50     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_runway_a593bcb8695f7182c940fa30ecfed4e62}{destroy}}();}
+\DoxyCodeLine{56     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_infrastructure}{Infrastructure}}* \mbox{\hyperlink{class_runway_aa451e3833511868919807f56dc6c7d77}{clone}}(\mbox{\hyperlink{class_area}{Area}}* newArea);}
+\DoxyCodeLine{57 \};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,47 @@
+\hypertarget{_vehicles_8h_source}{}\doxysection{Vehicles.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef FACTORY\_AND\_OBSERVER\_VEHICLES\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define FACTORY\_AND\_OBSERVER\_VEHICLES\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Infrastructure.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}WarEngine.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_area}{Area}};}
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_troops}{Troops}};}
+\DoxyCodeLine{14 \textcolor{keyword}{class }\mbox{\hyperlink{class_vehicles}{Vehicles}}}
+\DoxyCodeLine{15 \{}
+\DoxyCodeLine{16 \textcolor{keyword}{private}:}
+\DoxyCodeLine{21     \textcolor{keywordtype}{double} HP;}
+\DoxyCodeLine{26     \textcolor{keywordtype}{double} damage;}
+\DoxyCodeLine{31     \textcolor{keywordtype}{double} speed;}
+\DoxyCodeLine{36     \mbox{\hyperlink{class_area}{Area}} *location;}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{43     vehicleType \mbox{\hyperlink{class_vehicles_aa1d1f3845a9eaec7a20f3e82e0fa3b2e}{type}};}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{keyword}{public}:}
+\DoxyCodeLine{53     \mbox{\hyperlink{class_vehicles}{Vehicles}}(\mbox{\hyperlink{class_area}{Area}} *location, \textcolor{keywordtype}{double} HP, \textcolor{keywordtype}{double} damage, \textcolor{keywordtype}{double} speed);}
+\DoxyCodeLine{58     \mbox{\hyperlink{class_area}{Area}} *\mbox{\hyperlink{class_vehicles_a1eb72ddb5c41ff3c3472474ed4bf39e4}{getLocation}}();}
+\DoxyCodeLine{63     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_vehicles_a82892beb6d2c189ea2c2017f4490de55}{getHP}}();}
+\DoxyCodeLine{68     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_vehicles_a7f2287429b153e854816e8d87044d8c2}{getDamage}}();}
+\DoxyCodeLine{73     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_vehicles_a883a932fcb6d9311819c8f1342f6a3ef}{getSpeed}}();}
+\DoxyCodeLine{78     \mbox{\hyperlink{class_vehicles}{Vehicles}} *\mbox{\hyperlink{class_vehicles_a0c9ed0db028edd50900739b1c039d4d7}{clone}}(\mbox{\hyperlink{class_area}{Area}}* newArea);}
+\DoxyCodeLine{84     \mbox{\hyperlink{class_vehicles}{Vehicles}} **\mbox{\hyperlink{class_vehicles_a0c9ed0db028edd50900739b1c039d4d7}{clone}}(\textcolor{keywordtype}{int} n, \mbox{\hyperlink{class_area}{Area}}* newArea);}
+\DoxyCodeLine{89     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vehicles_a629ca90ab204e1a06ac8462322338653}{changeLocation}}(\mbox{\hyperlink{class_area}{Area}} *area);}
+\DoxyCodeLine{93     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vehicles_a211459063a1c20f5ca4d1c83bafb4779}{update}}();}
+\DoxyCodeLine{98     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_vehicles_ab67dd72f59949ecbcd637a25092e81e8}{takeDamage}}(\textcolor{keywordtype}{double} dmg);}
+\DoxyCodeLine{102     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vehicles_a2e2544908fae0fe028acbb2f1462325a}{incLevel}}();}
+\DoxyCodeLine{106     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vehicles_ae80e43b8e1b19caf998f29f3f068aaf3}{print}}();}
+\DoxyCodeLine{111     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vehicles_a561aeec7ac39618f337c117048a7a9c2}{attack}}(\mbox{\hyperlink{class_vehicles}{Vehicles}} *theEnemy);}
+\DoxyCodeLine{116     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vehicles_a561aeec7ac39618f337c117048a7a9c2}{attack}}(\mbox{\hyperlink{class_troops}{Troops}} *theEnemy);}
+\DoxyCodeLine{121     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vehicles_a561aeec7ac39618f337c117048a7a9c2}{attack}}(\mbox{\hyperlink{class_infrastructure}{Infrastructure}} *theEnemy);}
+\DoxyCodeLine{125     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_vehicles_a6273cf53e2c3687c7271e11af02e4a19}{\string~Vehicles}}();}
+\DoxyCodeLine{130     vehicleType \mbox{\hyperlink{class_vehicles_aa6ec976c33e924df140132b1f038994f}{getType}}();}
+\DoxyCodeLine{131 \};}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// FACTORY\_AND\_OBSERVER\_VEHICLES\_H}}
+
+\end{DoxyCode}

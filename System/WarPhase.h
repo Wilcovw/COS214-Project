@@ -51,11 +51,15 @@ class Troops;
 class Vehicles;
 class Area;
 class Memento;
+/**
+ * @brief This class stores all the phases of the war. 
+ * 
+ */
 class WarPhase
 {
 private:
     /**
-     * @brief WarMap dtores all Areas involved in war
+     * @brief WarMap stores all Areas involved in war
      *
      */
     WarMap *map;

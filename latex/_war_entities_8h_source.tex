@@ -1,0 +1,37 @@
+\hypertarget{_war_entities_8h_source}{}\doxysection{War\+Entities.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef WARENTITIES\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define WARENTITIES\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Vehicles.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}Troops.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}Infrastructure.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}Citizens.h"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <list>}}
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{class_war_entities}{WarEntities}}}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15 \textcolor{keyword}{private}:}
+\DoxyCodeLine{20     std::list<Vehicles *> vehicles;}
+\DoxyCodeLine{25     std::list<Troops *> troops;}
+\DoxyCodeLine{30     std::list<Infrastructure *> infrastructure;}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{keyword}{public}:}
+\DoxyCodeLine{37     \mbox{\hyperlink{class_war_entities_a6603925786439345a5dd1643366a7c9b}{WarEntities}}();}
+\DoxyCodeLine{43     \mbox{\hyperlink{class_war_entities_a696ed5df8f3964f094220b5ed9be5b01}{WarEntities}}(\mbox{\hyperlink{class_war_entities}{WarEntities}} \&warEnt);}
+\DoxyCodeLine{48     \mbox{\hyperlink{class_war_entities_ac0fae6b3ba925789ba64fda4713f2ce5}{\string~WarEntities}}();}
+\DoxyCodeLine{54     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_war_entities_a20e09feeb1f66f63e091201e5b1e7477}{addVehicles}}(\mbox{\hyperlink{class_vehicles}{Vehicles}} *theVehicle);}
+\DoxyCodeLine{60     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_war_entities_ad20eab806819db0b857ed52e363b9c79}{addTroops}}(\mbox{\hyperlink{class_troops}{Troops}} *theTroops);}
+\DoxyCodeLine{66     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_war_entities_aa044399790da750ba13682f2b074d283}{addInfrastructure}}(\mbox{\hyperlink{class_infrastructure}{Infrastructure}} *theInfrastructure);}
+\DoxyCodeLine{72     std::list<Vehicles *> \mbox{\hyperlink{class_war_entities_aa2b221ea7e37e13dfa31241493785d11}{getVehicles}}();}
+\DoxyCodeLine{78     std::list<Troops *> \mbox{\hyperlink{class_war_entities_aebf1cbef703de02cabb5a98f14447e3f}{getTroops}}();}
+\DoxyCodeLine{84     std::list<Infrastructure *> \mbox{\hyperlink{class_war_entities_a3fab42daa58887e50778257587d77304}{getInfrastructure}}();}
+\DoxyCodeLine{90     \mbox{\hyperlink{class_war_entities}{WarEntities}} *\mbox{\hyperlink{class_war_entities_a58e84a635f038dc24277e95f58b99e64}{clone}}();}
+\DoxyCodeLine{95     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_war_entities_a6b39efb3d6da9f016a83b0ab625a9f3d}{removeInfrastructure}}(\mbox{\hyperlink{class_infrastructure}{Infrastructure}} *);}
+\DoxyCodeLine{100     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_war_entities_ab5763e80920cc947dd3c4712dc9d60c2}{removeTroops}}(\mbox{\hyperlink{class_troops}{Troops}} *);}
+\DoxyCodeLine{105     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_war_entities_af500c603f1189e0b94566bb68d53e892}{removeVehicles}}(\mbox{\hyperlink{class_vehicles}{Vehicles}} *);}
+\DoxyCodeLine{110     std::list<Citizens *> \mbox{\hyperlink{class_war_entities_acd0f27d08cf5a158bd34299cfaab6312}{getFightingCitizens}}();}
+\DoxyCodeLine{111 \};}
+\DoxyCodeLine{112 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

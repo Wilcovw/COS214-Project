@@ -1,0 +1,30 @@
+\hypertarget{_harbour_8h_source}{}\doxysection{Harbour.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef HARBOUR\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define HARBOUR\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <list>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}Infrastructure.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_edge}{Edge}};}
+\DoxyCodeLine{14 \textcolor{keyword}{class }\mbox{\hyperlink{class_harbour}{Harbour}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_infrastructure}{Infrastructure}}}
+\DoxyCodeLine{15 \{}
+\DoxyCodeLine{16 \textcolor{keyword}{private}:}
+\DoxyCodeLine{21     \textcolor{keywordtype}{string} name;}
+\DoxyCodeLine{26     list<Edge *> edges;}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{public}:}
+\DoxyCodeLine{33     \mbox{\hyperlink{class_harbour}{Harbour}}(\mbox{\hyperlink{class_area}{Area}} *, \textcolor{keywordtype}{double});}
+\DoxyCodeLine{38     \mbox{\hyperlink{class_harbour_a19531317d6f077172d96a77c09104c22}{\string~Harbour}}();}
+\DoxyCodeLine{46     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_harbour_a0edfbc1304eeb6731d77675d7d881e9f}{addConnection}}(\mbox{\hyperlink{class_area}{Area}} *destination, \textcolor{keywordtype}{double} distance, \mbox{\hyperlink{class_harbour}{Harbour}} *otherHarbour);}
+\DoxyCodeLine{54     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_harbour_a5a020ba6726ae659594d5ccb8e81ee34}{removeConnection}}(\mbox{\hyperlink{class_area}{Area}} *destination, \mbox{\hyperlink{class_harbour}{Harbour}} *otherHarbour, \mbox{\hyperlink{class_edge}{Edge}} *path);}
+\DoxyCodeLine{59     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_harbour_a10b52677e5211c21d5f5a614b9451a8e}{destroy}}();}
+\DoxyCodeLine{66     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_infrastructure}{Infrastructure}} *\mbox{\hyperlink{class_harbour_ab819b616f29ef6b0d89a7c8c41cff72d}{clone}}(\mbox{\hyperlink{class_area}{Area}} *newArea);}
+\DoxyCodeLine{67 \};}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

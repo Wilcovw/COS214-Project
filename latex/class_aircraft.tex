@@ -1,0 +1,109 @@
+\hypertarget{class_aircraft}{}\doxysection{Aircraft Class Reference}
+\label{class_aircraft}\index{Aircraft@{Aircraft}}
+
+
+\mbox{\hyperlink{class_aircraft}{Aircraft}} inherits from vehicles.  
+
+
+
+
+{\ttfamily \#include $<$Aircraft.\+h$>$}
+
+Inheritance diagram for Aircraft\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_aircraft}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_aircraft_a72eaf1bfddbf5fd0e755af38223b15ca}{Aircraft}} (\mbox{\hyperlink{class_area}{Area}} $\ast$location, double hp, double damage, double speed)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{class_aircraft}{Aircraft}} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_aircraft_aff5908917582785f9d716a4d7a9ad1a6}{update}} ()
+\begin{DoxyCompactList}\small\item\em method that calls the vehicle\textquotesingle{}s increments level method \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_aircraft_a913bb6cb00aeec38ee67a605cff1147a}{ready\+To\+Upgrade}} (\mbox{\hyperlink{class_research_and_development_centre}{Research\+And\+Development\+Centre}} $\ast$r)
+\begin{DoxyCompactList}\small\item\em adds to \mbox{\hyperlink{class_research_and_development_centre}{Research\+And\+Development\+Centre}} list, which stores items to be upgraded \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vehicles}{Vehicles}} $\ast$ \mbox{\hyperlink{class_aircraft_a99fd2dd45136247f30009a30751dedb2}{clone}} ()
+\begin{DoxyCompactList}\small\item\em Clones the current Vechile Object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_aircraft}{Aircraft}} inherits from vehicles. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_aircraft_a72eaf1bfddbf5fd0e755af38223b15ca}\label{class_aircraft_a72eaf1bfddbf5fd0e755af38223b15ca}} 
+\index{Aircraft@{Aircraft}!Aircraft@{Aircraft}}
+\index{Aircraft@{Aircraft}!Aircraft@{Aircraft}}
+\doxysubsubsection{\texorpdfstring{Aircraft()}{Aircraft()}}
+{\footnotesize\ttfamily Aircraft\+::\+Aircraft (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{location,  }\item[{double}]{hp,  }\item[{double}]{damage,  }\item[{double}]{speed }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{class_aircraft}{Aircraft}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em location} & \\
+\hline
+{\em hp} & \\
+\hline
+{\em damage} & \\
+\hline
+{\em speed} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_aircraft_a99fd2dd45136247f30009a30751dedb2}\label{class_aircraft_a99fd2dd45136247f30009a30751dedb2}} 
+\index{Aircraft@{Aircraft}!clone@{clone}}
+\index{clone@{clone}!Aircraft@{Aircraft}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vehicles}{Vehicles}} $\ast$ Aircraft\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clones the current Vechile Object. 
+
+\begin{DoxyReturn}{Returns}
+Vehicles$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_aircraft_a913bb6cb00aeec38ee67a605cff1147a}\label{class_aircraft_a913bb6cb00aeec38ee67a605cff1147a}} 
+\index{Aircraft@{Aircraft}!readyToUpgrade@{readyToUpgrade}}
+\index{readyToUpgrade@{readyToUpgrade}!Aircraft@{Aircraft}}
+\doxysubsubsection{\texorpdfstring{readyToUpgrade()}{readyToUpgrade()}}
+{\footnotesize\ttfamily void Aircraft\+::ready\+To\+Upgrade (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_research_and_development_centre}{Research\+And\+Development\+Centre}} $\ast$}]{r }\end{DoxyParamCaption})}
+
+
+
+adds to \mbox{\hyperlink{class_research_and_development_centre}{Research\+And\+Development\+Centre}} list, which stores items to be upgraded 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_aircraft_aff5908917582785f9d716a4d7a9ad1a6}\label{class_aircraft_aff5908917582785f9d716a4d7a9ad1a6}} 
+\index{Aircraft@{Aircraft}!update@{update}}
+\index{update@{update}!Aircraft@{Aircraft}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Aircraft\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+method that calls the vehicle\textquotesingle{}s increments level method 
+
+
+
+Reimplemented from \mbox{\hyperlink{class_vehicles_a211459063a1c20f5ca4d1c83bafb4779}{Vehicles}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Aircraft.\+h\item 
+Aircraft.\+cpp\end{DoxyCompactItemize}

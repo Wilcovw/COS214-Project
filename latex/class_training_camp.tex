@@ -1,0 +1,175 @@
+\hypertarget{class_training_camp}{}\doxysection{Training\+Camp Class Reference}
+\label{class_training_camp}\index{TrainingCamp@{TrainingCamp}}
+
+
+\mbox{\hyperlink{class_training_camp}{Training\+Camp}} is a type of \mbox{\hyperlink{class_infrastructure}{Infrastructure}} used to create troops. It has subclasses(\+Ground\+Troop\+Training, Navy\+Training, Airforce\+Training) that is used to transform \mbox{\hyperlink{class_citizens}{Citizens}} to \mbox{\hyperlink{class_navy}{Navy}}, \mbox{\hyperlink{class_airforce}{Airforce}} or \mbox{\hyperlink{class_ground_troops}{Ground\+Troops}}.  
+
+
+
+
+{\ttfamily \#include $<$Training\+Camp.\+h$>$}
+
+Inheritance diagram for Training\+Camp\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_training_camp}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_training_camp_acd58ff36540a90beb30d56391967c43e}{Training\+Camp}} (double, \mbox{\hyperlink{class_area}{Area}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Constructor -\/ passes parameters to parent class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_training_camp_adffea104ee4d7750892ce9903f0e7b03}\label{class_training_camp_adffea104ee4d7750892ce9903f0e7b03}} 
+virtual {\bfseries $\sim$\+Training\+Camp} ()
+\begin{DoxyCompactList}\small\item\em virtual destructor \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_training_camp_a65fd367ad688a2782092da7e9387bb59}{add\+Troop}} (\mbox{\hyperlink{class_troops}{Troops}} $\ast$the\+Troops)
+\begin{DoxyCompactList}\small\item\em adds the\+Troops to the private vector troops \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_training_camp_a79f175550958e73cbdd1a2b801317f5d}{remove\+Troop}} (\mbox{\hyperlink{class_troops}{Troops}} $\ast$the\+Troops)
+\begin{DoxyCompactList}\small\item\em searches for the\+Troops in troops vector and removes it \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_troops}{Troops}} $\ast$$\ast$ \mbox{\hyperlink{class_training_camp_a3fbf0303e4f7dfc488f56755ffd21f05}{get\+Troops}} ()
+\begin{DoxyCompactList}\small\item\em returns 2d array of troops \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_training_camp_aa4a0a2a3af969eb1da0296c4cb11f482}{destroy}} ()=0
+\item 
+virtual \mbox{\hyperlink{class_infrastructure}{Infrastructure}} $\ast$ \mbox{\hyperlink{class_training_camp_afdda7e8b732f796a675502796cd2e253}{clone}} (\mbox{\hyperlink{class_area}{Area}} $\ast$)=0
+\begin{DoxyCompactList}\small\item\em virtual clone function that returns nullptr \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_troops}{Troops}} $\ast$ \mbox{\hyperlink{class_training_camp_ab6dc8f7a2326362ba49bb47f726231de}{start\+Drafting}} (\mbox{\hyperlink{class_citizens}{Citizens}} $\ast$, the\+Troop\+Types)=0
+\begin{DoxyCompactList}\small\item\em virtual function to draft a citizen and make them a troop\+Type \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_training_camp_a3de6f2ac5c63af0f9055aa308d6da4b1}\label{class_training_camp_a3de6f2ac5c63af0f9055aa308d6da4b1}} 
+vector$<$ \mbox{\hyperlink{class_troops}{Troops}} $\ast$ $>$ {\bfseries troops}
+\begin{DoxyCompactList}\small\item\em a vector of troops \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_training_camp}{Training\+Camp}} is a type of \mbox{\hyperlink{class_infrastructure}{Infrastructure}} used to create troops. It has subclasses(\+Ground\+Troop\+Training, Navy\+Training, Airforce\+Training) that is used to transform \mbox{\hyperlink{class_citizens}{Citizens}} to \mbox{\hyperlink{class_navy}{Navy}}, \mbox{\hyperlink{class_airforce}{Airforce}} or \mbox{\hyperlink{class_ground_troops}{Ground\+Troops}}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_training_camp_acd58ff36540a90beb30d56391967c43e}\label{class_training_camp_acd58ff36540a90beb30d56391967c43e}} 
+\index{TrainingCamp@{TrainingCamp}!TrainingCamp@{TrainingCamp}}
+\index{TrainingCamp@{TrainingCamp}!TrainingCamp@{TrainingCamp}}
+\doxysubsubsection{\texorpdfstring{TrainingCamp()}{TrainingCamp()}}
+{\footnotesize\ttfamily Training\+Camp\+::\+Training\+Camp (\begin{DoxyParamCaption}\item[{double}]{the\+HP,  }\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{the\+Location }\end{DoxyParamCaption})}
+
+
+
+Constructor -\/ passes parameters to parent class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the\+HP} & \\
+\hline
+{\em the\+Location} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_training_camp_a65fd367ad688a2782092da7e9387bb59}\label{class_training_camp_a65fd367ad688a2782092da7e9387bb59}} 
+\index{TrainingCamp@{TrainingCamp}!addTroop@{addTroop}}
+\index{addTroop@{addTroop}!TrainingCamp@{TrainingCamp}}
+\doxysubsubsection{\texorpdfstring{addTroop()}{addTroop()}}
+{\footnotesize\ttfamily void Training\+Camp\+::add\+Troop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_troops}{Troops}} $\ast$}]{the\+Troops }\end{DoxyParamCaption})}
+
+
+
+adds the\+Troops to the private vector troops 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the\+Troops} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_training_camp_afdda7e8b732f796a675502796cd2e253}\label{class_training_camp_afdda7e8b732f796a675502796cd2e253}} 
+\index{TrainingCamp@{TrainingCamp}!clone@{clone}}
+\index{clone@{clone}!TrainingCamp@{TrainingCamp}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_infrastructure}{Infrastructure}} $\ast$ Training\+Camp\+::clone (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{new\+Area }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+virtual clone function that returns nullptr 
+
+\begin{DoxyReturn}{Returns}
+Infrastructure$\ast$ -\/ nullptr 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_infrastructure_aed522d5bc816f5edfb80613ec3948c8c}{Infrastructure}}.
+
+
+
+Implemented in \mbox{\hyperlink{class_airforce_training_ae12b76b14f299802c1cd62c9b2b7d0a6}{Airforce\+Training}}, \mbox{\hyperlink{class_ground_troop_training_ad804d0ecc1a0e77a5a3fc301d9b84c72}{Ground\+Troop\+Training}}, and \mbox{\hyperlink{class_navy_training_a63a3f64c1a58afec24438cabdaf2342e}{Navy\+Training}}.
+
+\mbox{\Hypertarget{class_training_camp_aa4a0a2a3af969eb1da0296c4cb11f482}\label{class_training_camp_aa4a0a2a3af969eb1da0296c4cb11f482}} 
+\index{TrainingCamp@{TrainingCamp}!destroy@{destroy}}
+\index{destroy@{destroy}!TrainingCamp@{TrainingCamp}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily void Training\+Camp\+::destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+virtual function 
+
+Reimplemented from \mbox{\hyperlink{class_infrastructure_afeb7bb200bf923d63e33436ad63578b7}{Infrastructure}}.
+
+
+
+Implemented in \mbox{\hyperlink{class_airforce_training_a2978ea2e59c3d51fb9b287efffbb51ba}{Airforce\+Training}}, \mbox{\hyperlink{class_ground_troop_training_aa5f75787a6b0d3d3f2fe8f8eab98824e}{Ground\+Troop\+Training}}, and \mbox{\hyperlink{class_navy_training_a0e6f99bcb60a18e9ef6d665e9272543c}{Navy\+Training}}.
+
+\mbox{\Hypertarget{class_training_camp_a3fbf0303e4f7dfc488f56755ffd21f05}\label{class_training_camp_a3fbf0303e4f7dfc488f56755ffd21f05}} 
+\index{TrainingCamp@{TrainingCamp}!getTroops@{getTroops}}
+\index{getTroops@{getTroops}!TrainingCamp@{TrainingCamp}}
+\doxysubsubsection{\texorpdfstring{getTroops()}{getTroops()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_troops}{Troops}} $\ast$$\ast$ Training\+Camp\+::get\+Troops (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns 2d array of troops 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_training_camp_a79f175550958e73cbdd1a2b801317f5d}\label{class_training_camp_a79f175550958e73cbdd1a2b801317f5d}} 
+\index{TrainingCamp@{TrainingCamp}!removeTroop@{removeTroop}}
+\index{removeTroop@{removeTroop}!TrainingCamp@{TrainingCamp}}
+\doxysubsubsection{\texorpdfstring{removeTroop()}{removeTroop()}}
+{\footnotesize\ttfamily bool Training\+Camp\+::remove\+Troop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_troops}{Troops}} $\ast$}]{the\+Troops }\end{DoxyParamCaption})}
+
+
+
+searches for the\+Troops in troops vector and removes it 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the\+Troops} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true -\/ the\+Troops has been removed 
+
+false -\/ the\+Troops was not found in list and has thus not been removed 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_training_camp_ab6dc8f7a2326362ba49bb47f726231de}\label{class_training_camp_ab6dc8f7a2326362ba49bb47f726231de}} 
+\index{TrainingCamp@{TrainingCamp}!startDrafting@{startDrafting}}
+\index{startDrafting@{startDrafting}!TrainingCamp@{TrainingCamp}}
+\doxysubsubsection{\texorpdfstring{startDrafting()}{startDrafting()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_troops}{Troops}} $\ast$ Training\+Camp\+::start\+Drafting (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_citizens}{Citizens}} $\ast$}]{,  }\item[{the\+Troop\+Types}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+virtual function to draft a citizen and make them a troop\+Type 
+
+\begin{DoxyReturn}{Returns}
+Troops$\ast$ -\/ nullptr 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_navy_training_acb027f929622048204dbe84bfb294b86}{Navy\+Training}}, \mbox{\hyperlink{class_airforce_training_a7683d00a456173cc2bf3105951185594}{Airforce\+Training}}, and \mbox{\hyperlink{class_ground_troop_training_a7c0a2dbb8bc4a8fd3bd73791fd3fd6c2}{Ground\+Troop\+Training}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Training\+Camp.\+h\item 
+Training\+Camp.\+cpp\end{DoxyCompactItemize}

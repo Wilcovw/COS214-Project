@@ -1,0 +1,23 @@
+\hypertarget{_communication_broadcast_8h_source}{}\doxysection{Communication\+Broadcast.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef COMMUNICATIONBROADCAST\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define COMMUNICATIONBROADCAST\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}Communication.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <list>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_communication_broadcast}{CommunicationBroadcast}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_communication}{Communication}}}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12 \textcolor{keyword}{private}:}
+\DoxyCodeLine{17     std::list<AssociatedCountries *> countryList;}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{public}:}
+\DoxyCodeLine{24     \mbox{\hyperlink{class_communication_broadcast_a9bb4139123901b20ff2bd2d541d5d507}{CommunicationBroadcast}}();}
+\DoxyCodeLine{30     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_communication_broadcast_a616edeef2c7d67de7c50a7a024506cec}{storeMe}}(\mbox{\hyperlink{class_associated_countries}{AssociatedCountries}} *me);}
+\DoxyCodeLine{36     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_communication_broadcast_ad34144d958498a1b1c39e76679f94300}{notify}}(\mbox{\hyperlink{class_associated_countries}{AssociatedCountries}} *countries, std::string message);}
+\DoxyCodeLine{42     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_communication_broadcast_af945bc5e69ef6564af80824f4727f915}{removeAssociatedCountries}}(\mbox{\hyperlink{class_associated_countries}{AssociatedCountries}} *aC);}
+\DoxyCodeLine{47     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_communication_broadcast_a64ca215b0a7b4d4b778b8405bccc0836}{\string~CommunicationBroadcast}}();}
+\DoxyCodeLine{48 \};}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

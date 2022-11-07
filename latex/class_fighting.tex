@@ -1,0 +1,95 @@
+\hypertarget{class_fighting}{}\doxysection{Fighting Class Reference}
+\label{class_fighting}\index{Fighting@{Fighting}}
+
+
+A state for a Citizen to be in hen they are participating in a battle.  
+
+
+
+
+{\ttfamily \#include $<$Fighting.\+h$>$}
+
+Inheritance diagram for Fighting\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_fighting}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual string \mbox{\hyperlink{class_fighting_a3f2f8ec2a0f5e25985080cd5e8c1c091}{get\+Status}} ()
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{class_status}{Status}} object. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_fighting_a207b94d65fb6f77b7ec57563a89a4958}{handle\+Change}} (\mbox{\hyperlink{class_citizens}{Citizens}} $\ast$c)
+\begin{DoxyCompactList}\small\item\em Manages the \mbox{\hyperlink{class_status}{Status}} of the Citizen. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_fighting_a6f857d8288ad3909edfbec4254bf95ae}{die}} (\mbox{\hyperlink{class_citizens}{Citizens}} $\ast$c)
+\begin{DoxyCompactList}\small\item\em Kills of the passed in Citizen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A state for a Citizen to be in hen they are participating in a battle. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_fighting_a6f857d8288ad3909edfbec4254bf95ae}\label{class_fighting_a6f857d8288ad3909edfbec4254bf95ae}} 
+\index{Fighting@{Fighting}!die@{die}}
+\index{die@{die}!Fighting@{Fighting}}
+\doxysubsubsection{\texorpdfstring{die()}{die()}}
+{\footnotesize\ttfamily void Fighting\+::die (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_citizens}{Citizens}} $\ast$}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Kills of the passed in Citizen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_status_a8c3e6b313f92626205c9b49600e62e97}{Status}}.
+
+\mbox{\Hypertarget{class_fighting_a3f2f8ec2a0f5e25985080cd5e8c1c091}\label{class_fighting_a3f2f8ec2a0f5e25985080cd5e8c1c091}} 
+\index{Fighting@{Fighting}!getStatus@{getStatus}}
+\index{getStatus@{getStatus}!Fighting@{Fighting}}
+\doxysubsubsection{\texorpdfstring{getStatus()}{getStatus()}}
+{\footnotesize\ttfamily string Fighting\+::get\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Get the \mbox{\hyperlink{class_status}{Status}} object. 
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_status_aeabcd2bfb3e5f1536d313f5bf6bca1f6}{Status}}.
+
+\mbox{\Hypertarget{class_fighting_a207b94d65fb6f77b7ec57563a89a4958}\label{class_fighting_a207b94d65fb6f77b7ec57563a89a4958}} 
+\index{Fighting@{Fighting}!handleChange@{handleChange}}
+\index{handleChange@{handleChange}!Fighting@{Fighting}}
+\doxysubsubsection{\texorpdfstring{handleChange()}{handleChange()}}
+{\footnotesize\ttfamily void Fighting\+::handle\+Change (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_citizens}{Citizens}} $\ast$}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Manages the \mbox{\hyperlink{class_status}{Status}} of the Citizen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_status_aa22576f76839eab59de334ce244f9fdb}{Status}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Fighting.\+h\item 
+Fighting.\+cpp\end{DoxyCompactItemize}

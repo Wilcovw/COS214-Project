@@ -1,0 +1,199 @@
+\hypertarget{class_infrastructure}{}\doxysection{Infrastructure Class Reference}
+\label{class_infrastructure}\index{Infrastructure@{Infrastructure}}
+
+
+A class representing all the infrastructure of a country.  
+
+
+
+
+{\ttfamily \#include $<$Infrastructure.\+h$>$}
+
+Inheritance diagram for Infrastructure\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.923077cm]{class_infrastructure}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_infrastructure_ae5421f8477b6635e7590be70fdc77c06}{Infrastructure}} (double hp, \mbox{\hyperlink{class_area}{Area}} $\ast$area)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_infrastructure}{Infrastructure}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_infrastructure_a568d84c0b958001ab0c34e63e7645a62}\label{class_infrastructure_a568d84c0b958001ab0c34e63e7645a62}} 
+virtual {\bfseries $\sim$\+Infrastructure} ()
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_infrastructure_a290ec5ce78b81318f725421833a23679}{get\+HP}} ()
+\begin{DoxyCompactList}\small\item\em Returns class private variable HP. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_infrastructure_afeb7bb200bf923d63e33436ad63578b7}{destroy}} ()
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_infrastructure_a427549966e3c0b55108b628bf41f20f2}{take\+Damage}} (double the\+Damage)
+\begin{DoxyCompactList}\small\item\em Decreases HP of this class by the amount of the parameter passed in. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_infrastructure}{Infrastructure}} $\ast$ \mbox{\hyperlink{class_infrastructure_aed522d5bc816f5edfb80613ec3948c8c}{clone}} (\mbox{\hyperlink{class_area}{Area}} $\ast$new\+Area)
+\item 
+\mbox{\hyperlink{class_area}{Area}} $\ast$ \mbox{\hyperlink{class_infrastructure_a3cf073641437f4427eca7fc8736cfe58}{get\+Area}} ()
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{class_area}{Area}} object. \end{DoxyCompactList}\item 
+type\+Of\+Infrastructure \mbox{\hyperlink{class_infrastructure_aa63bc182bbf453f921b9448fe70cbd27}{get\+Type}} ()
+\begin{DoxyCompactList}\small\item\em Get the Type OF \mbox{\hyperlink{class_infrastructure}{Infrastructure}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_infrastructure_a20c07563cd5918b63ed2dd5e7451827b}{HP}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_infrastructure}{Infrastructure}}\textquotesingle{}s HP. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_area}{Area}} $\ast$ \mbox{\hyperlink{class_infrastructure_ae21612f9cbcdc428f00c740b81062435}{location}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_infrastructure}{Infrastructure}}\textquotesingle{}s location. \end{DoxyCompactList}\item 
+type\+Of\+Infrastructure \mbox{\hyperlink{class_infrastructure_a5379724ecb52e0bcef98346b05d67d20}{type}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_infrastructure}{Infrastructure}}\textquotesingle{}s type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class representing all the infrastructure of a country. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_infrastructure_ae5421f8477b6635e7590be70fdc77c06}\label{class_infrastructure_ae5421f8477b6635e7590be70fdc77c06}} 
+\index{Infrastructure@{Infrastructure}!Infrastructure@{Infrastructure}}
+\index{Infrastructure@{Infrastructure}!Infrastructure@{Infrastructure}}
+\doxysubsubsection{\texorpdfstring{Infrastructure()}{Infrastructure()}}
+{\footnotesize\ttfamily Infrastructure\+::\+Infrastructure (\begin{DoxyParamCaption}\item[{double}]{hp,  }\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{area }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_infrastructure}{Infrastructure}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em area} & \\
+\hline
+{\em hp} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_infrastructure_aed522d5bc816f5edfb80613ec3948c8c}\label{class_infrastructure_aed522d5bc816f5edfb80613ec3948c8c}} 
+\index{Infrastructure@{Infrastructure}!clone@{clone}}
+\index{clone@{clone}!Infrastructure@{Infrastructure}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_infrastructure}{Infrastructure}} $\ast$ Infrastructure\+::clone (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{new\+Area }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Area} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{class_airforce_training_ae12b76b14f299802c1cd62c9b2b7d0a6}{Airforce\+Training}}, \mbox{\hyperlink{class_ground_troop_training_ad804d0ecc1a0e77a5a3fc301d9b84c72}{Ground\+Troop\+Training}}, \mbox{\hyperlink{class_navy_training_a63a3f64c1a58afec24438cabdaf2342e}{Navy\+Training}}, \mbox{\hyperlink{class_training_camp_afdda7e8b732f796a675502796cd2e253}{Training\+Camp}}, \mbox{\hyperlink{class_aircraft_development_a0806b67d0b0fae98ad3937cad6865b40}{Aircraft\+Development}}, \mbox{\hyperlink{class_aircraft_factory_a1cfed1ed75899d6853398016ffb3c2fe}{Aircraft\+Factory}}, \mbox{\hyperlink{class_aquatic_vehicle_development_a6828d0d885e6728b4aa516f27d7f4cd5}{Aquatic\+Vehicle\+Development}}, \mbox{\hyperlink{class_aquatic_vehicle_factory_a58942dc581ae11f19fcff0642881f1c0}{Aquatic\+Vehicle\+Factory}}, \mbox{\hyperlink{class_factory_a170837d8d27c28567feab334d1c5cb3a}{Factory}}, \mbox{\hyperlink{class_harbour_ab819b616f29ef6b0d89a7c8c41cff72d}{Harbour}}, \mbox{\hyperlink{class_land_vehicle_development_af8555d55ae409d9139b10f78f4a7639e}{Land\+Vehicle\+Development}}, \mbox{\hyperlink{class_land_vehicle_factory_ab6b602a5e291c4f1ca44c307a3dc4038}{Land\+Vehicle\+Factory}}, \mbox{\hyperlink{class_research_and_development_centre_a48c1869ceb7401be935d205920d1205a}{Research\+And\+Development\+Centre}}, \mbox{\hyperlink{class_road_a41a9090edab0e901e4f6c2cbd214ba30}{Road}}, and \mbox{\hyperlink{class_runway_aa451e3833511868919807f56dc6c7d77}{Runway}}.
+
+\mbox{\Hypertarget{class_infrastructure_afeb7bb200bf923d63e33436ad63578b7}\label{class_infrastructure_afeb7bb200bf923d63e33436ad63578b7}} 
+\index{Infrastructure@{Infrastructure}!destroy@{destroy}}
+\index{destroy@{destroy}!Infrastructure@{Infrastructure}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily void Infrastructure\+::destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+destructor 
+
+
+
+Reimplemented in \mbox{\hyperlink{class_aircraft_development_ac711381928505b4d665e51e2a774a377}{Aircraft\+Development}}, \mbox{\hyperlink{class_aircraft_factory_a655ff48c30d00645e53c09402e755698}{Aircraft\+Factory}}, \mbox{\hyperlink{class_airforce_training_a2978ea2e59c3d51fb9b287efffbb51ba}{Airforce\+Training}}, \mbox{\hyperlink{class_aquatic_vehicle_development_aef2ff5cf0398f1feeac90b3c4b2c0751}{Aquatic\+Vehicle\+Development}}, \mbox{\hyperlink{class_aquatic_vehicle_factory_a0bf69b62877f1a66e0d499b2fde4df09}{Aquatic\+Vehicle\+Factory}}, \mbox{\hyperlink{class_factory_a1711bb7dac12c0badaacd18d5fba332d}{Factory}}, \mbox{\hyperlink{class_ground_troop_training_aa5f75787a6b0d3d3f2fe8f8eab98824e}{Ground\+Troop\+Training}}, \mbox{\hyperlink{class_harbour_a10b52677e5211c21d5f5a614b9451a8e}{Harbour}}, \mbox{\hyperlink{class_land_vehicle_development_a939bc20ab9eb3a9ad5651bacce433b14}{Land\+Vehicle\+Development}}, \mbox{\hyperlink{class_land_vehicle_factory_af86127430b3f64cd32104d1ed68abe25}{Land\+Vehicle\+Factory}}, \mbox{\hyperlink{class_navy_training_a0e6f99bcb60a18e9ef6d665e9272543c}{Navy\+Training}}, \mbox{\hyperlink{class_research_and_development_centre_aa8ba924d0f7209390e019c178054ab1c}{Research\+And\+Development\+Centre}}, \mbox{\hyperlink{class_road_adaec60af4fd33b4e2bdaf85bc27ec13e}{Road}}, \mbox{\hyperlink{class_runway_a593bcb8695f7182c940fa30ecfed4e62}{Runway}}, and \mbox{\hyperlink{class_training_camp_aa4a0a2a3af969eb1da0296c4cb11f482}{Training\+Camp}}.
+
+\mbox{\Hypertarget{class_infrastructure_a3cf073641437f4427eca7fc8736cfe58}\label{class_infrastructure_a3cf073641437f4427eca7fc8736cfe58}} 
+\index{Infrastructure@{Infrastructure}!getArea@{getArea}}
+\index{getArea@{getArea}!Infrastructure@{Infrastructure}}
+\doxysubsubsection{\texorpdfstring{getArea()}{getArea()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_area}{Area}} $\ast$ Infrastructure\+::get\+Area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the \mbox{\hyperlink{class_area}{Area}} object. 
+
+\begin{DoxyReturn}{Returns}
+Area$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_infrastructure_a290ec5ce78b81318f725421833a23679}\label{class_infrastructure_a290ec5ce78b81318f725421833a23679}} 
+\index{Infrastructure@{Infrastructure}!getHP@{getHP}}
+\index{getHP@{getHP}!Infrastructure@{Infrastructure}}
+\doxysubsubsection{\texorpdfstring{getHP()}{getHP()}}
+{\footnotesize\ttfamily double Infrastructure\+::get\+HP (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns class private variable HP. 
+
+\begin{DoxyReturn}{Returns}
+HP 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_infrastructure_aa63bc182bbf453f921b9448fe70cbd27}\label{class_infrastructure_aa63bc182bbf453f921b9448fe70cbd27}} 
+\index{Infrastructure@{Infrastructure}!getType@{getType}}
+\index{getType@{getType}!Infrastructure@{Infrastructure}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily type\+Of\+Infrastructure Infrastructure\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Type OF \mbox{\hyperlink{class_infrastructure}{Infrastructure}}. 
+
+\begin{DoxyReturn}{Returns}
+type\+Of\+Infrastructure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_infrastructure_a427549966e3c0b55108b628bf41f20f2}\label{class_infrastructure_a427549966e3c0b55108b628bf41f20f2}} 
+\index{Infrastructure@{Infrastructure}!takeDamage@{takeDamage}}
+\index{takeDamage@{takeDamage}!Infrastructure@{Infrastructure}}
+\doxysubsubsection{\texorpdfstring{takeDamage()}{takeDamage()}}
+{\footnotesize\ttfamily void Infrastructure\+::take\+Damage (\begin{DoxyParamCaption}\item[{double}]{the\+Damage }\end{DoxyParamCaption})}
+
+
+
+Decreases HP of this class by the amount of the parameter passed in. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the\+Damage} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_infrastructure_a20c07563cd5918b63ed2dd5e7451827b}\label{class_infrastructure_a20c07563cd5918b63ed2dd5e7451827b}} 
+\index{Infrastructure@{Infrastructure}!HP@{HP}}
+\index{HP@{HP}!Infrastructure@{Infrastructure}}
+\doxysubsubsection{\texorpdfstring{HP}{HP}}
+{\footnotesize\ttfamily double Infrastructure\+::\+HP\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+\mbox{\hyperlink{class_infrastructure}{Infrastructure}}\textquotesingle{}s HP. 
+
+\mbox{\Hypertarget{class_infrastructure_ae21612f9cbcdc428f00c740b81062435}\label{class_infrastructure_ae21612f9cbcdc428f00c740b81062435}} 
+\index{Infrastructure@{Infrastructure}!location@{location}}
+\index{location@{location}!Infrastructure@{Infrastructure}}
+\doxysubsubsection{\texorpdfstring{location}{location}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_area}{Area}}$\ast$ Infrastructure\+::location\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+\mbox{\hyperlink{class_infrastructure}{Infrastructure}}\textquotesingle{}s location. 
+
+\mbox{\Hypertarget{class_infrastructure_a5379724ecb52e0bcef98346b05d67d20}\label{class_infrastructure_a5379724ecb52e0bcef98346b05d67d20}} 
+\index{Infrastructure@{Infrastructure}!type@{type}}
+\index{type@{type}!Infrastructure@{Infrastructure}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily type\+Of\+Infrastructure Infrastructure\+::type\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+\mbox{\hyperlink{class_infrastructure}{Infrastructure}}\textquotesingle{}s type. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Infrastructure.\+h\item 
+Infrastructure.\+cpp\end{DoxyCompactItemize}
