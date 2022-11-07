@@ -4,21 +4,21 @@ WarEntities::WarEntities()
 }
 WarEntities::~WarEntities()
 {
-    std::list<Vehicles *>::iterator it;
-    for (it = vehicles.begin(); it != vehicles.end(); ++it)
+    for (auto v : vehicles)
     {
-        delete *it;
+        delete v;
     }
 
-    std::list<Troops *>::iterator itt;
-    for (itt = troops.begin(); itt != troops.end(); ++itt)
+    for (auto t : troops)
     {
-        delete *itt;
+        delete t;
     }
-    std::list<Infrastructure *>::iterator iti;
-    for (iti = infrastructure.begin(); iti != infrastructure.end(); ++iti)
+
+    infrastructure.sort();
+    infrastructure.unique();
+    for (auto i : infrastructure)
     {
-        delete *iti;
+        delete i;
     }
 }
 

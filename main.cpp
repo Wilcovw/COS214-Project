@@ -642,6 +642,14 @@ void populate(WarEngine *game, bool designMode)
     game->getPhase()->distributeTroopsAndVehicles(Netherlands);
     game->getPhase()->distributeTroopsAndVehicles(Germany);
     game->getPhase()->distributeTroopsAndVehicles(Denmark);
+
+
+    game->getPhase()->attackArea(Dublin, France);
+    game->getPhase()->attackArea(Cork, France);
+    game->getPhase()->attackArea(Galway, France);
+    game->getPhase()->attackArea(Limerick, France);
+    game->getPhase()->attackArea(Amsterdam, France);
+    game->getPhase()->attackArea(Brussels, France);
 }
 
 void newPhase(WarEngine *game)
@@ -1283,11 +1291,11 @@ void run()
 }
 int main()
 {
-    run();
+    //run();
     // realMode();
     // designMode();
-    //  WarEngine *game = new WarEngine();
-    //  populate(game);
+      WarEngine *game = new WarEngine();
+      populate(game, false);
     return 0;
 }
 

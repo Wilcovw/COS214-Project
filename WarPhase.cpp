@@ -1230,7 +1230,7 @@ bool WarPhase::attackArea(string areaName, string countryName)
                     }
                 }
                 if (isAccessible)
-                {
+                {   
                     list<Vehicles *> vehicles;
                     list<Troops *> troops;
                     list<Country *> alies = country->getAllies();
@@ -1438,18 +1438,19 @@ bool WarPhase::attackArea(string areaName, string countryName)
                         if (enemy->getAreas().empty())
                         {
                             cout << enemy->getName() << " has no more Areas to control and has been defeated" << endl;
-                            bool isThere = false;
-
                             allCountries.remove(enemy);
-
                             Relationship *relationship = (Relationship *)enemy->getParent();
                             enemy->getCommunication()->removeAssociatedCountries(enemy);
                             relationship->removeAssociatedCountries(enemy);
-
+                            for(auto i : enemy->getWarEntities()->getInfrastructure()) {
+                                enemy->getWarEntities()->removeInfrastructure(i);
+                                country->getWarEntities()->addInfrastructure(i);
+                            }
+                            country->getWarEntities()->getInfrastructure().sort();
+                            country->getWarEntities()->getInfrastructure().unique();
                             delete enemy;
                             if (relationship->getRelationships().empty())
                             {
-                                cout << "Truueeeeeee" << endl;
                                 delete relationship;
                             }
                             else
@@ -1493,7 +1494,6 @@ bool WarPhase::attackArea(string areaName, string countryName)
             }
         }
     }
-    cout << "Here" << endl;
     return successfulAttack;
 }
 
