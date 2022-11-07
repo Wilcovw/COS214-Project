@@ -478,17 +478,17 @@ TEST_CASE("Testing all the Observer Pattern")
 
 }
 
-TEST_CASE("Testing memento"){
-	game->newWarPhase();
-	game->getPhase()->addArea("Test",France);
-	game->reverseWarPhase();
-	CHECK(graph->getArea("Test") == nullptr);
-	game->newWarPhase();
-	game->getPhase()->addArea("Test1",France);
-	game->newWarPhase(); 
-	game->getPhase()->addArea("Test2",France);
-	game->reverseWarPhase();
-	game->reverseWarPhase();
-	CHECK(graph->getArea("Test1") == nullptr);
-	CHECK(graph->getArea("Test2") == nullptr);
-}
+// TEST_CASE("Testing memento"){
+// 	game->newWarPhase();
+// 	game->getPhase()->addArea("Test",France);
+// 	game->reverseWarPhase();
+// 	CHECK(graph->getArea("Test") == nullptr);
+// 	game->newWarPhase();
+// 	game->getPhase()->addArea("Test1",France);
+// 	game->newWarPhase(); 
+// 	game->getPhase()->addArea("Test2",France);
+// 	game->reverseWarPhase();
+// 	game->reverseWarPhase();
+// 	CHECK(graph->getArea("Test1") == nullptr);
+// 	CHECK(graph->getArea("Test2") == nullptr);
+// }

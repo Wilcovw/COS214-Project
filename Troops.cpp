@@ -20,7 +20,8 @@ Troops::Troops(double theHP, Area *theArea, TroopType *theType, Citizens *theCit
     type = theType;
 }
 
-Troops::~Troops() {
+Troops::~Troops()
+{
     delete type;
 }
 
@@ -92,15 +93,17 @@ double Troops::getDamage()
     return type->getDamage();
 }
 
-kindOfTroops Troops::getKind() { 
+kindOfTroops Troops::getKind()
+{
     return this->kind;
 }
 
-void Troops::setLocation(Area* theLocation) {
+void Troops::setLocation(Area *theLocation)
+{
     location = theLocation;
 }
 
-Troops *Troops::clone()
+Troops *Troops::clone(Area* newArea)
 {
     Citizens *citizens = new Citizens();
     if (associatedCitizens->getStatus() == "Enlisted")
@@ -116,34 +119,65 @@ Troops *Troops::clone()
         citizens->setStatus(new Fighting());
     }
     clonedTroop = nullptr;
-    if(type->getType() == ::theGenerals) {
-        clonedTroop = new Troops(this->HP, this->location, new Generals(), citizens);
-    } else if(type->getType() == ::theSpecialForces) {
-        clonedTroop = new Troops(this->HP, this->location, new SpecialForces(), citizens);
-    } else if(type->getType() == ::theSoldiers) {
-        clonedTroop = new Troops(this->HP, this->location, new Soldiers(), citizens);
+    if (type->getType() == ::theGenerals)
+    {
+        if (kind == ::tNavy)
+        {
+            clonedTroop = new Navy(newArea, new Generals(), citizens);
+        }
+        else if (kind == ::tGroundTroops)
+        {
+            clonedTroop = new GroundTroops(newArea, new Generals(), citizens);
+        }
+        else if (kind == ::tAirforce)
+        {
+            clonedTroop = new Airforce(newArea, new Generals(), citizens);
+        }
+    }
+    else if (type->getType() == ::theSpecialForces)
+    {
+        if (kind == ::tNavy)
+        {
+            clonedTroop = new Navy(newArea, new SpecialForces(), citizens);
+        }
+        else if (kind == ::tGroundTroops)
+        {
+            clonedTroop = new GroundTroops(newArea, new SpecialForces(), citizens);
+        }
+        else if (kind == ::tAirforce)
+        {
+            clonedTroop = new Airforce(newArea, new SpecialForces(), citizens);
+        }
+    }
+    else if (type->getType() == ::theSoldiers)
+    {
+        if (kind == ::tNavy)
+        {
+            clonedTroop = new Navy(newArea, new Soldiers(), citizens);
+        }
+        else if (kind == ::tGroundTroops)
+        {
+            clonedTroop = new GroundTroops(newArea, new Soldiers(), citizens);
+        }
+        else if (kind == ::tAirforce)
+        {
+            clonedTroop = new Airforce(newArea, new Soldiers(), citizens);
+        }
     }
     return clonedTroop;
 }
 
-Troops **Troops::clone(int n)
+Citizens *Troops::getAssociatedCitizen()
 {
-    if (n < 1)
-    {
-        n = 1;
-    }
-    Troops **troops = new Troops *[n];
-    for (int i = 0; i < n; i++)
-    {
-        troops[i] = clone();
-    }
-    return troops;
-}
-
-Citizens* Troops::getAssociatedCitizen(){
     return associatedCitizens;
 }
 
-Troops* Troops::getClone() {
+void Troops::releaseAssociatedCitizen()
+{
+    associatedCitizens = nullptr;
+}
+
+Troops *Troops::getClone()
+{
     return clonedTroop;
 }
