@@ -11,18 +11,13 @@ Citizens::~Citizens()
 {
     // cout << "Citizens destructor called" << endl;
     delete status;
-    
     status = 0;
 }
 
 void Citizens::setStatus(Status *status)
 {
     // cout << "setStatus called" << endl;
-    if (this->status != nullptr)
-    {
-        delete this->status;
-        this->status = nullptr;
-    }
+    delete this->status;
     this->status = status;
 }
 
@@ -33,31 +28,7 @@ void Citizens::changeStatus()
 
 string Citizens::getStatus()
 {
-    string stat = "Unlisted";
-    try
-    {
-        if (this->status != nullptr)
-        stat = this->status->getStatus();
-    }
-    catch(const exception& e)
-    {
-        return stat;
-    }
-    catch(...){
-        return stat;
-    }
-    return stat;
-
-
-
-
-    // if (this->status == NULL)
-    // {
-    //     cout << "Made it here" << endl;
-    //     this->status = new Unlisted();
-    // }
-    // // this->status = new Unlisted();
-    // return this->status->getStatus();
+    return this->status->getStatus();
 }
 
 void Citizens::die()
@@ -65,22 +36,22 @@ void Citizens::die()
     status->die(this);
 }
 
-void Citizens::toggleRevolution()
+void Citizens::toggleRevolution(Country *country)
 {
     if (this->getStatus() == "Unlisted")
     {
-        this->toggleCommand->execute();
+        this->toggleCommand->execute(country);
     }
     else
     {
         if (this->toggleCommand->isActive())
         {
-            this->toggleCommand->execute();
+            this->toggleCommand->execute(country);
         }
         else
         {
             this->setStatus(new Unlisted());
-            this->toggleCommand->execute();
+            this->toggleCommand->execute(country);
         }
     }
 }

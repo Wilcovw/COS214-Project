@@ -120,6 +120,10 @@ public:
      */
     Citizens *getAssociatedCitizen();
     /**
+     * @brief releases the associatedCitizens
+     */
+    void releaseAssociatedCitizen();
+    /**
      * @brief returns class' clone
      * @return Troops* - clonedTroop
      */
