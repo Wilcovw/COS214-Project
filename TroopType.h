@@ -12,11 +12,20 @@ class Vehicles;
 class TroopType {
 protected:
     /**
-     * @brief The TroopType's stats
+     * @brief The TroopType's damage
      */
     double damage;
+    /**
+     * @brief The TroopType's speed
+     */
     double speed;
+    /**
+     * @brief The TroopType's maxHP
+     */
     double maxHP;
+    /**
+     * @brief The TroopType's type
+     */
     theTroopTypes type;
 public:
     /**

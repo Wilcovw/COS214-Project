@@ -10,10 +10,24 @@
 class Factory : public Infrastructure
 {
 private:
+    /**
+     * @brief a Vehicle the factory is creation that is stored
+     * 
+     */
     Vehicles *vehicle;
 
 public:
+    /**
+    * @brief Construct a new Factory object
+    * 
+    * @param hp 
+    * @param area 
+    */
     Factory(double hp, Area *area) : Infrastructure(hp, area){};
+    /**
+     * @brief virtual Destroy the Factory object
+     * 
+     */
     virtual ~Factory(){};
 
     /**

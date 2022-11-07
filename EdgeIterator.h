@@ -70,14 +70,4 @@ public:
 	Edge *currentItem();
 };
 
-// Code to get all the edges in the graph
-/*
-EdgeIterator *edgeIter = graph->createEdgeIterator();
-	edgeIter->first();
-	while(edgeIter->isDone() == false){
-		Edge* currentEdge = edgeIter->currentItem();
-		cout << currentEdge->getName() << endl;
-
-		edgeIter->next();
-}*/
 #endif

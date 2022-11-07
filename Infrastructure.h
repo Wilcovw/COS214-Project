@@ -9,8 +9,20 @@ class Area;
 class Infrastructure
 {
 protected:
+    /**
+    * @brief Infrastructure's HP
+    * 
+    */
     double HP;
+    /**
+    * @brief Infrastructure's location
+    * 
+    */
     Area *location;
+    /**
+    * @brief Infrastructure's type
+    * 
+    */
     typeOfInfrastructure type;
 
 public:
