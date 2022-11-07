@@ -18,6 +18,27 @@ void next()
     setWhite();
 }
 
+int checkInput(string input, int defaultValue)
+{
+    string in = "";
+    if (input == "")
+    {
+        return defaultValue;
+    }
+    else
+    {
+        try
+        {
+            stoi(input);
+        }
+        catch (const std::exception &e)
+        {
+            return defaultValue;
+        }
+    }
+    return defaultValue + 1;
+}
+
 void populate(WarEngine *game, bool designMode)
 {
     // Teams
@@ -623,7 +644,6 @@ void populate(WarEngine *game, bool designMode)
     game->getPhase()->distributeTroopsAndVehicles(Denmark);
 }
 
-// Create a memento an the current phase and then create and store a new phase in WarEngine
 void newPhase(WarEngine *game)
 {
     game->newWarPhase();
@@ -666,7 +686,7 @@ void setPurple()
 
 void setCyan()
 {
-    setFontColor(0, 100, 100);
+    setFontColor(0, 150, 150);
 }
 
 void printLine()
@@ -761,7 +781,14 @@ void Phase5(WarEngine *game, string country)
                  << "3: The cost of war is too high, rather sign a peace treaty" << endl;
             setWhite();
             getline(std::cin, input);
-            userWantsToAttack = stoi(input);
+            if (checkInput(input, 0) != 0)
+            {
+                userWantsToAttack = stoi(input);
+            }
+            else
+            {
+                userWantsToAttack = 0;
+            }
         }
         if (userWantsToAttack == 1)
         {
@@ -887,7 +914,14 @@ void Phase3(WarEngine *game, string country)
     while (chC == 0)
     {
         getline(std::cin, choiceCountry);
-        chC = stoi(choiceCountry);
+        if (checkInput(choiceCountry, 0) != 0)
+        {
+            chC = stoi(choiceCountry);
+        }
+        else
+        {
+            chC = 0;
+        }
         if (chC <= numEnemies && chC > 0)
         {
             chosenEnemy = enemyNames.at(chC - 1);
@@ -917,8 +951,17 @@ void Phase3(WarEngine *game, string country)
         bool chooseArea = false;
         while (!chooseArea)
         {
+            int chA = 0;
             getline(std::cin, choiceCountry);
-            int chA = stoi(choiceCountry);
+            if (checkInput(choiceCountry, 0) != 0)
+            {
+                chA = stoi(choiceCountry);
+            }
+            else
+            {
+                chA = 0;
+            }
+            chA = stoi(choiceCountry);
             if (chA <= numEnemyAreas && chA > 0)
             {
                 chooseArea = true;
@@ -950,7 +993,14 @@ void Phase3(WarEngine *game, string country)
                          << "2: No" << endl;
                     setWhite();
                     getline(std::cin, input);
-                    userWantsToattack = stoi(input);
+                    if (checkInput(input, 2) != 2)
+                    {
+                        userWantsToattack = stoi(input);
+                    }
+                    else
+                    {
+                        userWantsToattack = 2;
+                    }
                     printLine();
                 }
             }
@@ -977,7 +1027,14 @@ void Phase3(WarEngine *game, string country)
                 setWhite();
                 int in = 0;
                 getline(std::cin, input);
-                in = stoi(input);
+                if (checkInput(input, 0) != 0)
+                {
+                    in = stoi(input);
+                }
+                else
+                {
+                    in = 0;
+                }
                 if (in == 1)
                 {
                     game->reverseWarPhase();
@@ -1027,6 +1084,11 @@ void Phase2(WarEngine *game, string country)
              << "3: Upgrade vehicles stationed at research facilities" << endl;
         setWhite();
         getline(std::cin, choice);
+        if (choice == "")
+        {
+            choice = "0";
+        }
+
         if (choice.compare("1") == 0)
         {
             if (country.compare("France") == 0)
@@ -1115,6 +1177,14 @@ void realMode()
     while (country.compare("") == 0)
     {
         getline(std::cin, choice);
+        if (checkInput(choice, 0) != 0)
+        {
+            choice = choice;
+        }
+        else
+        {
+            choice = "0";
+        }
         if (choice.compare("1") == 0)
         {
             setGreen();
@@ -1195,19 +1265,21 @@ void designMode()
         cout << "With the victory in berlin France has conquered all the areas in Germany" << endl;
         next();
     }
-    game->getPhase()->printCountryStatus(country,true);
+    game->getPhase()->printCountryStatus(country, true);
     game->getPhase()->printCountryStatus("Germany", true);
-    //game->getPhase()->attackArea("Bremen", "Denmark");
+    // game->getPhase()->attackArea("Bremen", "Denmark");
 }
-void run(){
+void run()
+{
     string choice;
     cout << "Which mode do you want to run in?\n1. Real Mode\n2. Design Mode" << endl;
-    cin >> choice;
-    if(choice[0] == '1')
+    getline(cin, choice);
+    if (choice[0] == '1')
         realMode();
-    else if(choice[0] == '2') 
+    else if (choice[0] == '2')
         designMode();
-    else run();
+    else
+        run();
 }
 int main()
 {

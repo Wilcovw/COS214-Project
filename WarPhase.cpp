@@ -72,20 +72,16 @@ WarPhase *WarPhase::clone()
             }
         }
     }
-    cout << "5" << endl;
     for (auto oldCountry : allCountries)
     {
-        cout << oldCountry->getName() << endl;
         for (auto clonedCountry : c)
         {
             if (oldCountry->getName() == clonedCountry->getName())
             {
-                cout << "--" << clonedCountry << clonedCountry->getName() << endl;
                 oldCountry->cloneWarEntities(clonedCountry);
             }
         }
     }
-    cout << "6" << endl;
     wph->communication = com;
     wph->allCountries = c;
     wph->allRelationships = r;
@@ -452,8 +448,8 @@ void WarPhase::addConnection(typeOfInfrastructure type, string sourceName, strin
 {
     Country *country = getCountryFromArea(sourceName);
     Country *destination = getCountryFromArea(destinationName);
-    Area* area = getArea(sourceName);
-    Area* destinationArea = getArea(destinationName);
+    Area *area = getArea(sourceName);
+    Area *destinationArea = getArea(destinationName);
     if (country != nullptr && destination != nullptr && area != nullptr && destinationArea != nullptr)
     {
         if (type == ::iRoad)
@@ -1383,8 +1379,10 @@ bool WarPhase::attackArea(string areaName, string countryName)
                         {
                             Vehicles *vehicle = vehicles.front();
                             list<Infrastructure *> temp = getAllFacilitiesInArea(getArea(areaName));
-                            if(!temp.empty()) {
-                                for(auto i : temp) {
+                            if (!temp.empty())
+                            {
+                                for (auto i : temp)
+                                {
                                     vehicle->attack(i);
                                     enemy->getWarEntities()->removeInfrastructure(i);
                                     i->destroy();
@@ -1395,8 +1393,10 @@ bool WarPhase::attackArea(string areaName, string countryName)
                         {
                             Troops *troop = troops.front();
                             list<Infrastructure *> temp = getAllFacilitiesInArea(getArea(areaName));
-                            if(!temp.empty()) {
-                                for(auto i : temp) {
+                            if (!temp.empty())
+                            {
+                                for (auto i : temp)
+                                {
                                     troop->attack(i);
                                     enemy->getWarEntities()->removeInfrastructure(i);
                                     i->destroy();
@@ -1408,8 +1408,11 @@ bool WarPhase::attackArea(string areaName, string countryName)
                         {
                             for (auto c : connections)
                             {
-                                enemy->getWarEntities()->removeInfrastructure(c);
-                                country->getWarEntities()->addInfrastructure(c);
+                                if (c->getArea() == area)
+                                {
+                                    enemy->getWarEntities()->removeInfrastructure(c);
+                                    country->getWarEntities()->addInfrastructure(c);
+                                }
                             }
                             country->getWarEntities()->getInfrastructure().sort();
                             country->getWarEntities()->getInfrastructure().unique();
@@ -1491,6 +1494,7 @@ bool WarPhase::attackArea(string areaName, string countryName)
             }
         }
     }
+    cout << "Here" << endl;
     return successfulAttack;
 }
 
