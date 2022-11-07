@@ -54,11 +54,7 @@ class Memento;
 class WarPhase
 {
 private:
-    /**
-     * @brief WarMap dtores all Areas involved in war
-     *
-     */
-    WarMap *map;
+    
     /**
      * @brief Stores communication object that works as mediator
      *
@@ -88,13 +84,7 @@ private:
      * @return list<Relationship *>
      */
     list<Relationship *> cloneRelationship(Relationship *head);
-    /**
-     * @brief  Returns a country object with the name passed in as parameter
-     *
-     * @param countyName The name of the country to return
-     * @return Country*
-     */
-    Country *getCountry(string countryName);
+    
     /**
      * @brief  Returns a realtionship object with the name passed in as parameter
      *
@@ -109,13 +99,7 @@ private:
      * @return Realtionship*
      */
     Country *getCountryFromArea(string areaName);
-    /**
-     *  @brief  Returns an Area object with the name passed in as parameter
-     *
-     * @param areaName The name of the relationship to return
-     * @return Area**
-     */
-    Area *getArea(string areaName);
+    
     /**
      * @brief  Returns list of all infrastructure in the Area of a certain type
      *
@@ -204,6 +188,25 @@ private:
     void moveVehicles(Area *area, Country *country, int maxDistance);
 
 public:
+/**
+     * @brief  Returns a country object with the name passed in as parameter
+     *
+     * @param countyName The name of the country to return
+     * @return Country*
+     */
+    Country *getCountry(string countryName);
+/**
+     *  @brief  Returns an Area object with the name passed in as parameter
+     *
+     * @param areaName The name of the relationship to return
+     * @return Area**
+     */
+    Area *getArea(string areaName);
+	/**
+     * @brief WarMap dtores all Areas involved in war
+     *
+     */
+    WarMap *map;
     /**
      * @brief Construct a new War Phase object
      *

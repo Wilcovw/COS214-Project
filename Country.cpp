@@ -86,6 +86,7 @@ Country::~Country()
 void Country::receiveMessage(std::string message)
 {
     std::cout << name << " received a message: \t" << message << std::endl;
+	recivedMessage = message;
 }
 
 void Country::sendBroadcast(AssociatedCountries *messageReceiver, std::string message)

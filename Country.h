@@ -40,8 +40,9 @@ private:
      *
      */
     std::list<Area *> areas;
-
+	
 public:
+	string recivedMessage;
     /**
      * @brief Construct a new Country object
      *
