@@ -28,10 +28,7 @@ void WarEngine::newWarPhase()
 
 void WarEngine::reverseWarPhase()
 {
-    Memento* theNewMemento = history->getLastMemento();
-    if(theNewMemento != nullptr) {
-        phase->reverseWarPhase(theNewMemento);
-    }
+    phase->reverseWarPhase(history->getLastMemento());
 }
 
 WarPhase *WarEngine::getPhase()
