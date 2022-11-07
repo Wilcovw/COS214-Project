@@ -142,8 +142,6 @@ AssociatedCountries *Country::clone(Communication *comm, AssociatedCountries *pa
 void Country::cloneWarEntities(Country *country)
 {
     int counter = 0;
-    cout << "unlisted" << endl;
-
     for(auto c : citizens) {
         if(c != nullptr && c->getStatus() =="Unlisted" || c->getStatus() == "Dead")
         {
@@ -152,13 +150,10 @@ void Country::cloneWarEntities(Country *country)
     }
     int x = 0;
     country->entities = this->entities->clone();
-    cout << "after entities in country" << endl;
-
     for (auto t : this->entities->getTroops())
     {
         country->citizens.push_back(t->getAssociatedCitizen());
     }
-    cout << "after listed citizens in country" << endl;
 }
 
 list<Country *> Country::getAllies()

@@ -72,24 +72,18 @@ WarPhase *WarPhase::clone()
             }
         }
     }
-    cout << "clone area" << endl;
 
     for (auto oldCountry : allCountries)
     {
-        cout << oldCountry->getName() << " 1" << endl;
 
         for (auto clonedCountry : c)
         {
-            cout << clonedCountry->getName() << endl;
-
             if (oldCountry->getName().compare(clonedCountry->getName()) == 0)
             {
-                cout << "in For" << endl;
                 oldCountry->cloneWarEntities(clonedCountry);
             }
         }
     }
-    cout << "clone war entities" << endl;
 
     wph->communication = com;
     wph->allCountries = c;
