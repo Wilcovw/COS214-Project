@@ -11,13 +11,18 @@ Citizens::~Citizens()
 {
     // cout << "Citizens destructor called" << endl;
     delete status;
+    
     status = 0;
 }
 
 void Citizens::setStatus(Status *status)
 {
     // cout << "setStatus called" << endl;
-    delete this->status;
+    if (this->status != nullptr)
+    {
+        delete this->status;
+        this->status = nullptr;
+    }
     this->status = status;
 }
 
@@ -28,7 +33,31 @@ void Citizens::changeStatus()
 
 string Citizens::getStatus()
 {
-    return this->status->getStatus();
+    string stat = "Unlisted";
+    try
+    {
+        if (this->status != nullptr)
+        stat = this->status->getStatus();
+    }
+    catch(const exception& e)
+    {
+        return stat;
+    }
+    catch(...){
+        return stat;
+    }
+    return stat;
+
+
+
+
+    // if (this->status == NULL)
+    // {
+    //     cout << "Made it here" << endl;
+    //     this->status = new Unlisted();
+    // }
+    // // this->status = new Unlisted();
+    // return this->status->getStatus();
 }
 
 void Citizens::die()

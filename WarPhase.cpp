@@ -71,9 +71,17 @@ WarPhase *WarPhase::clone()
     }
     for (auto oldCountry : allCountries)
     {
+<<<<<<< Updated upstream
         for (auto clonedCountry : c)
         {
             if (oldCountry->getName() == clonedCountry->getName())
+=======
+        
+        for (auto clonedCountry : c)
+        {
+
+            if (oldCountry->getName().compare(clonedCountry->getName()) == 0)
+>>>>>>> Stashed changes
             {
                 oldCountry->cloneWarEntities(clonedCountry);
             }
@@ -92,6 +100,7 @@ Memento *WarPhase::newWarPhase()
     WarMap *newMap = new WarMap();
     for (auto c : clonedWarPhase->allCountries)
     {
+        
         list<Area *> allAreas = c->getAreas();
         for (auto a : allAreas)
         {
@@ -100,12 +109,12 @@ Memento *WarPhase::newWarPhase()
     }
     clonedWarPhase->map = newMap;
     Memento *meme = new Memento(clonedWarPhase);
-
     return meme;
 }
 
 void WarPhase::reverseWarPhase(Memento *memento)
 {
+<<<<<<< Updated upstream
     WarPhase *oldPhase = memento->warphase;
     allCountries = oldPhase->allCountries;
     list<Country*> temp;    
@@ -114,6 +123,19 @@ void WarPhase::reverseWarPhase(Memento *memento)
     list<Relationship*> temp2; 
     oldPhase->allRelationships = temp2;
     map = oldPhase->map;
+=======
+    if(memento != nullptr) {
+        WarPhase *oldPhase = memento->warphase;
+        allCountries = oldPhase->allCountries;
+        list<Country *> temp;
+        oldPhase->allCountries = temp;
+        allRelationships = oldPhase->allRelationships;
+        list<Relationship *> temp2;
+        oldPhase->allRelationships = temp2;
+        map = oldPhase->map;
+    }
+    
+>>>>>>> Stashed changes
 }
 
 list<Country *> WarPhase::cloneCountries(Relationship *head)
@@ -661,16 +683,13 @@ void WarPhase::addTroops(string areaName, kindOfTroops kind, theTroopTypes type)
     Country *country = getCountryFromArea(areaName);
     if (country != nullptr)
     {
-        if (country->getNumCitzenGroups() > 0)
+        if (country->getCitizens().size() > 0)
         {
-            Citizens **citizens = country->getCitizens();
+            list<Citizens *> citizens = country->getCitizens();
             Citizens *citizen = nullptr;
-            for (int i = 0; i < country->getNumCitzenGroups(); i++)
-            {
-                if (citizens[i] != nullptr && citizens[i]->getStatus() == "Unlisted")
-                {
-                    citizen = citizens[i];
-                    break;
+            for(auto c : country->getCitizens()) {
+                if(c->getStatus() == "Unlisted") {
+                    citizen = c;
                 }
             }
             if (citizen != nullptr)
@@ -786,103 +805,135 @@ void WarPhase::addVehicles(string areaName, vehicleType vehicleType)
     }
 }
 
-void WarPhase::printCountryStatus(string countryName, bool displayInfrastructure)
+void WarPhase::printCountryStatus(string countryName, bool detailedPrint)
 {
     Country *country = getCountry(countryName);
     if (country != nullptr)
     {
+<<<<<<< Updated upstream
         cout << "-----------------------------------------------------------" << endl;
         cout << countryName << " Status Report: " << endl;
         cout << country->getParent()->print() << endl;
 
+=======
+        cout << countryName << "\nStatus Report: " << endl;
+        string out = country->getParent()->print();
+        out.erase(std::remove(out.begin(), out.end(), '\n'), out.cend());
+        cout << out << endl;
+>>>>>>> Stashed changes
         cout << country->printAreas();
         int unlisted = 0;
         int dead = 0;
-
-        int landGenerals = 0;
-        int navyGenerals = 0;
-        int airForceGenerals = 0;
-        int landSoldiers = 0;
-        int navySoldiers = 0;
-        int airForceSoldiers = 0;
-        int landSpecialForces = 0;
-        int navySpecialForces = 0;
-        int airForceSpecialForces = 0;
-        for (int i = 0; i < country->getNumCitzenGroups(); i++)
-        {
-            string status = country->getCitizens()[i]->getStatus();
-            if (status.compare("Unlisted") == 0)
+        
+        for(auto c : country->getCitizens()) {
+            if (c->getStatus().compare("Unlisted") == 0)
             {
                 unlisted++;
             }
-            else if (status.compare("Dead") == 0)
+            else if (c->getStatus().compare("Dead") == 0)
             {
                 dead++;
             }
         }
-        for (auto t : country->getWarEntities()->getTroops())
-        {
-            if (t->getKind() == ::tGroundTroops)
-            {
-                if (t->getType()->getType() == ::theGenerals)
-                {
-                    landGenerals++;
-                }
-                else if (t->getType()->getType() == ::theSoldiers)
-                {
-                    landSoldiers++;
-                }
-                else if (t->getType()->getType() == ::theSpecialForces)
-                {
-                    landSpecialForces++;
-                }
-            }
-            else if (t->getKind() == ::tNavy)
-            {
-                if (t->getType()->getType() == ::theGenerals)
-                {
-                    navyGenerals++;
-                }
-                else if (t->getType()->getType() == ::theSoldiers)
-                {
-                    navySoldiers++;
-                }
-                else if (t->getType()->getType() == ::theSpecialForces)
-                {
-                    navySpecialForces++;
-                }
-            }
 
-            else if (t->getKind() == ::tAirforce)
+        if(detailedPrint) {
+            int landGenerals = 0;
+            int navyGenerals = 0;
+            int airForceGenerals = 0;
+            int landSoldiers = 0;
+            int navySoldiers = 0;
+            int airForceSoldiers = 0;
+            int landSpecialForces = 0;
+            int navySpecialForces = 0;
+            int airForceSpecialForces = 0;
+
+            for (auto t : country->getWarEntities()->getTroops())
             {
-                if (t->getType()->getType() == ::theGenerals)
+                if (t->getKind() == ::tGroundTroops)
                 {
-                    airForceGenerals++;
+                    if (t->getType()->getType() == ::theGenerals)
+                    {
+                        landGenerals++;
+                    }
+                    else if (t->getType()->getType() == ::theSoldiers)
+                    {
+                        landSoldiers++;
+                    }
+                    else if (t->getType()->getType() == ::theSpecialForces)
+                    {
+                        landSpecialForces++;
+                    }
                 }
-                else if (t->getType()->getType() == ::theSoldiers)
+                else if (t->getKind() == ::tNavy)
                 {
-                    airForceSoldiers++;
+                    if (t->getType()->getType() == ::theGenerals)
+                    {
+                        navyGenerals++;
+                    }
+                    else if (t->getType()->getType() == ::theSoldiers)
+                    {
+                        navySoldiers++;
+                    }
+                    else if (t->getType()->getType() == ::theSpecialForces)
+                    {
+                        navySpecialForces++;
+                    }
                 }
-                else if (t->getType()->getType() == ::theSpecialForces)
+                else if (t->getKind() == ::tAirforce)
                 {
-                    airForceSpecialForces++;
+                    if (t->getType()->getType() == ::theGenerals)
+                    {
+                        airForceGenerals++;
+                    }
+                    else if (t->getType()->getType() == ::theSoldiers)
+                    {
+                        airForceSoldiers++;
+                    }
+                    else if (t->getType()->getType() == ::theSpecialForces)
+                    {
+                        airForceSpecialForces++;
+                    }
                 }
             }
+            cout << "\nNumber of groups/battalions of citizens/troops :" << endl;
+            cout << "Unlisted citizens: \t\t" << unlisted << endl;
+            cout << "Land generals: \t\t\t" << landGenerals << endl;
+            cout << "Navy generals: \t\t\t" << navyGenerals << endl;
+            cout << "Air force generals: \t\t" << airForceGenerals << endl;
+            cout << "Land special forces: \t\t" << landSpecialForces << endl;
+            cout << "Navy special forces: \t\t" << navySpecialForces << endl;
+            cout << "Air force special forces: \t" << airForceSpecialForces << endl;
+            cout << "Land soldiers: \t\t\t" << landSoldiers << endl;
+            cout << "Navy soldiers: \t\t\t" << navySoldiers << endl;
+            cout << "Air force soldiers: \t\t" << airForceSoldiers << endl;
+            cout << "Dead citizens: \t\t\t" << dead << endl;
+        } else {
+            int land = 0;
+            int navy = 0;
+            int airforce = 0;
+            for (auto t : country->getWarEntities()->getTroops())
+            {
+                if (t->getKind() == ::tGroundTroops)
+                {
+                    land++;
+                }
+                else if (t->getKind() == ::tNavy)
+                {
+                    navy++;
+                }
+
+                else if (t->getKind() == ::tAirforce)
+                {
+                    airforce++;
+                }
+            }
+            cout << "\nNumber of groups/battalions of citizens/troops :" << endl;
+            cout << "Unlisted citizens: \t\t" << unlisted << endl;
+            cout << "Land troops: \t\t\t" << land << endl;
+            cout << "Navy troops: \t\t\t" << navy << endl;
+            cout << "Air force troops: \t\t" << airforce << endl;
+            cout << "Dead citizens: \t\t\t" << dead << endl;
         }
-
-        cout << "\nNumber of groups/battalions of citizens/troops :" << endl;
-        cout << "Unlisted citizens: \t\t" << unlisted
-             << endl;
-        cout << "Land generals: \t\t\t" << landGenerals << endl;
-        cout << "Navy generals: \t\t\t" << navyGenerals << endl;
-        cout << "Air force generals: \t\t" << airForceGenerals << endl;
-        cout << "Land special forces: \t\t" << landSpecialForces << endl;
-        cout << "Navy special forces: \t\t" << navySpecialForces << endl;
-        cout << "Air force special forces: \t" << airForceSpecialForces << endl;
-        cout << "Land soldiers: \t\t\t" << landSoldiers << endl;
-        cout << "Navy soldiers: \t\t\t" << navySoldiers << endl;
-        cout << "Air force soldiers: \t\t" << airForceSoldiers << endl;
-        cout << "Dead citizens: \t\t\t" << dead << endl;
 
         int landVehicles = 0;
         int navyVehicles = 0;
@@ -907,7 +958,7 @@ void WarPhase::printCountryStatus(string countryName, bool displayInfrastructure
         cout << "Navy vehicles: \t\t\t" << navyVehicles << endl;
         cout << "Air Force vehicles: \t\t" << airForceVehicles << endl;
 
-        if (displayInfrastructure)
+        if (detailedPrint)
         {
             int roads = 0;
             int harbours = 0;
@@ -1734,4 +1785,51 @@ void WarPhase::revolt(string countryName)
     return;
 }
 
+<<<<<<< Updated upstream
+=======
+list<string> WarPhase::getCountryEnemies(string countryName)
+{
+    list<string> enemyNames;
+    if (getCountry(countryName))
+    {
+        for (auto c : allCountries)
+        {
+            if (c->getParent() != getCountry(countryName)->getParent())
+            {
+                enemyNames.push_back(c->getName());
+            }
+        }
+    }
+    return enemyNames;
+}
+
+void WarPhase::sendBroadcast(string messageReceiver, string messageSender, string message)
+{
+    AssociatedCountries *receiver;
+    AssociatedCountries *sender;
+    if (countryStillExists(messageReceiver))
+    {
+        receiver = getCountry(messageReceiver);
+    }
+    else
+    {
+        receiver = getRelationship(messageReceiver);
+    }
+    if (countryStillExists(messageSender))
+    {
+        sender = getCountry(messageSender);
+    }
+    else
+    {
+        sender = getRelationship(messageSender);
+    }
+    sender->sendBroadcast(receiver, message);
+}
+
+void WarPhase::testPrint() {
+    for(auto a : getAttackableAreasInCountry("Germany","France")) {
+        cout << a << endl;
+    }
+}
+>>>>>>> Stashed changes
 #endif

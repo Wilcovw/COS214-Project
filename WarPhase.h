@@ -133,6 +133,7 @@ public:
     void upgradeVehiclesInArea(vehicleType type, string areaName);
     list<string> getAreasInRelationship(string relationship);
     void revolt(string countryName);
+<<<<<<< Updated upstream
 
     /*Memento *createMemento();
     list<Country *> getCountryGroup();
@@ -140,6 +141,24 @@ public:
     void removeAreaAt(int index);
     void reinstateMemento(Memento *memento);
     void setWarMap(WarMap *newMap);*/
+=======
+    /**
+     * @brief Returns list of all enemies of a country
+     *
+     * @param countryName Country that will defend the attack
+     * @return list<string>
+     */
+    list<string> getCountryEnemies(string countryName);
+    /**
+     * @brief Call the mediator pattern on a country to send a message to a country or relationship
+     *
+     * @param messageReceiver
+     * @param messageSender
+     * @param message
+     */
+    void sendBroadcast(string messageReceiver, string messageSender, string message);
+    void testPrint();
+>>>>>>> Stashed changes
 };
 
 #endif

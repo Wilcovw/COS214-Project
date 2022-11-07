@@ -9,6 +9,7 @@ WarHistory::WarHistory(){
 
 Memento *WarHistory::getLastMemento()
 {
+    if(history.empty()) return nullptr;
     Memento *temp = history.front();
     this->history.pop_front();
     return temp;

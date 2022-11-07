@@ -10,8 +10,13 @@ class Status; // forward declaration
 class Citizens
 {
 private:
+<<<<<<< Updated upstream
     Status *status;
     Command *toggleCommand;
+=======
+	Status *status = nullptr;
+	Command *toggleCommand;
+>>>>>>> Stashed changes
 
 public:
 	/**
