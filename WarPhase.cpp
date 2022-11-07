@@ -789,7 +789,7 @@ void WarPhase::addVehicles(string areaName, vehicleType vehicleType)
     }
 }
 
-void WarPhase::printCountryStatus(string countryName, bool displayInfrastructure)
+void WarPhase::printCountryStatus(string countryName, bool advancedDisplay)
 {
     Country *country = getCountry(countryName);
     if (country != nullptr)
@@ -799,93 +799,112 @@ void WarPhase::printCountryStatus(string countryName, bool displayInfrastructure
         out.erase(std::remove(out.begin(), out.end(), '\n'), out.cend());
         cout << out << endl;
 
+        
         cout << country->printAreas();
         int unlisted = 0;
         int dead = 0;
+        if(advancedDisplay) {
+            int landGenerals = 0;
+            int navyGenerals = 0;
+            int airForceGenerals = 0;
+            int landSoldiers = 0;
+            int navySoldiers = 0;
+            int airForceSoldiers = 0;
+            int landSpecialForces = 0;
+            int navySpecialForces = 0;
+            int airForceSpecialForces = 0;
+            for(auto c : country->getCitizens()) {
+                if (c->getStatus().compare("Unlisted") == 0)
+                {
+                    unlisted++;
+                }
+                else if (c->getStatus().compare("Dead") == 0)
+                {
+                    dead++;
+                }
+            }
+            for (auto t : country->getWarEntities()->getTroops())
+            {
+                if (t->getKind() == ::tGroundTroops)
+                {
+                    if (t->getType()->getType() == ::theGenerals)
+                    {
+                        landGenerals++;
+                    }
+                    else if (t->getType()->getType() == ::theSoldiers)
+                    {
+                        landSoldiers++;
+                    }
+                    else if (t->getType()->getType() == ::theSpecialForces)
+                    {
+                        landSpecialForces++;
+                    }
+                }
+                else if (t->getKind() == ::tNavy)
+                {
+                    if (t->getType()->getType() == ::theGenerals)
+                    {
+                        navyGenerals++;
+                    }
+                    else if (t->getType()->getType() == ::theSoldiers)
+                    {
+                        navySoldiers++;
+                    }
+                    else if (t->getType()->getType() == ::theSpecialForces)
+                    {
+                        navySpecialForces++;
+                    }
+                }
 
-        int landGenerals = 0;
-        int navyGenerals = 0;
-        int airForceGenerals = 0;
-        int landSoldiers = 0;
-        int navySoldiers = 0;
-        int airForceSoldiers = 0;
-        int landSpecialForces = 0;
-        int navySpecialForces = 0;
-        int airForceSpecialForces = 0;
-        for(auto c : country->getCitizens()) {
-            if (c->getStatus().compare("Unlisted") == 0)
-            {
-                unlisted++;
+                else if (t->getKind() == ::tAirforce)
+                {
+                    if (t->getType()->getType() == ::theGenerals)
+                    {
+                        airForceGenerals++;
+                    }
+                    else if (t->getType()->getType() == ::theSoldiers)
+                    {
+                        airForceSoldiers++;
+                    }
+                    else if (t->getType()->getType() == ::theSpecialForces)
+                    {
+                        airForceSpecialForces++;
+                    }
+                }
             }
-            else if (c->getStatus().compare("Dead") == 0)
+            cout << "\nNumber of groups/battalions of citizens/troops :" << endl;
+            cout << "Unlisted citizens: \t\t" << unlisted  << endl;
+            cout << "Land generals: \t\t\t" << landGenerals << endl;
+            cout << "Navy generals: \t\t\t" << navyGenerals << endl;
+            cout << "Air force generals: \t\t" << airForceGenerals << endl;
+            cout << "Land special forces: \t\t" << landSpecialForces << endl;
+            cout << "Navy special forces: \t\t" << navySpecialForces << endl;
+            cout << "Air force special forces: \t" << airForceSpecialForces << endl;
+            cout << "Land soldiers: \t\t\t" << landSoldiers << endl;
+            cout << "Navy soldiers: \t\t\t" << navySoldiers << endl;
+            cout << "Air force soldiers: \t\t" << airForceSoldiers << endl;
+            cout << "Dead citizens: \t\t\t" << dead << endl;
+        } else {
+            int land = 0;
+            int navy = 0;
+            int airforce = 0;
+            for (auto t : country->getWarEntities()->getTroops())
             {
-                dead++;
+                if (t->getKind() == ::tGroundTroops) {
+                    land++;
+                } else if (t->getKind() == ::tNavy) {
+                    navy++;
+                } else if(t->getKind() == ::tAirforce) {
+                    airforce++;
+                }  
             }
+            cout << "\nNumber of groups/battalions of citizens/troops :" << endl;
+            cout << "Unlisted citizens: \t\t" << unlisted  << endl;
+            cout << "Land troops: \t\t\t" << land << endl;
+            cout << "Navy troops: \t\t\t" << navy << endl;
+            cout << "Air force troops: \t\t" << airforce << endl;
+            cout << "Dead citizens: \t\t\t" << dead << endl;
         }
-
-        for (auto t : country->getWarEntities()->getTroops())
-        {
-            if (t->getKind() == ::tGroundTroops)
-            {
-                if (t->getType()->getType() == ::theGenerals)
-                {
-                    landGenerals++;
-                }
-                else if (t->getType()->getType() == ::theSoldiers)
-                {
-                    landSoldiers++;
-                }
-                else if (t->getType()->getType() == ::theSpecialForces)
-                {
-                    landSpecialForces++;
-                }
-            }
-            else if (t->getKind() == ::tNavy)
-            {
-                if (t->getType()->getType() == ::theGenerals)
-                {
-                    navyGenerals++;
-                }
-                else if (t->getType()->getType() == ::theSoldiers)
-                {
-                    navySoldiers++;
-                }
-                else if (t->getType()->getType() == ::theSpecialForces)
-                {
-                    navySpecialForces++;
-                }
-            }
-
-            else if (t->getKind() == ::tAirforce)
-            {
-                if (t->getType()->getType() == ::theGenerals)
-                {
-                    airForceGenerals++;
-                }
-                else if (t->getType()->getType() == ::theSoldiers)
-                {
-                    airForceSoldiers++;
-                }
-                else if (t->getType()->getType() == ::theSpecialForces)
-                {
-                    airForceSpecialForces++;
-                }
-            }
-        }
-
-        cout << "\nNumber of groups/battalions of citizens/troops :" << endl;
-        cout << "Unlisted citizens: \t\t" << unlisted
-             << endl;
-        cout << "Land generals: \t\t\t" << landGenerals << endl;
-        cout << "Navy generals: \t\t\t" << navyGenerals << endl;
-        cout << "Air force generals: \t\t" << airForceGenerals << endl;
-        cout << "Land special forces: \t\t" << landSpecialForces << endl;
-        cout << "Navy special forces: \t\t" << navySpecialForces << endl;
-        cout << "Air force special forces: \t" << airForceSpecialForces << endl;
-        cout << "Land soldiers: \t\t\t" << landSoldiers << endl;
-        cout << "Navy soldiers: \t\t\t" << navySoldiers << endl;
-        cout << "Air force soldiers: \t\t" << airForceSoldiers << endl;
-        cout << "Dead citizens: \t\t\t" << dead << endl;
 
         int landVehicles = 0;
         int navyVehicles = 0;
@@ -910,7 +929,7 @@ void WarPhase::printCountryStatus(string countryName, bool displayInfrastructure
         cout << "Navy vehicles: \t\t\t" << navyVehicles << endl;
         cout << "Air Force vehicles: \t\t" << airForceVehicles << endl;
 
-        if (displayInfrastructure)
+        if (advancedDisplay)
         {
             int roads = 0;
             int harbours = 0;
