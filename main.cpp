@@ -642,13 +642,6 @@ void populate(WarEngine *game, bool designMode)
     game->getPhase()->distributeTroopsAndVehicles(Netherlands);
     game->getPhase()->distributeTroopsAndVehicles(Germany);
     game->getPhase()->distributeTroopsAndVehicles(Denmark);
-
-    // game->getPhase()->attackArea(Dublin, France);
-    // game->getPhase()->attackArea(Cork, France);
-    // game->getPhase()->attackArea(Galway, France);
-    // game->getPhase()->attackArea(Limerick, France);
-    // game->getPhase()->attackArea(Amsterdam, France);
-    // game->getPhase()->attackArea(Brussels, France);
 }
 
 void newPhase(WarEngine *game)
@@ -1254,18 +1247,81 @@ void designMode()
     string chosenEnemy = "Munich";
     next();
     cout << "Phase 3:" << endl;
-    game->getPhase()->attackArea("Berlin", "France");
+    cout << "France has started the war by attacking Ireland, one of the Blue allies" << endl;
+    game->getPhase()->attackArea("Dublin", "France");
+    cout << "The UK has helped it's allies by attacking Ireland as well" << endl;
+    game->getPhase()->attackArea("Cork", "United Kingdom");
+    game->getPhase()->attackArea("Limerick", "United Kingdom");
+    game->getPhase()->attackArea("Galway", "United Kingdom");
 
-    // for (auto a : game->getPhase()->getAttackableAreasInCountry(chosenEnemy, country))
-    // {
-    //     // cout << ++j << ": " << a << endl;
-    //     enemyAreaNames.push_back(a);
+    // game->getPhase()->countryStillExists("Ireland");
+
+    next();
+
+    cout << "Germany has retaliated by attacking France aswell as Denmark" << endl;
+    game->getPhase()->attackArea("Strasbourg", "Germany");
+    game->getPhase()->attackArea("Lyon", "Germany");
+    game->getPhase()->attackArea("Abenta", "Germany");
+
+    next();
+
+    cout << "France can not allow this and decides to take back control of their areas" << endl;
+    game->getPhase()->attackArea("Strasbourg", "France");
+    game->getPhase()->attackArea("Lyon", "France");
+
+    next();
+    cout << "London gets intel from an unknown source that Belgium might attack them and decide to add vehicles to their army" << endl;
+    for (int i = 0; i < 200; i++)
+    {
+        game->getPhase()->addVehicles("London", ::aircraftVehicle);
+        game->getPhase()->addVehicles("London", ::aquaticVehicle);
+    }
+
+    next();
+    cout << "Belgium starts to attack London, and fails:" << endl;
+
+    game->getPhase()->attackArea("London", "Belgium");
+
+    next();
+    cout << "The red allies decide to attack two of the blue allies' countries" << endl;
+    game->getPhase()->attackArea("Brussels", "France");
+    game->getPhase()->attackArea("Amsterdam", "United Kingdom");
+
+    next();
+    cout << "Germany tries to retake Amsterdam after a heavy loss" << endl;
+    game->getPhase()->attackArea("Amsterdam", "Germany");
+
+    next();
+    cout << "Denmark stops being dormant and tries to take back its area" << endl;
+    game->getPhase()->attackArea("Abenta", "Denmark");
+
+    next();
+
+    cout << "The Red allies continue their assault" << endl
+         << endl;
+    enemyAreaNames.clear();
+
+    while (game->getPhase()->countryStillExists("Germany") && !game->getPhase()->getAttackableAreasInCountry("Germany", "France").empty())
+    {
+
+        for (auto a : game->getPhase()->getAttackableAreasInCountry("Germany", "France"))
+        {
+            game->getPhase()->attackArea(a, "France");
+            //  a.pop_back();
+        }
+    }
+
+    // while (game->getPhase()->countryStillExists("Denmark") && !game->getPhase()->getAttackableAreasInCountry("Denmark", "France").empty()) {
+    //     for (auto a : game->getPhase()->getAttackableAreasInCountry("Denmark", "United Kingdom"))
+    //     {
+    //         game->getPhase()->attackArea(a, "United Kingdom");
+    //     }
     // }
     // successfulAttack = game->getPhase()->attackArea(enemyAreaNames.front(), country);
 
     // game->getPhase()->attackArea();
 
-    if (game->getPhase()->countryStillExists("Germany"))
+    /*if (game->getPhase()->countryStillExists("Germany"))
     {
         cout << "France has successfully attacked berlin \n";
         next();
@@ -1276,7 +1332,7 @@ void designMode()
         next();
     }
     game->getPhase()->printCountryStatus(country, true);
-    game->getPhase()->printCountryStatus("Germany", true);
+    game->getPhase()->printCountryStatus("Germany", true);*/
     // game->getPhase()->attackArea("Bremen", "Denmark");
 }
 
