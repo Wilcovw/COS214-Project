@@ -642,14 +642,6 @@ void populate(WarEngine *game, bool designMode)
     game->getPhase()->distributeTroopsAndVehicles(Netherlands);
     game->getPhase()->distributeTroopsAndVehicles(Germany);
     game->getPhase()->distributeTroopsAndVehicles(Denmark);
-
-
-    game->getPhase()->attackArea(Dublin, France);
-    game->getPhase()->attackArea(Cork, France);
-    game->getPhase()->attackArea(Galway, France);
-    game->getPhase()->attackArea(Limerick, France);
-    game->getPhase()->attackArea(Amsterdam, France);
-    game->getPhase()->attackArea(Brussels, France);
 }
 
 void newPhase(WarEngine *game)
@@ -1276,32 +1268,57 @@ void designMode()
 
     next();
     cout << "London gets intel from an unknown source that Belgium might attack them and decide to add vehicles to their army" << endl;
-    for (int i = 0; i < 50; i++)
+    for (int i = 0; i < 200; i++)
     {
         game->getPhase()->addVehicles("London", ::aircraftVehicle);
+        game->getPhase()->addVehicles("London", ::aquaticVehicle);
     }
      
 
     next();
-    cout << "Belgium starts to attack London" << endl;
+    cout << "Belgium starts to attack London, and fails:" << endl;
     
     game->getPhase()->attackArea("London", "Belgium");
 
     next();
-    cout << "The red allies decide to end the war once and for all and try to defeat the blue allies" << endl;
+    cout << "The red allies decide to attack two of the blue allies' countries" << endl;
+    game->getPhase()->attackArea("Brussels", "France");
+    game->getPhase()->attackArea("Amsterdam", "United Kingdom");
+    
+    next();
+    cout<< "Germany tries to retake Amsterdam after a heavy loss" << endl;
+    game->getPhase()->attackArea("Amsterdam", "Germany");
 
 
+    next();
+    cout << "Denmark stops being dormant and tries to take back its area" << endl;
+    game->getPhase()->attackArea("Abenta", "Denmark");
 
-    // for (auto a : game->getPhase()->getAttackableAreasInCountry(chosenEnemy, country))
-    // {
-    //     // cout << ++j << ": " << a << endl;
-    //     enemyAreaNames.push_back(a);
-    // }
-    // successfulAttack = game->getPhase()->attackArea(enemyAreaNames.front(), country);
+    next();
+    
+    cout << "The Red allies continue their assault" <<endl << endl;
+    enemyAreaNames.clear();
+
+    while (game->getPhase()->countryStillExists("Germany") && !game->getPhase()->getAttackableAreasInCountry("Germany", "France").empty())
+    {
+    
+        for (auto a : game->getPhase()->getAttackableAreasInCountry("Germany", "France"))
+        {
+             game->getPhase()->attackArea(a, "France");
+            //  a.pop_back();
+        }
+        for (auto a : game->getPhase()->getAttackableAreasInCountry("Denmark", "United Kingdom"))
+        {
+             game->getPhase()->attackArea(a, "United Kingdom");
+            //  a.pop_back();
+        }
+    }
+
+    //successfulAttack = game->getPhase()->attackArea(enemyAreaNames.front(), country);
 
     // game->getPhase()->attackArea();
 
-    if (game->getPhase()->countryStillExists("Germany"))
+    /*if (game->getPhase()->countryStillExists("Germany"))
     {
         cout << "France has successfully attacked berlin \n";
         next();
@@ -1312,7 +1329,7 @@ void designMode()
         next();
     }
     game->getPhase()->printCountryStatus(country, true);
-    game->getPhase()->printCountryStatus("Germany", true);
+    game->getPhase()->printCountryStatus("Germany", true);*/
     // game->getPhase()->attackArea("Bremen", "Denmark");
 }
 void run()
@@ -1329,11 +1346,11 @@ void run()
 }
 int main()
 {
-    //run();
+    run();
     // realMode();
     // designMode();
-      WarEngine *game = new WarEngine();
-      populate(game, false);
+    //   WarEngine *game = new WarEngine();
+    //   populate(game, false);
     return 0;
 }
 
