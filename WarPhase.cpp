@@ -792,7 +792,6 @@ void WarPhase::printCountryStatus(string countryName, bool displayInfrastructure
     Country *country = getCountry(countryName);
     if (country != nullptr)
     {
-        cout << "-----------------------------------------------------------" << endl;
         cout << countryName << "\nStatus Report: " << endl;
         string out = country->getParent()->print();
         out.erase(std::remove(out.begin(), out.end(), '\n'), out.cend());
@@ -997,7 +996,6 @@ void WarPhase::printCountryStatus(string countryName, bool displayInfrastructure
             cout << "Number of navy troop training camps: \t\t" << navyCamps << endl;
             cout << "Number of air force troop training camps: \t" << airForceCamps << endl;
         }
-        cout << "-----------------------------------------------------------" << endl;
     }
 }
 
@@ -1007,7 +1005,6 @@ void WarPhase::printAreaStatus(string areaName, bool displayInfrastructure)
     Country *country = getCountryFromArea(areaName);
     if (area != nullptr && country != nullptr)
     {
-        cout << "-----------------------------------------------------------" << endl;
         cout << areaName << " Status Report: " << endl;
         cout << "Country in control of " << areaName << " is " << getCountryFromArea(areaName)->getName() << endl;
         int landGenerals = 0;
@@ -1207,8 +1204,6 @@ void WarPhase::printAreaStatus(string areaName, bool displayInfrastructure)
             cout << "Number of navy troop training camps: \t\t" << navyCamps << endl;
             cout << "Number of air force troop training camps: \t" << airForceCamps << endl;
         }
-
-        cout << "-----------------------------------------------------------" << endl;
     }
 }
 
@@ -1400,7 +1395,7 @@ bool WarPhase::attackArea(string areaName, string countryName)
                                 i->destroy();
                             }
                         }
-                        list<Infrastructure *> connections = getAllInfrastructureInArea(getArea(areaName));
+                        list<Infrastructure *> connections = enemy->getWarEntities()->getInfrastructure();
                         if (!connections.empty())
                         {
                             for (auto c : connections)
@@ -1798,4 +1793,26 @@ list<string> WarPhase::getCountryEnemies(string countryName)
     return enemyNames;
 }
 
+void WarPhase::sendBroadcast(string messageReceiver, string messageSender, string message)
+{
+    AssociatedCountries *receiver;
+    AssociatedCountries *sender;
+    if (countryStillExists(messageReceiver))
+    {
+        receiver = getCountry(messageReceiver);
+    }
+    else
+    {
+        receiver = getRelationship(messageReceiver);
+    }
+    if (countryStillExists(messageSender))
+    {
+        sender = getCountry(messageSender);
+    }
+    else
+    {
+        sender = getRelationship(messageSender);
+    }
+    sender->sendBroadcast(receiver, message);
+}
 #endif

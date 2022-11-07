@@ -372,6 +372,14 @@ public:
      * @return list<string>
      */
     list<string> getCountryEnemies(string countryName);
+    /**
+     * @brief Call the mediator pattern on a country to send a message to a country or relationship
+     *
+     * @param messageReceiver
+     * @param messageSender
+     * @param message
+     */
+    void sendBroadcast(string messageReceiver, string messageSender, string message);
 };
 
 #endif
