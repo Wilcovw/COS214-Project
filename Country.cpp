@@ -155,6 +155,8 @@ void Country::cloneWarEntities(Country *country)
     country->numCitzenGroups = this->numCitzenGroups;
     country->citizens = new Citizens *[numCitzenGroups];
     int counter = 0;
+    cout << "unlisted" << endl;
+
     for (int i = 0; i < numCitzenGroups; i++)
     {
         if (this->citizens[i]->getStatus().compare("Unlisted") || this->citizens[i]->getStatus().compare("Dead"))
@@ -163,12 +165,17 @@ void Country::cloneWarEntities(Country *country)
             counter++;
         }
     }
+    cout << "before Infrastructure in country" << endl;
+
     int x = 0;
     country->entities = this->entities->clone();
+    cout << "after entities in country" << endl;
+
     for (auto t : this->entities->getTroops())
     {
         country->citizens[x++] = t->getAssociatedCitizen();
     }
+    cout << "after listed citizens in country" << endl;
 }
 
 list<Country *> Country::getAllies()

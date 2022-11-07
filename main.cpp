@@ -643,13 +643,12 @@ void populate(WarEngine *game, bool designMode)
     game->getPhase()->distributeTroopsAndVehicles(Germany);
     game->getPhase()->distributeTroopsAndVehicles(Denmark);
 
-
-    game->getPhase()->attackArea(Dublin, France);
-    game->getPhase()->attackArea(Cork, France);
-    game->getPhase()->attackArea(Galway, France);
-    game->getPhase()->attackArea(Limerick, France);
-    game->getPhase()->attackArea(Amsterdam, France);
-    game->getPhase()->attackArea(Brussels, France);
+    // game->getPhase()->attackArea(Dublin, France);
+    // game->getPhase()->attackArea(Cork, France);
+    // game->getPhase()->attackArea(Galway, France);
+    // game->getPhase()->attackArea(Limerick, France);
+    // game->getPhase()->attackArea(Amsterdam, France);
+    // game->getPhase()->attackArea(Brussels, France);
 }
 
 void newPhase(WarEngine *game)
@@ -891,7 +890,9 @@ void Phase3(WarEngine *game, string country)
     setBlue();
     cout << "Welcome to Phase 3:" << endl;
     setWhite();
+    cout << "new meme" << endl;
     // newPhase(game);
+    cout << "After new meme" << endl;
 
     vector<string> enemyNames;
     vector<string> enemyAreaNames;
@@ -1029,26 +1030,27 @@ void Phase3(WarEngine *game, string country)
                 setOrange();
                 cout << "Unfortunately your attack was unsuccessful, what would you like to do now?\n"
                      << "(It looks like the area you are trying to attack is stronger than you, consider\n"
-                     << " a different area or gathering your strength and slowly wearing dowwn its defenses)\n"
-                     << "1: Return to the beginning of this phase and attack a different area\n"
-                     << "2: Accept this defeat and prepare for the coming battles" << endl;
+                     << " a different area or gathering your strength and slowly wearing dowwn its defenses)\n";
+                // cout << "1: Return to the beginning of this phase and attack a different area\n"
+                //      << "2: Accept this defeat and prepare for the coming battles" << endl;
                 setWhite();
-                int in = 0;
-                getline(std::cin, input);
-                if (checkInput(input, 0) != 0)
-                {
-                    in = stoi(input);
-                }
-                else
-                {
-                    in = 0;
-                }
-                if (in == 1)
-                {
-                    game->reverseWarPhase();
-                    Phase3(game, country);
-                    enemyAttack = false;
-                }
+                next();
+                // int in = 0;
+                // getline(std::cin, input);
+                // if (checkInput(input, 0) != 0)
+                // {
+                //     in = stoi(input);
+                // }
+                // else
+                // {
+                //     in = 0;
+                // }
+                // if (in == 1)
+                // {
+                //     game->reverseWarPhase();
+                //     Phase3(game, country);
+                //     enemyAttack = false;
+                // }
                 userWantsToattack = 2;
                 printLine();
             }
@@ -1158,7 +1160,7 @@ void realMode()
     WarEngine *game = new WarEngine();
     populate(game, false);
 
-    newPhase(game);
+    // newPhase(game);
     string country = "";
     string choice = "";
     setGreen();
@@ -1277,6 +1279,7 @@ void designMode()
     game->getPhase()->printCountryStatus("Germany", true);
     // game->getPhase()->attackArea("Bremen", "Denmark");
 }
+
 void run()
 {
     string choice;
@@ -1291,11 +1294,10 @@ void run()
 }
 int main()
 {
-    //run();
+    run();
     // realMode();
     // designMode();
-      WarEngine *game = new WarEngine();
-      populate(game, false);
+    //   WarEngine *game = new WarEngine();
+    //   populate(game, false);
     return 0;
 }
-

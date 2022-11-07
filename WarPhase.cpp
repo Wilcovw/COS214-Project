@@ -72,16 +72,25 @@ WarPhase *WarPhase::clone()
             }
         }
     }
+    cout << "clone area" << endl;
+
     for (auto oldCountry : allCountries)
     {
+        cout << oldCountry->getName() << " 1" << endl;
+
         for (auto clonedCountry : c)
         {
-            if (oldCountry->getName() == clonedCountry->getName())
+            cout << clonedCountry->getName() << endl;
+
+            if (oldCountry->getName().compare(clonedCountry->getName()) == 0)
             {
+                cout << "in For" << endl;
                 oldCountry->cloneWarEntities(clonedCountry);
             }
         }
     }
+    cout << "clone war entities" << endl;
+
     wph->communication = com;
     wph->allCountries = c;
     wph->allRelationships = r;
@@ -103,6 +112,7 @@ Memento *WarPhase::newWarPhase()
     }
     clonedWarPhase->map = newMap;
     Memento *meme = new Memento(clonedWarPhase);
+
     return meme;
 }
 
@@ -1230,7 +1240,7 @@ bool WarPhase::attackArea(string areaName, string countryName)
                     }
                 }
                 if (isAccessible)
-                {   
+                {
                     list<Vehicles *> vehicles;
                     list<Troops *> troops;
                     list<Country *> alies = country->getAllies();
@@ -1442,7 +1452,8 @@ bool WarPhase::attackArea(string areaName, string countryName)
                             Relationship *relationship = (Relationship *)enemy->getParent();
                             enemy->getCommunication()->removeAssociatedCountries(enemy);
                             relationship->removeAssociatedCountries(enemy);
-                            for(auto i : enemy->getWarEntities()->getInfrastructure()) {
+                            for (auto i : enemy->getWarEntities()->getInfrastructure())
+                            {
                                 enemy->getWarEntities()->removeInfrastructure(i);
                                 country->getWarEntities()->addInfrastructure(i);
                             }
