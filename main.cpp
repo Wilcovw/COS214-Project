@@ -1307,13 +1307,14 @@ void designMode()
              game->getPhase()->attackArea(a, "France");
             //  a.pop_back();
         }
-        for (auto a : game->getPhase()->getAttackableAreasInCountry("Denmark", "United Kingdom"))
-        {
-             game->getPhase()->attackArea(a, "United Kingdom");
-            //  a.pop_back();
-        }
     }
 
+    // while (game->getPhase()->countryStillExists("Denmark") && !game->getPhase()->getAttackableAreasInCountry("Denmark", "France").empty()) {
+    //     for (auto a : game->getPhase()->getAttackableAreasInCountry("Denmark", "United Kingdom"))
+    //     {
+    //         game->getPhase()->attackArea(a, "United Kingdom");
+    //     }
+    // }
     //successfulAttack = game->getPhase()->attackArea(enemyAreaNames.front(), country);
 
     // game->getPhase()->attackArea();
