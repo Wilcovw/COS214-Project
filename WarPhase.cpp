@@ -614,7 +614,7 @@ list<Infrastructure *> WarPhase::getAllFacilitiesInArea(Area *area)
         for (auto i : allInfrastructure)
         {
             Infrastructure *temp = i;
-            if (temp->getType() != iRoad && temp->getType() != ::iHarbour && temp->getType() != ::iRunway && i->getArea()->getName() == area->getName())
+            if (temp->getType() != ::iRoad && temp->getType() != ::iHarbour && temp->getType() != ::iRunway && i->getArea()->getName() == area->getName())
             {
                 output.push_back(temp);
             }
@@ -1237,7 +1237,10 @@ bool WarPhase::attackArea(string areaName, string countryName)
                 {
                     list<Vehicles *> vehicles;
                     list<Troops *> troops;
-                    for (auto c : country->getAllies())
+                    list<Country *> alies = country->getAllies();
+                    alies.remove(country);
+                    alies.push_front(country);
+                    for (auto c : alies)
                     {
                         moveVehicles(areaName, c->getName());
                         for (auto v : getVehiclesInArea(area, c))
@@ -1259,7 +1262,10 @@ bool WarPhase::attackArea(string areaName, string countryName)
                     }
                     list<Vehicles *> enemyVehicles;
                     list<Troops *> enemyTroops;
-                    for (auto c : enemy->getAllies())
+                    list<Country *> enemies = enemy->getAllies();
+                    enemies.remove(enemy);
+                    enemies.push_front(enemy);
+                    for (auto c : enemies)
                     {
                         moveVehicles(area, c, 500);
                         for (auto v : getVehiclesInArea(area, c))
@@ -1652,7 +1658,17 @@ void WarPhase::distributeTroopsAndVehicles(string countryName)
 
 bool WarPhase::countryStillExists(string countryName)
 {
-    Country *country = getCountry(countryName);
+    Country *country = nullptr;
+    if (!allCountries.empty())
+    {
+        for (auto c : allCountries)
+        {
+            if (c->getName() == countryName)
+            {
+                country = c;
+            }
+        }
+    }
     if (country == nullptr)
     {
         return false;
@@ -1747,6 +1763,7 @@ void WarPhase::revolt(string countryName)
                     c = t->getAssociatedCitizen();
                     c->setStatus(new Unlisted());
                     t->releaseAssociatedCitizen();
+                    country->getWarEntities()->removeTroops(t);
                     delete t;
                 }
                 else
@@ -1764,14 +1781,18 @@ void WarPhase::revolt(string countryName)
         }
     }
 }
+
 list<string> WarPhase::getCountryEnemies(string countryName)
 {
     list<string> enemyNames;
-    if (getCountry(countryName) != nullptr && !getCountry(countryName)->getEnemies().empty())
+    if (getCountry(countryName))
     {
-        for (auto c : getCountry(countryName)->getEnemies())
+        for (auto c : allCountries)
         {
-            enemyNames.push_back(c->getName());
+            if (c->getParent() != getCountry(countryName)->getParent())
+            {
+                enemyNames.push_back(c->getName());
+            }
         }
     }
     return enemyNames;
