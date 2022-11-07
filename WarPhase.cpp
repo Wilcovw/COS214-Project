@@ -803,6 +803,16 @@ void WarPhase::printCountryStatus(string countryName, bool advancedDisplay)
         cout << country->printAreas();
         int unlisted = 0;
         int dead = 0;
+        for(auto c : country->getCitizens()) {
+            if (c->getStatus().compare("Unlisted") == 0)
+            {
+                unlisted++;
+            }
+            else if (c->getStatus().compare("Dead") == 0)
+            {
+                dead++;
+            }
+        }
         if(advancedDisplay) {
             int landGenerals = 0;
             int navyGenerals = 0;
@@ -813,16 +823,6 @@ void WarPhase::printCountryStatus(string countryName, bool advancedDisplay)
             int landSpecialForces = 0;
             int navySpecialForces = 0;
             int airForceSpecialForces = 0;
-            for(auto c : country->getCitizens()) {
-                if (c->getStatus().compare("Unlisted") == 0)
-                {
-                    unlisted++;
-                }
-                else if (c->getStatus().compare("Dead") == 0)
-                {
-                    dead++;
-                }
-            }
             for (auto t : country->getWarEntities()->getTroops())
             {
                 if (t->getKind() == ::tGroundTroops)
