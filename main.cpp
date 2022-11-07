@@ -473,6 +473,11 @@ TEST_CASE("Testing Mediator design pattern for sending Messages across Associate
 	CHECK(game->getPhase()->getCountry(Ireland)->recivedMessage == message);
 }
 
+TEST_CASE("Testing the Prototype design pattern")
+{
+	
+}
+
 TEST_CASE("Testing all the Observer Pattern")
 {
 	cout << "==========Testing the ResearchAndDevelopmentCentre============="<< endl;
@@ -511,3 +516,12 @@ TEST_CASE("Testing all the Observer Pattern")
 // 	CHECK(graph->getArea("Test1") == nullptr);
 // 	CHECK(graph->getArea("Test2") == nullptr);
 // }
+
+TEST_CASE("Testing the Command Design pattern"){
+	Citizens *testPerson = new Citizens();
+	CHECK(testPerson->getStatus() ==unlisted);
+	testPerson->changeStatus();
+	CHECK(testPerson->getStatus() ==enlisted);
+	testPerson->toggleRevolution(game->getPhase()->getCountry(France));
+	CHECK(testPerson->getStatus() == unlisted);
+}
