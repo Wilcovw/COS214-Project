@@ -1,0 +1,119 @@
+\hypertarget{class_navy_training}{}\doxysection{Navy\+Training Class Reference}
+\label{class_navy_training}\index{NavyTraining@{NavyTraining}}
+
+
+Class which is \mbox{\hyperlink{class_infrastructure}{Infrastructure}} for training \mbox{\hyperlink{class_navy}{Navy}} \mbox{\hyperlink{class_troops}{Troops}}. Parent class is \mbox{\hyperlink{class_training_camp}{Training\+Camp}}.  
+
+
+
+
+{\ttfamily \#include $<$Navy\+Training.\+h$>$}
+
+Inheritance diagram for Navy\+Training\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_navy_training}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_navy_training_a0dd814d913bad994aa6122d0da081996}{Navy\+Training}} (double, \mbox{\hyperlink{class_area}{Area}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_navy}{Navy}} Training object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_navy_training_a7ae704132ae8a3def990a286b419afc9}{$\sim$\+Navy\+Training}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{class_navy}{Navy}} Training object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_troops}{Troops}} $\ast$ \mbox{\hyperlink{class_navy_training_acb027f929622048204dbe84bfb294b86}{start\+Drafting}} (\mbox{\hyperlink{class_citizens}{Citizens}} $\ast$, the\+Troop\+Types \mbox{\hyperlink{class_infrastructure_a5379724ecb52e0bcef98346b05d67d20}{type}})
+\begin{DoxyCompactList}\small\item\em Starts creating new \mbox{\hyperlink{class_navy}{Navy}} \mbox{\hyperlink{class_troops}{Troops}}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_navy_training_a0e6f99bcb60a18e9ef6d665e9272543c}{destroy}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the current Training Camp. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_infrastructure}{Infrastructure}} $\ast$ \mbox{\hyperlink{class_navy_training_a63a3f64c1a58afec24438cabdaf2342e}{clone}} (\mbox{\hyperlink{class_area}{Area}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Makes a copy of the current Training camp. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Class which is \mbox{\hyperlink{class_infrastructure}{Infrastructure}} for training \mbox{\hyperlink{class_navy}{Navy}} \mbox{\hyperlink{class_troops}{Troops}}. Parent class is \mbox{\hyperlink{class_training_camp}{Training\+Camp}}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_navy_training_a0dd814d913bad994aa6122d0da081996}\label{class_navy_training_a0dd814d913bad994aa6122d0da081996}} 
+\index{NavyTraining@{NavyTraining}!NavyTraining@{NavyTraining}}
+\index{NavyTraining@{NavyTraining}!NavyTraining@{NavyTraining}}
+\doxysubsubsection{\texorpdfstring{NavyTraining()}{NavyTraining()}}
+{\footnotesize\ttfamily Navy\+Training\+::\+Navy\+Training (\begin{DoxyParamCaption}\item[{double}]{HP,  }\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{location }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_navy}{Navy}} Training object. 
+
+\mbox{\Hypertarget{class_navy_training_a7ae704132ae8a3def990a286b419afc9}\label{class_navy_training_a7ae704132ae8a3def990a286b419afc9}} 
+\index{NavyTraining@{NavyTraining}!````~NavyTraining@{$\sim$NavyTraining}}
+\index{````~NavyTraining@{$\sim$NavyTraining}!NavyTraining@{NavyTraining}}
+\doxysubsubsection{\texorpdfstring{$\sim$NavyTraining()}{~NavyTraining()}}
+{\footnotesize\ttfamily Navy\+Training\+::$\sim$\+Navy\+Training (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destroy the \mbox{\hyperlink{class_navy}{Navy}} Training object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_navy_training_a63a3f64c1a58afec24438cabdaf2342e}\label{class_navy_training_a63a3f64c1a58afec24438cabdaf2342e}} 
+\index{NavyTraining@{NavyTraining}!clone@{clone}}
+\index{clone@{clone}!NavyTraining@{NavyTraining}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_infrastructure}{Infrastructure}} $\ast$ Navy\+Training\+::clone (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{new\+Area }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Makes a copy of the current Training camp. 
+
+\begin{DoxyReturn}{Returns}
+Infrastructure$\ast$ 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_training_camp_afdda7e8b732f796a675502796cd2e253}{Training\+Camp}}.
+
+\mbox{\Hypertarget{class_navy_training_a0e6f99bcb60a18e9ef6d665e9272543c}\label{class_navy_training_a0e6f99bcb60a18e9ef6d665e9272543c}} 
+\index{NavyTraining@{NavyTraining}!destroy@{destroy}}
+\index{destroy@{destroy}!NavyTraining@{NavyTraining}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily void Navy\+Training\+::destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destroy the current Training Camp. 
+
+
+
+Implements \mbox{\hyperlink{class_training_camp_aa4a0a2a3af969eb1da0296c4cb11f482}{Training\+Camp}}.
+
+\mbox{\Hypertarget{class_navy_training_acb027f929622048204dbe84bfb294b86}\label{class_navy_training_acb027f929622048204dbe84bfb294b86}} 
+\index{NavyTraining@{NavyTraining}!startDrafting@{startDrafting}}
+\index{startDrafting@{startDrafting}!NavyTraining@{NavyTraining}}
+\doxysubsubsection{\texorpdfstring{startDrafting()}{startDrafting()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_troops}{Troops}} $\ast$ Navy\+Training\+::start\+Drafting (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_citizens}{Citizens}} $\ast$}]{c,  }\item[{the\+Troop\+Types}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Starts creating new \mbox{\hyperlink{class_navy}{Navy}} \mbox{\hyperlink{class_troops}{Troops}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Troops$\ast$ 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_training_camp_ab6dc8f7a2326362ba49bb47f726231de}{Training\+Camp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Navy\+Training.\+h\item 
+Navy\+Training.\+cpp\end{DoxyCompactItemize}

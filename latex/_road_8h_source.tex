@@ -1,0 +1,27 @@
+\hypertarget{_road_8h_source}{}\doxysection{Road.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef ROAD\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define ROAD\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}Infrastructure.h"{}}}
+\DoxyCodeLine{6 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{class_edge}{Edge}};}
+\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{class_road}{Road}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_infrastructure}{Infrastructure}}}
+\DoxyCodeLine{13 \{}
+\DoxyCodeLine{14 \textcolor{keyword}{private}:}
+\DoxyCodeLine{18     \mbox{\hyperlink{class_edge}{Edge}} **edges = \textcolor{keyword}{new} \mbox{\hyperlink{class_edge}{Edge}} *[2];}
+\DoxyCodeLine{22     \textcolor{keywordtype}{bool} hasBeenCloned;}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{keyword}{public}:}
+\DoxyCodeLine{32     \mbox{\hyperlink{class_road}{Road}}(\mbox{\hyperlink{class_area}{Area}} *, \mbox{\hyperlink{class_area}{Area}} *, \textcolor{keywordtype}{double}, \textcolor{keywordtype}{double});}
+\DoxyCodeLine{36     \mbox{\hyperlink{class_road_a3fa0feda8a96c3763d5f5a1f06f2972e}{\string~Road}}();}
+\DoxyCodeLine{40     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_road_adaec60af4fd33b4e2bdaf85bc27ec13e}{destroy}}();}
+\DoxyCodeLine{46     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_infrastructure}{Infrastructure}} *\mbox{\hyperlink{class_road_a41a9090edab0e901e4f6c2cbd214ba30}{clone}}(\mbox{\hyperlink{class_area}{Area}} *newArea);}
+\DoxyCodeLine{47 \};}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

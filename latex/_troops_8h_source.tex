@@ -1,0 +1,44 @@
+\hypertarget{_troops_8h_source}{}\doxysection{Troops.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TROOPS\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define TROOPS\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}WarEngine.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}TroopType.h"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{class_area}{Area}};}
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{class_vehicles}{Vehicles}};}
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{class_citizens}{Citizens}};}
+\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{class_troops}{Troops}}}
+\DoxyCodeLine{13 \{}
+\DoxyCodeLine{14 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{18     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_troops_aa54fd2d053b2511f371c4166224f6f8f}{HP}};}
+\DoxyCodeLine{23     \mbox{\hyperlink{class_area}{Area}} *\mbox{\hyperlink{class_troops_a972f3fee276d065363eef95e098a6efc}{location}};}
+\DoxyCodeLine{28     \mbox{\hyperlink{class_troop_type}{TroopType}} *\mbox{\hyperlink{class_troops_ad454447264c8ce867ab17048a4b06620}{type}};}
+\DoxyCodeLine{33     \mbox{\hyperlink{class_citizens}{Citizens}} *\mbox{\hyperlink{class_troops_a5eb785e80a9159f71575fc96304c7d4b}{associatedCitizens}};}
+\DoxyCodeLine{38     \mbox{\hyperlink{class_troops}{Troops}} *\mbox{\hyperlink{class_troops_a03a189b3504e9879f6a0f130a817bf58}{clonedTroop}};}
+\DoxyCodeLine{43     kindOfTroops \mbox{\hyperlink{class_troops_ab8c371d4ec3fa37512f290b349debd9d}{kind}};}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{keyword}{public}:}
+\DoxyCodeLine{49     \mbox{\hyperlink{class_troops}{Troops}}(\textcolor{keywordtype}{double}, \mbox{\hyperlink{class_area}{Area}} *, \mbox{\hyperlink{class_troop_type}{TroopType}} *, \mbox{\hyperlink{class_citizens}{Citizens}} *);}
+\DoxyCodeLine{53     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_troops_a000756d8d58ff82a80c7a947ac534151}{\string~Troops}}();}
+\DoxyCodeLine{57     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_troops_a290b683e824eb81ee631ae9d012e97d1}{attack}}(\mbox{\hyperlink{class_troops}{Troops}} *);}
+\DoxyCodeLine{61     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_troops_a290b683e824eb81ee631ae9d012e97d1}{attack}}(\mbox{\hyperlink{class_infrastructure}{Infrastructure}} *);}
+\DoxyCodeLine{65     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_troops_a290b683e824eb81ee631ae9d012e97d1}{attack}}(\mbox{\hyperlink{class_vehicles}{Vehicles}} *);}
+\DoxyCodeLine{71     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_troops_aa5b4ebfbd0ba7d2f7a0180057d360968}{takeDamage}}(\textcolor{keywordtype}{double});}
+\DoxyCodeLine{76     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_troops_a595021a85391ec405230095e200dc15f}{getHP}}();}
+\DoxyCodeLine{81     \mbox{\hyperlink{class_area}{Area}} *\mbox{\hyperlink{class_troops_af19c7a93a77fbca39df34b8fc453ad73}{getLocation}}();}
+\DoxyCodeLine{86     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_troops_a82c73687126c1607905536a914035ee0}{setLocation}}(\mbox{\hyperlink{class_area}{Area}} *);}
+\DoxyCodeLine{91     \mbox{\hyperlink{class_troop_type}{TroopType}} *\mbox{\hyperlink{class_troops_aeea8fa9a8f313a4f92433bf00a9bb221}{getType}}();}
+\DoxyCodeLine{96     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_troops_a50099fc71b3b185e0cbff185c7889db0}{getDamage}}();}
+\DoxyCodeLine{101     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_troops_a4c22d22ff758f4fae249ed4bd875c02e}{getMaxHP}}();}
+\DoxyCodeLine{106     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_troops_a6f79865df06590d3a2569dcc2368c3d5}{getSpeed}}();}
+\DoxyCodeLine{111     kindOfTroops \mbox{\hyperlink{class_troops_a51c02582db06e71ad5bc8a901dd40345}{getKind}}();}
+\DoxyCodeLine{116     \mbox{\hyperlink{class_troops}{Troops}} *\mbox{\hyperlink{class_troops_a91b362afacd3da77ecc4fade3d40ab48}{clone}}(\mbox{\hyperlink{class_area}{Area}}* newArea);}
+\DoxyCodeLine{121     \mbox{\hyperlink{class_citizens}{Citizens}} *\mbox{\hyperlink{class_troops_ad4ee6fe33b77b1e1d32b259046d85edd}{getAssociatedCitizen}}();}
+\DoxyCodeLine{125     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_troops_ad21c319db1d616edf1a83d16d60c0e6e}{releaseAssociatedCitizen}}();}
+\DoxyCodeLine{130     \mbox{\hyperlink{class_troops}{Troops}} *\mbox{\hyperlink{class_troops_ac873445487d81f3bb304e42f6a48b48e}{getClone}}();}
+\DoxyCodeLine{131 \};}
+\DoxyCodeLine{132 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

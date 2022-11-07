@@ -1,0 +1,22 @@
+\hypertarget{_status_8h_source}{}\doxysection{Status.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef STATUS\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define STATUS\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{class_citizens}{Citizens}}; \textcolor{comment}{// forward declaration}}
+\DoxyCodeLine{12 \textcolor{comment}{}\textcolor{keyword}{class }\mbox{\hyperlink{class_status}{Status}}    \textcolor{comment}{// Abstract State class}}
+\DoxyCodeLine{13 \{}
+\DoxyCodeLine{14 \textcolor{keyword}{public}:}
+\DoxyCodeLine{18     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_status_a1b24d90ef2560afffe9d7183e279c63c}{\string~Status}}();}
+\DoxyCodeLine{23     \textcolor{keyword}{virtual} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_status_aeabcd2bfb3e5f1536d313f5bf6bca1f6}{getStatus}}() = 0;             \textcolor{comment}{// returns current State}}
+\DoxyCodeLine{27 \textcolor{comment}{}    \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_status_aa22576f76839eab59de334ce244f9fdb}{handleChange}}(\mbox{\hyperlink{class_citizens}{Citizens}} *c) = 0; \textcolor{comment}{// handles State changes}}
+\DoxyCodeLine{31 \textcolor{comment}{}    \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_status_a8c3e6b313f92626205c9b49600e62e97}{die}}(\mbox{\hyperlink{class_citizens}{Citizens}} *c) = 0;          \textcolor{comment}{// group of citizens die}}
+\DoxyCodeLine{32 \};}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

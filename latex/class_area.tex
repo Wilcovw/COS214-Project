@@ -1,0 +1,393 @@
+\hypertarget{class_area}{}\doxysection{Area Class Reference}
+\label{class_area}\index{Area@{Area}}
+
+
+\mbox{\hyperlink{class_area}{Area}} simulates a war\+Theatre or an area on a map that is controlled by a country and is connected to other areas by certain edges in a map.  
+
+
+
+
+{\ttfamily \#include $<$Area.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_area_a313a468186ed505bd95298a44becb85e}{Area}} (string name, \mbox{\hyperlink{class_country}{Country}} $\ast$controlling\+Country)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_area}{Area}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_area_ace0975982b61a16746c564a0d43a4cc8}\label{class_area_ace0975982b61a16746c564a0d43a4cc8}} 
+{\bfseries $\sim$\+Area} ()
+\begin{DoxyCompactList}\small\item\em calls class destructor \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_area_afc150a3e016559349fc09269e2da0f68}{add\+Harbour}} (\mbox{\hyperlink{class_harbour}{Harbour}} $\ast$the\+Harbour)
+\begin{DoxyCompactList}\small\item\em Add\textquotesingle{}s a harbour to the current Areas edges. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_area_afc4f07461c7eeaab5e2e05d8e91be308}{add\+Runway}} (\mbox{\hyperlink{class_runway}{Runway}} $\ast$the\+Runway)
+\begin{DoxyCompactList}\small\item\em Add\textquotesingle{}s a \mbox{\hyperlink{class_runway}{Runway}} to the current Areas edges. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_harbour}{Harbour}} $\ast$ \mbox{\hyperlink{class_area_ab7acad38e0332ca32a85f69808e54dad}{get\+Harbour\+In\+Area}} ()
+\begin{DoxyCompactList}\small\item\em Returns all the Harbours in this \mbox{\hyperlink{class_area}{Area}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_runway}{Runway}} $\ast$ \mbox{\hyperlink{class_area_ab2838382520fd51d078daad6afbe1cb2}{get\+Runway\+In\+Area}} ()
+\begin{DoxyCompactList}\small\item\em Returns all the Runways connected to this \mbox{\hyperlink{class_area}{Area}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_area_a7b6e2b3cd2be27b1e8ddd4237809bcc1}{set\+Controlling\+Country}} (\mbox{\hyperlink{class_country}{Country}} $\ast$controlling\+Country)
+\begin{DoxyCompactList}\small\item\em Set the Controlling \mbox{\hyperlink{class_country}{Country}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_country}{Country}} $\ast$ \mbox{\hyperlink{class_area_a847e7d1f1a5ae617d66fbfff1e80a5cc}{get\+Controlling\+Country}} ()
+\begin{DoxyCompactList}\small\item\em Get the Controlling \mbox{\hyperlink{class_country}{Country}} object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_area_a79c728f87db2a2dead3384787c25fb01}{add\+Edge}} (\mbox{\hyperlink{class_edge}{Edge}} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Adds an edge of type Road/\+Harbour/\+Air to the current \mbox{\hyperlink{class_area}{Area}}. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_area_a3e4eb0ed8a85ae42e5e6e5dd104fb370}{get\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Get the Name object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_area_a89be88eaac160ef7fd7cf8b043232957}{is\+Accessible}} (\mbox{\hyperlink{class_area}{Area}} $\ast$d)
+\begin{DoxyCompactList}\small\item\em Check if the \mbox{\hyperlink{class_area}{Area}} passed in is connected to this \mbox{\hyperlink{class_area}{Area}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_area_acf0650fd7db9cefd6814eb97c6bd54e4}{is\+Accessible}} (\mbox{\hyperlink{class_area}{Area}} $\ast$d, string type)
+\begin{DoxyCompactList}\small\item\em Check if the \mbox{\hyperlink{class_area}{Area}} passed in is connected to this \mbox{\hyperlink{class_area}{Area}} via a certain type edge. \end{DoxyCompactList}\item 
+list$<$ \mbox{\hyperlink{class_edge}{Edge}} $\ast$ $>$ \mbox{\hyperlink{class_area_ae92c92496edc5dffc3759ee32e858c25}{get\+Edges}} ()
+\begin{DoxyCompactList}\small\item\em Get the Edges object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_area_af88b9f5df52ff1cfe0a7d403f74449a6}{print\+Edges}} ()
+\begin{DoxyCompactList}\small\item\em Prints all the edges that are connected to this \mbox{\hyperlink{class_area}{Area}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_area_aba468af44a1b95693da1cf37dc98ac76}{set\+Prev}} (\mbox{\hyperlink{class_area}{Area}} $\ast$p)
+\begin{DoxyCompactList}\small\item\em Set the Prev object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_area}{Area}} $\ast$ \mbox{\hyperlink{class_area_ac85714f4e8630f4ff3ca2d943ba2b301}{get\+Prev}} ()
+\begin{DoxyCompactList}\small\item\em Get the Prev object. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_area_ab7f9945b4865155373e3b7450b704120}{get\+Dist}} ()
+\begin{DoxyCompactList}\small\item\em Get the dist varaible. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_area_aa33632217527218271da7eb407b6338c}{set\+Dist}} (double d)
+\begin{DoxyCompactList}\small\item\em Set the dist object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_area_a2f25f4896aca1e9b1066cbd941a5defe}{remove\+Edge}} (\mbox{\hyperlink{class_edge}{Edge}} $\ast$)
+\begin{DoxyCompactList}\small\item\em remove the passed in \mbox{\hyperlink{class_edge}{Edge}} from the \mbox{\hyperlink{class_area}{Area}} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_area}{Area}} $\ast$ \mbox{\hyperlink{class_area_aca7d53b00a7657c8b5d9dd099c0bccd7}{clone}} (\mbox{\hyperlink{class_country}{Country}} $\ast$c)
+\begin{DoxyCompactList}\small\item\em Returns a copy of current Object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_area}{Area}} $\ast$ \mbox{\hyperlink{class_area_ab28ee8e6b98d6c48d19edb73bc25d218}{get\+Cloned\+Area}} ()
+\begin{DoxyCompactList}\small\item\em Get the Cloned \mbox{\hyperlink{class_area}{Area}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_area_a1bb10f9ecaaa77c1061f6a106f1d48ca}{visited}} = false
+\begin{DoxyCompactList}\small\item\em Variable needed to determine if it was visited in the traversal. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_area_a86413acfb10c00dff0351a917a563bae}{num}} = 0
+\begin{DoxyCompactList}\small\item\em Variable needed for shortest path. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_area}{Area}} simulates a war\+Theatre or an area on a map that is controlled by a country and is connected to other areas by certain edges in a map. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_area_a313a468186ed505bd95298a44becb85e}\label{class_area_a313a468186ed505bd95298a44becb85e}} 
+\index{Area@{Area}!Area@{Area}}
+\index{Area@{Area}!Area@{Area}}
+\doxysubsubsection{\texorpdfstring{Area()}{Area()}}
+{\footnotesize\ttfamily Area\+::\+Area (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{\mbox{\hyperlink{class_country}{Country}} $\ast$}]{controlling\+Country }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_area}{Area}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Is the name of the the \mbox{\hyperlink{class_edge}{Edge}} \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_area_a79c728f87db2a2dead3384787c25fb01}\label{class_area_a79c728f87db2a2dead3384787c25fb01}} 
+\index{Area@{Area}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!Area@{Area}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}}
+{\footnotesize\ttfamily bool Area\+::add\+Edge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_edge}{Edge}} $\ast$}]{e }\end{DoxyParamCaption})}
+
+
+
+Adds an edge of type Road/\+Harbour/\+Air to the current \mbox{\hyperlink{class_area}{Area}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & The \mbox{\hyperlink{class_edge}{Edge}} to add \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, if the \mbox{\hyperlink{class_edge}{Edge}} was added successfuly 
+
+false, if the \mbox{\hyperlink{class_edge}{Edge}} was already existed and was not added 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_area_afc150a3e016559349fc09269e2da0f68}\label{class_area_afc150a3e016559349fc09269e2da0f68}} 
+\index{Area@{Area}!addHarbour@{addHarbour}}
+\index{addHarbour@{addHarbour}!Area@{Area}}
+\doxysubsubsection{\texorpdfstring{addHarbour()}{addHarbour()}}
+{\footnotesize\ttfamily void Area\+::add\+Harbour (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_harbour}{Harbour}} $\ast$}]{the\+Harbour }\end{DoxyParamCaption})}
+
+
+
+Add\textquotesingle{}s a harbour to the current Areas edges. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the\+Harbour} & The mew \mbox{\hyperlink{class_harbour}{Harbour}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_area_afc4f07461c7eeaab5e2e05d8e91be308}\label{class_area_afc4f07461c7eeaab5e2e05d8e91be308}} 
+\index{Area@{Area}!addRunway@{addRunway}}
+\index{addRunway@{addRunway}!Area@{Area}}
+\doxysubsubsection{\texorpdfstring{addRunway()}{addRunway()}}
+{\footnotesize\ttfamily void Area\+::add\+Runway (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_runway}{Runway}} $\ast$}]{the\+Runway }\end{DoxyParamCaption})}
+
+
+
+Add\textquotesingle{}s a \mbox{\hyperlink{class_runway}{Runway}} to the current Areas edges. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the\+Runway} & The new runway \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_area_aca7d53b00a7657c8b5d9dd099c0bccd7}\label{class_area_aca7d53b00a7657c8b5d9dd099c0bccd7}} 
+\index{Area@{Area}!clone@{clone}}
+\index{clone@{clone}!Area@{Area}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_area}{Area}} $\ast$ Area\+::clone (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_country}{Country}} $\ast$}]{c }\end{DoxyParamCaption})}
+
+
+
+Returns a copy of current Object. 
+
+\begin{DoxyReturn}{Returns}
+Area$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_area_ab28ee8e6b98d6c48d19edb73bc25d218}\label{class_area_ab28ee8e6b98d6c48d19edb73bc25d218}} 
+\index{Area@{Area}!getClonedArea@{getClonedArea}}
+\index{getClonedArea@{getClonedArea}!Area@{Area}}
+\doxysubsubsection{\texorpdfstring{getClonedArea()}{getClonedArea()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_area}{Area}} $\ast$ Area\+::get\+Cloned\+Area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Cloned \mbox{\hyperlink{class_area}{Area}} object. 
+
+\begin{DoxyReturn}{Returns}
+Area$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_area_a847e7d1f1a5ae617d66fbfff1e80a5cc}\label{class_area_a847e7d1f1a5ae617d66fbfff1e80a5cc}} 
+\index{Area@{Area}!getControllingCountry@{getControllingCountry}}
+\index{getControllingCountry@{getControllingCountry}!Area@{Area}}
+\doxysubsubsection{\texorpdfstring{getControllingCountry()}{getControllingCountry()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_country}{Country}} $\ast$ Area\+::get\+Controlling\+Country (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Controlling \mbox{\hyperlink{class_country}{Country}} object. 
+
+\begin{DoxyReturn}{Returns}
+Country$\ast$ -\/ the controlling \mbox{\hyperlink{class_country}{Country}} object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_area_ab7f9945b4865155373e3b7450b704120}\label{class_area_ab7f9945b4865155373e3b7450b704120}} 
+\index{Area@{Area}!getDist@{getDist}}
+\index{getDist@{getDist}!Area@{Area}}
+\doxysubsubsection{\texorpdfstring{getDist()}{getDist()}}
+{\footnotesize\ttfamily double Area\+::get\+Dist (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the dist varaible. 
+
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_area_ae92c92496edc5dffc3759ee32e858c25}\label{class_area_ae92c92496edc5dffc3759ee32e858c25}} 
+\index{Area@{Area}!getEdges@{getEdges}}
+\index{getEdges@{getEdges}!Area@{Area}}
+\doxysubsubsection{\texorpdfstring{getEdges()}{getEdges()}}
+{\footnotesize\ttfamily list$<$ \mbox{\hyperlink{class_edge}{Edge}} $\ast$ $>$ Area\+::get\+Edges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Edges object. 
+
+\begin{DoxyReturn}{Returns}
+list$<$\+Edge$\ast$$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_area_ab7acad38e0332ca32a85f69808e54dad}\label{class_area_ab7acad38e0332ca32a85f69808e54dad}} 
+\index{Area@{Area}!getHarbourInArea@{getHarbourInArea}}
+\index{getHarbourInArea@{getHarbourInArea}!Area@{Area}}
+\doxysubsubsection{\texorpdfstring{getHarbourInArea()}{getHarbourInArea()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_harbour}{Harbour}} $\ast$ Area\+::get\+Harbour\+In\+Area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns all the Harbours in this \mbox{\hyperlink{class_area}{Area}}. 
+
+\begin{DoxyReturn}{Returns}
+Harbour$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_area_a3e4eb0ed8a85ae42e5e6e5dd104fb370}\label{class_area_a3e4eb0ed8a85ae42e5e6e5dd104fb370}} 
+\index{Area@{Area}!getName@{getName}}
+\index{getName@{getName}!Area@{Area}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily string Area\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Name object. 
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_area_ac85714f4e8630f4ff3ca2d943ba2b301}\label{class_area_ac85714f4e8630f4ff3ca2d943ba2b301}} 
+\index{Area@{Area}!getPrev@{getPrev}}
+\index{getPrev@{getPrev}!Area@{Area}}
+\doxysubsubsection{\texorpdfstring{getPrev()}{getPrev()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_area}{Area}} $\ast$ Area\+::get\+Prev (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Prev object. 
+
+\begin{DoxyReturn}{Returns}
+Area$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_area_ab2838382520fd51d078daad6afbe1cb2}\label{class_area_ab2838382520fd51d078daad6afbe1cb2}} 
+\index{Area@{Area}!getRunwayInArea@{getRunwayInArea}}
+\index{getRunwayInArea@{getRunwayInArea}!Area@{Area}}
+\doxysubsubsection{\texorpdfstring{getRunwayInArea()}{getRunwayInArea()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_runway}{Runway}} $\ast$ Area\+::get\+Runway\+In\+Area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns all the Runways connected to this \mbox{\hyperlink{class_area}{Area}}. 
+
+\begin{DoxyReturn}{Returns}
+Runway$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_area_a89be88eaac160ef7fd7cf8b043232957}\label{class_area_a89be88eaac160ef7fd7cf8b043232957}} 
+\index{Area@{Area}!isAccessible@{isAccessible}}
+\index{isAccessible@{isAccessible}!Area@{Area}}
+\doxysubsubsection{\texorpdfstring{isAccessible()}{isAccessible()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Area\+::is\+Accessible (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{d }\end{DoxyParamCaption})}
+
+
+
+Check if the \mbox{\hyperlink{class_area}{Area}} passed in is connected to this \mbox{\hyperlink{class_area}{Area}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & The \mbox{\hyperlink{class_area}{Area}} to check if it is connected to the current One \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_area_acf0650fd7db9cefd6814eb97c6bd54e4}\label{class_area_acf0650fd7db9cefd6814eb97c6bd54e4}} 
+\index{Area@{Area}!isAccessible@{isAccessible}}
+\index{isAccessible@{isAccessible}!Area@{Area}}
+\doxysubsubsection{\texorpdfstring{isAccessible()}{isAccessible()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Area\+::is\+Accessible (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{d,  }\item[{string}]{type }\end{DoxyParamCaption})}
+
+
+
+Check if the \mbox{\hyperlink{class_area}{Area}} passed in is connected to this \mbox{\hyperlink{class_area}{Area}} via a certain type edge. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & The \mbox{\hyperlink{class_area}{Area}} to check if it is connected to the current One \\
+\hline
+{\em type} & The type of edge \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_area_af88b9f5df52ff1cfe0a7d403f74449a6}\label{class_area_af88b9f5df52ff1cfe0a7d403f74449a6}} 
+\index{Area@{Area}!printEdges@{printEdges}}
+\index{printEdges@{printEdges}!Area@{Area}}
+\doxysubsubsection{\texorpdfstring{printEdges()}{printEdges()}}
+{\footnotesize\ttfamily void Area\+::print\+Edges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Prints all the edges that are connected to this \mbox{\hyperlink{class_area}{Area}}. 
+
+\mbox{\Hypertarget{class_area_a2f25f4896aca1e9b1066cbd941a5defe}\label{class_area_a2f25f4896aca1e9b1066cbd941a5defe}} 
+\index{Area@{Area}!removeEdge@{removeEdge}}
+\index{removeEdge@{removeEdge}!Area@{Area}}
+\doxysubsubsection{\texorpdfstring{removeEdge()}{removeEdge()}}
+{\footnotesize\ttfamily void Area\+::remove\+Edge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_edge}{Edge}} $\ast$}]{e }\end{DoxyParamCaption})}
+
+
+
+remove the passed in \mbox{\hyperlink{class_edge}{Edge}} from the \mbox{\hyperlink{class_area}{Area}} 
+
+\mbox{\Hypertarget{class_area_a7b6e2b3cd2be27b1e8ddd4237809bcc1}\label{class_area_a7b6e2b3cd2be27b1e8ddd4237809bcc1}} 
+\index{Area@{Area}!setControllingCountry@{setControllingCountry}}
+\index{setControllingCountry@{setControllingCountry}!Area@{Area}}
+\doxysubsubsection{\texorpdfstring{setControllingCountry()}{setControllingCountry()}}
+{\footnotesize\ttfamily void Area\+::set\+Controlling\+Country (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_country}{Country}} $\ast$}]{controlling\+Country }\end{DoxyParamCaption})}
+
+
+
+Set the Controlling \mbox{\hyperlink{class_country}{Country}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_country}{Country}}} & THe new controlling \mbox{\hyperlink{class_country}{Country}} object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_area_aa33632217527218271da7eb407b6338c}\label{class_area_aa33632217527218271da7eb407b6338c}} 
+\index{Area@{Area}!setDist@{setDist}}
+\index{setDist@{setDist}!Area@{Area}}
+\doxysubsubsection{\texorpdfstring{setDist()}{setDist()}}
+{\footnotesize\ttfamily void Area\+::set\+Dist (\begin{DoxyParamCaption}\item[{double}]{d }\end{DoxyParamCaption})}
+
+
+
+Set the dist object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_area_aba468af44a1b95693da1cf37dc98ac76}\label{class_area_aba468af44a1b95693da1cf37dc98ac76}} 
+\index{Area@{Area}!setPrev@{setPrev}}
+\index{setPrev@{setPrev}!Area@{Area}}
+\doxysubsubsection{\texorpdfstring{setPrev()}{setPrev()}}
+{\footnotesize\ttfamily void Area\+::set\+Prev (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Set the Prev object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & The \mbox{\hyperlink{class_area}{Area}} object to set the prev pointer \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_area_a86413acfb10c00dff0351a917a563bae}\label{class_area_a86413acfb10c00dff0351a917a563bae}} 
+\index{Area@{Area}!num@{num}}
+\index{num@{num}!Area@{Area}}
+\doxysubsubsection{\texorpdfstring{num}{num}}
+{\footnotesize\ttfamily int Area\+::num = 0}
+
+
+
+Variable needed for shortest path. 
+
+\mbox{\Hypertarget{class_area_a1bb10f9ecaaa77c1061f6a106f1d48ca}\label{class_area_a1bb10f9ecaaa77c1061f6a106f1d48ca}} 
+\index{Area@{Area}!visited@{visited}}
+\index{visited@{visited}!Area@{Area}}
+\doxysubsubsection{\texorpdfstring{visited}{visited}}
+{\footnotesize\ttfamily bool Area\+::visited = false}
+
+
+
+Variable needed to determine if it was visited in the traversal. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Area.\+h\item 
+Area.\+cpp\end{DoxyCompactItemize}

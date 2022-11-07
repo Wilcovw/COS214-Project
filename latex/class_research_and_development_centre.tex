@@ -1,0 +1,140 @@
+\hypertarget{class_research_and_development_centre}{}\doxysection{Research\+And\+Development\+Centre Class Reference}
+\label{class_research_and_development_centre}\index{ResearchAndDevelopmentCentre@{ResearchAndDevelopmentCentre}}
+
+
+\mbox{\hyperlink{class_research_and_development_centre}{Research\+And\+Development\+Centre}} takes the role of the Observer Class in the Observer design pattern. It inherits from Inrastructure.  
+
+
+
+
+{\ttfamily \#include $<$Research\+And\+Development\+Centre.\+h$>$}
+
+Inheritance diagram for Research\+And\+Development\+Centre\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.692308cm]{class_research_and_development_centre}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_research_and_development_centre_a7f7c1eecc9f0a1941843ab4ea88bd0c2}{Research\+And\+Development\+Centre}} (double hp, \mbox{\hyperlink{class_area}{Area}} $\ast$area)
+\begin{DoxyCompactList}\small\item\em Construct a new Research And Development Centre object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_research_and_development_centre_a9dac8513173caa35aa4dea09aa80b348}\label{class_research_and_development_centre_a9dac8513173caa35aa4dea09aa80b348}} 
+void {\bfseries start\+Developing} ()
+\begin{DoxyCompactList}\small\item\em starts the developing of upgrades for vehicles \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_research_and_development_centre_a3958db0b7326aa3445ca78d858beddac}\label{class_research_and_development_centre_a3958db0b7326aa3445ca78d858beddac}} 
+void {\bfseries stop\+Developing} ()
+\begin{DoxyCompactList}\small\item\em stops the development of upgrades for vehicles \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_research_and_development_centre_a586bdddf08acd7d03f37b9eb5a213776}\label{class_research_and_development_centre_a586bdddf08acd7d03f37b9eb5a213776}} 
+void {\bfseries notify\+Develop} ()
+\begin{DoxyCompactList}\small\item\em Notifies the vehicles in the list that their upgrade() functions have to be called. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_research_and_development_centre_aa8ba924d0f7209390e019c178054ab1c}{destroy}} ()
+\begin{DoxyCompactList}\small\item\em calls destructor for the class \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_research_and_development_centre_ab1d6529e168f19ba632da0acae810179}\label{class_research_and_development_centre_ab1d6529e168f19ba632da0acae810179}} 
+void {\bfseries print\+List} ()
+\begin{DoxyCompactList}\small\item\em prints vehicle\+To\+Be\+Upgraded vector \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_research_and_development_centre_a057bbd7a3e9b01a9333f0c4d3a2b6bcf}{add\+To\+List}} (\mbox{\hyperlink{class_vehicles}{Vehicles}} $\ast$v)
+\begin{DoxyCompactList}\small\item\em adds v to vehicle\+To\+Be\+Upgraded vector \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_infrastructure}{Infrastructure}} $\ast$ \mbox{\hyperlink{class_research_and_development_centre_a48c1869ceb7401be935d205920d1205a}{clone}} (\mbox{\hyperlink{class_area}{Area}} $\ast$new\+Area)
+\begin{DoxyCompactList}\small\item\em returns a clone of the current class \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ \mbox{\hyperlink{class_vehicles}{Vehicles}} $\ast$ $>$ \mbox{\hyperlink{class_research_and_development_centre_aff388b42ee1cbc5278d5a312446cd0a6}{vehicle\+To\+Be\+Upgraded}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_research_and_development_centre}{Research\+And\+Development\+Centre}} takes the role of the Observer Class in the Observer design pattern. It inherits from Inrastructure. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_research_and_development_centre_a7f7c1eecc9f0a1941843ab4ea88bd0c2}\label{class_research_and_development_centre_a7f7c1eecc9f0a1941843ab4ea88bd0c2}} 
+\index{ResearchAndDevelopmentCentre@{ResearchAndDevelopmentCentre}!ResearchAndDevelopmentCentre@{ResearchAndDevelopmentCentre}}
+\index{ResearchAndDevelopmentCentre@{ResearchAndDevelopmentCentre}!ResearchAndDevelopmentCentre@{ResearchAndDevelopmentCentre}}
+\doxysubsubsection{\texorpdfstring{ResearchAndDevelopmentCentre()}{ResearchAndDevelopmentCentre()}}
+{\footnotesize\ttfamily Research\+And\+Development\+Centre\+::\+Research\+And\+Development\+Centre (\begin{DoxyParamCaption}\item[{double}]{hp,  }\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{area }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new Research And Development Centre object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hp} & The health of the Center \\
+\hline
+{\em area} & The \mbox{\hyperlink{class_area}{Area}} the Centre is located \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_research_and_development_centre_a057bbd7a3e9b01a9333f0c4d3a2b6bcf}\label{class_research_and_development_centre_a057bbd7a3e9b01a9333f0c4d3a2b6bcf}} 
+\index{ResearchAndDevelopmentCentre@{ResearchAndDevelopmentCentre}!addToList@{addToList}}
+\index{addToList@{addToList}!ResearchAndDevelopmentCentre@{ResearchAndDevelopmentCentre}}
+\doxysubsubsection{\texorpdfstring{addToList()}{addToList()}}
+{\footnotesize\ttfamily void Research\+And\+Development\+Centre\+::add\+To\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vehicles}{Vehicles}} $\ast$}]{v }\end{DoxyParamCaption})}
+
+
+
+adds v to vehicle\+To\+Be\+Upgraded vector 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & -\/ a Vehicle to be added to the list \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_research_and_development_centre_a48c1869ceb7401be935d205920d1205a}\label{class_research_and_development_centre_a48c1869ceb7401be935d205920d1205a}} 
+\index{ResearchAndDevelopmentCentre@{ResearchAndDevelopmentCentre}!clone@{clone}}
+\index{clone@{clone}!ResearchAndDevelopmentCentre@{ResearchAndDevelopmentCentre}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_infrastructure}{Infrastructure}} $\ast$ Research\+And\+Development\+Centre\+::clone (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{new\+Area }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+returns a clone of the current class 
+
+\begin{DoxyReturn}{Returns}
+Infrastructure$\ast$ -\/ a clone of the current class is returned 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_infrastructure_aed522d5bc816f5edfb80613ec3948c8c}{Infrastructure}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{class_aircraft_development_a0806b67d0b0fae98ad3937cad6865b40}{Aircraft\+Development}}, \mbox{\hyperlink{class_aquatic_vehicle_development_a6828d0d885e6728b4aa516f27d7f4cd5}{Aquatic\+Vehicle\+Development}}, and \mbox{\hyperlink{class_land_vehicle_development_af8555d55ae409d9139b10f78f4a7639e}{Land\+Vehicle\+Development}}.
+
+\mbox{\Hypertarget{class_research_and_development_centre_aa8ba924d0f7209390e019c178054ab1c}\label{class_research_and_development_centre_aa8ba924d0f7209390e019c178054ab1c}} 
+\index{ResearchAndDevelopmentCentre@{ResearchAndDevelopmentCentre}!destroy@{destroy}}
+\index{destroy@{destroy}!ResearchAndDevelopmentCentre@{ResearchAndDevelopmentCentre}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily void Research\+And\+Development\+Centre\+::destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+calls destructor for the class 
+
+
+
+Reimplemented from \mbox{\hyperlink{class_infrastructure_afeb7bb200bf923d63e33436ad63578b7}{Infrastructure}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{class_aircraft_development_ac711381928505b4d665e51e2a774a377}{Aircraft\+Development}}, \mbox{\hyperlink{class_aquatic_vehicle_development_aef2ff5cf0398f1feeac90b3c4b2c0751}{Aquatic\+Vehicle\+Development}}, and \mbox{\hyperlink{class_land_vehicle_development_a939bc20ab9eb3a9ad5651bacce433b14}{Land\+Vehicle\+Development}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_research_and_development_centre_aff388b42ee1cbc5278d5a312446cd0a6}\label{class_research_and_development_centre_aff388b42ee1cbc5278d5a312446cd0a6}} 
+\index{ResearchAndDevelopmentCentre@{ResearchAndDevelopmentCentre}!vehicleToBeUpgraded@{vehicleToBeUpgraded}}
+\index{vehicleToBeUpgraded@{vehicleToBeUpgraded}!ResearchAndDevelopmentCentre@{ResearchAndDevelopmentCentre}}
+\doxysubsubsection{\texorpdfstring{vehicleToBeUpgraded}{vehicleToBeUpgraded}}
+{\footnotesize\ttfamily vector$<$\mbox{\hyperlink{class_vehicles}{Vehicles}} $\ast$$>$ Research\+And\+Development\+Centre\+::vehicle\+To\+Be\+Upgraded\hspace{0.3cm}{\ttfamily [protected]}}
+
+a vector of vehicles that need to be upgraded. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Research\+And\+Development\+Centre.\+h\item 
+Research\+And\+Development\+Centre.\+cpp\end{DoxyCompactItemize}

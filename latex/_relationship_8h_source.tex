@@ -1,0 +1,34 @@
+\hypertarget{_relationship_8h_source}{}\doxysection{Relationship.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef RELATIONSHIP\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define RELATIONSHIP\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <list>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}AssociatedCountries.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{class_relationship}{Relationship}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_associated_countries}{AssociatedCountries}}}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13 \textcolor{keyword}{private}:}
+\DoxyCodeLine{18     std::list<AssociatedCountries *> alliances;}
+\DoxyCodeLine{23     std::string relationshipType;}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{public}:}
+\DoxyCodeLine{31     \mbox{\hyperlink{class_relationship}{Relationship}}(std::string r, \mbox{\hyperlink{class_communication}{Communication}} *\mbox{\hyperlink{class_associated_countries_a7353d87778214f8eee21283200a73767}{tele}});}
+\DoxyCodeLine{37     \mbox{\hyperlink{class_relationship}{Relationship}}(\mbox{\hyperlink{class_relationship}{Relationship}} \&relationship, \mbox{\hyperlink{class_communication}{Communication}} *comm, \mbox{\hyperlink{class_associated_countries}{AssociatedCountries}} *\mbox{\hyperlink{class_associated_countries_aa5e5ccc21c966f5cdf440b4f2603abc8}{parent}});}
+\DoxyCodeLine{43     std::string \mbox{\hyperlink{class_relationship_ad56b67e9940f05c2420236480bf22e28}{getRelationshipType}}();}
+\DoxyCodeLine{49     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_relationship_a60f0647ccb05f0ea405588299e17e50c}{addAssociatedCountries}}(\mbox{\hyperlink{class_associated_countries}{AssociatedCountries}} *al);}
+\DoxyCodeLine{55     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_relationship_af7ea5647d3a5a78f1a28b706c859b2bf}{removeAssociatedCountries}}(\mbox{\hyperlink{class_associated_countries}{AssociatedCountries}} *al);}
+\DoxyCodeLine{61     std::list<AssociatedCountries *> \mbox{\hyperlink{class_relationship_ab1e315f1f85623d323814785db47bca8}{getRelationships}}();}
+\DoxyCodeLine{66     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_relationship_a8c46c1f93cedc71fd592c7d7dc0667ab}{\string~Relationship}}();}
+\DoxyCodeLine{72     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_relationship_a2427759ebac81e87ef8e9b060c9dd97b}{receiveMessage}}(std::string message);}
+\DoxyCodeLine{79     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_relationship_a2721c28558f183650533fa9847b3e171}{sendBroadcast}}(\mbox{\hyperlink{class_associated_countries}{AssociatedCountries}} *messageReceiver, std::string message);}
+\DoxyCodeLine{85     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_associated_countries}{AssociatedCountries}} *\mbox{\hyperlink{class_relationship_a449c785f2b53fcf51ef85813203ef734}{getParent}}();}
+\DoxyCodeLine{91     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_relationship_afa33f3ae0b9756425bdf0eea76751f9e}{setParent}}(\mbox{\hyperlink{class_associated_countries}{AssociatedCountries}} *\mbox{\hyperlink{class_associated_countries_aa5e5ccc21c966f5cdf440b4f2603abc8}{parent}});}
+\DoxyCodeLine{97     \textcolor{keyword}{virtual} std::string \mbox{\hyperlink{class_relationship_a179e53b61e3f811cee54f40e0d8a8853}{print}}();}
+\DoxyCodeLine{98     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_communication}{Communication}}* getCommunication();}
+\DoxyCodeLine{105     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_associated_countries}{AssociatedCountries}} *\mbox{\hyperlink{class_relationship_aac78880476e02e1060f705df8702c85c}{clone}}(\mbox{\hyperlink{class_communication}{Communication}} *comm, \mbox{\hyperlink{class_associated_countries}{AssociatedCountries}} *\mbox{\hyperlink{class_associated_countries_aa5e5ccc21c966f5cdf440b4f2603abc8}{parent}});}
+\DoxyCodeLine{106 \};}
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,31 @@
+\hypertarget{_edge_8h_source}{}\doxysection{Edge.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef Edge\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define Edge\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}Area.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{class_area}{Area}};}
+\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{class_edge}{Edge}}}
+\DoxyCodeLine{13 \{}
+\DoxyCodeLine{14 \textcolor{keyword}{private}:}
+\DoxyCodeLine{19     \mbox{\hyperlink{class_area}{Area}} *source = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{24     \mbox{\hyperlink{class_area}{Area}} *destination = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{29     \textcolor{keywordtype}{double} distance = 0;}
+\DoxyCodeLine{34     \textcolor{keywordtype}{string} type;}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{keyword}{public}:}
+\DoxyCodeLine{45     \mbox{\hyperlink{class_edge}{Edge}}(\textcolor{keywordtype}{double} v, \textcolor{keywordtype}{string} type, \mbox{\hyperlink{class_area}{Area}} *s, \mbox{\hyperlink{class_area}{Area}} *d);}
+\DoxyCodeLine{50     \mbox{\hyperlink{class_edge_a2f37b72f044427961d6730943daf10e0}{\string~Edge}}();}
+\DoxyCodeLine{56     \mbox{\hyperlink{class_area}{Area}} *\mbox{\hyperlink{class_edge_a6f81cbb3b689f90e8e445f24640b0409}{getSource}}();}
+\DoxyCodeLine{62     \mbox{\hyperlink{class_area}{Area}} *\mbox{\hyperlink{class_edge_a98ec1c7131d42b76fc35b7106bc81ad7}{getDestination}}();}
+\DoxyCodeLine{68     \textcolor{keywordtype}{string} \mbox{\hyperlink{class_edge_a8fb3cc4641832b7040012b38808b4211}{getType}}();}
+\DoxyCodeLine{74     \textcolor{keywordtype}{string} \mbox{\hyperlink{class_edge_a3d434867b308fa0f3aceadf97705ba61}{getDescription}}();}
+\DoxyCodeLine{80     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_edge_a116f3dc22db6e6fa81100d2b397c9c3b}{getDistance}}();}
+\DoxyCodeLine{81 \};}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,27 @@
+\hypertarget{_factory_8h_source}{}\doxysection{Factory.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef FACTORY\_AND\_OBSERVER\_FACTORY\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define FACTORY\_AND\_OBSERVER\_FACTORY\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Infrastructure.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}Vehicles.h"{}}}
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_factory}{Factory}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_infrastructure}{Infrastructure}}}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12 \textcolor{keyword}{private}:}
+\DoxyCodeLine{17     \mbox{\hyperlink{class_vehicles}{Vehicles}} *vehicle;}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{public}:}
+\DoxyCodeLine{26     \mbox{\hyperlink{class_factory_a84b40a666858ad0b24115901c66bc385}{Factory}}(\textcolor{keywordtype}{double} hp, \mbox{\hyperlink{class_area}{Area}} *area) : \mbox{\hyperlink{class_infrastructure}{Infrastructure}}(hp, area)\{\};}
+\DoxyCodeLine{31     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_factory_abb3d73c23bef3ca95487856ef0d7c476}{\string~Factory}}()\{\};}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{41     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_vehicles}{Vehicles}} *\mbox{\hyperlink{class_factory_aea6ebe58dc6734d7620d3cd76e609fd1}{createVehicle}}(\mbox{\hyperlink{class_area}{Area}} *\mbox{\hyperlink{class_infrastructure_ae21612f9cbcdc428f00c740b81062435}{location}}, \textcolor{keywordtype}{double} \mbox{\hyperlink{class_infrastructure_a20c07563cd5918b63ed2dd5e7451827b}{HP}}, \textcolor{keywordtype}{double} damage, \textcolor{keywordtype}{double} speed);}
+\DoxyCodeLine{46     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_factory_a4908da4e870fd8774dd27a653d7bc8fc}{setVehicle}}(\mbox{\hyperlink{class_vehicles}{Vehicles}} *v);}
+\DoxyCodeLine{51     \mbox{\hyperlink{class_vehicles}{Vehicles}} *\mbox{\hyperlink{class_factory_a5cf29733525cdecf9327d4d33e15c217}{getVehicle}}();}
+\DoxyCodeLine{55     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_factory_a1711bb7dac12c0badaacd18d5fba332d}{destroy}}();}
+\DoxyCodeLine{61     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_infrastructure}{Infrastructure}} *\mbox{\hyperlink{class_factory_a170837d8d27c28567feab334d1c5cb3a}{clone}}(\mbox{\hyperlink{class_area}{Area}} *newArea);}
+\DoxyCodeLine{62 \};}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// FACTORY\_AND\_OBSERVER\_FACTORY\_H}}
+
+\end{DoxyCode}

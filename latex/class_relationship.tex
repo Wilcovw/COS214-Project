@@ -1,0 +1,295 @@
+\hypertarget{class_relationship}{}\doxysection{Relationship Class Reference}
+\label{class_relationship}\index{Relationship@{Relationship}}
+
+
+\mbox{\hyperlink{class_relationship}{Relationship}} takes the role of the Composite class in the Composite design pattern and Concrete\+Colleague in the Mediator patten.  
+
+
+
+
+{\ttfamily \#include $<$Relationship.\+h$>$}
+
+Inheritance diagram for Relationship\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_relationship}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_relationship_affdda48a7ddb7f1504c48fdce4069da6}{Relationship}} (std\+::string r, \mbox{\hyperlink{class_communication}{Communication}} $\ast$\mbox{\hyperlink{class_associated_countries_a7353d87778214f8eee21283200a73767}{tele}})
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_relationship}{Relationship}} object and pass in the relationship type. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_relationship_aaf2dae18a45c32f50e6800abcac88549}{Relationship}} (\mbox{\hyperlink{class_relationship}{Relationship}} \&relationship, \mbox{\hyperlink{class_communication}{Communication}} $\ast$comm, \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$\mbox{\hyperlink{class_associated_countries_aa5e5ccc21c966f5cdf440b4f2603abc8}{parent}})
+\begin{DoxyCompactList}\small\item\em Copy constructor for \mbox{\hyperlink{class_relationship}{Relationship}}, This will create a full copy of the relationship all sub-\/relationships and countries. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_relationship_ad56b67e9940f05c2420236480bf22e28}{get\+Relationship\+Type}} ()
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{class_relationship}{Relationship}} Type object. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_relationship_a60f0647ccb05f0ea405588299e17e50c}{add\+Associated\+Countries}} (\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$al)
+\begin{DoxyCompactList}\small\item\em Add a new \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} object to the tree. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_relationship_af7ea5647d3a5a78f1a28b706c859b2bf}{remove\+Associated\+Countries}} (\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$al)
+\begin{DoxyCompactList}\small\item\em Remove a \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} object from the tree. \end{DoxyCompactList}\item 
+std\+::list$<$ \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$ $>$ \mbox{\hyperlink{class_relationship_ab1e315f1f85623d323814785db47bca8}{get\+Relationships}} ()
+\begin{DoxyCompactList}\small\item\em Returns the alliances object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_relationship_a8c46c1f93cedc71fd592c7d7dc0667ab}{$\sim$\+Relationship}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{class_relationship}{Relationship}} object. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_relationship_a2427759ebac81e87ef8e9b060c9dd97b}{receive\+Message}} (std\+::string message)
+\begin{DoxyCompactList}\small\item\em Allows this object to receive messages from other \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} objects. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_relationship_a2721c28558f183650533fa9847b3e171}{send\+Broadcast}} (\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$message\+Receiver, std\+::string message)
+\begin{DoxyCompactList}\small\item\em Allows this object to send messages from other \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} objects. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$ \mbox{\hyperlink{class_relationship_a449c785f2b53fcf51ef85813203ef734}{get\+Parent}} ()
+\begin{DoxyCompactList}\small\item\em Return the parent object of this object. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_relationship_afa33f3ae0b9756425bdf0eea76751f9e}{set\+Parent}} (\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$\mbox{\hyperlink{class_associated_countries_aa5e5ccc21c966f5cdf440b4f2603abc8}{parent}})
+\begin{DoxyCompactList}\small\item\em Set the Parent object. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{class_relationship_a179e53b61e3f811cee54f40e0d8a8853}{print}} ()
+\begin{DoxyCompactList}\small\item\em Output the contents of this \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_communication}{Communication}} $\ast$ \mbox{\hyperlink{class_relationship_a7b08f64e3ff75c0e6fa2c5382ced1185}{get\+Communication}} ()
+\item 
+virtual \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$ \mbox{\hyperlink{class_relationship_aac78880476e02e1060f705df8702c85c}{clone}} (\mbox{\hyperlink{class_communication}{Communication}} $\ast$comm, \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$\mbox{\hyperlink{class_associated_countries_aa5e5ccc21c966f5cdf440b4f2603abc8}{parent}})
+\begin{DoxyCompactList}\small\item\em Returns a deep copy of the \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} object and its children. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_relationship}{Relationship}} takes the role of the Composite class in the Composite design pattern and Concrete\+Colleague in the Mediator patten. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_relationship_affdda48a7ddb7f1504c48fdce4069da6}\label{class_relationship_affdda48a7ddb7f1504c48fdce4069da6}} 
+\index{Relationship@{Relationship}!Relationship@{Relationship}}
+\index{Relationship@{Relationship}!Relationship@{Relationship}}
+\doxysubsubsection{\texorpdfstring{Relationship()}{Relationship()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Relationship\+::\+Relationship (\begin{DoxyParamCaption}\item[{std\+::string}]{r,  }\item[{\mbox{\hyperlink{class_communication}{Communication}} $\ast$}]{tele }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_relationship}{Relationship}} object and pass in the relationship type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & The type of relationship between the countries \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_relationship_aaf2dae18a45c32f50e6800abcac88549}\label{class_relationship_aaf2dae18a45c32f50e6800abcac88549}} 
+\index{Relationship@{Relationship}!Relationship@{Relationship}}
+\index{Relationship@{Relationship}!Relationship@{Relationship}}
+\doxysubsubsection{\texorpdfstring{Relationship()}{Relationship()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Relationship\+::\+Relationship (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_relationship}{Relationship}} \&}]{relationship,  }\item[{\mbox{\hyperlink{class_communication}{Communication}} $\ast$}]{comm,  }\item[{\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$}]{parent }\end{DoxyParamCaption})}
+
+
+
+Copy constructor for \mbox{\hyperlink{class_relationship}{Relationship}}, This will create a full copy of the relationship all sub-\/relationships and countries. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em relationship} & The relationship to copy \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_relationship_a8c46c1f93cedc71fd592c7d7dc0667ab}\label{class_relationship_a8c46c1f93cedc71fd592c7d7dc0667ab}} 
+\index{Relationship@{Relationship}!````~Relationship@{$\sim$Relationship}}
+\index{````~Relationship@{$\sim$Relationship}!Relationship@{Relationship}}
+\doxysubsubsection{\texorpdfstring{$\sim$Relationship()}{~Relationship()}}
+{\footnotesize\ttfamily Relationship\+::$\sim$\+Relationship (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destroy the \mbox{\hyperlink{class_relationship}{Relationship}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_relationship_a60f0647ccb05f0ea405588299e17e50c}\label{class_relationship_a60f0647ccb05f0ea405588299e17e50c}} 
+\index{Relationship@{Relationship}!addAssociatedCountries@{addAssociatedCountries}}
+\index{addAssociatedCountries@{addAssociatedCountries}!Relationship@{Relationship}}
+\doxysubsubsection{\texorpdfstring{addAssociatedCountries()}{addAssociatedCountries()}}
+{\footnotesize\ttfamily void Relationship\+::add\+Associated\+Countries (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$}]{al }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Add a new \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} object to the tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em al} & \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} objct to be added \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_associated_countries_a469fef433bee084505df55c170345aa3}{Associated\+Countries}}.
+
+\mbox{\Hypertarget{class_relationship_aac78880476e02e1060f705df8702c85c}\label{class_relationship_aac78880476e02e1060f705df8702c85c}} 
+\index{Relationship@{Relationship}!clone@{clone}}
+\index{clone@{clone}!Relationship@{Relationship}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$ Relationship\+::clone (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_communication}{Communication}} $\ast$}]{comm,  }\item[{\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$}]{parent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Returns a deep copy of the \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} object and its children. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em comm} & The comunication object used between all countries \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Associated\+Countries$\ast$ -\/ The cloned copy of the \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} object 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_associated_countries_aa4d9cb815b9b3f133da55a73dbe98b4e}{Associated\+Countries}}.
+
+\mbox{\Hypertarget{class_relationship_a7b08f64e3ff75c0e6fa2c5382ced1185}\label{class_relationship_a7b08f64e3ff75c0e6fa2c5382ced1185}} 
+\index{Relationship@{Relationship}!getCommunication@{getCommunication}}
+\index{getCommunication@{getCommunication}!Relationship@{Relationship}}
+\doxysubsubsection{\texorpdfstring{getCommunication()}{getCommunication()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_communication}{Communication}} $\ast$ Relationship\+::get\+Communication (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}}.
+
+\mbox{\Hypertarget{class_relationship_a449c785f2b53fcf51ef85813203ef734}\label{class_relationship_a449c785f2b53fcf51ef85813203ef734}} 
+\index{Relationship@{Relationship}!getParent@{getParent}}
+\index{getParent@{getParent}!Relationship@{Relationship}}
+\doxysubsubsection{\texorpdfstring{getParent()}{getParent()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$ Relationship\+::get\+Parent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Return the parent object of this object. 
+
+\begin{DoxyReturn}{Returns}
+Associated\+Countries$\ast$ 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_associated_countries_ad38f52e238fcd94b64b89de1b78767bd}{Associated\+Countries}}.
+
+\mbox{\Hypertarget{class_relationship_ab1e315f1f85623d323814785db47bca8}\label{class_relationship_ab1e315f1f85623d323814785db47bca8}} 
+\index{Relationship@{Relationship}!getRelationships@{getRelationships}}
+\index{getRelationships@{getRelationships}!Relationship@{Relationship}}
+\doxysubsubsection{\texorpdfstring{getRelationships()}{getRelationships()}}
+{\footnotesize\ttfamily std\+::list$<$ \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$ $>$ Relationship\+::get\+Relationships (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the alliances object. 
+
+\begin{DoxyReturn}{Returns}
+A vector storing all the associated countries 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_relationship_ad56b67e9940f05c2420236480bf22e28}\label{class_relationship_ad56b67e9940f05c2420236480bf22e28}} 
+\index{Relationship@{Relationship}!getRelationshipType@{getRelationshipType}}
+\index{getRelationshipType@{getRelationshipType}!Relationship@{Relationship}}
+\doxysubsubsection{\texorpdfstring{getRelationshipType()}{getRelationshipType()}}
+{\footnotesize\ttfamily std\+::string Relationship\+::get\+Relationship\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the \mbox{\hyperlink{class_relationship}{Relationship}} Type object. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string The relationship type name 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_relationship_a179e53b61e3f811cee54f40e0d8a8853}\label{class_relationship_a179e53b61e3f811cee54f40e0d8a8853}} 
+\index{Relationship@{Relationship}!print@{print}}
+\index{print@{print}!Relationship@{Relationship}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily std\+::string Relationship\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Output the contents of this \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} object. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string -\/ The string containing the contents of this \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} object 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_associated_countries_a7a48c0539662702fcb6e7f07d386c5ec}{Associated\+Countries}}.
+
+\mbox{\Hypertarget{class_relationship_a2427759ebac81e87ef8e9b060c9dd97b}\label{class_relationship_a2427759ebac81e87ef8e9b060c9dd97b}} 
+\index{Relationship@{Relationship}!receiveMessage@{receiveMessage}}
+\index{receiveMessage@{receiveMessage}!Relationship@{Relationship}}
+\doxysubsubsection{\texorpdfstring{receiveMessage()}{receiveMessage()}}
+{\footnotesize\ttfamily void Relationship\+::receive\+Message (\begin{DoxyParamCaption}\item[{std\+::string}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Allows this object to receive messages from other \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} objects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em std\+::string} & The message received from the other \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} object \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_associated_countries_a9e957f7c0c23a068ca5a40caa5a75805}{Associated\+Countries}}.
+
+\mbox{\Hypertarget{class_relationship_af7ea5647d3a5a78f1a28b706c859b2bf}\label{class_relationship_af7ea5647d3a5a78f1a28b706c859b2bf}} 
+\index{Relationship@{Relationship}!removeAssociatedCountries@{removeAssociatedCountries}}
+\index{removeAssociatedCountries@{removeAssociatedCountries}!Relationship@{Relationship}}
+\doxysubsubsection{\texorpdfstring{removeAssociatedCountries()}{removeAssociatedCountries()}}
+{\footnotesize\ttfamily void Relationship\+::remove\+Associated\+Countries (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$}]{al }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Remove a \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} object from the tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em al} & The \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} objct to be removed \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_associated_countries_a8fdc30b97ece65114da927a64a087b22}{Associated\+Countries}}.
+
+\mbox{\Hypertarget{class_relationship_a2721c28558f183650533fa9847b3e171}\label{class_relationship_a2721c28558f183650533fa9847b3e171}} 
+\index{Relationship@{Relationship}!sendBroadcast@{sendBroadcast}}
+\index{sendBroadcast@{sendBroadcast}!Relationship@{Relationship}}
+\doxysubsubsection{\texorpdfstring{sendBroadcast()}{sendBroadcast()}}
+{\footnotesize\ttfamily void Relationship\+::send\+Broadcast (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$}]{message\+Receiver,  }\item[{std\+::string}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Allows this object to send messages from other \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} objects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}}} & The \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} object that must receive the message \\
+\hline
+{\em std\+::string} & The message to be received \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_associated_countries_a0f1a6b3e522e2d3c0388cfbeabdb0cc5}{Associated\+Countries}}.
+
+\mbox{\Hypertarget{class_relationship_afa33f3ae0b9756425bdf0eea76751f9e}\label{class_relationship_afa33f3ae0b9756425bdf0eea76751f9e}} 
+\index{Relationship@{Relationship}!setParent@{setParent}}
+\index{setParent@{setParent}!Relationship@{Relationship}}
+\doxysubsubsection{\texorpdfstring{setParent()}{setParent()}}
+{\footnotesize\ttfamily void Relationship\+::set\+Parent (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$}]{parent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Set the Parent object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & The parent of this object \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_associated_countries_afe6e8c8a85abcf152eb7add1095cdc0e}{Associated\+Countries}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Relationship.\+h\item 
+Relationship.\+cpp\end{DoxyCompactItemize}

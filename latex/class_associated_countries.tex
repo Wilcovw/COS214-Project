@@ -1,0 +1,254 @@
+\hypertarget{class_associated_countries}{}\doxysection{Associated\+Countries Class Reference}
+\label{class_associated_countries}\index{AssociatedCountries@{AssociatedCountries}}
+
+
+\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} takes the role of the Component class in the composite pattern and Colleague in the Mediator pattern it is also the parent class of the \mbox{\hyperlink{class_relationship}{Relationship}} and \mbox{\hyperlink{class_country}{Country}} classes.  
+
+
+
+
+{\ttfamily \#include $<$Associated\+Countries.\+h$>$}
+
+Inheritance diagram for Associated\+Countries\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_associated_countries}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_associated_countries_afe6e8c8a85abcf152eb7add1095cdc0e}{set\+Parent}} (\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$\mbox{\hyperlink{class_associated_countries_aa5e5ccc21c966f5cdf440b4f2603abc8}{parent}})=0
+\begin{DoxyCompactList}\small\item\em Set the Parent object, this method is only used by the composite design pattern and not for use by a client. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_associated_countries_a469fef433bee084505df55c170345aa3}{add\+Associated\+Countries}} (\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$al)
+\begin{DoxyCompactList}\small\item\em Add a country to to the tree of associated couintries. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_associated_countries_a8fdc30b97ece65114da927a64a087b22}{remove\+Associated\+Countries}} (\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$al)=0
+\begin{DoxyCompactList}\small\item\em Remove a country from the tree of associated couintries. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$ \mbox{\hyperlink{class_associated_countries_ad38f52e238fcd94b64b89de1b78767bd}{get\+Parent}} ()=0
+\begin{DoxyCompactList}\small\item\em Returns the Parent object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_associated_countries_adb110f6ca52fd1fc3353796de1121035}{$\sim$\+Associated\+Countries}} ()
+\begin{DoxyCompactList}\small\item\em Destroys the dynbamic objects in the object. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_associated_countries_a9e957f7c0c23a068ca5a40caa5a75805}{receive\+Message}} (std\+::string message)=0
+\begin{DoxyCompactList}\small\item\em Allows this object to receive messages from other \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} objects. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_associated_countries_a0f1a6b3e522e2d3c0388cfbeabdb0cc5}{send\+Broadcast}} (\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$message\+Receiver, std\+::string message)=0
+\begin{DoxyCompactList}\small\item\em Allows this object to send messages from other \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} objects. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{class_associated_countries_a7a48c0539662702fcb6e7f07d386c5ec}{print}} ()=0
+\begin{DoxyCompactList}\small\item\em Output the contents of this \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_communication}{Communication}} $\ast$ \mbox{\hyperlink{class_associated_countries_a6173d4d6c9688efb03ba42ba1ec44822}{get\+Communication}} ()=0
+\item 
+virtual \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$ \mbox{\hyperlink{class_associated_countries_aa4d9cb815b9b3f133da55a73dbe98b4e}{clone}} (\mbox{\hyperlink{class_communication}{Communication}} $\ast$comm, \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$\mbox{\hyperlink{class_associated_countries_aa5e5ccc21c966f5cdf440b4f2603abc8}{parent}})=0
+\begin{DoxyCompactList}\small\item\em Returns a deep copy of the \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} object and its children. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$ \mbox{\hyperlink{class_associated_countries_aa5e5ccc21c966f5cdf440b4f2603abc8}{parent}}
+\begin{DoxyCompactList}\small\item\em Stores the parent object of the component. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_communication}{Communication}} $\ast$ \mbox{\hyperlink{class_associated_countries_a7353d87778214f8eee21283200a73767}{tele}}
+\begin{DoxyCompactList}\small\item\em Stores the communication object used in the Mediator design pattern. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} takes the role of the Component class in the composite pattern and Colleague in the Mediator pattern it is also the parent class of the \mbox{\hyperlink{class_relationship}{Relationship}} and \mbox{\hyperlink{class_country}{Country}} classes. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_associated_countries_adb110f6ca52fd1fc3353796de1121035}\label{class_associated_countries_adb110f6ca52fd1fc3353796de1121035}} 
+\index{AssociatedCountries@{AssociatedCountries}!````~AssociatedCountries@{$\sim$AssociatedCountries}}
+\index{````~AssociatedCountries@{$\sim$AssociatedCountries}!AssociatedCountries@{AssociatedCountries}}
+\doxysubsubsection{\texorpdfstring{$\sim$AssociatedCountries()}{~AssociatedCountries()}}
+{\footnotesize\ttfamily virtual Associated\+Countries\+::$\sim$\+Associated\+Countries (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Destroys the dynbamic objects in the object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_associated_countries_a469fef433bee084505df55c170345aa3}\label{class_associated_countries_a469fef433bee084505df55c170345aa3}} 
+\index{AssociatedCountries@{AssociatedCountries}!addAssociatedCountries@{addAssociatedCountries}}
+\index{addAssociatedCountries@{addAssociatedCountries}!AssociatedCountries@{AssociatedCountries}}
+\doxysubsubsection{\texorpdfstring{addAssociatedCountries()}{addAssociatedCountries()}}
+{\footnotesize\ttfamily virtual void Associated\+Countries\+::add\+Associated\+Countries (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$}]{al }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Add a country to to the tree of associated couintries. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em al} & The country to be added to the tree \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{class_country_a0576828c5945f4e11eb9da57e0bfcd0e}{Country}}, and \mbox{\hyperlink{class_relationship_a60f0647ccb05f0ea405588299e17e50c}{Relationship}}.
+
+\mbox{\Hypertarget{class_associated_countries_aa4d9cb815b9b3f133da55a73dbe98b4e}\label{class_associated_countries_aa4d9cb815b9b3f133da55a73dbe98b4e}} 
+\index{AssociatedCountries@{AssociatedCountries}!clone@{clone}}
+\index{clone@{clone}!AssociatedCountries@{AssociatedCountries}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$ Associated\+Countries\+::clone (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_communication}{Communication}} $\ast$}]{comm,  }\item[{\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$}]{parent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns a deep copy of the \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} object and its children. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em comm} & The comunication object used between all countries \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Associated\+Countries$\ast$ The cloned copy of the \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} object 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_country_a8616360ba2bf54018cbeebc1d1cd7439}{Country}}, and \mbox{\hyperlink{class_relationship_aac78880476e02e1060f705df8702c85c}{Relationship}}.
+
+\mbox{\Hypertarget{class_associated_countries_a6173d4d6c9688efb03ba42ba1ec44822}\label{class_associated_countries_a6173d4d6c9688efb03ba42ba1ec44822}} 
+\index{AssociatedCountries@{AssociatedCountries}!getCommunication@{getCommunication}}
+\index{getCommunication@{getCommunication}!AssociatedCountries@{AssociatedCountries}}
+\doxysubsubsection{\texorpdfstring{getCommunication()}{getCommunication()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_communication}{Communication}} $\ast$ Associated\+Countries\+::get\+Communication (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_country_a71e6a8e227a5a07719cbeb2b16db5835}{Country}}.
+
+\mbox{\Hypertarget{class_associated_countries_ad38f52e238fcd94b64b89de1b78767bd}\label{class_associated_countries_ad38f52e238fcd94b64b89de1b78767bd}} 
+\index{AssociatedCountries@{AssociatedCountries}!getParent@{getParent}}
+\index{getParent@{getParent}!AssociatedCountries@{AssociatedCountries}}
+\doxysubsubsection{\texorpdfstring{getParent()}{getParent()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$ Associated\+Countries\+::get\+Parent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns the Parent object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} -\/ The parent object of the current object 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_country_a334113febf26c3ca3c5f8792ccd21d5f}{Country}}, and \mbox{\hyperlink{class_relationship_a449c785f2b53fcf51ef85813203ef734}{Relationship}}.
+
+\mbox{\Hypertarget{class_associated_countries_a7a48c0539662702fcb6e7f07d386c5ec}\label{class_associated_countries_a7a48c0539662702fcb6e7f07d386c5ec}} 
+\index{AssociatedCountries@{AssociatedCountries}!print@{print}}
+\index{print@{print}!AssociatedCountries@{AssociatedCountries}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily virtual std\+::string Associated\+Countries\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Output the contents of this \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} object. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string -\/ The string containing the contents of this \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} object 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_country_a2bdb2ac3551e9baba45793f62aa278e4}{Country}}, and \mbox{\hyperlink{class_relationship_a179e53b61e3f811cee54f40e0d8a8853}{Relationship}}.
+
+\mbox{\Hypertarget{class_associated_countries_a9e957f7c0c23a068ca5a40caa5a75805}\label{class_associated_countries_a9e957f7c0c23a068ca5a40caa5a75805}} 
+\index{AssociatedCountries@{AssociatedCountries}!receiveMessage@{receiveMessage}}
+\index{receiveMessage@{receiveMessage}!AssociatedCountries@{AssociatedCountries}}
+\doxysubsubsection{\texorpdfstring{receiveMessage()}{receiveMessage()}}
+{\footnotesize\ttfamily virtual void Associated\+Countries\+::receive\+Message (\begin{DoxyParamCaption}\item[{std\+::string}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Allows this object to receive messages from other \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} objects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em std\+::string} & The message received from the other \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} object \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_country_afb0d6ffa03829d15df79f94caf962434}{Country}}, and \mbox{\hyperlink{class_relationship_a2427759ebac81e87ef8e9b060c9dd97b}{Relationship}}.
+
+\mbox{\Hypertarget{class_associated_countries_a8fdc30b97ece65114da927a64a087b22}\label{class_associated_countries_a8fdc30b97ece65114da927a64a087b22}} 
+\index{AssociatedCountries@{AssociatedCountries}!removeAssociatedCountries@{removeAssociatedCountries}}
+\index{removeAssociatedCountries@{removeAssociatedCountries}!AssociatedCountries@{AssociatedCountries}}
+\doxysubsubsection{\texorpdfstring{removeAssociatedCountries()}{removeAssociatedCountries()}}
+{\footnotesize\ttfamily virtual void Associated\+Countries\+::remove\+Associated\+Countries (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$}]{al }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Remove a country from the tree of associated couintries. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em al} & The country to be removed from the tree \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_country_a561b5adc937680c5a884b0bf8f93fee8}{Country}}, and \mbox{\hyperlink{class_relationship_af7ea5647d3a5a78f1a28b706c859b2bf}{Relationship}}.
+
+\mbox{\Hypertarget{class_associated_countries_a0f1a6b3e522e2d3c0388cfbeabdb0cc5}\label{class_associated_countries_a0f1a6b3e522e2d3c0388cfbeabdb0cc5}} 
+\index{AssociatedCountries@{AssociatedCountries}!sendBroadcast@{sendBroadcast}}
+\index{sendBroadcast@{sendBroadcast}!AssociatedCountries@{AssociatedCountries}}
+\doxysubsubsection{\texorpdfstring{sendBroadcast()}{sendBroadcast()}}
+{\footnotesize\ttfamily virtual void Associated\+Countries\+::send\+Broadcast (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$}]{message\+Receiver,  }\item[{std\+::string}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Allows this object to send messages from other \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} objects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}}} & The \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} object that must receive the message \\
+\hline
+{\em std\+::string} & The message to be received \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_country_a26783e78e20ad3219d027b7e0a9b17b3}{Country}}, and \mbox{\hyperlink{class_relationship_a2721c28558f183650533fa9847b3e171}{Relationship}}.
+
+\mbox{\Hypertarget{class_associated_countries_afe6e8c8a85abcf152eb7add1095cdc0e}\label{class_associated_countries_afe6e8c8a85abcf152eb7add1095cdc0e}} 
+\index{AssociatedCountries@{AssociatedCountries}!setParent@{setParent}}
+\index{setParent@{setParent}!AssociatedCountries@{AssociatedCountries}}
+\doxysubsubsection{\texorpdfstring{setParent()}{setParent()}}
+{\footnotesize\ttfamily virtual void Associated\+Countries\+::set\+Parent (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$}]{parent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Set the Parent object, this method is only used by the composite design pattern and not for use by a client. 
+
+
+
+Implemented in \mbox{\hyperlink{class_country_aa34a5967f3b67fede38af0b790149e31}{Country}}, and \mbox{\hyperlink{class_relationship_afa33f3ae0b9756425bdf0eea76751f9e}{Relationship}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_associated_countries_aa5e5ccc21c966f5cdf440b4f2603abc8}\label{class_associated_countries_aa5e5ccc21c966f5cdf440b4f2603abc8}} 
+\index{AssociatedCountries@{AssociatedCountries}!parent@{parent}}
+\index{parent@{parent}!AssociatedCountries@{AssociatedCountries}}
+\doxysubsubsection{\texorpdfstring{parent}{parent}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}}$\ast$ Associated\+Countries\+::parent\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Stores the parent object of the component. 
+
+\mbox{\Hypertarget{class_associated_countries_a7353d87778214f8eee21283200a73767}\label{class_associated_countries_a7353d87778214f8eee21283200a73767}} 
+\index{AssociatedCountries@{AssociatedCountries}!tele@{tele}}
+\index{tele@{tele}!AssociatedCountries@{AssociatedCountries}}
+\doxysubsubsection{\texorpdfstring{tele}{tele}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_communication}{Communication}}$\ast$ Associated\+Countries\+::tele\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Stores the communication object used in the Mediator design pattern. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Associated\+Countries.\+h\end{DoxyCompactItemize}

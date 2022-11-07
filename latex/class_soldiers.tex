@@ -1,0 +1,63 @@
+\hypertarget{class_soldiers}{}\doxysection{Soldiers Class Reference}
+\label{class_soldiers}\index{Soldiers@{Soldiers}}
+
+
+\mbox{\hyperlink{class_soldiers}{Soldiers}} are the infantry used in the war. \mbox{\hyperlink{class_soldiers}{Soldiers}} inherits from \mbox{\hyperlink{class_troop_type}{Troop\+Type}}.  
+
+
+
+
+{\ttfamily \#include $<$Soldiers.\+h$>$}
+
+Inheritance diagram for Soldiers\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_soldiers}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_soldiers_a4214a677d35e6e66e4f423f7cdd0a7f4}\label{class_soldiers_a4214a677d35e6e66e4f423f7cdd0a7f4}} 
+{\bfseries Soldiers} ()
+\begin{DoxyCompactList}\small\item\em Constructor for this Class. sets Type to Soldier. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_soldiers_aa62966bdeba58b0b806649b4fa6819d7}\label{class_soldiers_aa62966bdeba58b0b806649b4fa6819d7}} 
+virtual {\bfseries $\sim$\+Soldiers} ()
+\begin{DoxyCompactList}\small\item\em virtual destructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_troop_type}{Troop\+Type}} $\ast$ \mbox{\hyperlink{class_soldiers_ad911d0fe600a7c255f18f7c543ed3733}{change\+Type}} (the\+Troop\+Types)
+\begin{DoxyCompactList}\small\item\em Changes the type of the current troop to the\+Troop\+Types, which is passed in. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_soldiers}{Soldiers}} are the infantry used in the war. \mbox{\hyperlink{class_soldiers}{Soldiers}} inherits from \mbox{\hyperlink{class_troop_type}{Troop\+Type}}. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_soldiers_ad911d0fe600a7c255f18f7c543ed3733}\label{class_soldiers_ad911d0fe600a7c255f18f7c543ed3733}} 
+\index{Soldiers@{Soldiers}!changeType@{changeType}}
+\index{changeType@{changeType}!Soldiers@{Soldiers}}
+\doxysubsubsection{\texorpdfstring{changeType()}{changeType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_troop_type}{Troop\+Type}} $\ast$ Soldiers\+::change\+Type (\begin{DoxyParamCaption}\item[{the\+Troop\+Types}]{the\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Changes the type of the current troop to the\+Troop\+Types, which is passed in. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the\+Type} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Troop\+Type$\ast$ -\/ the soldier, but with a new type, the\+Type 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_troop_type_adbe65ae4deb37bcc7e0ef91e45499600}{Troop\+Type}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Soldiers.\+h\item 
+Soldiers.\+cpp\end{DoxyCompactItemize}

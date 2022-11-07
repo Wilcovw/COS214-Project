@@ -1,0 +1,32 @@
+\hypertarget{_training_camp_8h_source}{}\doxysection{Training\+Camp.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TRAININGCAMP\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define TRAININGCAMP\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}Troops.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Citizens.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}GroundTroops.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}Navy.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}Airforce.h"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}Soldiers.h"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}Infrastructure.h"{}}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{class_training_camp}{TrainingCamp}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_infrastructure}{Infrastructure}}}
+\DoxyCodeLine{16 \{}
+\DoxyCodeLine{17 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{21     vector<Troops *> \mbox{\hyperlink{class_training_camp_a3de6f2ac5c63af0f9055aa308d6da4b1}{troops}};}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{public}:}
+\DoxyCodeLine{29     \mbox{\hyperlink{class_training_camp}{TrainingCamp}}(\textcolor{keywordtype}{double}, \mbox{\hyperlink{class_area}{Area}} *);}
+\DoxyCodeLine{33     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_training_camp_adffea104ee4d7750892ce9903f0e7b03}{\string~TrainingCamp}}()\{\};}
+\DoxyCodeLine{38     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_training_camp_a65fd367ad688a2782092da7e9387bb59}{addTroop}}(\mbox{\hyperlink{class_troops}{Troops}} *theTroops);}
+\DoxyCodeLine{45     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_training_camp_a79f175550958e73cbdd1a2b801317f5d}{removeTroop}}(\mbox{\hyperlink{class_troops}{Troops}} *theTroops);}
+\DoxyCodeLine{50     \mbox{\hyperlink{class_troops}{Troops}} **\mbox{\hyperlink{class_training_camp_a3fbf0303e4f7dfc488f56755ffd21f05}{getTroops}}();}
+\DoxyCodeLine{54     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_training_camp_aa4a0a2a3af969eb1da0296c4cb11f482}{destroy}}() = 0;}
+\DoxyCodeLine{59     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_infrastructure}{Infrastructure}} *\mbox{\hyperlink{class_training_camp_afdda7e8b732f796a675502796cd2e253}{clone}}(\mbox{\hyperlink{class_area}{Area}} *) = 0;}
+\DoxyCodeLine{64     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_troops}{Troops}} *\mbox{\hyperlink{class_training_camp_ab6dc8f7a2326362ba49bb47f726231de}{startDrafting}}(\mbox{\hyperlink{class_citizens}{Citizens}} *, theTroopTypes) = 0;}
+\DoxyCodeLine{65 \};}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

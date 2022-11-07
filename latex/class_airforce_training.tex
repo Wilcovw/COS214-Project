@@ -1,0 +1,116 @@
+\hypertarget{class_airforce_training}{}\doxysection{Airforce\+Training Class Reference}
+\label{class_airforce_training}\index{AirforceTraining@{AirforceTraining}}
+
+
+\mbox{\hyperlink{class_airforce_training}{Airforce\+Training}} inherits from \mbox{\hyperlink{class_training_camp}{Training\+Camp}} and is used to train air force troops.  
+
+
+
+
+{\ttfamily \#include $<$Airforce\+Training.\+h$>$}
+
+Inheritance diagram for Airforce\+Training\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_airforce_training}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_airforce_training_a840111dea50eab59c0b6d8b0be11f112}{Airforce\+Training}} (double, \mbox{\hyperlink{class_area}{Area}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_airforce}{Airforce}} Training object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_airforce_training_a53b1f5491c3ec35d2f0f045ca83464ee}{$\sim$\+Airforce\+Training}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{class_airforce}{Airforce}} Training object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_troops}{Troops}} $\ast$ \mbox{\hyperlink{class_airforce_training_a7683d00a456173cc2bf3105951185594}{start\+Drafting}} (\mbox{\hyperlink{class_citizens}{Citizens}} $\ast$, the\+Troop\+Types)
+\begin{DoxyCompactList}\small\item\em Starts the creation of \mbox{\hyperlink{class_troops}{Troops}}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_airforce_training_a2978ea2e59c3d51fb9b287efffbb51ba}{destroy}} ()
+\begin{DoxyCompactList}\small\item\em Destroys the current Training Camp. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_infrastructure}{Infrastructure}} $\ast$ \mbox{\hyperlink{class_airforce_training_ae12b76b14f299802c1cd62c9b2b7d0a6}{clone}} (\mbox{\hyperlink{class_area}{Area}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Makes a copy of the current Training Camp. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_airforce_training}{Airforce\+Training}} inherits from \mbox{\hyperlink{class_training_camp}{Training\+Camp}} and is used to train air force troops. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_airforce_training_a840111dea50eab59c0b6d8b0be11f112}\label{class_airforce_training_a840111dea50eab59c0b6d8b0be11f112}} 
+\index{AirforceTraining@{AirforceTraining}!AirforceTraining@{AirforceTraining}}
+\index{AirforceTraining@{AirforceTraining}!AirforceTraining@{AirforceTraining}}
+\doxysubsubsection{\texorpdfstring{AirforceTraining()}{AirforceTraining()}}
+{\footnotesize\ttfamily Airforce\+Training\+::\+Airforce\+Training (\begin{DoxyParamCaption}\item[{double}]{the\+HP,  }\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{the\+Location }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_airforce}{Airforce}} Training object. 
+
+\mbox{\Hypertarget{class_airforce_training_a53b1f5491c3ec35d2f0f045ca83464ee}\label{class_airforce_training_a53b1f5491c3ec35d2f0f045ca83464ee}} 
+\index{AirforceTraining@{AirforceTraining}!````~AirforceTraining@{$\sim$AirforceTraining}}
+\index{````~AirforceTraining@{$\sim$AirforceTraining}!AirforceTraining@{AirforceTraining}}
+\doxysubsubsection{\texorpdfstring{$\sim$AirforceTraining()}{~AirforceTraining()}}
+{\footnotesize\ttfamily Airforce\+Training\+::$\sim$\+Airforce\+Training (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destroy the \mbox{\hyperlink{class_airforce}{Airforce}} Training object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_airforce_training_ae12b76b14f299802c1cd62c9b2b7d0a6}\label{class_airforce_training_ae12b76b14f299802c1cd62c9b2b7d0a6}} 
+\index{AirforceTraining@{AirforceTraining}!clone@{clone}}
+\index{clone@{clone}!AirforceTraining@{AirforceTraining}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_infrastructure}{Infrastructure}} $\ast$ Airforce\+Training\+::clone (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{new\+Area }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Makes a copy of the current Training Camp. 
+
+\begin{DoxyReturn}{Returns}
+Infrastructure$\ast$ 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_training_camp_afdda7e8b732f796a675502796cd2e253}{Training\+Camp}}.
+
+\mbox{\Hypertarget{class_airforce_training_a2978ea2e59c3d51fb9b287efffbb51ba}\label{class_airforce_training_a2978ea2e59c3d51fb9b287efffbb51ba}} 
+\index{AirforceTraining@{AirforceTraining}!destroy@{destroy}}
+\index{destroy@{destroy}!AirforceTraining@{AirforceTraining}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily void Airforce\+Training\+::destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destroys the current Training Camp. 
+
+
+
+Implements \mbox{\hyperlink{class_training_camp_aa4a0a2a3af969eb1da0296c4cb11f482}{Training\+Camp}}.
+
+\mbox{\Hypertarget{class_airforce_training_a7683d00a456173cc2bf3105951185594}\label{class_airforce_training_a7683d00a456173cc2bf3105951185594}} 
+\index{AirforceTraining@{AirforceTraining}!startDrafting@{startDrafting}}
+\index{startDrafting@{startDrafting}!AirforceTraining@{AirforceTraining}}
+\doxysubsubsection{\texorpdfstring{startDrafting()}{startDrafting()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_troops}{Troops}} $\ast$ Airforce\+Training\+::start\+Drafting (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_citizens}{Citizens}} $\ast$}]{c,  }\item[{the\+Troop\+Types}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Starts the creation of \mbox{\hyperlink{class_troops}{Troops}}. 
+
+\begin{DoxyReturn}{Returns}
+Troops$\ast$ 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_training_camp_ab6dc8f7a2326362ba49bb47f726231de}{Training\+Camp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Airforce\+Training.\+h\item 
+Airforce\+Training.\+cpp\end{DoxyCompactItemize}

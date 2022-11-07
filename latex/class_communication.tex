@@ -1,0 +1,111 @@
+\hypertarget{class_communication}{}\doxysection{Communication Class Reference}
+\label{class_communication}\index{Communication@{Communication}}
+
+
+\mbox{\hyperlink{class_communication}{Communication}} takes the role of the Mediator in the Mediator design pattern.  
+
+
+
+
+{\ttfamily \#include $<$Communication.\+h$>$}
+
+Inheritance diagram for Communication\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_communication}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_communication_ab42bc0ffd833f860db815d20fb8eae31}{store\+Me}} (\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$me)=0
+\begin{DoxyCompactList}\small\item\em Allowws a \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} object to \char`\"{}register\char`\"{} themselves with this \mbox{\hyperlink{class_communication}{Communication}} instance. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_communication_a8ef7068175da4aa0e8c629e2e4597e54}{notify}} (\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$countries, std\+::string message)=0
+\begin{DoxyCompactList}\small\item\em A method implemented in the concrete mediator class (\mbox{\hyperlink{class_communication_broadcast}{Communication\+Broadcast}}) to notify all allied countries of changes in alliances. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_communication_a087d63f3b80aa4ab559423faa1d2249b}{remove\+Associated\+Countries}} (\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$aC)=0
+\begin{DoxyCompactList}\small\item\em Remove a country from the list of countries. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_communication_afd28ffd70351dfad17f53bb2c12b6d89}{$\sim$\+Communication}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the dynamic objects created in the communication objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_communication}{Communication}} takes the role of the Mediator in the Mediator design pattern. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_communication_afd28ffd70351dfad17f53bb2c12b6d89}\label{class_communication_afd28ffd70351dfad17f53bb2c12b6d89}} 
+\index{Communication@{Communication}!````~Communication@{$\sim$Communication}}
+\index{````~Communication@{$\sim$Communication}!Communication@{Communication}}
+\doxysubsubsection{\texorpdfstring{$\sim$Communication()}{~Communication()}}
+{\footnotesize\ttfamily virtual Communication\+::$\sim$\+Communication (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Destroy the dynamic objects created in the communication objects. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_communication_a8ef7068175da4aa0e8c629e2e4597e54}\label{class_communication_a8ef7068175da4aa0e8c629e2e4597e54}} 
+\index{Communication@{Communication}!notify@{notify}}
+\index{notify@{notify}!Communication@{Communication}}
+\doxysubsubsection{\texorpdfstring{notify()}{notify()}}
+{\footnotesize\ttfamily virtual void Communication\+::notify (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$}]{countries,  }\item[{std\+::string}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+A method implemented in the concrete mediator class (\mbox{\hyperlink{class_communication_broadcast}{Communication\+Broadcast}}) to notify all allied countries of changes in alliances. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em countries} & \mbox{\hyperlink{class_country}{Country}} in the affected relation change \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_communication_broadcast_ad34144d958498a1b1c39e76679f94300}{Communication\+Broadcast}}.
+
+\mbox{\Hypertarget{class_communication_a087d63f3b80aa4ab559423faa1d2249b}\label{class_communication_a087d63f3b80aa4ab559423faa1d2249b}} 
+\index{Communication@{Communication}!removeAssociatedCountries@{removeAssociatedCountries}}
+\index{removeAssociatedCountries@{removeAssociatedCountries}!Communication@{Communication}}
+\doxysubsubsection{\texorpdfstring{removeAssociatedCountries()}{removeAssociatedCountries()}}
+{\footnotesize\ttfamily virtual void Communication\+::remove\+Associated\+Countries (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$}]{aC }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Remove a country from the list of countries. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em aC} & the country to be removed \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_communication_broadcast_af945bc5e69ef6564af80824f4727f915}{Communication\+Broadcast}}.
+
+\mbox{\Hypertarget{class_communication_ab42bc0ffd833f860db815d20fb8eae31}\label{class_communication_ab42bc0ffd833f860db815d20fb8eae31}} 
+\index{Communication@{Communication}!storeMe@{storeMe}}
+\index{storeMe@{storeMe}!Communication@{Communication}}
+\doxysubsubsection{\texorpdfstring{storeMe()}{storeMe()}}
+{\footnotesize\ttfamily virtual void Communication\+::store\+Me (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$}]{me }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Allowws a \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} object to \char`\"{}register\char`\"{} themselves with this \mbox{\hyperlink{class_communication}{Communication}} instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}}} & the \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} object to be registered \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_communication_broadcast_a616edeef2c7d67de7c50a7a024506cec}{Communication\+Broadcast}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Communication.\+h\end{DoxyCompactItemize}

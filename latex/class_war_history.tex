@@ -1,0 +1,84 @@
+\hypertarget{class_war_history}{}\doxysection{War\+History Class Reference}
+\label{class_war_history}\index{WarHistory@{WarHistory}}
+
+
+\mbox{\hyperlink{class_war_history}{War\+History}} takes the role of the Caretaker in the \mbox{\hyperlink{class_memento}{Memento}} design pattern. It is used to keep the memento safe.  
+
+
+
+
+{\ttfamily \#include $<$War\+History.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_war_history_a9dfb0be789a6a898c32b52842e3fd960}{War\+History}} ()
+\item 
+\mbox{\hyperlink{class_memento}{Memento}} $\ast$ \mbox{\hyperlink{class_war_history_a2016552ef0431e19270f90b155939250}{get\+Last\+Memento}} ()
+\begin{DoxyCompactList}\small\item\em returns the previous phase of war \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_war_history_a505243ab4852575f414382081ac5be77}{store\+Memento}} (\mbox{\hyperlink{class_memento}{Memento}} $\ast$memento)
+\begin{DoxyCompactList}\small\item\em stores memento in warhistory list \end{DoxyCompactList}\item 
+list$<$ \mbox{\hyperlink{class_memento}{Memento}} $\ast$ $>$ \mbox{\hyperlink{class_war_history_aa2e26ed9346abca332a77675f39efaa5}{get\+Entire\+History}} ()
+\begin{DoxyCompactList}\small\item\em returns the entire history of a war \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_war_history}{War\+History}} takes the role of the Caretaker in the \mbox{\hyperlink{class_memento}{Memento}} design pattern. It is used to keep the memento safe. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_war_history_a9dfb0be789a6a898c32b52842e3fd960}\label{class_war_history_a9dfb0be789a6a898c32b52842e3fd960}} 
+\index{WarHistory@{WarHistory}!WarHistory@{WarHistory}}
+\index{WarHistory@{WarHistory}!WarHistory@{WarHistory}}
+\doxysubsubsection{\texorpdfstring{WarHistory()}{WarHistory()}}
+{\footnotesize\ttfamily War\+History\+::\+War\+History (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default constructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_war_history_aa2e26ed9346abca332a77675f39efaa5}\label{class_war_history_aa2e26ed9346abca332a77675f39efaa5}} 
+\index{WarHistory@{WarHistory}!getEntireHistory@{getEntireHistory}}
+\index{getEntireHistory@{getEntireHistory}!WarHistory@{WarHistory}}
+\doxysubsubsection{\texorpdfstring{getEntireHistory()}{getEntireHistory()}}
+{\footnotesize\ttfamily list$<$ \mbox{\hyperlink{class_memento}{Memento}} $\ast$ $>$ War\+History\+::get\+Entire\+History (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns the entire history of a war 
+
+\begin{DoxyReturn}{Returns}
+list$<$\+Memento$\ast$$>$ -\/ warhistory 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_war_history_a2016552ef0431e19270f90b155939250}\label{class_war_history_a2016552ef0431e19270f90b155939250}} 
+\index{WarHistory@{WarHistory}!getLastMemento@{getLastMemento}}
+\index{getLastMemento@{getLastMemento}!WarHistory@{WarHistory}}
+\doxysubsubsection{\texorpdfstring{getLastMemento()}{getLastMemento()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_memento}{Memento}} $\ast$ War\+History\+::get\+Last\+Memento (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns the previous phase of war 
+
+\begin{DoxyReturn}{Returns}
+Memento$\ast$ -\/ the most recent warhistory 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_war_history_a505243ab4852575f414382081ac5be77}\label{class_war_history_a505243ab4852575f414382081ac5be77}} 
+\index{WarHistory@{WarHistory}!storeMemento@{storeMemento}}
+\index{storeMemento@{storeMemento}!WarHistory@{WarHistory}}
+\doxysubsubsection{\texorpdfstring{storeMemento()}{storeMemento()}}
+{\footnotesize\ttfamily void War\+History\+::store\+Memento (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_memento}{Memento}} $\ast$}]{memento }\end{DoxyParamCaption})}
+
+
+
+stores memento in warhistory list 
+
+
+\begin{DoxyParams}{Parameters}
+{\em memento} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+War\+History.\+h\item 
+War\+History.\+cpp\end{DoxyCompactItemize}

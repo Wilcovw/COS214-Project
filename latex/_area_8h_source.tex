@@ -1,0 +1,61 @@
+\hypertarget{_area_8h_source}{}\doxysection{Area.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef Area\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define Area\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <list>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <queue>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{9 \textcolor{comment}{// \#include <iostream>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}Edge.h"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{class }\mbox{\hyperlink{class_country}{Country}};}
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{class_edge}{Edge}};}
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{class_harbour}{Harbour}};}
+\DoxyCodeLine{17 \textcolor{keyword}{class }\mbox{\hyperlink{class_runway}{Runway}};}
+\DoxyCodeLine{22 \textcolor{keyword}{class }\mbox{\hyperlink{class_area}{Area}}}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24 \textcolor{keyword}{private}:}
+\DoxyCodeLine{30     \textcolor{keywordtype}{string} name;}
+\DoxyCodeLine{35     list<Edge *> connectedEdges;}
+\DoxyCodeLine{40     \mbox{\hyperlink{class_area}{Area}} *prev = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{45     \textcolor{keywordtype}{double} dist = 0;}
+\DoxyCodeLine{50     \mbox{\hyperlink{class_country}{Country}} *controllingCountry = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{55     \mbox{\hyperlink{class_area}{Area}} *clonedArea = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{60     \mbox{\hyperlink{class_harbour}{Harbour}} *harbour = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{65     \mbox{\hyperlink{class_runway}{Runway}} *runway = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \textcolor{keyword}{public}:}
+\DoxyCodeLine{73     \mbox{\hyperlink{class_area}{Area}}(\textcolor{keywordtype}{string} name, \mbox{\hyperlink{class_country}{Country}} *controllingCountry);}
+\DoxyCodeLine{77     \mbox{\hyperlink{class_area_ace0975982b61a16746c564a0d43a4cc8}{\string~Area}}();}
+\DoxyCodeLine{83     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_area_afc150a3e016559349fc09269e2da0f68}{addHarbour}}(\mbox{\hyperlink{class_harbour}{Harbour}} *theHarbour);}
+\DoxyCodeLine{89     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_area_afc4f07461c7eeaab5e2e05d8e91be308}{addRunway}}(\mbox{\hyperlink{class_runway}{Runway}} *theRunway);}
+\DoxyCodeLine{95     \mbox{\hyperlink{class_harbour}{Harbour}} *\mbox{\hyperlink{class_area_ab7acad38e0332ca32a85f69808e54dad}{getHarbourInArea}}();}
+\DoxyCodeLine{101     \mbox{\hyperlink{class_runway}{Runway}} *\mbox{\hyperlink{class_area_ab2838382520fd51d078daad6afbe1cb2}{getRunwayInArea}}();}
+\DoxyCodeLine{107     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_area_a7b6e2b3cd2be27b1e8ddd4237809bcc1}{setControllingCountry}}(\mbox{\hyperlink{class_country}{Country}} *controllingCountry);}
+\DoxyCodeLine{113     \mbox{\hyperlink{class_country}{Country}} *\mbox{\hyperlink{class_area_a847e7d1f1a5ae617d66fbfff1e80a5cc}{getControllingCountry}}();}
+\DoxyCodeLine{121     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_area_a79c728f87db2a2dead3384787c25fb01}{addEdge}}(\mbox{\hyperlink{class_edge}{Edge}} *e);}
+\DoxyCodeLine{127     \textcolor{keywordtype}{string} \mbox{\hyperlink{class_area_a3e4eb0ed8a85ae42e5e6e5dd104fb370}{getName}}();}
+\DoxyCodeLine{135     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_area_a89be88eaac160ef7fd7cf8b043232957}{isAccessible}}(\mbox{\hyperlink{class_area}{Area}} *d);}
+\DoxyCodeLine{144     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_area_a89be88eaac160ef7fd7cf8b043232957}{isAccessible}}(\mbox{\hyperlink{class_area}{Area}} *d, \textcolor{keywordtype}{string} type);}
+\DoxyCodeLine{150     list<Edge *> \mbox{\hyperlink{class_area_ae92c92496edc5dffc3759ee32e858c25}{getEdges}}();}
+\DoxyCodeLine{155     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_area_a1bb10f9ecaaa77c1061f6a106f1d48ca}{visited}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{160     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_area_af88b9f5df52ff1cfe0a7d403f74449a6}{printEdges}}();}
+\DoxyCodeLine{165     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_area_a86413acfb10c00dff0351a917a563bae}{num}} = 0;}
+\DoxyCodeLine{171     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_area_aba468af44a1b95693da1cf37dc98ac76}{setPrev}}(\mbox{\hyperlink{class_area}{Area}} *p);}
+\DoxyCodeLine{177     \mbox{\hyperlink{class_area}{Area}} *\mbox{\hyperlink{class_area_ac85714f4e8630f4ff3ca2d943ba2b301}{getPrev}}();}
+\DoxyCodeLine{183     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_area_ab7f9945b4865155373e3b7450b704120}{getDist}}();}
+\DoxyCodeLine{189     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_area_aa33632217527218271da7eb407b6338c}{setDist}}(\textcolor{keywordtype}{double} d);}
+\DoxyCodeLine{194     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_area_a2f25f4896aca1e9b1066cbd941a5defe}{removeEdge}}(\mbox{\hyperlink{class_edge}{Edge}} *);}
+\DoxyCodeLine{200     \mbox{\hyperlink{class_area}{Area}} *\mbox{\hyperlink{class_area_aca7d53b00a7657c8b5d9dd099c0bccd7}{clone}}(\mbox{\hyperlink{class_country}{Country}} *c);}
+\DoxyCodeLine{206     \mbox{\hyperlink{class_area}{Area}} *\mbox{\hyperlink{class_area_ab28ee8e6b98d6c48d19edb73bc25d218}{getClonedArea}}();}
+\DoxyCodeLine{207 \};}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{209 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

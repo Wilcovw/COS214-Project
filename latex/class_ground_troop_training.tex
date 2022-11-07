@@ -1,0 +1,123 @@
+\hypertarget{class_ground_troop_training}{}\doxysection{Ground\+Troop\+Training Class Reference}
+\label{class_ground_troop_training}\index{GroundTroopTraining@{GroundTroopTraining}}
+
+
+\mbox{\hyperlink{class_ground_troop_training}{Ground\+Troop\+Training}} inherits from \mbox{\hyperlink{class_training_camp}{Training\+Camp}} and is used to train troops.  
+
+
+
+
+{\ttfamily \#include $<$Ground\+Troop\+Training.\+h$>$}
+
+Inheritance diagram for Ground\+Troop\+Training\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_ground_troop_training}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_ground_troop_training_add423c7005ae0c8528745bd06e0ee3ee}{Ground\+Troop\+Training}} (double \mbox{\hyperlink{class_infrastructure_a20c07563cd5918b63ed2dd5e7451827b}{HP}}, \mbox{\hyperlink{class_area}{Area}} $\ast$\mbox{\hyperlink{class_infrastructure_ae21612f9cbcdc428f00c740b81062435}{location}})
+\begin{DoxyCompactList}\small\item\em Construct a new Ground Troop Training object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_ground_troop_training_aeb1c6bdd04c68c8a2d241d4b09ddd72f}{$\sim$\+Ground\+Troop\+Training}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the Ground Troop Training object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_troops}{Troops}} $\ast$ \mbox{\hyperlink{class_ground_troop_training_a7c0a2dbb8bc4a8fd3bd73791fd3fd6c2}{start\+Drafting}} (\mbox{\hyperlink{class_citizens}{Citizens}} $\ast$, the\+Troop\+Types)
+\begin{DoxyCompactList}\small\item\em Starts creating new Ground \mbox{\hyperlink{class_troops}{Troops}}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_ground_troop_training_aa5f75787a6b0d3d3f2fe8f8eab98824e}{destroy}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the current Training camp. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_infrastructure}{Infrastructure}} $\ast$ \mbox{\hyperlink{class_ground_troop_training_ad804d0ecc1a0e77a5a3fc301d9b84c72}{clone}} (\mbox{\hyperlink{class_area}{Area}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Makes a copy of the current Training camp. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_ground_troop_training}{Ground\+Troop\+Training}} inherits from \mbox{\hyperlink{class_training_camp}{Training\+Camp}} and is used to train troops. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_ground_troop_training_add423c7005ae0c8528745bd06e0ee3ee}\label{class_ground_troop_training_add423c7005ae0c8528745bd06e0ee3ee}} 
+\index{GroundTroopTraining@{GroundTroopTraining}!GroundTroopTraining@{GroundTroopTraining}}
+\index{GroundTroopTraining@{GroundTroopTraining}!GroundTroopTraining@{GroundTroopTraining}}
+\doxysubsubsection{\texorpdfstring{GroundTroopTraining()}{GroundTroopTraining()}}
+{\footnotesize\ttfamily Ground\+Troop\+Training\+::\+Ground\+Troop\+Training (\begin{DoxyParamCaption}\item[{double}]{HP,  }\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{location }\end{DoxyParamCaption})}
+
+
+
+Construct a new Ground Troop Training object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em HP} & Health of the Ground Troop Training \\
+\hline
+{\em location} & Where the Ground\+Troop Training is located \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_ground_troop_training_aeb1c6bdd04c68c8a2d241d4b09ddd72f}\label{class_ground_troop_training_aeb1c6bdd04c68c8a2d241d4b09ddd72f}} 
+\index{GroundTroopTraining@{GroundTroopTraining}!````~GroundTroopTraining@{$\sim$GroundTroopTraining}}
+\index{````~GroundTroopTraining@{$\sim$GroundTroopTraining}!GroundTroopTraining@{GroundTroopTraining}}
+\doxysubsubsection{\texorpdfstring{$\sim$GroundTroopTraining()}{~GroundTroopTraining()}}
+{\footnotesize\ttfamily Ground\+Troop\+Training\+::$\sim$\+Ground\+Troop\+Training (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destroy the Ground Troop Training object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_ground_troop_training_ad804d0ecc1a0e77a5a3fc301d9b84c72}\label{class_ground_troop_training_ad804d0ecc1a0e77a5a3fc301d9b84c72}} 
+\index{GroundTroopTraining@{GroundTroopTraining}!clone@{clone}}
+\index{clone@{clone}!GroundTroopTraining@{GroundTroopTraining}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_infrastructure}{Infrastructure}} $\ast$ Ground\+Troop\+Training\+::clone (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{new\+Area }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Makes a copy of the current Training camp. 
+
+\begin{DoxyReturn}{Returns}
+Infrastructure$\ast$ 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_training_camp_afdda7e8b732f796a675502796cd2e253}{Training\+Camp}}.
+
+\mbox{\Hypertarget{class_ground_troop_training_aa5f75787a6b0d3d3f2fe8f8eab98824e}\label{class_ground_troop_training_aa5f75787a6b0d3d3f2fe8f8eab98824e}} 
+\index{GroundTroopTraining@{GroundTroopTraining}!destroy@{destroy}}
+\index{destroy@{destroy}!GroundTroopTraining@{GroundTroopTraining}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily void Ground\+Troop\+Training\+::destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destroy the current Training camp. 
+
+
+
+Implements \mbox{\hyperlink{class_training_camp_aa4a0a2a3af969eb1da0296c4cb11f482}{Training\+Camp}}.
+
+\mbox{\Hypertarget{class_ground_troop_training_a7c0a2dbb8bc4a8fd3bd73791fd3fd6c2}\label{class_ground_troop_training_a7c0a2dbb8bc4a8fd3bd73791fd3fd6c2}} 
+\index{GroundTroopTraining@{GroundTroopTraining}!startDrafting@{startDrafting}}
+\index{startDrafting@{startDrafting}!GroundTroopTraining@{GroundTroopTraining}}
+\doxysubsubsection{\texorpdfstring{startDrafting()}{startDrafting()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_troops}{Troops}} $\ast$ Ground\+Troop\+Training\+::start\+Drafting (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_citizens}{Citizens}} $\ast$}]{c,  }\item[{the\+Troop\+Types}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Starts creating new Ground \mbox{\hyperlink{class_troops}{Troops}}. 
+
+\begin{DoxyReturn}{Returns}
+Troops$\ast$ 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_training_camp_ab6dc8f7a2326362ba49bb47f726231de}{Training\+Camp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Ground\+Troop\+Training.\+h\item 
+Ground\+Troop\+Training.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,73 @@
+\hypertarget{class_command}{}\doxysection{Command Class Reference}
+\label{class_command}\index{Command@{Command}}
+
+
+\mbox{\hyperlink{class_command}{Command}} is used to execute the revolt command in citizens.  
+
+
+
+
+{\ttfamily \#include $<$Command.\+h$>$}
+
+Inheritance diagram for Command\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_command}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_command_a996c5cbb4b51510c1dca759b41673405}{execute}} (\mbox{\hyperlink{class_country}{Country}} $\ast$country)=0
+\begin{DoxyCompactList}\small\item\em Executes a revolt. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_command_a4c6d3dbd55f86fb5deb0867041bca5a0}{is\+Active}} ()=0
+\begin{DoxyCompactList}\small\item\em Returns whether revolution is active. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_command}{Command}} is used to execute the revolt command in citizens. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_command_a996c5cbb4b51510c1dca759b41673405}\label{class_command_a996c5cbb4b51510c1dca759b41673405}} 
+\index{Command@{Command}!execute@{execute}}
+\index{execute@{execute}!Command@{Command}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily virtual void Command\+::execute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_country}{Country}} $\ast$}]{country }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Executes a revolt. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em country} & \mbox{\hyperlink{class_country}{Country}} That gets a revolution \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_revolution_command_adfea70162e4f47603e30714a6e4b6abd}{Revolution\+Command}}.
+
+\mbox{\Hypertarget{class_command_a4c6d3dbd55f86fb5deb0867041bca5a0}\label{class_command_a4c6d3dbd55f86fb5deb0867041bca5a0}} 
+\index{Command@{Command}!isActive@{isActive}}
+\index{isActive@{isActive}!Command@{Command}}
+\doxysubsubsection{\texorpdfstring{isActive()}{isActive()}}
+{\footnotesize\ttfamily virtual bool Command\+::is\+Active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns whether revolution is active. 
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_revolution_command_ac8fa7f785c8272a2ef845c7b00476f44}{Revolution\+Command}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Command.\+h\end{DoxyCompactItemize}

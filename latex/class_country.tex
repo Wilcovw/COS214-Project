@@ -1,0 +1,448 @@
+\hypertarget{class_country}{}\doxysection{Country Class Reference}
+\label{class_country}\index{Country@{Country}}
+
+
+\mbox{\hyperlink{class_country}{Country}} takes the role of the Leaf class in the composite pattern and Concrete\+Colleague in the Mediator pattern.  
+
+
+
+
+{\ttfamily \#include $<$Country.\+h$>$}
+
+Inheritance diagram for Country\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_country}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_country_abec3c4e26e386fb6310d55a812a878bf}{Country}} (std\+::string name, \mbox{\hyperlink{class_communication}{Communication}} $\ast$\mbox{\hyperlink{class_associated_countries_a7353d87778214f8eee21283200a73767}{tele}}, int num\+Citzen\+Groups)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_country}{Country}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_country_a4cba457856775a13a17dfcb11a77e224}{Country}} ()
+\begin{DoxyCompactList}\small\item\em default constructor \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_country_aa584ff75674728736d4952b32693501a}{get\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Return the name of the \mbox{\hyperlink{class_country}{Country}}. \end{DoxyCompactList}\item 
+std\+::list$<$ \mbox{\hyperlink{class_area}{Area}} $\ast$ $>$ \mbox{\hyperlink{class_country_af68ebbe510fbe05b9f4a05f2623291e7}{get\+Areas}} ()
+\begin{DoxyCompactList}\small\item\em Return the Areas controlled by this \mbox{\hyperlink{class_country}{Country}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_country_aec6ebd3e9f719b569e8df135e9e169e0}{add\+Area}} (\mbox{\hyperlink{class_area}{Area}} $\ast$area)
+\begin{DoxyCompactList}\small\item\em add a new \mbox{\hyperlink{class_area}{Area}} to the vector containing all the areas that are controlled by this \mbox{\hyperlink{class_country}{Country}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_country_a69a692dfbe69699c47c3352a4d00aa70}{remove\+Area}} (\mbox{\hyperlink{class_area}{Area}} $\ast$area)
+\begin{DoxyCompactList}\small\item\em Remove an area from the vector containing all the areas that are controlled by this \mbox{\hyperlink{class_country}{Country}}. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_country_aedc87e7b22c4090aea7d8c7788829675}{print\+Areas}} ()
+\begin{DoxyCompactList}\small\item\em print all the areas that are controlled by this \mbox{\hyperlink{class_country}{Country}} \end{DoxyCompactList}\item 
+list$<$ \mbox{\hyperlink{class_citizens}{Citizens}} $\ast$ $>$ \mbox{\hyperlink{class_country_af0d4cb0a3bebb29415de7dbf6ec77e02}{get\+Citizens}} ()
+\begin{DoxyCompactList}\small\item\em Returns all the citzens of the country. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_war_entities}{War\+Entities}} $\ast$ \mbox{\hyperlink{class_country_ac8c067681f288dcdd0577b8e6389296e}{get\+War\+Entities}} ()
+\begin{DoxyCompactList}\small\item\em Returns all the \mbox{\hyperlink{class_war_entities}{War\+Entities}} of the country. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_country_a5013557e0d93fabc976bfa0d7f0564a3}{$\sim$\+Country}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{class_country}{Country}} object. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_country_afb0d6ffa03829d15df79f94caf962434}{receive\+Message}} (std\+::string message)
+\begin{DoxyCompactList}\small\item\em Allows this object to receive messages from other \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} objects. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_country_a26783e78e20ad3219d027b7e0a9b17b3}{send\+Broadcast}} (\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$message\+Receiver, std\+::string message)
+\begin{DoxyCompactList}\small\item\em Allows this object to send messages from other \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} objects. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$ \mbox{\hyperlink{class_country_a334113febf26c3ca3c5f8792ccd21d5f}{get\+Parent}} ()
+\begin{DoxyCompactList}\small\item\em Return the parent object of this object. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_country_aa34a5967f3b67fede38af0b790149e31}{set\+Parent}} (\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$\mbox{\hyperlink{class_associated_countries_aa5e5ccc21c966f5cdf440b4f2603abc8}{parent}})
+\begin{DoxyCompactList}\small\item\em Set the Parent object. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_country_a0576828c5945f4e11eb9da57e0bfcd0e}{add\+Associated\+Countries}} (\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$al)
+\begin{DoxyCompactList}\small\item\em Add a new \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} object to the tree. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_country_a561b5adc937680c5a884b0bf8f93fee8}{remove\+Associated\+Countries}} (\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$al)
+\begin{DoxyCompactList}\small\item\em Remove a \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} object from the tree. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{class_country_a2bdb2ac3551e9baba45793f62aa278e4}{print}} ()
+\begin{DoxyCompactList}\small\item\em Output the contents of this \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_country_aeeec62d7797e51f072692f63df2c3183}{revolt}} (bool revolt)
+\begin{DoxyCompactList}\small\item\em Allows the citizens of a country to revolt. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$ \mbox{\hyperlink{class_country_a8616360ba2bf54018cbeebc1d1cd7439}{clone}} (\mbox{\hyperlink{class_communication}{Communication}} $\ast$comm, \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$\mbox{\hyperlink{class_associated_countries_aa5e5ccc21c966f5cdf440b4f2603abc8}{parent}})
+\begin{DoxyCompactList}\small\item\em Returns a clone of the \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} object and its children, This function must be called with clone\+War\+Entities. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_country_a9ce48a0cd4b738f505122ce266fb012d}{clone\+War\+Entities}} (\mbox{\hyperlink{class_country}{Country}} $\ast$country)
+\begin{DoxyCompactList}\small\item\em clone the war\+Entities and the citizens of a country \end{DoxyCompactList}\item 
+list$<$ \mbox{\hyperlink{class_country}{Country}} $\ast$ $>$ \mbox{\hyperlink{class_country_abb11a3083b33b94d6e40ba639b78f103}{get\+Allies}} ()
+\begin{DoxyCompactList}\small\item\em Return all the allies of the current country, If this country has no allies or doesnt exist returns an empty vector. \end{DoxyCompactList}\item 
+list$<$ \mbox{\hyperlink{class_country}{Country}} $\ast$ $>$ \mbox{\hyperlink{class_country_ad271947b400713b0581e16d535157e23}{get\+Enemies}} ()
+\begin{DoxyCompactList}\small\item\em Get the Enemies the Current \mbox{\hyperlink{class_country}{Country}}. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_communication}{Communication}} $\ast$ \mbox{\hyperlink{class_country_a71e6a8e227a5a07719cbeb2b16db5835}{get\+Communication}} ()
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{class_communication}{Communication}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_country_acb44901cb81e95cf487b20caeec3963d}{remove\+Citizen}} (\mbox{\hyperlink{class_citizens}{Citizens}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Removes the passed in Citizen object from the \mbox{\hyperlink{class_country}{Country}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_country}{Country}} takes the role of the Leaf class in the composite pattern and Concrete\+Colleague in the Mediator pattern. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_country_abec3c4e26e386fb6310d55a812a878bf}\label{class_country_abec3c4e26e386fb6310d55a812a878bf}} 
+\index{Country@{Country}!Country@{Country}}
+\index{Country@{Country}!Country@{Country}}
+\doxysubsubsection{\texorpdfstring{Country()}{Country()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Country\+::\+Country (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{\mbox{\hyperlink{class_communication}{Communication}} $\ast$}]{tele,  }\item[{int}]{num\+Citzen\+Groups }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_country}{Country}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the country \\
+\hline
+{\em tele} & The \mbox{\hyperlink{class_communication}{Communication}} object used for communication between associated\+Countries \\
+\hline
+{\em num\+Citzen\+Groups} & The number of citizens inside the country to be created \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_country_a4cba457856775a13a17dfcb11a77e224}\label{class_country_a4cba457856775a13a17dfcb11a77e224}} 
+\index{Country@{Country}!Country@{Country}}
+\index{Country@{Country}!Country@{Country}}
+\doxysubsubsection{\texorpdfstring{Country()}{Country()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Country\+::\+Country (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+default constructor 
+
+\mbox{\Hypertarget{class_country_a5013557e0d93fabc976bfa0d7f0564a3}\label{class_country_a5013557e0d93fabc976bfa0d7f0564a3}} 
+\index{Country@{Country}!````~Country@{$\sim$Country}}
+\index{````~Country@{$\sim$Country}!Country@{Country}}
+\doxysubsubsection{\texorpdfstring{$\sim$Country()}{~Country()}}
+{\footnotesize\ttfamily Country\+::$\sim$\+Country (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destroy the \mbox{\hyperlink{class_country}{Country}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_country_aec6ebd3e9f719b569e8df135e9e169e0}\label{class_country_aec6ebd3e9f719b569e8df135e9e169e0}} 
+\index{Country@{Country}!addArea@{addArea}}
+\index{addArea@{addArea}!Country@{Country}}
+\doxysubsubsection{\texorpdfstring{addArea()}{addArea()}}
+{\footnotesize\ttfamily void Country\+::add\+Area (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{area }\end{DoxyParamCaption})}
+
+
+
+add a new \mbox{\hyperlink{class_area}{Area}} to the vector containing all the areas that are controlled by this \mbox{\hyperlink{class_country}{Country}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em area} & The new \mbox{\hyperlink{class_area}{Area}} to add to the vector containing all the areas that are controlled by this \mbox{\hyperlink{class_country}{Country}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_country_a0576828c5945f4e11eb9da57e0bfcd0e}\label{class_country_a0576828c5945f4e11eb9da57e0bfcd0e}} 
+\index{Country@{Country}!addAssociatedCountries@{addAssociatedCountries}}
+\index{addAssociatedCountries@{addAssociatedCountries}!Country@{Country}}
+\doxysubsubsection{\texorpdfstring{addAssociatedCountries()}{addAssociatedCountries()}}
+{\footnotesize\ttfamily void Country\+::add\+Associated\+Countries (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$}]{al }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Add a new \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} object to the tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em al} & \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} objct to be added \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_associated_countries_a469fef433bee084505df55c170345aa3}{Associated\+Countries}}.
+
+\mbox{\Hypertarget{class_country_a8616360ba2bf54018cbeebc1d1cd7439}\label{class_country_a8616360ba2bf54018cbeebc1d1cd7439}} 
+\index{Country@{Country}!clone@{clone}}
+\index{clone@{clone}!Country@{Country}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$ Country\+::clone (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_communication}{Communication}} $\ast$}]{comm,  }\item[{\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$}]{parent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Returns a clone of the \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} object and its children, This function must be called with clone\+War\+Entities. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em comm} & The comunication object used between all countries \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Associated\+Countries$\ast$ The cloned copy of the \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} object 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_associated_countries_aa4d9cb815b9b3f133da55a73dbe98b4e}{Associated\+Countries}}.
+
+\mbox{\Hypertarget{class_country_a9ce48a0cd4b738f505122ce266fb012d}\label{class_country_a9ce48a0cd4b738f505122ce266fb012d}} 
+\index{Country@{Country}!cloneWarEntities@{cloneWarEntities}}
+\index{cloneWarEntities@{cloneWarEntities}!Country@{Country}}
+\doxysubsubsection{\texorpdfstring{cloneWarEntities()}{cloneWarEntities()}}
+{\footnotesize\ttfamily void Country\+::clone\+War\+Entities (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_country}{Country}} $\ast$}]{country }\end{DoxyParamCaption})}
+
+
+
+clone the war\+Entities and the citizens of a country 
+
+\mbox{\Hypertarget{class_country_abb11a3083b33b94d6e40ba639b78f103}\label{class_country_abb11a3083b33b94d6e40ba639b78f103}} 
+\index{Country@{Country}!getAllies@{getAllies}}
+\index{getAllies@{getAllies}!Country@{Country}}
+\doxysubsubsection{\texorpdfstring{getAllies()}{getAllies()}}
+{\footnotesize\ttfamily list$<$ \mbox{\hyperlink{class_country}{Country}} $\ast$ $>$ Country\+::get\+Allies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return all the allies of the current country, If this country has no allies or doesnt exist returns an empty vector. 
+
+\begin{DoxyReturn}{Returns}
+vector$<$\+Associated\+Countries$\ast$$>$ A vector containing all the allies of the current country 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_country_af68ebbe510fbe05b9f4a05f2623291e7}\label{class_country_af68ebbe510fbe05b9f4a05f2623291e7}} 
+\index{Country@{Country}!getAreas@{getAreas}}
+\index{getAreas@{getAreas}!Country@{Country}}
+\doxysubsubsection{\texorpdfstring{getAreas()}{getAreas()}}
+{\footnotesize\ttfamily std\+::list$<$ \mbox{\hyperlink{class_area}{Area}} $\ast$ $>$ Country\+::get\+Areas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return the Areas controlled by this \mbox{\hyperlink{class_country}{Country}}. 
+
+\begin{DoxyReturn}{Returns}
+vector$<$\+Area$\ast$$>$ The vector of areas controlled by this \mbox{\hyperlink{class_country}{Country}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_country_af0d4cb0a3bebb29415de7dbf6ec77e02}\label{class_country_af0d4cb0a3bebb29415de7dbf6ec77e02}} 
+\index{Country@{Country}!getCitizens@{getCitizens}}
+\index{getCitizens@{getCitizens}!Country@{Country}}
+\doxysubsubsection{\texorpdfstring{getCitizens()}{getCitizens()}}
+{\footnotesize\ttfamily list$<$ \mbox{\hyperlink{class_citizens}{Citizens}} $\ast$ $>$ Country\+::get\+Citizens (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns all the citzens of the country. 
+
+\begin{DoxyReturn}{Returns}
+Citzens$\ast$$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_country_a71e6a8e227a5a07719cbeb2b16db5835}\label{class_country_a71e6a8e227a5a07719cbeb2b16db5835}} 
+\index{Country@{Country}!getCommunication@{getCommunication}}
+\index{getCommunication@{getCommunication}!Country@{Country}}
+\doxysubsubsection{\texorpdfstring{getCommunication()}{getCommunication()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_communication}{Communication}} $\ast$ Country\+::get\+Communication (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Get the \mbox{\hyperlink{class_communication}{Communication}} object. 
+
+\begin{DoxyReturn}{Returns}
+Communication$\ast$ 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}}.
+
+\mbox{\Hypertarget{class_country_ad271947b400713b0581e16d535157e23}\label{class_country_ad271947b400713b0581e16d535157e23}} 
+\index{Country@{Country}!getEnemies@{getEnemies}}
+\index{getEnemies@{getEnemies}!Country@{Country}}
+\doxysubsubsection{\texorpdfstring{getEnemies()}{getEnemies()}}
+{\footnotesize\ttfamily list$<$ \mbox{\hyperlink{class_country}{Country}} $\ast$ $>$ Country\+::get\+Enemies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Enemies the Current \mbox{\hyperlink{class_country}{Country}}. 
+
+\begin{DoxyReturn}{Returns}
+list$<$\+Country $\ast$$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_country_aa584ff75674728736d4952b32693501a}\label{class_country_aa584ff75674728736d4952b32693501a}} 
+\index{Country@{Country}!getName@{getName}}
+\index{getName@{getName}!Country@{Country}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string Country\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return the name of the \mbox{\hyperlink{class_country}{Country}}. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_country_a334113febf26c3ca3c5f8792ccd21d5f}\label{class_country_a334113febf26c3ca3c5f8792ccd21d5f}} 
+\index{Country@{Country}!getParent@{getParent}}
+\index{getParent@{getParent}!Country@{Country}}
+\doxysubsubsection{\texorpdfstring{getParent()}{getParent()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$ Country\+::get\+Parent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Return the parent object of this object. 
+
+\begin{DoxyReturn}{Returns}
+Associated\+Countries$\ast$ 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_associated_countries_ad38f52e238fcd94b64b89de1b78767bd}{Associated\+Countries}}.
+
+\mbox{\Hypertarget{class_country_ac8c067681f288dcdd0577b8e6389296e}\label{class_country_ac8c067681f288dcdd0577b8e6389296e}} 
+\index{Country@{Country}!getWarEntities@{getWarEntities}}
+\index{getWarEntities@{getWarEntities}!Country@{Country}}
+\doxysubsubsection{\texorpdfstring{getWarEntities()}{getWarEntities()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_war_entities}{War\+Entities}} $\ast$ Country\+::get\+War\+Entities (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns all the \mbox{\hyperlink{class_war_entities}{War\+Entities}} of the country. 
+
+\begin{DoxyReturn}{Returns}
+War\+Entities$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_country_a2bdb2ac3551e9baba45793f62aa278e4}\label{class_country_a2bdb2ac3551e9baba45793f62aa278e4}} 
+\index{Country@{Country}!print@{print}}
+\index{print@{print}!Country@{Country}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily std\+::string Country\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Output the contents of this \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} object. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string -\/ The string containing the contents of this \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} object 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_associated_countries_a7a48c0539662702fcb6e7f07d386c5ec}{Associated\+Countries}}.
+
+\mbox{\Hypertarget{class_country_aedc87e7b22c4090aea7d8c7788829675}\label{class_country_aedc87e7b22c4090aea7d8c7788829675}} 
+\index{Country@{Country}!printAreas@{printAreas}}
+\index{printAreas@{printAreas}!Country@{Country}}
+\doxysubsubsection{\texorpdfstring{printAreas()}{printAreas()}}
+{\footnotesize\ttfamily std\+::string Country\+::print\+Areas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+print all the areas that are controlled by this \mbox{\hyperlink{class_country}{Country}} 
+
+\mbox{\Hypertarget{class_country_afb0d6ffa03829d15df79f94caf962434}\label{class_country_afb0d6ffa03829d15df79f94caf962434}} 
+\index{Country@{Country}!receiveMessage@{receiveMessage}}
+\index{receiveMessage@{receiveMessage}!Country@{Country}}
+\doxysubsubsection{\texorpdfstring{receiveMessage()}{receiveMessage()}}
+{\footnotesize\ttfamily void Country\+::receive\+Message (\begin{DoxyParamCaption}\item[{std\+::string}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Allows this object to receive messages from other \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} objects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em std\+::string} & The message received from the other \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} object \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_associated_countries_a9e957f7c0c23a068ca5a40caa5a75805}{Associated\+Countries}}.
+
+\mbox{\Hypertarget{class_country_a69a692dfbe69699c47c3352a4d00aa70}\label{class_country_a69a692dfbe69699c47c3352a4d00aa70}} 
+\index{Country@{Country}!removeArea@{removeArea}}
+\index{removeArea@{removeArea}!Country@{Country}}
+\doxysubsubsection{\texorpdfstring{removeArea()}{removeArea()}}
+{\footnotesize\ttfamily void Country\+::remove\+Area (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{area }\end{DoxyParamCaption})}
+
+
+
+Remove an area from the vector containing all the areas that are controlled by this \mbox{\hyperlink{class_country}{Country}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em area} & The \mbox{\hyperlink{class_area}{Area}} to remove from the vector containing all the areas that are controlled by this \mbox{\hyperlink{class_country}{Country}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_country_a561b5adc937680c5a884b0bf8f93fee8}\label{class_country_a561b5adc937680c5a884b0bf8f93fee8}} 
+\index{Country@{Country}!removeAssociatedCountries@{removeAssociatedCountries}}
+\index{removeAssociatedCountries@{removeAssociatedCountries}!Country@{Country}}
+\doxysubsubsection{\texorpdfstring{removeAssociatedCountries()}{removeAssociatedCountries()}}
+{\footnotesize\ttfamily void Country\+::remove\+Associated\+Countries (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$}]{al }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Remove a \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} object from the tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em al} & The \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} objct to be removed \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_associated_countries_a8fdc30b97ece65114da927a64a087b22}{Associated\+Countries}}.
+
+\mbox{\Hypertarget{class_country_acb44901cb81e95cf487b20caeec3963d}\label{class_country_acb44901cb81e95cf487b20caeec3963d}} 
+\index{Country@{Country}!removeCitizen@{removeCitizen}}
+\index{removeCitizen@{removeCitizen}!Country@{Country}}
+\doxysubsubsection{\texorpdfstring{removeCitizen()}{removeCitizen()}}
+{\footnotesize\ttfamily void Country\+::remove\+Citizen (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_citizens}{Citizens}} $\ast$}]{the\+Citizen }\end{DoxyParamCaption})}
+
+
+
+Removes the passed in Citizen object from the \mbox{\hyperlink{class_country}{Country}}. 
+
+\mbox{\Hypertarget{class_country_aeeec62d7797e51f072692f63df2c3183}\label{class_country_aeeec62d7797e51f072692f63df2c3183}} 
+\index{Country@{Country}!revolt@{revolt}}
+\index{revolt@{revolt}!Country@{Country}}
+\doxysubsubsection{\texorpdfstring{revolt()}{revolt()}}
+{\footnotesize\ttfamily void Country\+::revolt (\begin{DoxyParamCaption}\item[{bool}]{revolt }\end{DoxyParamCaption})}
+
+
+
+Allows the citizens of a country to revolt. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em revolt} & Whether or not the citizerns are revolting \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_country_a26783e78e20ad3219d027b7e0a9b17b3}\label{class_country_a26783e78e20ad3219d027b7e0a9b17b3}} 
+\index{Country@{Country}!sendBroadcast@{sendBroadcast}}
+\index{sendBroadcast@{sendBroadcast}!Country@{Country}}
+\doxysubsubsection{\texorpdfstring{sendBroadcast()}{sendBroadcast()}}
+{\footnotesize\ttfamily void Country\+::send\+Broadcast (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$}]{message\+Receiver,  }\item[{std\+::string}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Allows this object to send messages from other \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} objects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}}} & The \mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} object that must receive the message \\
+\hline
+{\em std\+::string} & The message to be received \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_associated_countries_a0f1a6b3e522e2d3c0388cfbeabdb0cc5}{Associated\+Countries}}.
+
+\mbox{\Hypertarget{class_country_aa34a5967f3b67fede38af0b790149e31}\label{class_country_aa34a5967f3b67fede38af0b790149e31}} 
+\index{Country@{Country}!setParent@{setParent}}
+\index{setParent@{setParent}!Country@{Country}}
+\doxysubsubsection{\texorpdfstring{setParent()}{setParent()}}
+{\footnotesize\ttfamily void Country\+::set\+Parent (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_associated_countries}{Associated\+Countries}} $\ast$}]{parent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Set the Parent object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & The parent of this object \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_associated_countries_afe6e8c8a85abcf152eb7add1095cdc0e}{Associated\+Countries}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Country.\+h\item 
+Country.\+cpp\end{DoxyCompactItemize}

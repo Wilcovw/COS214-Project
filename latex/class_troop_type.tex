@@ -1,0 +1,188 @@
+\hypertarget{class_troop_type}{}\doxysection{Troop\+Type Class Reference}
+\label{class_troop_type}\index{TroopType@{TroopType}}
+
+
+\mbox{\hyperlink{class_troop_type}{Troop\+Type}} is used to set the Troop to a specific type (\mbox{\hyperlink{class_generals}{Generals}}, \mbox{\hyperlink{class_soldiers}{Soldiers}}, \mbox{\hyperlink{class_special_forces}{Special\+Forces}}). It has these types as sub-\/classes as well.  
+
+
+
+
+{\ttfamily \#include $<$Troop\+Type.\+h$>$}
+
+Inheritance diagram for Troop\+Type\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_troop_type}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_troop_type_a8444ba11a16c730e860c30df71e70ba6}{Troop\+Type}} (double, double, double)
+\begin{DoxyCompactList}\small\item\em Constructor -\/ sets class\textquotesingle{} protected variables to passed in parameters. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_troop_type_a8ec18e1e4c8bb67e9964b284e974e706}\label{class_troop_type_a8ec18e1e4c8bb67e9964b284e974e706}} 
+virtual {\bfseries $\sim$\+Troop\+Type} ()
+\begin{DoxyCompactList}\small\item\em virtual destructor \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_troop_type_acd2cef9916e978753d1f88f434a7f2c8}{get\+Damage}} ()
+\begin{DoxyCompactList}\small\item\em returns class\textquotesingle{} damage \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_troop_type_a5b53b3ba51349eb4b16128db400005cd}{get\+Max\+HP}} ()
+\begin{DoxyCompactList}\small\item\em returns class\textquotesingle{} max\+HP \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_troop_type_aa854f083dc40a2da4b6e9546553b5736}{get\+Speed}} ()
+\begin{DoxyCompactList}\small\item\em returns class\textquotesingle{} speed \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_troop_type_a4e2f83b775eacae95542ea695b3fdcec}{add\+Damage}} (double)
+\begin{DoxyCompactList}\small\item\em adds the\+Damage to damage \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_troop_type_a6aafd0e5336a5fc6a9424b50a6caa190}{add\+Max\+HP}} (double)
+\begin{DoxyCompactList}\small\item\em adds the\+Max\+HP to max\+HP \end{DoxyCompactList}\item 
+the\+Troop\+Types \mbox{\hyperlink{class_troop_type_a0d60f643ffb8379774f3231809e60f83}{get\+Type}} ()
+\begin{DoxyCompactList}\small\item\em returns the troop type \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_troop_type}{Troop\+Type}} $\ast$ \mbox{\hyperlink{class_troop_type_adbe65ae4deb37bcc7e0ef91e45499600}{change\+Type}} (the\+Troop\+Types)=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_troop_type_a66eaa858b999f8fdf4fe6a1f3dcec200}\label{class_troop_type_a66eaa858b999f8fdf4fe6a1f3dcec200}} 
+double {\bfseries damage}
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{class_troop_type}{Troop\+Type}}\textquotesingle{}s damage. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_troop_type_a200c14682345cda2b55c3d34a3a156b0}\label{class_troop_type_a200c14682345cda2b55c3d34a3a156b0}} 
+double {\bfseries speed}
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{class_troop_type}{Troop\+Type}}\textquotesingle{}s speed. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_troop_type_a8230500ef1f3fb96ce9b182c154a8bb8}\label{class_troop_type_a8230500ef1f3fb96ce9b182c154a8bb8}} 
+double {\bfseries max\+HP}
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{class_troop_type}{Troop\+Type}}\textquotesingle{}s max\+HP. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_troop_type_a3242bfaa3883e474b62bd4f149eda799}\label{class_troop_type_a3242bfaa3883e474b62bd4f149eda799}} 
+the\+Troop\+Types {\bfseries type}
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{class_troop_type}{Troop\+Type}}\textquotesingle{}s type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_troop_type}{Troop\+Type}} is used to set the Troop to a specific type (\mbox{\hyperlink{class_generals}{Generals}}, \mbox{\hyperlink{class_soldiers}{Soldiers}}, \mbox{\hyperlink{class_special_forces}{Special\+Forces}}). It has these types as sub-\/classes as well. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_troop_type_a8444ba11a16c730e860c30df71e70ba6}\label{class_troop_type_a8444ba11a16c730e860c30df71e70ba6}} 
+\index{TroopType@{TroopType}!TroopType@{TroopType}}
+\index{TroopType@{TroopType}!TroopType@{TroopType}}
+\doxysubsubsection{\texorpdfstring{TroopType()}{TroopType()}}
+{\footnotesize\ttfamily Troop\+Type\+::\+Troop\+Type (\begin{DoxyParamCaption}\item[{double}]{the\+Damage,  }\item[{double}]{the\+Max\+HP,  }\item[{double}]{the\+Speed }\end{DoxyParamCaption})}
+
+
+
+Constructor -\/ sets class\textquotesingle{} protected variables to passed in parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the\+Damage} & \\
+\hline
+{\em the\+Max\+HP} & \\
+\hline
+{\em the\+Speed} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_troop_type_a4e2f83b775eacae95542ea695b3fdcec}\label{class_troop_type_a4e2f83b775eacae95542ea695b3fdcec}} 
+\index{TroopType@{TroopType}!addDamage@{addDamage}}
+\index{addDamage@{addDamage}!TroopType@{TroopType}}
+\doxysubsubsection{\texorpdfstring{addDamage()}{addDamage()}}
+{\footnotesize\ttfamily void Troop\+Type\+::add\+Damage (\begin{DoxyParamCaption}\item[{double}]{the\+Damage }\end{DoxyParamCaption})}
+
+
+
+adds the\+Damage to damage 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the\+Damage} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_troop_type_a6aafd0e5336a5fc6a9424b50a6caa190}\label{class_troop_type_a6aafd0e5336a5fc6a9424b50a6caa190}} 
+\index{TroopType@{TroopType}!addMaxHP@{addMaxHP}}
+\index{addMaxHP@{addMaxHP}!TroopType@{TroopType}}
+\doxysubsubsection{\texorpdfstring{addMaxHP()}{addMaxHP()}}
+{\footnotesize\ttfamily void Troop\+Type\+::add\+Max\+HP (\begin{DoxyParamCaption}\item[{double}]{the\+Max\+HP }\end{DoxyParamCaption})}
+
+
+
+adds the\+Max\+HP to max\+HP 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the\+Max\+HP} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_troop_type_adbe65ae4deb37bcc7e0ef91e45499600}\label{class_troop_type_adbe65ae4deb37bcc7e0ef91e45499600}} 
+\index{TroopType@{TroopType}!changeType@{changeType}}
+\index{changeType@{changeType}!TroopType@{TroopType}}
+\doxysubsubsection{\texorpdfstring{changeType()}{changeType()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_troop_type}{Troop\+Type}} $\ast$ Troop\+Type\+::change\+Type (\begin{DoxyParamCaption}\item[{the\+Troop\+Types}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+pure virtual function to change type 
+\begin{DoxyParams}{Parameters}
+{\em the\+Troop\+Types} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_generals_a1326ebec9f409d9c13449a5ff516ef39}{Generals}}, \mbox{\hyperlink{class_soldiers_ad911d0fe600a7c255f18f7c543ed3733}{Soldiers}}, and \mbox{\hyperlink{class_special_forces_a53142b0ae76195b47571be94549f4012}{Special\+Forces}}.
+
+\mbox{\Hypertarget{class_troop_type_acd2cef9916e978753d1f88f434a7f2c8}\label{class_troop_type_acd2cef9916e978753d1f88f434a7f2c8}} 
+\index{TroopType@{TroopType}!getDamage@{getDamage}}
+\index{getDamage@{getDamage}!TroopType@{TroopType}}
+\doxysubsubsection{\texorpdfstring{getDamage()}{getDamage()}}
+{\footnotesize\ttfamily double Troop\+Type\+::get\+Damage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns class\textquotesingle{} damage 
+
+\begin{DoxyReturn}{Returns}
+double -\/ damage 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_troop_type_a5b53b3ba51349eb4b16128db400005cd}\label{class_troop_type_a5b53b3ba51349eb4b16128db400005cd}} 
+\index{TroopType@{TroopType}!getMaxHP@{getMaxHP}}
+\index{getMaxHP@{getMaxHP}!TroopType@{TroopType}}
+\doxysubsubsection{\texorpdfstring{getMaxHP()}{getMaxHP()}}
+{\footnotesize\ttfamily double Troop\+Type\+::get\+Max\+HP (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns class\textquotesingle{} max\+HP 
+
+\begin{DoxyReturn}{Returns}
+double -\/ max\+HP 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_troop_type_aa854f083dc40a2da4b6e9546553b5736}\label{class_troop_type_aa854f083dc40a2da4b6e9546553b5736}} 
+\index{TroopType@{TroopType}!getSpeed@{getSpeed}}
+\index{getSpeed@{getSpeed}!TroopType@{TroopType}}
+\doxysubsubsection{\texorpdfstring{getSpeed()}{getSpeed()}}
+{\footnotesize\ttfamily double Troop\+Type\+::get\+Speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns class\textquotesingle{} speed 
+
+\begin{DoxyReturn}{Returns}
+double -\/ speed 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_troop_type_a0d60f643ffb8379774f3231809e60f83}\label{class_troop_type_a0d60f643ffb8379774f3231809e60f83}} 
+\index{TroopType@{TroopType}!getType@{getType}}
+\index{getType@{getType}!TroopType@{TroopType}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily the\+Troop\+Types Troop\+Type\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns the troop type 
+
+\begin{DoxyReturn}{Returns}
+the\+Troop\+Types -\/ type 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Troop\+Type.\+h\item 
+Troop\+Type.\+cpp\end{DoxyCompactItemize}

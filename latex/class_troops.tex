@@ -1,0 +1,306 @@
+\hypertarget{class_troops}{}\doxysection{Troops Class Reference}
+\label{class_troops}\index{Troops@{Troops}}
+
+
+\mbox{\hyperlink{class_troops}{Troops}} has three subclasses\+: \mbox{\hyperlink{class_ground_troops}{Ground\+Troops}}, \mbox{\hyperlink{class_navy}{Navy}}, \mbox{\hyperlink{class_airforce}{Airforce}}. It is the class for the infantry used in the war.  
+
+
+
+
+{\ttfamily \#include $<$Troops.\+h$>$}
+
+Inheritance diagram for Troops\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_troops}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_troops_aefad54685c7755e1a362d6caa2ecdfbf}\label{class_troops_aefad54685c7755e1a362d6caa2ecdfbf}} 
+{\bfseries Troops} (double, \mbox{\hyperlink{class_area}{Area}} $\ast$, \mbox{\hyperlink{class_troop_type}{Troop\+Type}} $\ast$, \mbox{\hyperlink{class_citizens}{Citizens}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Constructor -\/ sets private variables to passed in parameters. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_troops_a000756d8d58ff82a80c7a947ac534151}\label{class_troops_a000756d8d58ff82a80c7a947ac534151}} 
+virtual {\bfseries $\sim$\+Troops} ()
+\begin{DoxyCompactList}\small\item\em virtual destructor \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_troops_a290b683e824eb81ee631ae9d012e97d1}\label{class_troops_a290b683e824eb81ee631ae9d012e97d1}} 
+void {\bfseries attack} (\mbox{\hyperlink{class_troops}{Troops}} $\ast$)
+\begin{DoxyCompactList}\small\item\em attacks the passed in parameter -\/ Troops$\ast$ \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_troops_a49a0d510eff0a87ec36bc1ec581ccfc1}\label{class_troops_a49a0d510eff0a87ec36bc1ec581ccfc1}} 
+void {\bfseries attack} (\mbox{\hyperlink{class_infrastructure}{Infrastructure}} $\ast$)
+\begin{DoxyCompactList}\small\item\em attacks the passed in parameter -\/ Infrastructure$\ast$ \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_troops_ad3d33d0860f3f5c19c7861649ab61d54}\label{class_troops_ad3d33d0860f3f5c19c7861649ab61d54}} 
+void {\bfseries attack} (\mbox{\hyperlink{class_vehicles}{Vehicles}} $\ast$)
+\begin{DoxyCompactList}\small\item\em attacks the passed in parameter -\/ Vehicles$\ast$ \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_troops_aa5b4ebfbd0ba7d2f7a0180057d360968}{take\+Damage}} (double)
+\begin{DoxyCompactList}\small\item\em HP lessens by the\+Damage. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_troops_a595021a85391ec405230095e200dc15f}{get\+HP}} ()
+\begin{DoxyCompactList}\small\item\em returns class\textquotesingle{} HP \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_area}{Area}} $\ast$ \mbox{\hyperlink{class_troops_af19c7a93a77fbca39df34b8fc453ad73}{get\+Location}} ()
+\begin{DoxyCompactList}\small\item\em returns class\textquotesingle{} location \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_troops_a82c73687126c1607905536a914035ee0}{set\+Location}} (\mbox{\hyperlink{class_area}{Area}} $\ast$)
+\begin{DoxyCompactList}\small\item\em sets the class\textquotesingle{} location to the\+Location \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_troop_type}{Troop\+Type}} $\ast$ \mbox{\hyperlink{class_troops_aeea8fa9a8f313a4f92433bf00a9bb221}{get\+Type}} ()
+\begin{DoxyCompactList}\small\item\em returns class\textquotesingle{} type \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_troops_a50099fc71b3b185e0cbff185c7889db0}{get\+Damage}} ()
+\begin{DoxyCompactList}\small\item\em returns class\textquotesingle{} damage \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_troops_a4c22d22ff758f4fae249ed4bd875c02e}{get\+Max\+HP}} ()
+\begin{DoxyCompactList}\small\item\em returns class\textquotesingle{} max\+HP \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_troops_a6f79865df06590d3a2569dcc2368c3d5}{get\+Speed}} ()
+\begin{DoxyCompactList}\small\item\em returns class\textquotesingle{} speed \end{DoxyCompactList}\item 
+kind\+Of\+Troops \mbox{\hyperlink{class_troops_a51c02582db06e71ad5bc8a901dd40345}{get\+Kind}} ()
+\begin{DoxyCompactList}\small\item\em returns kind of troop \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_troops}{Troops}} $\ast$ \mbox{\hyperlink{class_troops_a91b362afacd3da77ecc4fade3d40ab48}{clone}} (\mbox{\hyperlink{class_area}{Area}} $\ast$new\+Area)
+\begin{DoxyCompactList}\small\item\em returns a clone of this class \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_citizens}{Citizens}} $\ast$ \mbox{\hyperlink{class_troops_ad4ee6fe33b77b1e1d32b259046d85edd}{get\+Associated\+Citizen}} ()
+\begin{DoxyCompactList}\small\item\em returns class\textquotesingle{} associated\+Citizens \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_troops_ad21c319db1d616edf1a83d16d60c0e6e}\label{class_troops_ad21c319db1d616edf1a83d16d60c0e6e}} 
+void {\bfseries release\+Associated\+Citizen} ()
+\begin{DoxyCompactList}\small\item\em releases the associated\+Citizens \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_troops}{Troops}} $\ast$ \mbox{\hyperlink{class_troops_ac873445487d81f3bb304e42f6a48b48e}{get\+Clone}} ()
+\begin{DoxyCompactList}\small\item\em returns class\textquotesingle{} clone \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_troops_aa54fd2d053b2511f371c4166224f6f8f}\label{class_troops_aa54fd2d053b2511f371c4166224f6f8f}} 
+double {\bfseries HP}
+\begin{DoxyCompactList}\small\item\em The health of the Troop. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_area}{Area}} $\ast$ \mbox{\hyperlink{class_troops_a972f3fee276d065363eef95e098a6efc}{location}}
+\begin{DoxyCompactList}\small\item\em The location the Troop is in. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_troop_type}{Troop\+Type}} $\ast$ \mbox{\hyperlink{class_troops_ad454447264c8ce867ab17048a4b06620}{type}}
+\begin{DoxyCompactList}\small\item\em The type of troop. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_citizens}{Citizens}} $\ast$ \mbox{\hyperlink{class_troops_a5eb785e80a9159f71575fc96304c7d4b}{associated\+Citizens}}
+\begin{DoxyCompactList}\small\item\em Stores a Citizen object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_troops}{Troops}} $\ast$ \mbox{\hyperlink{class_troops_a03a189b3504e9879f6a0f130a817bf58}{cloned\+Troop}}
+\begin{DoxyCompactList}\small\item\em The cloned troop. \end{DoxyCompactList}\item 
+kind\+Of\+Troops \mbox{\hyperlink{class_troops_ab8c371d4ec3fa37512f290b349debd9d}{kind}}
+\begin{DoxyCompactList}\small\item\em The kind of troop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_troops}{Troops}} has three subclasses\+: \mbox{\hyperlink{class_ground_troops}{Ground\+Troops}}, \mbox{\hyperlink{class_navy}{Navy}}, \mbox{\hyperlink{class_airforce}{Airforce}}. It is the class for the infantry used in the war. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_troops_a91b362afacd3da77ecc4fade3d40ab48}\label{class_troops_a91b362afacd3da77ecc4fade3d40ab48}} 
+\index{Troops@{Troops}!clone@{clone}}
+\index{clone@{clone}!Troops@{Troops}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_troops}{Troops}} $\ast$ Troops\+::clone (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{new\+Area }\end{DoxyParamCaption})}
+
+
+
+returns a clone of this class 
+
+\begin{DoxyReturn}{Returns}
+Troops$\ast$ -\/ this 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_troops_ad4ee6fe33b77b1e1d32b259046d85edd}\label{class_troops_ad4ee6fe33b77b1e1d32b259046d85edd}} 
+\index{Troops@{Troops}!getAssociatedCitizen@{getAssociatedCitizen}}
+\index{getAssociatedCitizen@{getAssociatedCitizen}!Troops@{Troops}}
+\doxysubsubsection{\texorpdfstring{getAssociatedCitizen()}{getAssociatedCitizen()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_citizens}{Citizens}} $\ast$ Troops\+::get\+Associated\+Citizen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns class\textquotesingle{} associated\+Citizens 
+
+\begin{DoxyReturn}{Returns}
+Citizens$\ast$ -\/ associated\+Citizens 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_troops_ac873445487d81f3bb304e42f6a48b48e}\label{class_troops_ac873445487d81f3bb304e42f6a48b48e}} 
+\index{Troops@{Troops}!getClone@{getClone}}
+\index{getClone@{getClone}!Troops@{Troops}}
+\doxysubsubsection{\texorpdfstring{getClone()}{getClone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_troops}{Troops}} $\ast$ Troops\+::get\+Clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns class\textquotesingle{} clone 
+
+\begin{DoxyReturn}{Returns}
+Troops$\ast$ -\/ cloned\+Troop 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_troops_a50099fc71b3b185e0cbff185c7889db0}\label{class_troops_a50099fc71b3b185e0cbff185c7889db0}} 
+\index{Troops@{Troops}!getDamage@{getDamage}}
+\index{getDamage@{getDamage}!Troops@{Troops}}
+\doxysubsubsection{\texorpdfstring{getDamage()}{getDamage()}}
+{\footnotesize\ttfamily double Troops\+::get\+Damage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns class\textquotesingle{} damage 
+
+\begin{DoxyReturn}{Returns}
+double -\/ damage 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_troops_a595021a85391ec405230095e200dc15f}\label{class_troops_a595021a85391ec405230095e200dc15f}} 
+\index{Troops@{Troops}!getHP@{getHP}}
+\index{getHP@{getHP}!Troops@{Troops}}
+\doxysubsubsection{\texorpdfstring{getHP()}{getHP()}}
+{\footnotesize\ttfamily double Troops\+::get\+HP (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns class\textquotesingle{} HP 
+
+\begin{DoxyReturn}{Returns}
+double -\/ HP 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_troops_a51c02582db06e71ad5bc8a901dd40345}\label{class_troops_a51c02582db06e71ad5bc8a901dd40345}} 
+\index{Troops@{Troops}!getKind@{getKind}}
+\index{getKind@{getKind}!Troops@{Troops}}
+\doxysubsubsection{\texorpdfstring{getKind()}{getKind()}}
+{\footnotesize\ttfamily kind\+Of\+Troops Troops\+::get\+Kind (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns kind of troop 
+
+\begin{DoxyReturn}{Returns}
+kond\+Of\+Troops -\/ kind 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_troops_af19c7a93a77fbca39df34b8fc453ad73}\label{class_troops_af19c7a93a77fbca39df34b8fc453ad73}} 
+\index{Troops@{Troops}!getLocation@{getLocation}}
+\index{getLocation@{getLocation}!Troops@{Troops}}
+\doxysubsubsection{\texorpdfstring{getLocation()}{getLocation()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_area}{Area}} $\ast$ Troops\+::get\+Location (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns class\textquotesingle{} location 
+
+\begin{DoxyReturn}{Returns}
+Area$\ast$ -\/ location 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_troops_a4c22d22ff758f4fae249ed4bd875c02e}\label{class_troops_a4c22d22ff758f4fae249ed4bd875c02e}} 
+\index{Troops@{Troops}!getMaxHP@{getMaxHP}}
+\index{getMaxHP@{getMaxHP}!Troops@{Troops}}
+\doxysubsubsection{\texorpdfstring{getMaxHP()}{getMaxHP()}}
+{\footnotesize\ttfamily double Troops\+::get\+Max\+HP (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns class\textquotesingle{} max\+HP 
+
+\begin{DoxyReturn}{Returns}
+double -\/ max\+HP 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_troops_a6f79865df06590d3a2569dcc2368c3d5}\label{class_troops_a6f79865df06590d3a2569dcc2368c3d5}} 
+\index{Troops@{Troops}!getSpeed@{getSpeed}}
+\index{getSpeed@{getSpeed}!Troops@{Troops}}
+\doxysubsubsection{\texorpdfstring{getSpeed()}{getSpeed()}}
+{\footnotesize\ttfamily double Troops\+::get\+Speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns class\textquotesingle{} speed 
+
+\begin{DoxyReturn}{Returns}
+double -\/ speed 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_troops_aeea8fa9a8f313a4f92433bf00a9bb221}\label{class_troops_aeea8fa9a8f313a4f92433bf00a9bb221}} 
+\index{Troops@{Troops}!getType@{getType}}
+\index{getType@{getType}!Troops@{Troops}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_troop_type}{Troop\+Type}} $\ast$ Troops\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns class\textquotesingle{} type 
+
+\begin{DoxyReturn}{Returns}
+Troop\+Type$\ast$ -\/ type 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_troops_a82c73687126c1607905536a914035ee0}\label{class_troops_a82c73687126c1607905536a914035ee0}} 
+\index{Troops@{Troops}!setLocation@{setLocation}}
+\index{setLocation@{setLocation}!Troops@{Troops}}
+\doxysubsubsection{\texorpdfstring{setLocation()}{setLocation()}}
+{\footnotesize\ttfamily void Troops\+::set\+Location (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{the\+Location }\end{DoxyParamCaption})}
+
+
+
+sets the class\textquotesingle{} location to the\+Location 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the\+Location} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_troops_aa5b4ebfbd0ba7d2f7a0180057d360968}\label{class_troops_aa5b4ebfbd0ba7d2f7a0180057d360968}} 
+\index{Troops@{Troops}!takeDamage@{takeDamage}}
+\index{takeDamage@{takeDamage}!Troops@{Troops}}
+\doxysubsubsection{\texorpdfstring{takeDamage()}{takeDamage()}}
+{\footnotesize\ttfamily double Troops\+::take\+Damage (\begin{DoxyParamCaption}\item[{double}]{the\+Damage }\end{DoxyParamCaption})}
+
+
+
+HP lessens by the\+Damage. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the\+Damage} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double -\/ the new HP 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_troops_a5eb785e80a9159f71575fc96304c7d4b}\label{class_troops_a5eb785e80a9159f71575fc96304c7d4b}} 
+\index{Troops@{Troops}!associatedCitizens@{associatedCitizens}}
+\index{associatedCitizens@{associatedCitizens}!Troops@{Troops}}
+\doxysubsubsection{\texorpdfstring{associatedCitizens}{associatedCitizens}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_citizens}{Citizens}}$\ast$ Troops\+::associated\+Citizens\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Stores a Citizen object. 
+
+\mbox{\Hypertarget{class_troops_a03a189b3504e9879f6a0f130a817bf58}\label{class_troops_a03a189b3504e9879f6a0f130a817bf58}} 
+\index{Troops@{Troops}!clonedTroop@{clonedTroop}}
+\index{clonedTroop@{clonedTroop}!Troops@{Troops}}
+\doxysubsubsection{\texorpdfstring{clonedTroop}{clonedTroop}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_troops}{Troops}}$\ast$ Troops\+::cloned\+Troop\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The cloned troop. 
+
+\mbox{\Hypertarget{class_troops_ab8c371d4ec3fa37512f290b349debd9d}\label{class_troops_ab8c371d4ec3fa37512f290b349debd9d}} 
+\index{Troops@{Troops}!kind@{kind}}
+\index{kind@{kind}!Troops@{Troops}}
+\doxysubsubsection{\texorpdfstring{kind}{kind}}
+{\footnotesize\ttfamily kind\+Of\+Troops Troops\+::kind\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The kind of troop. 
+
+\mbox{\Hypertarget{class_troops_a972f3fee276d065363eef95e098a6efc}\label{class_troops_a972f3fee276d065363eef95e098a6efc}} 
+\index{Troops@{Troops}!location@{location}}
+\index{location@{location}!Troops@{Troops}}
+\doxysubsubsection{\texorpdfstring{location}{location}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_area}{Area}}$\ast$ Troops\+::location\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The location the Troop is in. 
+
+\mbox{\Hypertarget{class_troops_ad454447264c8ce867ab17048a4b06620}\label{class_troops_ad454447264c8ce867ab17048a4b06620}} 
+\index{Troops@{Troops}!type@{type}}
+\index{type@{type}!Troops@{Troops}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_troop_type}{Troop\+Type}}$\ast$ Troops\+::type\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The type of troop. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Troops.\+h\item 
+Troops.\+cpp\end{DoxyCompactItemize}

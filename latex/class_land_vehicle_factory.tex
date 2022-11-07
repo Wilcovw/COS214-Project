@@ -1,0 +1,100 @@
+\hypertarget{class_land_vehicle_factory}{}\doxysection{Land\+Vehicle\+Factory Class Reference}
+\label{class_land_vehicle_factory}\index{LandVehicleFactory@{LandVehicleFactory}}
+
+
+\mbox{\hyperlink{class_land_vehicle_factory}{Land\+Vehicle\+Factory}} inherits from factory and id used to create land vehicles.  
+
+
+
+
+{\ttfamily \#include $<$Land\+Vehicle\+Factory.\+h$>$}
+
+Inheritance diagram for Land\+Vehicle\+Factory\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_land_vehicle_factory}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_land_vehicle_factory_aa70b84a9641277c6add60b0da79eaa58}\label{class_land_vehicle_factory_aa70b84a9641277c6add60b0da79eaa58}} 
+{\bfseries Land\+Vehicle\+Factory} (double hp, \mbox{\hyperlink{class_area}{Area}} $\ast$area)
+\begin{DoxyCompactList}\small\item\em constructor \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_land_vehicle_factory_a19fe3cac75620414d33de07ffc3c827c}\label{class_land_vehicle_factory_a19fe3cac75620414d33de07ffc3c827c}} 
+virtual {\bfseries $\sim$\+Land\+Vehicle\+Factory} ()
+\begin{DoxyCompactList}\small\item\em virtual destructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vehicles}{Vehicles}} $\ast$ \mbox{\hyperlink{class_land_vehicle_factory_a3133e5532fa30f47b944a75ed27fe9b9}{create\+Vehicle}} (double \mbox{\hyperlink{class_infrastructure_a20c07563cd5918b63ed2dd5e7451827b}{HP}}, double damage, double speed)
+\begin{DoxyCompactList}\small\item\em creates a vehicle with passed in parameters as values and returns that vehicle \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_land_vehicle_factory_af86127430b3f64cd32104d1ed68abe25}{destroy}} ()
+\begin{DoxyCompactList}\small\item\em Calls class destructor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_infrastructure}{Infrastructure}} $\ast$ \mbox{\hyperlink{class_land_vehicle_factory_ab6b602a5e291c4f1ca44c307a3dc4038}{clone}} (\mbox{\hyperlink{class_area}{Area}} $\ast$new\+Area)
+\begin{DoxyCompactList}\small\item\em Makes a copy of the current \mbox{\hyperlink{class_factory}{Factory}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_land_vehicle_factory}{Land\+Vehicle\+Factory}} inherits from factory and id used to create land vehicles. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_land_vehicle_factory_ab6b602a5e291c4f1ca44c307a3dc4038}\label{class_land_vehicle_factory_ab6b602a5e291c4f1ca44c307a3dc4038}} 
+\index{LandVehicleFactory@{LandVehicleFactory}!clone@{clone}}
+\index{clone@{clone}!LandVehicleFactory@{LandVehicleFactory}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_infrastructure}{Infrastructure}} $\ast$ Land\+Vehicle\+Factory\+::clone (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_area}{Area}} $\ast$}]{new\+Area }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Makes a copy of the current \mbox{\hyperlink{class_factory}{Factory}}. 
+
+\begin{DoxyReturn}{Returns}
+Infrastructure$\ast$ 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_factory_a170837d8d27c28567feab334d1c5cb3a}{Factory}}.
+
+\mbox{\Hypertarget{class_land_vehicle_factory_a3133e5532fa30f47b944a75ed27fe9b9}\label{class_land_vehicle_factory_a3133e5532fa30f47b944a75ed27fe9b9}} 
+\index{LandVehicleFactory@{LandVehicleFactory}!createVehicle@{createVehicle}}
+\index{createVehicle@{createVehicle}!LandVehicleFactory@{LandVehicleFactory}}
+\doxysubsubsection{\texorpdfstring{createVehicle()}{createVehicle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vehicles}{Vehicles}} $\ast$ Land\+Vehicle\+Factory\+::create\+Vehicle (\begin{DoxyParamCaption}\item[{double}]{HP,  }\item[{double}]{damage,  }\item[{double}]{speed }\end{DoxyParamCaption})}
+
+
+
+creates a vehicle with passed in parameters as values and returns that vehicle 
+
+
+\begin{DoxyParams}{Parameters}
+{\em HP} & \\
+\hline
+{\em damage} & \\
+\hline
+{\em speed} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vehicle with passed in parameters 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_land_vehicle_factory_af86127430b3f64cd32104d1ed68abe25}\label{class_land_vehicle_factory_af86127430b3f64cd32104d1ed68abe25}} 
+\index{LandVehicleFactory@{LandVehicleFactory}!destroy@{destroy}}
+\index{destroy@{destroy}!LandVehicleFactory@{LandVehicleFactory}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily void Land\+Vehicle\+Factory\+::destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Calls class destructor. 
+
+
+
+Reimplemented from \mbox{\hyperlink{class_factory_a1711bb7dac12c0badaacd18d5fba332d}{Factory}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Land\+Vehicle\+Factory.\+h\item 
+Land\+Vehicle\+Factory.\+cpp\end{DoxyCompactItemize}

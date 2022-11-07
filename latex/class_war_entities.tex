@@ -1,0 +1,249 @@
+\hypertarget{class_war_entities}{}\doxysection{War\+Entities Class Reference}
+\label{class_war_entities}\index{WarEntities@{WarEntities}}
+
+
+THe \mbox{\hyperlink{class_war_entities}{War\+Entities}} class holds all the vehicles, troops and infrastructure of a country.  
+
+
+
+
+{\ttfamily \#include $<$War\+Entities.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_war_entities_a6603925786439345a5dd1643366a7c9b}{War\+Entities}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new War Entities object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_war_entities_a696ed5df8f3964f094220b5ed9be5b01}{War\+Entities}} (\mbox{\hyperlink{class_war_entities}{War\+Entities}} \&war\+Ent)
+\begin{DoxyCompactList}\small\item\em Create a copy of the passed in \mbox{\hyperlink{class_war_entities}{War\+Entities}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_war_entities_ac0fae6b3ba925789ba64fda4713f2ce5}{$\sim$\+War\+Entities}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the War Entities object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_war_entities_a20e09feeb1f66f63e091201e5b1e7477}{add\+Vehicles}} (\mbox{\hyperlink{class_vehicles}{Vehicles}} $\ast$the\+Vehicle)
+\begin{DoxyCompactList}\small\item\em Add a new vehicle to the vehicle list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_war_entities_ad20eab806819db0b857ed52e363b9c79}{add\+Troops}} (\mbox{\hyperlink{class_troops}{Troops}} $\ast$the\+Troops)
+\begin{DoxyCompactList}\small\item\em Add a new group of troops to the troops list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_war_entities_aa044399790da750ba13682f2b074d283}{add\+Infrastructure}} (\mbox{\hyperlink{class_infrastructure}{Infrastructure}} $\ast$the\+Infrastructure)
+\begin{DoxyCompactList}\small\item\em Add a new \mbox{\hyperlink{class_infrastructure}{Infrastructure}} to the \mbox{\hyperlink{class_infrastructure}{Infrastructure}} list. \end{DoxyCompactList}\item 
+std\+::list$<$ \mbox{\hyperlink{class_vehicles}{Vehicles}} $\ast$ $>$ \mbox{\hyperlink{class_war_entities_aa2b221ea7e37e13dfa31241493785d11}{get\+Vehicles}} ()
+\begin{DoxyCompactList}\small\item\em Return the \mbox{\hyperlink{class_vehicles}{Vehicles}} list. \end{DoxyCompactList}\item 
+std\+::list$<$ \mbox{\hyperlink{class_troops}{Troops}} $\ast$ $>$ \mbox{\hyperlink{class_war_entities_aebf1cbef703de02cabb5a98f14447e3f}{get\+Troops}} ()
+\begin{DoxyCompactList}\small\item\em Return the \mbox{\hyperlink{class_troops}{Troops}} list. \end{DoxyCompactList}\item 
+std\+::list$<$ \mbox{\hyperlink{class_infrastructure}{Infrastructure}} $\ast$ $>$ \mbox{\hyperlink{class_war_entities_a3fab42daa58887e50778257587d77304}{get\+Infrastructure}} ()
+\begin{DoxyCompactList}\small\item\em Return the \mbox{\hyperlink{class_infrastructure}{Infrastructure}} list. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_war_entities}{War\+Entities}} $\ast$ \mbox{\hyperlink{class_war_entities_a58e84a635f038dc24277e95f58b99e64}{clone}} ()
+\begin{DoxyCompactList}\small\item\em return a clone of this object \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_war_entities_a6b39efb3d6da9f016a83b0ab625a9f3d}{remove\+Infrastructure}} (\mbox{\hyperlink{class_infrastructure}{Infrastructure}} $\ast$)
+\begin{DoxyCompactList}\small\item\em removes the\+Object from infrastructure \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_war_entities_ab5763e80920cc947dd3c4712dc9d60c2}{remove\+Troops}} (\mbox{\hyperlink{class_troops}{Troops}} $\ast$)
+\begin{DoxyCompactList}\small\item\em removes the\+Troop from troops \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_war_entities_af500c603f1189e0b94566bb68d53e892}{remove\+Vehicles}} (\mbox{\hyperlink{class_vehicles}{Vehicles}} $\ast$)
+\begin{DoxyCompactList}\small\item\em removes the\+Vehicle from vehicles \end{DoxyCompactList}\item 
+std\+::list$<$ \mbox{\hyperlink{class_citizens}{Citizens}} $\ast$ $>$ \mbox{\hyperlink{class_war_entities_acd0f27d08cf5a158bd34299cfaab6312}{get\+Fighting\+Citizens}} ()
+\begin{DoxyCompactList}\small\item\em returns a list of \mbox{\hyperlink{class_citizens}{Citizens}} who are currently fighting in war \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+THe \mbox{\hyperlink{class_war_entities}{War\+Entities}} class holds all the vehicles, troops and infrastructure of a country. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_war_entities_a6603925786439345a5dd1643366a7c9b}\label{class_war_entities_a6603925786439345a5dd1643366a7c9b}} 
+\index{WarEntities@{WarEntities}!WarEntities@{WarEntities}}
+\index{WarEntities@{WarEntities}!WarEntities@{WarEntities}}
+\doxysubsubsection{\texorpdfstring{WarEntities()}{WarEntities()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily War\+Entities\+::\+War\+Entities (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new War Entities object. 
+
+\mbox{\Hypertarget{class_war_entities_a696ed5df8f3964f094220b5ed9be5b01}\label{class_war_entities_a696ed5df8f3964f094220b5ed9be5b01}} 
+\index{WarEntities@{WarEntities}!WarEntities@{WarEntities}}
+\index{WarEntities@{WarEntities}!WarEntities@{WarEntities}}
+\doxysubsubsection{\texorpdfstring{WarEntities()}{WarEntities()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily War\+Entities\+::\+War\+Entities (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_war_entities}{War\+Entities}} \&}]{war\+Ent }\end{DoxyParamCaption})}
+
+
+
+Create a copy of the passed in \mbox{\hyperlink{class_war_entities}{War\+Entities}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em War\+Ent} & THe \mbox{\hyperlink{class_war_entities}{War\+Entities}} object to be copied \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_war_entities_ac0fae6b3ba925789ba64fda4713f2ce5}\label{class_war_entities_ac0fae6b3ba925789ba64fda4713f2ce5}} 
+\index{WarEntities@{WarEntities}!````~WarEntities@{$\sim$WarEntities}}
+\index{````~WarEntities@{$\sim$WarEntities}!WarEntities@{WarEntities}}
+\doxysubsubsection{\texorpdfstring{$\sim$WarEntities()}{~WarEntities()}}
+{\footnotesize\ttfamily War\+Entities\+::$\sim$\+War\+Entities (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the War Entities object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_war_entities_aa044399790da750ba13682f2b074d283}\label{class_war_entities_aa044399790da750ba13682f2b074d283}} 
+\index{WarEntities@{WarEntities}!addInfrastructure@{addInfrastructure}}
+\index{addInfrastructure@{addInfrastructure}!WarEntities@{WarEntities}}
+\doxysubsubsection{\texorpdfstring{addInfrastructure()}{addInfrastructure()}}
+{\footnotesize\ttfamily void War\+Entities\+::add\+Infrastructure (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_infrastructure}{Infrastructure}} $\ast$}]{the\+Infrastructure }\end{DoxyParamCaption})}
+
+
+
+Add a new \mbox{\hyperlink{class_infrastructure}{Infrastructure}} to the \mbox{\hyperlink{class_infrastructure}{Infrastructure}} list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the\+Infrastructure} & The infrastructure to be added \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_war_entities_ad20eab806819db0b857ed52e363b9c79}\label{class_war_entities_ad20eab806819db0b857ed52e363b9c79}} 
+\index{WarEntities@{WarEntities}!addTroops@{addTroops}}
+\index{addTroops@{addTroops}!WarEntities@{WarEntities}}
+\doxysubsubsection{\texorpdfstring{addTroops()}{addTroops()}}
+{\footnotesize\ttfamily void War\+Entities\+::add\+Troops (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_troops}{Troops}} $\ast$}]{the\+Troops }\end{DoxyParamCaption})}
+
+
+
+Add a new group of troops to the troops list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the\+Troops} & The group of troops to be added \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_war_entities_a20e09feeb1f66f63e091201e5b1e7477}\label{class_war_entities_a20e09feeb1f66f63e091201e5b1e7477}} 
+\index{WarEntities@{WarEntities}!addVehicles@{addVehicles}}
+\index{addVehicles@{addVehicles}!WarEntities@{WarEntities}}
+\doxysubsubsection{\texorpdfstring{addVehicles()}{addVehicles()}}
+{\footnotesize\ttfamily void War\+Entities\+::add\+Vehicles (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vehicles}{Vehicles}} $\ast$}]{the\+Vehicle }\end{DoxyParamCaption})}
+
+
+
+Add a new vehicle to the vehicle list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the\+Vehicle} & the vehicle to be added \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_war_entities_a58e84a635f038dc24277e95f58b99e64}\label{class_war_entities_a58e84a635f038dc24277e95f58b99e64}} 
+\index{WarEntities@{WarEntities}!clone@{clone}}
+\index{clone@{clone}!WarEntities@{WarEntities}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_war_entities}{War\+Entities}} $\ast$ War\+Entities\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+return a clone of this object 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_war_entities}{War\+Entities}} The cloned object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_war_entities_acd0f27d08cf5a158bd34299cfaab6312}\label{class_war_entities_acd0f27d08cf5a158bd34299cfaab6312}} 
+\index{WarEntities@{WarEntities}!getFightingCitizens@{getFightingCitizens}}
+\index{getFightingCitizens@{getFightingCitizens}!WarEntities@{WarEntities}}
+\doxysubsubsection{\texorpdfstring{getFightingCitizens()}{getFightingCitizens()}}
+{\footnotesize\ttfamily std\+::list$<$ \mbox{\hyperlink{class_citizens}{Citizens}} $\ast$ $>$ War\+Entities\+::get\+Fighting\+Citizens (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns a list of \mbox{\hyperlink{class_citizens}{Citizens}} who are currently fighting in war 
+
+\begin{DoxyReturn}{Returns}
+list$<$\+Citizens $\ast$$>$ -\/ a list of fighting citizens 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_war_entities_a3fab42daa58887e50778257587d77304}\label{class_war_entities_a3fab42daa58887e50778257587d77304}} 
+\index{WarEntities@{WarEntities}!getInfrastructure@{getInfrastructure}}
+\index{getInfrastructure@{getInfrastructure}!WarEntities@{WarEntities}}
+\doxysubsubsection{\texorpdfstring{getInfrastructure()}{getInfrastructure()}}
+{\footnotesize\ttfamily std\+::list$<$ \mbox{\hyperlink{class_infrastructure}{Infrastructure}} $\ast$ $>$ War\+Entities\+::get\+Infrastructure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return the \mbox{\hyperlink{class_infrastructure}{Infrastructure}} list. 
+
+\begin{DoxyReturn}{Returns}
+std\+::list$<$\+Infrastructure$\ast$$>$ The infrastructure list 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_war_entities_aebf1cbef703de02cabb5a98f14447e3f}\label{class_war_entities_aebf1cbef703de02cabb5a98f14447e3f}} 
+\index{WarEntities@{WarEntities}!getTroops@{getTroops}}
+\index{getTroops@{getTroops}!WarEntities@{WarEntities}}
+\doxysubsubsection{\texorpdfstring{getTroops()}{getTroops()}}
+{\footnotesize\ttfamily std\+::list$<$ \mbox{\hyperlink{class_troops}{Troops}} $\ast$ $>$ War\+Entities\+::get\+Troops (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return the \mbox{\hyperlink{class_troops}{Troops}} list. 
+
+\begin{DoxyReturn}{Returns}
+std\+::list$<$\+Troops$\ast$$>$ The troops list 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_war_entities_aa2b221ea7e37e13dfa31241493785d11}\label{class_war_entities_aa2b221ea7e37e13dfa31241493785d11}} 
+\index{WarEntities@{WarEntities}!getVehicles@{getVehicles}}
+\index{getVehicles@{getVehicles}!WarEntities@{WarEntities}}
+\doxysubsubsection{\texorpdfstring{getVehicles()}{getVehicles()}}
+{\footnotesize\ttfamily std\+::list$<$ \mbox{\hyperlink{class_vehicles}{Vehicles}} $\ast$ $>$ War\+Entities\+::get\+Vehicles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return the \mbox{\hyperlink{class_vehicles}{Vehicles}} list. 
+
+\begin{DoxyReturn}{Returns}
+std\+::list$<$\+Vehicles$\ast$$>$ The vehicles list 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_war_entities_a6b39efb3d6da9f016a83b0ab625a9f3d}\label{class_war_entities_a6b39efb3d6da9f016a83b0ab625a9f3d}} 
+\index{WarEntities@{WarEntities}!removeInfrastructure@{removeInfrastructure}}
+\index{removeInfrastructure@{removeInfrastructure}!WarEntities@{WarEntities}}
+\doxysubsubsection{\texorpdfstring{removeInfrastructure()}{removeInfrastructure()}}
+{\footnotesize\ttfamily void War\+Entities\+::remove\+Infrastructure (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_infrastructure}{Infrastructure}} $\ast$}]{the\+Object }\end{DoxyParamCaption})}
+
+
+
+removes the\+Object from infrastructure 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the\+Object} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_war_entities_ab5763e80920cc947dd3c4712dc9d60c2}\label{class_war_entities_ab5763e80920cc947dd3c4712dc9d60c2}} 
+\index{WarEntities@{WarEntities}!removeTroops@{removeTroops}}
+\index{removeTroops@{removeTroops}!WarEntities@{WarEntities}}
+\doxysubsubsection{\texorpdfstring{removeTroops()}{removeTroops()}}
+{\footnotesize\ttfamily void War\+Entities\+::remove\+Troops (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_troops}{Troops}} $\ast$}]{the\+Troop }\end{DoxyParamCaption})}
+
+
+
+removes the\+Troop from troops 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the\+Troop} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_war_entities_af500c603f1189e0b94566bb68d53e892}\label{class_war_entities_af500c603f1189e0b94566bb68d53e892}} 
+\index{WarEntities@{WarEntities}!removeVehicles@{removeVehicles}}
+\index{removeVehicles@{removeVehicles}!WarEntities@{WarEntities}}
+\doxysubsubsection{\texorpdfstring{removeVehicles()}{removeVehicles()}}
+{\footnotesize\ttfamily void War\+Entities\+::remove\+Vehicles (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vehicles}{Vehicles}} $\ast$}]{the\+Vehicle }\end{DoxyParamCaption})}
+
+
+
+removes the\+Vehicle from vehicles 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the\+Vehicle} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+War\+Entities.\+h\item 
+War\+Entities.\+cpp\end{DoxyCompactItemize}

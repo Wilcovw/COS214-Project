@@ -1,0 +1,41 @@
+\hypertarget{_area_iterator_8h_source}{}\doxysection{Area\+Iterator.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef AreaIterator\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define AreaIterator\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}MapIterator.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}WarMap.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}Area.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}Edge.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <list>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <iterator>}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{class_war_map}{WarMap}};}
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{class_area_iterator}{AreaIterator}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_map_iterator}{MapIterator}}}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18 \textcolor{keyword}{private}:}
+\DoxyCodeLine{23     \mbox{\hyperlink{class_war_map}{WarMap}} *graph = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{28     list<Area *>::iterator trav;}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keyword}{public}:}
+\DoxyCodeLine{36     \mbox{\hyperlink{class_area_iterator}{AreaIterator}}(\mbox{\hyperlink{class_war_map}{WarMap}} *g);}
+\DoxyCodeLine{41     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_area_iterator_ac1e9e0e08e9d2214e903cfb72bbb29a6}{first}}();}
+\DoxyCodeLine{46     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_area_iterator_ac98169720df31444eb759c176eb9dacd}{next}}();}
+\DoxyCodeLine{53     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_area_iterator_a747df7e70bac6a2eb3bfafe2b4b6b690}{isDone}}();}
+\DoxyCodeLine{59     \mbox{\hyperlink{class_area}{Area}} *\mbox{\hyperlink{class_area_iterator_af42a46f0d4d2e15d678cde88328fb3e6}{currentItem}}();}
+\DoxyCodeLine{60 \};}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 \textcolor{comment}{// Code to interface with all the Areas in a graph}}
+\DoxyCodeLine{63 \textcolor{comment}{/*AreaIterator *areaIter = graph-\/>createAreaIterator();}}
+\DoxyCodeLine{64 \textcolor{comment}{    areaIter-\/>first();}}
+\DoxyCodeLine{65 \textcolor{comment}{    while(areaIter-\/>isDone() == false)\{}}
+\DoxyCodeLine{66 \textcolor{comment}{        Area* currentArea = areaIter-\/>currentItem();}}
+\DoxyCodeLine{67 \textcolor{comment}{        cout << currentArea-\/>getName() << endl;}}
+\DoxyCodeLine{68 \textcolor{comment}{}}
+\DoxyCodeLine{69 \textcolor{comment}{        areaIter-\/>next();}}
+\DoxyCodeLine{70 \textcolor{comment}{    \}}}
+\DoxyCodeLine{71 \textcolor{comment}{*/}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

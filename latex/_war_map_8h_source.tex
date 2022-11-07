@@ -1,0 +1,45 @@
+\hypertarget{_war_map_8h_source}{}\doxysection{War\+Map.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef WarMap\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define WarMap\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <list>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}Area.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}AreaIterator.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}EdgeIterator.h"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}Country.h"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <iterator>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <math.h>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <climits>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{13 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{class_edge_iterator}{EdgeIterator}};}
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{class_area_iterator}{AreaIterator}};}
+\DoxyCodeLine{21 \textcolor{keyword}{class }\mbox{\hyperlink{class_war_map}{WarMap}}}
+\DoxyCodeLine{22 \{}
+\DoxyCodeLine{23 \textcolor{keyword}{private}:}
+\DoxyCodeLine{28     list<Area *> areasWT;}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keyword}{public}:}
+\DoxyCodeLine{35     \mbox{\hyperlink{class_war_map_af4a7d37f956c13edc5beff31e3e93967}{WarMap}}();}
+\DoxyCodeLine{40     \mbox{\hyperlink{class_war_map_af28494a61598910d074a7e23325e145c}{\string~WarMap}}();}
+\DoxyCodeLine{47     \mbox{\hyperlink{class_area}{Area}} *\mbox{\hyperlink{class_war_map_aa28ad6e4cd03fd3567866393351e9b25}{getArea}}(\textcolor{keywordtype}{string} name);}
+\DoxyCodeLine{56     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_war_map_a0fe5f3b704f851ddb53d74b1c51ba1ae}{isAccessible}}(\mbox{\hyperlink{class_area}{Area}} *source, \mbox{\hyperlink{class_area}{Area}} *destination);}
+\DoxyCodeLine{66     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_war_map_a0fe5f3b704f851ddb53d74b1c51ba1ae}{isAccessible}}(\mbox{\hyperlink{class_area}{Area}} *source, \mbox{\hyperlink{class_area}{Area}} *destination, \textcolor{keywordtype}{string} type);}
+\DoxyCodeLine{78     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_war_map_a08566dc4ba40bd05a1db46d999dd99b3}{addEdge}}(\mbox{\hyperlink{class_area}{Area}} *source, \mbox{\hyperlink{class_area}{Area}} *destination, \textcolor{keywordtype}{double} distance, \textcolor{keywordtype}{string} type);}
+\DoxyCodeLine{86     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_war_map_a8761e0a8bed0231d95b531ab4b2f1635}{addArea}}(\mbox{\hyperlink{class_area}{Area}} *a);}
+\DoxyCodeLine{91     \textcolor{keywordtype}{void} reset();}
+\DoxyCodeLine{97     list<Area *> \mbox{\hyperlink{class_war_map_a3ebd8630e55547be1232498144e49ad9}{getAreaList}}();}
+\DoxyCodeLine{103     \mbox{\hyperlink{class_area_iterator}{AreaIterator}} *\mbox{\hyperlink{class_war_map_a2b6acfb1294c7809e0154eb6daaeaf93}{createAreaIterator}}();}
+\DoxyCodeLine{109     \mbox{\hyperlink{class_edge_iterator}{EdgeIterator}} *\mbox{\hyperlink{class_war_map_a0bc3fea5a1afb947bf4c559c54e1a342}{createEdgeIterator}}();}
+\DoxyCodeLine{115     list<Area *>::iterator \mbox{\hyperlink{class_war_map_a60de0fee536bc455b10480b15825282f}{begin}}();}
+\DoxyCodeLine{121     list<Area *>::iterator \mbox{\hyperlink{class_war_map_aaeb0e42fe87502b5e6af602bdf9c031c}{end}}();}
+\DoxyCodeLine{129     list<Area *> \mbox{\hyperlink{class_war_map_a3e6d85f7a9a2ab26fff6c0f8fd7298bb}{shortestPath}}(\mbox{\hyperlink{class_area}{Area}} *source, \mbox{\hyperlink{class_area}{Area}} *destination);}
+\DoxyCodeLine{138     list<Area *> \mbox{\hyperlink{class_war_map_a3e6d85f7a9a2ab26fff6c0f8fd7298bb}{shortestPath}}(\mbox{\hyperlink{class_area}{Area}} *source, \mbox{\hyperlink{class_area}{Area}} *destination, \textcolor{keywordtype}{string} type);}
+\DoxyCodeLine{139 \};}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

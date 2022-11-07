@@ -1,0 +1,90 @@
+\hypertarget{class_enlisted}{}\doxysection{Enlisted Class Reference}
+\label{class_enlisted}\index{Enlisted@{Enlisted}}
+
+
+\mbox{\hyperlink{class_enlisted}{Enlisted}} is a state of a citizen who has been drafted into the military but is not yet stationed.  
+
+
+
+
+{\ttfamily \#include $<$Enlisted.\+h$>$}
+
+Inheritance diagram for Enlisted\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_enlisted}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual string \mbox{\hyperlink{class_enlisted_ab10e3129aebb8beac94f04906d89cc34}{get\+Status}} ()
+\begin{DoxyCompactList}\small\item\em Virtual function that returns the status of class. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_enlisted_abfd76cafcbab2805b3075e388a4fbed7}{handle\+Change}} (\mbox{\hyperlink{class_citizens}{Citizens}} $\ast$c)
+\begin{DoxyCompactList}\small\item\em Virtual function that handles a new change. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_enlisted_afda5e80c3f667cd0aacd70dd0ad72e12}{die}} (\mbox{\hyperlink{class_citizens}{Citizens}} $\ast$c)
+\begin{DoxyCompactList}\small\item\em Returns all the citzens of the country. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_enlisted}{Enlisted}} is a state of a citizen who has been drafted into the military but is not yet stationed. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_enlisted_afda5e80c3f667cd0aacd70dd0ad72e12}\label{class_enlisted_afda5e80c3f667cd0aacd70dd0ad72e12}} 
+\index{Enlisted@{Enlisted}!die@{die}}
+\index{die@{die}!Enlisted@{Enlisted}}
+\doxysubsubsection{\texorpdfstring{die()}{die()}}
+{\footnotesize\ttfamily void Enlisted\+::die (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_citizens}{Citizens}} $\ast$}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Returns all the citzens of the country. 
+
+\begin{DoxyReturn}{Returns}
+Citzens$\ast$$\ast$ 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_status_a8c3e6b313f92626205c9b49600e62e97}{Status}}.
+
+\mbox{\Hypertarget{class_enlisted_ab10e3129aebb8beac94f04906d89cc34}\label{class_enlisted_ab10e3129aebb8beac94f04906d89cc34}} 
+\index{Enlisted@{Enlisted}!getStatus@{getStatus}}
+\index{getStatus@{getStatus}!Enlisted@{Enlisted}}
+\doxysubsubsection{\texorpdfstring{getStatus()}{getStatus()}}
+{\footnotesize\ttfamily string Enlisted\+::get\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Virtual function that returns the status of class. 
+
+
+
+Implements \mbox{\hyperlink{class_status_aeabcd2bfb3e5f1536d313f5bf6bca1f6}{Status}}.
+
+\mbox{\Hypertarget{class_enlisted_abfd76cafcbab2805b3075e388a4fbed7}\label{class_enlisted_abfd76cafcbab2805b3075e388a4fbed7}} 
+\index{Enlisted@{Enlisted}!handleChange@{handleChange}}
+\index{handleChange@{handleChange}!Enlisted@{Enlisted}}
+\doxysubsubsection{\texorpdfstring{handleChange()}{handleChange()}}
+{\footnotesize\ttfamily void Enlisted\+::handle\+Change (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_citizens}{Citizens}} $\ast$}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Virtual function that handles a new change. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Citzens$\ast$$\ast$} & new citizen class to be handled \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_status_aa22576f76839eab59de334ce244f9fdb}{Status}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Enlisted.\+h\item 
+Enlisted.\+cpp\end{DoxyCompactItemize}

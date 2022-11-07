@@ -1,0 +1,122 @@
+\hypertarget{class_area_iterator}{}\doxysection{Area\+Iterator Class Reference}
+\label{class_area_iterator}\index{AreaIterator@{AreaIterator}}
+
+
+\mbox{\hyperlink{class_area_iterator}{Area\+Iterator}} inherits from \mbox{\hyperlink{class_map_iterator}{Map\+Iterator}} and is used to iterate through the map.  
+
+
+
+
+{\ttfamily \#include $<$Area\+Iterator.\+h$>$}
+
+Inheritance diagram for Area\+Iterator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_area_iterator}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_area_iterator_a3e20a4e3a998edfb43f4c6d0ae52c477}{Area\+Iterator}} (\mbox{\hyperlink{class_war_map}{War\+Map}} $\ast$g)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_area}{Area}} Iterator object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_area_iterator_ac1e9e0e08e9d2214e903cfb72bbb29a6}{first}} ()
+\begin{DoxyCompactList}\small\item\em Will perform a depth first traversal of the graph. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_area_iterator_ac98169720df31444eb759c176eb9dacd}{next}} ()
+\begin{DoxyCompactList}\small\item\em Will increment the counter to get the next \mbox{\hyperlink{class_area}{Area}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_area_iterator_a747df7e70bac6a2eb3bfafe2b4b6b690}{is\+Done}} ()
+\begin{DoxyCompactList}\small\item\em Will check if you did traverse through the entire graph. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_area}{Area}} $\ast$ \mbox{\hyperlink{class_area_iterator_af42a46f0d4d2e15d678cde88328fb3e6}{current\+Item}} ()
+\begin{DoxyCompactList}\small\item\em Will return the current element of the graph traversal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_area_iterator}{Area\+Iterator}} inherits from \mbox{\hyperlink{class_map_iterator}{Map\+Iterator}} and is used to iterate through the map. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_area_iterator_a3e20a4e3a998edfb43f4c6d0ae52c477}\label{class_area_iterator_a3e20a4e3a998edfb43f4c6d0ae52c477}} 
+\index{AreaIterator@{AreaIterator}!AreaIterator@{AreaIterator}}
+\index{AreaIterator@{AreaIterator}!AreaIterator@{AreaIterator}}
+\doxysubsubsection{\texorpdfstring{AreaIterator()}{AreaIterator()}}
+{\footnotesize\ttfamily Area\+Iterator\+::\+Area\+Iterator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_war_map}{War\+Map}} $\ast$}]{g }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_area}{Area}} Iterator object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & The \mbox{\hyperlink{class_war_map}{War\+Map}}, graph that will need to be traversed \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_area_iterator_af42a46f0d4d2e15d678cde88328fb3e6}\label{class_area_iterator_af42a46f0d4d2e15d678cde88328fb3e6}} 
+\index{AreaIterator@{AreaIterator}!currentItem@{currentItem}}
+\index{currentItem@{currentItem}!AreaIterator@{AreaIterator}}
+\doxysubsubsection{\texorpdfstring{currentItem()}{currentItem()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_area}{Area}} $\ast$ Area\+Iterator\+::current\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Will return the current element of the graph traversal. 
+
+\begin{DoxyReturn}{Returns}
+Area$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_area_iterator_ac1e9e0e08e9d2214e903cfb72bbb29a6}\label{class_area_iterator_ac1e9e0e08e9d2214e903cfb72bbb29a6}} 
+\index{AreaIterator@{AreaIterator}!first@{first}}
+\index{first@{first}!AreaIterator@{AreaIterator}}
+\doxysubsubsection{\texorpdfstring{first()}{first()}}
+{\footnotesize\ttfamily void Area\+Iterator\+::first (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Will perform a depth first traversal of the graph. 
+
+
+
+Implements \mbox{\hyperlink{class_map_iterator_a392b75342abe1e7cc444db2556ea60bb}{Map\+Iterator}}.
+
+\mbox{\Hypertarget{class_area_iterator_a747df7e70bac6a2eb3bfafe2b4b6b690}\label{class_area_iterator_a747df7e70bac6a2eb3bfafe2b4b6b690}} 
+\index{AreaIterator@{AreaIterator}!isDone@{isDone}}
+\index{isDone@{isDone}!AreaIterator@{AreaIterator}}
+\doxysubsubsection{\texorpdfstring{isDone()}{isDone()}}
+{\footnotesize\ttfamily bool Area\+Iterator\+::is\+Done (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Will check if you did traverse through the entire graph. 
+
+\begin{DoxyReturn}{Returns}
+true, if have to traversed through the entire graph yet 
+
+false, if done traversng through the entire graph 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_map_iterator_a2728e6b8971e451fc3c20dfd6994ea8f}{Map\+Iterator}}.
+
+\mbox{\Hypertarget{class_area_iterator_ac98169720df31444eb759c176eb9dacd}\label{class_area_iterator_ac98169720df31444eb759c176eb9dacd}} 
+\index{AreaIterator@{AreaIterator}!next@{next}}
+\index{next@{next}!AreaIterator@{AreaIterator}}
+\doxysubsubsection{\texorpdfstring{next()}{next()}}
+{\footnotesize\ttfamily void Area\+Iterator\+::next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Will increment the counter to get the next \mbox{\hyperlink{class_area}{Area}}. 
+
+
+
+Implements \mbox{\hyperlink{class_map_iterator_a1a5082b58f3166554207d5a69c01a3cf}{Map\+Iterator}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Area\+Iterator.\+h\item 
+Area\+Iterator.\+cpp\end{DoxyCompactItemize}
