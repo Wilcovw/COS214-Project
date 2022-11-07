@@ -1,5 +1,5 @@
 # COS214-Project
-Group: Runtime Terrorists
+Group: RuntimeTerrorists()
 
 This is our War Simulator for our COS214 project.
 
