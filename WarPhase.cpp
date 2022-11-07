@@ -72,7 +72,6 @@ WarPhase *WarPhase::clone()
             }
         }
     }
-    cout << "5" << endl;
     for (auto oldCountry : allCountries)
     {
         cout << oldCountry->getName() << endl;
@@ -80,12 +79,10 @@ WarPhase *WarPhase::clone()
         {
             if (oldCountry->getName() == clonedCountry->getName())
             {
-                cout << "--" << clonedCountry << clonedCountry->getName() << endl;
                 oldCountry->cloneWarEntities(clonedCountry);
             }
         }
     }
-    cout << "6" << endl;
     wph->communication = com;
     wph->allCountries = c;
     wph->allRelationships = r;
@@ -107,7 +104,6 @@ Memento *WarPhase::newWarPhase()
     }
     clonedWarPhase->map = newMap;
     Memento *meme = new Memento(clonedWarPhase);
-
     return meme;
 }
 
