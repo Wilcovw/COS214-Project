@@ -1252,7 +1252,45 @@ void designMode()
     string chosenEnemy = "Munich";
     next();
     cout << "Phase 3:" << endl;
-    game->getPhase()->attackArea("Berlin", "France");
+    cout << "France has started the war by attacking Ireland, one of the Blue allies" << endl;
+    game->getPhase()->attackArea("Dublin", "France"); 
+    cout << "The UK has helped it's allies by attacking Ireland as well" << endl;
+    game->getPhase()->attackArea("Cork", "United Kingdom");
+    game->getPhase()->attackArea("Limerick", "United Kingdom");
+    game->getPhase()->attackArea("Galway", "United Kingdom");
+   
+    //game->getPhase()->countryStillExists("Ireland");
+    
+    next();
+
+    cout<< "Germany has retaliated by attacking France aswell as Denmark" << endl;
+    game->getPhase()->attackArea("Strasbourg", "Germany");
+    game->getPhase()->attackArea("Lyon", "Germany");
+    game->getPhase()->attackArea("Abenta", "Germany");
+
+    next();
+
+    cout << "France can not allow this and decides to take back control of their areas" << endl;
+    game->getPhase()->attackArea("Strasbourg", "France");
+    game->getPhase()->attackArea("Lyon", "France");
+
+    next();
+    cout << "London gets intel from an unknown source that Belgium might attack them and decide to add vehicles to their army" << endl;
+    for (int i = 0; i < 50; i++)
+    {
+        game->getPhase()->addVehicles("London", ::aircraftVehicle);
+    }
+     
+
+    next();
+    cout << "Belgium starts to attack London" << endl;
+    
+    game->getPhase()->attackArea("London", "Belgium");
+
+    next();
+    cout << "The red allies decide to end the war once and for all and try to defeat the blue allies" << endl;
+
+
 
     // for (auto a : game->getPhase()->getAttackableAreasInCountry(chosenEnemy, country))
     // {
