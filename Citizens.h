@@ -6,7 +6,11 @@
 
 using namespace std;
 
-class Status; // forward declaration
+class Status;
+/**
+ * @brief Citizens store a group of people as a single object to be used in the state design pattern
+ *
+ */
 class Citizens
 {
 private:

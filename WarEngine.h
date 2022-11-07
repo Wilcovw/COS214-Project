@@ -11,6 +11,10 @@ class Infrastructure;
 class Troops;
 class Vehicles;
 class WarHistory;
+/**
+ * @brief WarEngine allows a user to create and handle mementos of the phase of the war and through phase the rest of the system
+ *
+ */
 class WarEngine
 {
 private:
@@ -23,12 +27,6 @@ public:
     void newWarPhase();
     void reverseWarPhase();
     WarPhase *getPhase();
-
-    // Memento *createMemento();
-    // list<Country *> getCountryGroup();
-    // void setCountryGroup(list<Country *> newCountryGroup);
-    // void removeAreaAt(int index);
-    // void reinstateMemento(Memento *memento);
 };
 
 #endif

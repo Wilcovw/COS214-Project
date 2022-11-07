@@ -1,7 +1,10 @@
 #ifndef GENERALS_H
 #define GENERALS_H
 #include "TroopType.h"
-
+/**
+ * @brief A type of Troop with a lot of HP but little damage
+ *
+ */
 class Generals : public TroopType
 {
 public:

@@ -3,7 +3,10 @@
 
 #include "Factory.h"
 #include "Aircraft.h"
-
+/**
+ * @brief AircraftFactory inherits from Factory and is used to create aircrafts
+ *
+ */
 class AircraftFactory : public Factory
 {
 public:

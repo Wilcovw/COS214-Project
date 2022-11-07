@@ -3,7 +3,10 @@
 
 #include "ResearchAndDevelopmentCentre.h"
 #include "AquaticVehicles.h"
-
+/**
+ * @brief AquaticVehicleDevelopment inherrits from ResearchAndDevelopmentCentre and is used to upgrade navy vehicles
+ *
+ */
 class AquaticVehicleDevelopment : public ResearchAndDevelopmentCentre
 {
 public:

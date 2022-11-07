@@ -2,6 +2,10 @@
 #define COMMAND_H
 
 class Country;
+/**
+ * @brief Command is used to execute the revolt command in citizens
+ *
+ */
 class Command
 {
 public:

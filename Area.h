@@ -15,6 +15,10 @@ class Country;
 class Edge;
 class Harbour;
 class Runway;
+/**
+ * @brief Area simulates a warTheatre or an area on a map that is controlled by a country and is connected to other areas by certain edges in a map
+ *
+ */
 class Area
 {
 private:
@@ -41,24 +45,25 @@ private:
 	double dist = 0;
 	/**
 	 * @brief The Country that controls the current Area
-	 * 
+	 *
 	 */
 	Country *controllingCountry = nullptr;
 	/**
 	 * @brief Stores a copy of the current object
-	 * 
+	 *
 	 */
 	Area *clonedArea = nullptr;
 	/**
 	 * @brief Stores the Harbour connected to this Area
-	 * 
+	 *
 	 */
-	Harbour* harbour = nullptr;
+	Harbour *harbour = nullptr;
 	/**
 	 * @brief Stores the runway connected to this Area
-	 * 
+	 *
 	 */
-	Runway* runway = nullptr;
+	Runway *runway = nullptr;
+
 public:
 	/**
 	 * @brief Construct a new Area object
@@ -69,28 +74,28 @@ public:
 	~Area();
 	/**
 	 * @brief Add's a harbour to the current Areas edges
-	 * 
+	 *
 	 * @param theHarbour The mew Harbour
 	 */
-	void addHarbour(Harbour* theHarbour);
+	void addHarbour(Harbour *theHarbour);
 	/**
 	 * @brief Add's a Runway to the current Areas edges
-	 * 
-	 * @param theRunway The new runway 
+	 *
+	 * @param theRunway The new runway
 	 */
-	void addRunway(Runway* theRunway);
+	void addRunway(Runway *theRunway);
 	/**
 	 * @brief Returns all the Harbours in this Area
-	 * 
-	 * @return Harbour* 
+	 *
+	 * @return Harbour*
 	 */
-	Harbour* getHarbourInArea();
+	Harbour *getHarbourInArea();
 	/**
 	 * @brief Returns all the Runways connected to this Area
-	 * 
-	 * @return Runway* 
+	 *
+	 * @return Runway*
 	 */
-	Runway * getRunwayInArea();
+	Runway *getRunwayInArea();
 	/**
 	 * @brief Set the Controlling Country object
 	 *
@@ -192,8 +197,8 @@ public:
 	Area *clone(Country *c);
 	/**
 	 * @brief Get the Cloned Area object
-	 * 
-	 * @return Area* 
+	 *
+	 * @return Area*
 	 */
 	Area *getClonedArea();
 };

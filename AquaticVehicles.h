@@ -6,6 +6,10 @@
 #include "ResearchAndDevelopmentCentre.h"
 
 using namespace std;
+/**
+ * @brief AquaticVehicles inherits from vehicles
+ *
+ */
 class AquaticVehicles : public Vehicles
 {
 public:
@@ -15,7 +19,7 @@ public:
      * @param damage
      * @param speed
      */
-    AquaticVehicles(Area* location, double hp, double damage, double speed);
+    AquaticVehicles(Area *location, double hp, double damage, double speed);
     /**
      * @brief method that calls the vehicle's increments level method
      */
@@ -26,15 +30,15 @@ public:
      */
     void readyToUpgrade(ResearchAndDevelopmentCentre *r);
     /**
-    * @brief calls class destructor
-    */
+     * @brief calls class destructor
+     */
     virtual ~AquaticVehicles();
-	/**
-	 * @brief Makes a copy of the Current Vehicle
-	 * 
-	 * @return Vehicles* 
-	 */
-    Vehicles* clone();
+    /**
+     * @brief Makes a copy of the Current Vehicle
+     *
+     * @return Vehicles*
+     */
+    Vehicles *clone();
 };
 
 #endif // FACTORY_AND_OBSERVER_AQUATICVEHICLES_H

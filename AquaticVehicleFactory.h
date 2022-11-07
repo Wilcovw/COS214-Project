@@ -3,7 +3,10 @@
 
 #include "Factory.h"
 #include "AquaticVehicles.h"
-
+/**
+ * @brief AquaticVehicleFactory inherits from factory and is used to create navy vehicles
+ *
+ */
 class AquaticVehicleFactory : public Factory
 {
 public:

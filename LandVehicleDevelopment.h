@@ -3,7 +3,10 @@
 
 #include "ResearchAndDevelopmentCentre.h"
 #include "LandVehicles.h"
-
+/**
+ * @brief LandVehicleDevelopment inherits from ResearchAndDevelopmentCentre and is used to upgrade vehicles
+ *
+ */
 class LandVehicleDevelopment : public ResearchAndDevelopmentCentre
 {
 public:

@@ -4,7 +4,10 @@
 #include "Citizens.h"
 
 using namespace std;
-
+/**
+ * @brief A state for a citizen if they die
+ *
+ */
 class Dead : public Status
 {
 public:

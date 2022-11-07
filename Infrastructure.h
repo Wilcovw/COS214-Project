@@ -2,6 +2,10 @@
 #define INFASTRUCTURE_H
 #include "WarEngine.h"
 class Area;
+/**
+ * @brief A class representing all the infrastructure of a country
+ *
+ */
 class Infrastructure
 {
 protected:

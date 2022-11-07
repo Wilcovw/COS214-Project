@@ -3,7 +3,10 @@
 
 #include "ResearchAndDevelopmentCentre.h"
 #include "Aircraft.h"
-
+/**
+ * @brief AircraftDevelopment inherits from ResearchAndDevelopmentCentre and is used to upgrade aircrafts
+ *
+ */
 class AircraftDevelopment : public ResearchAndDevelopmentCentre
 {
 public:

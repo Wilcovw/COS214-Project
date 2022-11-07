@@ -5,7 +5,10 @@
 #include "Stationed.h"
 
 using namespace std;
-
+/**
+ * @brief Enlisted is a state of a citizen who has been drafted into the military but is not yet stationed
+ *
+ */
 class Enlisted : public Status
 {
 public:

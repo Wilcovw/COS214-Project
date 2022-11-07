@@ -3,7 +3,10 @@
 
 #include "Infrastructure.h"
 #include "Vehicles.h"
-
+/**
+ * @brief Factory inherits from infrastructure and is used to create vehicles
+ *
+ */
 class Factory : public Infrastructure
 {
 private:

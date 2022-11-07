@@ -3,7 +3,10 @@
 
 #include "Factory.h"
 #include "LandVehicles.h"
-
+/**
+ * @brief LandVehicleFactory inherits from factory and id used to create land vehicles
+ *
+ */
 class LandVehicleFactory : public Factory
 {
 public:

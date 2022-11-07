@@ -6,6 +6,10 @@
 #include "ResearchAndDevelopmentCentre.h"
 
 using namespace std;
+/**
+ * @brief Aircraft inherits from vehicles
+ *
+ */
 class Aircraft : public Vehicles
 {
 public:
