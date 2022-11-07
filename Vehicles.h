@@ -41,7 +41,7 @@ protected:
 	 * 
 	 */
     vehicleType type;
-
+	int level = 0;
 public:
     /**
      * @brief constructor for vehicle class
@@ -128,6 +128,7 @@ public:
      * @return vehicleType - type
      */
     vehicleType getType();
+	int getLevel();
 };
 
 #endif // FACTORY_AND_OBSERVER_VEHICLES_H
