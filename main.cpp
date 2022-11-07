@@ -1429,28 +1429,6 @@ void designMode()
     setBlue();    
     cout << "-------------END OF WAR-------------" << endl;
     setWhite();
-    // next();
-    // or is it.....?
-    // Eienstein has invented Teleportation in 1947 and has traveled to this exact point in time to give Germany another chance <<Implement memento with this story>>
-
-
-    // successfulAttack = game->getPhase()->attackArea(enemyAreaNames.front(), country);
-
-    // game->getPhase()->attackArea();
-
-    /*if (game->getPhase()->countryStillExists("Germany"))
-    {
-        cout << "France has successfully attacked berlin \n";
-        next();
-    }
-    else
-    {
-        cout << "With the victory in berlin France has conquered all the areas in Germany" << endl;
-        next();
-    }
-    game->getPhase()->printCountryStatus(country, true);
-    game->getPhase()->printCountryStatus("Germany", true);*/
-    // game->getPhase()->attackArea("Bremen", "Denmark");
 }
 
 void run()
