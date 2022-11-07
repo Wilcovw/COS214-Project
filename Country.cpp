@@ -153,7 +153,6 @@ AssociatedCountries *Country::clone(Communication *comm, AssociatedCountries *pa
 void Country::cloneWarEntities(Country *country)
 {
     country->numCitzenGroups = this->numCitzenGroups;
-
     country->citizens = new Citizens *[numCitzenGroups];
     int counter = 0;
     for (int i = 0; i < numCitzenGroups; i++)
@@ -164,8 +163,8 @@ void Country::cloneWarEntities(Country *country)
             counter++;
         }
     }
-    country->entities = this->entities->clone();
     int x = 0;
+    country->entities = this->entities->clone();
     for (auto t : this->entities->getTroops())
     {
         country->citizens[x++] = t->getAssociatedCitizen();

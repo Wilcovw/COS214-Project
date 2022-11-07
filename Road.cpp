@@ -12,9 +12,13 @@ Road::Road(Area *source, Area *destination, double hp, double distance) : Infras
     location->addEdge(edges[0]);
     destination->addEdge(edges[1]);
     location->getControllingCountry()->getWarEntities()->addInfrastructure(this);
+    location->getControllingCountry()->getWarEntities()->getInfrastructure().sort();
+    location->getControllingCountry()->getWarEntities()->getInfrastructure().unique();
     if (location->getControllingCountry() != destination->getControllingCountry())
     {
         destination->getControllingCountry()->getWarEntities()->addInfrastructure(this);
+        destination->getControllingCountry()->getWarEntities()->getInfrastructure().sort();
+        destination->getControllingCountry()->getWarEntities()->getInfrastructure().unique();
     }
 };
 
