@@ -1,5 +1,7 @@
 # COS214-Project
-Group: RuntimeTerrorists()
+```diff
+ Group: RuntimeTerrorists()
+```
 
 This is our War Simulator for our COS214 project.
 
@@ -13,8 +15,8 @@ To run our simulation go to Systems folder and run the makefile using:
 
 To test our Doc Tests run the makefile in the Doc Test folder.
 
-Doxygen index.html can be found at: COS214-Project-GitHub/html/index.html
+Doxygen index.html can be found at: 
+COS214-Project-GitHub/html/index.html
 
 Project report:
 https://docs.google.com/document/d/1sJieChzdYXNWGaWKveExuR_52V7fhMV1IbYWpFa0KDk/edit#
-
