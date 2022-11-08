@@ -15,6 +15,8 @@ To run our simulation go to Systems folder and run the makefile using:
 
 To test our Doc Tests run the makefile in the Doc Test folder.
 
+Resources such as UML Diagrams and a video explaining the project can be found in the data folder.
+
 Doxygen index.html can be found at: 
 COS214-Project-GitHub/html/index.html
 
